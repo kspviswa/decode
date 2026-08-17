@@ -26,11 +26,11 @@
 }
 .story-headline a:hover { text-decoration: underline; }
 
-/* --- Featured image (tdd.cat style) -------------------------- */
+/* --- Featured image (tdd.cat style: compact, subtle) ---------- */
 .story-image-wrapper {
   width: 100%;
-  max-width: 560px;
-  margin: 0 0 1.1rem;
+  max-width: 320px;
+  margin: 0 0 0.9rem;
   border-radius: 4px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.05);
@@ -43,6 +43,7 @@
   display: block;
   mix-blend-mode: multiply;
   border-radius: 4px;
+  filter: contrast(1.12) brightness(1.04) saturate(0.95);
 }
 
 /* --- Story body --------------------------------------------- */
