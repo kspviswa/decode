@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="52" fill="url(#g)"/>
+  <!-- signal bars (decode / waveform) -->
+  <g fill="#ffffff">
+    <rect x="52" y="132" width="20" height="56" rx="6"/>
+    <rect x="86" y="104" width="20" height="84" rx="6"/>
+    <rect x="120" y="72" width="20" height="116" rx="6"/>
+    <rect x="154" y="104" width="20" height="84" rx="6"/>
+    <rect x="188" y="132" width="20" height="56" rx="6"/>
+  </g>
+  <!-- downward chevron: decode -->
+  <path d="M128 158 L100 130 L112 130 L128 146 L144 130 L156 130 Z" fill="#ffffff" opacity="0.9"/>
+</svg>

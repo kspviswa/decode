@@ -1,19 +1,23 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "**/*.qmd"
+    - "!**/digest.ejs.md"
 
 website:
   title: "Decode"
-  description: "Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research — curated for Viswa Kumar."
+  description: "Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research."
   site-url: https://decode.viswakumar.com
   navbar:
+    logo: logo.svg
     right:
       - icon: github
         href: https://github.com/kspviswa
       - icon: rss
         href: index.xml
   page-footer:
-    center: "Curated by Sarathy 🪆 for Viswa Kumar — making difficult technical material understandable · est. 2026-08-17"
+    center: "Curated by Sarathy 🪆 — making difficult technical material understandable · est. 2026-08-17"
 
 format:
   html:
@@ -21,4 +25,6 @@ format:
       - sketchy
       - brand
     css: styles.css
+    favicon: logo.svg
     toc: false
+    include-in-header: _includes/mermaid.html

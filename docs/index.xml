@@ -8,7 +8,7 @@
 <title>Decode</title>
 <link>https://decode.viswakumar.com/</link>
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
-<description>Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research — curated for Viswa Kumar.</description>
+<description>Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
 <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
 <item>
@@ -22,213 +22,540 @@
 
 
 <div class="edition-note">
-<p>Theme of the day: AI agents closing the loop on real infrastructure. An autonomous security agent caught a critical 5G-core-class flaw that an AI coder introduced, another AI pipeline shipped 81 CVEs against production packet-core stacks, and a coding agent learned to write its own executable world model of an unknown game. Meanwhile the industry side moved: Stripe bought the biggest AI model gateway, Docomo and Samsung validated per-user AI-RAN, and the week’s 5G spectrum/slicing news landed.</p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.theregister.com/ai-and-ml/2026/08/17/payments-giant-stripe-is-about-to-drop-over-7-billion-to-become-a-gateway-to-ai-token-sales/5288743">Stripe acquires AI model gateway OpenRouter for $7 billion</a></strong></p>
-<p><span class="digest-source">The Register · Bloomberg · Aug 17</span></p>
-<p><span class="lbl tldr">TLDR</span> Stripe has agreed to acquire OpenRouter — the model gateway that gives developers one API into 400+ LLMs — for more than $7 billion, per Bloomberg. That is roughly five times the $1.3 billion valuation OpenRouter carried in a funding round just months earlier. The number that lands is the multiple: model routing and metering is being priced like a tollbooth, not a library.</p>
-<p>The strategic logic is payments, not models. OpenRouter sits between applications and model providers, so it already knows who calls which model, how much, and at what price. Fold that into Stripe’s usage-based billing and agentic-payments push and you get the full stack: an agent picks a model, routes the request, and settles the bill — with one company holding the ledger.</p>
-<p><span class="lbl why">Why read it</span> A marker for where AI infrastructure money is consolidating. If you build on multi-model APIs, the routing layer’s owner is now also the billing layer’s owner — worth factoring into where you send traffic and what data flows through it.</p>
-<p><span class="digest-tags">#ai-infra · #llm · #m-and-a</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://artificialanalysis.ai/models/qwen3-8-27b">Qwen3.8 27B scores 52 on Artificial Analysis</a></strong></p>
-<p><span class="digest-source">Artificial Analysis · trending on HN &amp; r/LocalLLaMA</span></p>
-<p><span class="lbl tldr">TLDR</span> The open-weights Qwen 3.8 27B just posted a 52 on the Artificial Analysis Intelligence Index — well above the median for comparable models and, by the community’s own benchmarks, neck and neck with DeepSeek V4 and GPT-5.6 Luna Max. It takes text and image input, carries a 256k-token context window, and costs nothing in licensing since the weights are open.</p>
-<p>The local-inference community has already put it through its paces: tuned llama.cpp configs are running it at 73k context on 16GB VRAM for agentic coding, with long-form reviews describing Sonnet-level performance plus a tendency to “overthink” that occasionally pushes toward frontier results. For a 27B-class open model, that is a large jump over the previous generation.</p>
-<p><span class="lbl why">Why read it</span> The open-weights leaderboard sets the price/performance curve for local and edge inference. If you benchmark or deploy local models, this is the one to pull this week.</p>
-<p><span class="digest-tags">#open-weights · #local-llm · #benchmarks</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug">Wiz Red Agent exploits Snowflake vuln missed by GitHub Copilot</a></strong></p>
-<p><span class="digest-source">Wiz Research · updated Aug 17</span></p>
-<p><span class="lbl tldr">TLDR</span> Wiz’s autonomous AI security agent (“Red Agent”) found a critical script-injection hole in Snowflake’s public GitHub repo: any GitHub user could execute arbitrary commands on a GitHub Actions runner by opening an issue with a specially crafted title. The vulnerability went live just five days before discovery — introduced by a PR co-authored by “Copilot Autofix powered by AI,” which replaced the repo’s sanitized input pattern with direct template interpolation, and GitHub’s AI-assisted security review marked the change all-clear.</p>
-<p>The exploitation read like a horror story for AI-assisted development: Red Agent’s proof-of-concept exfiltrated a live Jira credential, and when its first payload hit a bash syntax error, the agent autonomously analyzed the error, rewrote the payload to close the shell block correctly, and succeeded. Snowflake patched the same day after June disclosure and confirmed via audit logs that Wiz was the sole actor. Today’s blog update clarifies the awkward detail: Copilot was the co-author that <em>checked</em> the merged PR and signed off on it.</p>
-<p><span class="lbl why">Why read it</span> The cleanest public case study yet of the AI-on-AI security loop: one AI introduces the bug, another AI finds and exploits it, and the human review gates in between both passed. Required reading for anyone shipping AI-assisted code review.</p>
-<p><span class="digest-tags">#ai-security · #ci-cd · #llm-agents</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://blog.roboflow.com/openai-gpt-5-6/">GPT 5.6 Sol is the best “vision” model OpenAI ever released</a></strong></p>
-<p><span class="digest-source">Roboflow</span></p>
-<p><span class="lbl tldr">TLDR</span> OpenAI’s GPT-5.6 lineup (Sol, Terra, Luna) launched with a heavy focus on computer use — UI agents, desktop control, 3D visualization — and Roboflow’s VLM benchmark shows Sol is the strongest vision model OpenAI has shipped. The jump is sharpest in object detection: mAP@50 went from 13.8 (GPT-5.5) to 46.2 (Sol), and counting rose from 64.9% to 73.0%. Document layout detection — titles, tables, signatures — is a standout strength.</p>
-<p>Two practical caveats from the post that will save you real points: Sol degrades on images around 2000×2000 px or larger, especially at low reasoning effort (OpenAI confirmed this), so resize or crop before the API call. And coordinate format matters — absolute XYXY in image pixels is the winning prompt for GPT-5.6; using the wrong convention cost roughly 15 mAP points in their runs.</p>
-<p><span class="lbl why">Why read it</span> If you build on VLMs for detection, OCR, or data extraction, the resolution and coordinate-format details are the difference between a demo and a production pipeline.</p>
-<p><span class="digest-tags">#vision · #vlm · #openai</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.docomo.ne.jp/english/info/media_center/pr/2026/0810_00.html">NTT DOCOMO &amp; Samsung validate user-level AI-RAN optimization</a></strong></p>
-<p><span class="digest-source">NTT DOCOMO / Samsung press release · Aug 10</span></p>
-<p><span class="lbl tldr">TLDR</span> Docomo and Samsung validated AI-RAN optimization that works at the <em>individual user</em> level instead of applying one configuration per cell. The system learns each subscriber’s movement and usage patterns, predicts service degradation before it happens, and adjusts network settings proactively. In simulations based on Docomo’s commercial network data and a local 5G field trial in Japan (January 2026), the frequency of communication-speed degradation fell from 13.1% to 7.2% — roughly halved.</p>
-<p>The framing is explicitly 6G: an era where networks autonomously recognize user context and service requirements. The interesting engineering shift is the granularity — the difference between “this cell is congested” and “this user’s session is about to degrade” implies a per-subscriber state model living in the RAN, with prediction running ahead of the congestion.</p>
-<p><span class="lbl why">Why read it</span> A concrete data point for the predictive-network thesis. Cell-level vs user-level optimization is exactly where the “network intelligence” story stops being a slide and starts being a system.</p>
-<p><span class="digest-tags">#ai-ran · #6g · #network-intelligence</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://cenerva.com/articles/5g-news-round-up-for-the-week-to-17-august-2026/">5G News Round-Up for the Week to 17 August 2026</a></strong></p>
-<p><span class="digest-source">Cenerva</span></p>
-<p><span class="lbl tldr">TLDR</span> The week in 5G, condensed: T-Mobile completed the sale of its nationwide 800 MHz portfolio to Grain Management — $2.9B in cash plus all of Grain’s 600 MHz licences — with the low-band holdings now being marketed to utilities, critical-infrastructure operators, and regional players. Sweden’s PTS opened a consultation on using 3.8 GHz for local 5G (five-year site-specific permits, indoor and outdoor), and India’s regulator proposed safeguards for 5G slicing sold to consumers: an early signal of how policymakers will treat slicing as it moves from lab into commercial tariffs.</p>
-<p>Also in the round-up: Ooredoo Kuwait deployed a Network Data Analytics Function in its 5G core for faster, more proactive decisions; Vodafone Portugal ran a dedicated 5G standalone slice for SIBS card transactions at the Paredes de Coura festival, where ring-fenced capacity kept tills running through peak crowds; Turkiye hit 44.5M 5G subscribers four months after launch (21M on day one); and Rakuten Mobile confirmed it will scale back roaming on KDDI’s network from October as its own coverage fills in.</p>
-<p><span class="lbl why">Why read it</span> The fastest way to catch up on the week’s spectrum, private-5G, and slicing moves. The India slicing-safeguards item deserves a second read — it is the first concrete regulatory posture on consumer slicing we have seen.</p>
-<p><span class="digest-tags">#5g · #spectrum · #slicing</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.helpnetsecurity.com/2026-08-11/5g-core-network-vulnerabilities-research/">An AI tool found 84 flaws in 5G network software — 23 still have no fix</a></strong></p>
-<p><span class="digest-source">Help Net Security · NTU Singapore (arXiv:2607.10315)</span></p>
-<p><span class="lbl tldr">TLDR</span> Researchers at Nanyang Technological University pointed a three-agent AI pipeline (“iFinder”) at the software that runs 4G/5G cores and got back 84 previously unreported vulnerabilities: 83 confirmed, 81 with CVE numbers, 23 still unpatched. The worst is a session hijack — an attacker who reaches an internal core link reuses the ID of a forwarding rule already assigned to a real subscriber, flagged as higher priority, and the network starts delivering the victim’s traffic to the attacker. It ran end-to-end against OpenAirInterface’s open-source 5G core, and replayed successfully on two commercial 5GCs.</p>
-<p>A second entry route is even more unsettling: an ordinary phone with a valid SIM hiding network control messages inside the data tunnel that carries its own uplink traffic — that trick worked against five of the seven open-source cores examined.</p>
-<pre class="mermaid"><code>flowchart LR
-    A["Agent 1 · Code scan&lt;br/&gt;find unchecked message inputs"] --&gt; B["Agent 2 · 3GPP cross-check&lt;br/&gt;is validation done earlier in the flow?"]
-    B --&gt; C["Agent 3 · Exploit builder&lt;br/&gt;write, run, iterate until it works"]
-    C --&gt; D["Verified findings&lt;br/&gt;84 flaws · 83 confirmed · 81 CVEs"]</code></pre>
-<p>The pipeline is useful rather than magic: on 22 previously known bugs it caught 15, and roughly a quarter of its reports are false positives — but every finding was manually reviewed and shipped with a working PoC before disclosure, which is why maintainers treated the batch as verified security reports. Patching is uneven: OAI has not responded, three of seven projects shipped nothing, while Open5GS, SD-Core, and free5GC engaged actively.</p>
-<p><span class="lbl why">Why read it</span> Rare case of AI-driven security research producing real CVEs in production packet-core stacks. If you run or audit a 5GC, the list of unpatched findings — and the question of whether commercial cores inherited the same gaps from open-source ancestry — is the story.</p>
-<p><span class="digest-tags">#5g-core · #security · #ai-agents</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://arxiv.org/abs/2608.14490">Twin: Playing an Unknown Game with a Test-Time Digital Twin</a></strong></p>
-<p><span class="digest-source">arXiv</span></p>
-<p><span class="lbl tldr">TLDR</span> A frontier coding agent writes an <em>executable</em> world model of an unknown game (ARC-AGI-3 style) from simulation and interaction alone — no hand-engineered model per task. The harness enforces replay validation: the agent is not allowed to act until its program reproduces every previously observed transition, and each mismatch between prediction and reality becomes a counterexample used to repair the model. Result: 179 of 183 levels cleared (97.8%), more action-efficient than humans on 88.3% of those levels, and the goal inferred before any reward signal on 87.2%.</p>
-<p>The ablation is the punchline. Played directly, the base model scores 7.8%. An off-the-shelf harness lifts it to 61.1%. The twin world model lifts the <em>same</em> base model to 93.3%. The authors’ conclusion: building a usable world model is simpler than anticipated — the harder problem is inferring the right goal.</p>
-<pre class="mermaid"><code>flowchart LR
-    O["Observe transitions"] --&gt; P["World model predicts next state"]
-    P --&gt; M{"Match?"}
-    M -- no --&gt; R["Mismatch = counterexample&lt;br/&gt;repair the model"]
-    R --&gt; P
-    M -- yes --&gt; A["Act in the real game"]
-    A --&gt; O</code></pre>
-<p><span class="lbl why">Why read it</span> The cleanest current statement of a digital twin as an inference substrate: build the twin, replay against it, repair on mismatch, act only when the twin is faithful. The pattern transfers almost literally to network state estimation.</p>
-<p><span class="digest-tags">#digital-twin · #world-models · #agents</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://arxiv.org/abs/2608.14386">Scaling 5G-TSN Bridges: Operating Regimes, Scheduling, and Time Synchronisation</a></strong></p>
-<p><span class="digest-source">arXiv</span></p>
-<p><span class="lbl tldr">TLDR</span> 3GPP Release 16 lets a 5G system act as a transparent IEEE 802.1 TSN bridge, but how many TSN endpoints can one NR cell actually bridge before per-flow QoS degrades? This paper simulates closed-loop control, machine vision, bulk telemetry, and 802.1AS traffic over a four-bearer SDAP architecture, sweeping endpoints from 1 to 40, and identifies three operating regimes. Below saturation, schedulers perform similarly; near saturation, QoS-aware proportional fair scheduling cuts critical-flow P99 latency by up to two orders of magnitude; under overload, only QoS-PF keeps near-complete delivery for the highest-priority traffic.</p>
-<p>Two more results that will matter in real deployments: isolating 802.1AS/gPTM traffic on a dedicated high-priority radio bearer stabilizes clock-servo behaviour, though lower-priority endpoints still see elevated synchronisation delay under saturation. And the evaluated sub-6 GHz, 30 kHz SCS configuration has an effective latency floor of about 2.25 ms — meaning sub-3 ms TSN deadlines likely need radio-configuration changes such as configured grants or a higher numerology.</p>
-<p><span class="lbl why">Why read it</span> Practical sizing numbers for 5G+TSN industrial deployments — the kind of per-cell capacity ceiling that decides whether a use case is feasible before you buy any hardware.</p>
-<p><span class="digest-tags">#5g · #tsn · #industrial</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://arxiv.org/abs/2608.14530">Marionette: Predicting World States, Rendering Geometry, Painting Appearance</a></strong></p>
-<p><span class="digest-source">arXiv</span></p>
-<p><span class="lbl tldr">TLDR</span> Interactive game world models typically generate pixels autoregressively, forcing structured properties — pose, geometry, occlusion — to be maintained implicitly by the generative sequence, which drifts over long horizons. Marionette inverts this: a two-stage autoregressive dynamics model predicts an explicit, interpretable 276-dimensional 3D world state (multi-entity articulated skeletons, metric root trajectories, rotations); a zero-parameter graphics bridge converts that state into pose-control video by computing geometry and occlusion in closed form; and a control-conditioned video-diffusion model synthesizes photorealistic RGB from the structured controls.</p>
-<p>The key property is that the state is directly controllable and repairable. Left free, two generated characters drift 21.2 m apart with a third of frames showing ground penetration; imposing two simple rules on the explicit state — a terrain collider and a separation cap — cuts penetration by 66% with <em>no change to the observation model</em>. Routing appearance through the predicted state costs no detectable fidelity: FVD of 831 versus 799 for recorded pose.</p>
-<p><span class="lbl why">Why read it</span> A strong argument for explicit state in world models — the “predict state, render appearance” split that digital-twin work has argued for years, now demonstrated at game scale with numbers.</p>
-<p><span class="digest-tags">#world-models · #generative · #simulation</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.1.0">llama.cpp v0.1.0 — the first semantic version</a></strong></p>
-<p><span class="digest-source">GitHub · r/LocalLLaMA</span></p>
-<p><span class="lbl tldr">TLDR</span> llama.cpp has dropped its sequential build numbers (b10456 and friends) and adopted semantic versioning — v0.1.0 is the first semver tag, cut this week. A small ceremony, but it signals the project has settled into a stable release cadence after years of build-number churn.</p>
-<p>For anyone running local inference stacks, this is the version to start pinning against. The GGML quantization formats are the substrate of the entire local/edge inference ecosystem — the same formats that make 27B-class models like this week’s Qwen 3.8 run on 16GB VRAM and consumer hardware.</p>
-<p><span class="lbl why">Why read it</span> A one-minute item, but the versioning change is worth knowing before you pin dependencies in any local inference pipeline.</p>
-<p><span class="digest-tags">#local-llm · #edge-inference</span></p>
+<p><strong>Theme of the day — AI agents closing the loop on real infrastructure.</strong> An autonomous security agent caught a critical 5G-core-class flaw that an AI coder introduced, another AI pipeline shipped 81 CVEs against production packet-core stacks, and a coding agent learned to write its own executable world model of an unknown game. Meanwhile the industry side moved: Stripe bought the biggest AI model gateway, Docomo and Samsung validated per-user AI-RAN, and the week’s 5G spectrum and slicing news landed. Use the filters below to slice the digest by source, domain, tag, or topic.</p>
 </div>
 
 
 
- ]]></description>
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<div class="digest-stats">
+  <div class="stat"><i class="bi bi-newspaper"></i><span class="stat-num">11</span><span class="stat-lbl">stories</span></div>
+  <div class="stat"><i class="bi bi-collection"></i><span class="stat-num">29</span><span class="stat-lbl">topics</span></div>
+  <div class="stat"><i class="bi bi-globe2"></i><span class="stat-num">9</span><span class="stat-lbl">sources</span></div>
+  <div class="stat"><i class="bi bi-tags"></i><span class="stat-num">42</span><span class="stat-lbl">tags</span></div>
+  <div class="stat"><i class="bi bi-clock"></i><span class="stat-num">8</span><span class="stat-lbl">min read</span></div>
+</div>
+
+<div class="digest-filters">
+  <div class="filter-group">
+    <span class="filter-label"><i class="bi bi-funnel"></i> Source</span>
+    <button class="filter-chip" data-group="source" data-value="all">All</button>
+    <button class="filter-chip" data-group="source" data-value="Artificial Analysis">Artificial Analysis</button><button class="filter-chip" data-group="source" data-value="Cenerva">Cenerva</button><button class="filter-chip" data-group="source" data-value="GitHub">GitHub</button><button class="filter-chip" data-group="source" data-value="Help Net Security">Help Net Security</button><button class="filter-chip" data-group="source" data-value="NTT DOCOMO">NTT DOCOMO</button><button class="filter-chip" data-group="source" data-value="Roboflow">Roboflow</button><button class="filter-chip" data-group="source" data-value="The Register">The Register</button><button class="filter-chip" data-group="source" data-value="Wiz Research">Wiz Research</button><button class="filter-chip" data-group="source" data-value="arXiv">arXiv</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label"><i class="bi bi-globe"></i> Domain</span>
+    <button class="filter-chip" data-group="domain" data-value="all">All</button>
+    <button class="filter-chip" data-group="domain" data-value="artificialanalysis.ai">artificialanalysis.ai</button><button class="filter-chip" data-group="domain" data-value="arxiv.org">arxiv.org</button><button class="filter-chip" data-group="domain" data-value="blog.roboflow.com">blog.roboflow.com</button><button class="filter-chip" data-group="domain" data-value="cenerva.com">cenerva.com</button><button class="filter-chip" data-group="domain" data-value="docomo.ne.jp">docomo.ne.jp</button><button class="filter-chip" data-group="domain" data-value="github.com">github.com</button><button class="filter-chip" data-group="domain" data-value="helpnetsecurity.com">helpnetsecurity.com</button><button class="filter-chip" data-group="domain" data-value="theregister.com">theregister.com</button><button class="filter-chip" data-group="domain" data-value="wiz.io">wiz.io</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label"><i class="bi bi-tag"></i> Tag</span>
+    <button class="filter-chip" data-group="tag" data-value="all">All</button>
+    <button class="filter-chip" data-group="tag" data-value="3d">3d</button><button class="filter-chip" data-group="tag" data-value="5g">5g</button><button class="filter-chip" data-group="tag" data-value="5g-core">5g-core</button><button class="filter-chip" data-group="tag" data-value="6g">6g</button><button class="filter-chip" data-group="tag" data-value="agents">agents</button><button class="filter-chip" data-group="tag" data-value="ai-agents">ai-agents</button><button class="filter-chip" data-group="tag" data-value="ai-infra">ai-infra</button><button class="filter-chip" data-group="tag" data-value="ai-ran">ai-ran</button><button class="filter-chip" data-group="tag" data-value="ai-security">ai-security</button><button class="filter-chip" data-group="tag" data-value="arc">arc</button><button class="filter-chip" data-group="tag" data-value="benchmarks">benchmarks</button><button class="filter-chip" data-group="tag" data-value="ci-cd">ci-cd</button><button class="filter-chip" data-group="tag" data-value="computer-use">computer-use</button><button class="filter-chip" data-group="tag" data-value="cvr">cvr</button><button class="filter-chip" data-group="tag" data-value="digital-twin">digital-twin</button><button class="filter-chip" data-group="tag" data-value="edge-inference">edge-inference</button><button class="filter-chip" data-group="tag" data-value="generative">generative</button><button class="filter-chip" data-group="tag" data-value="industrial">industrial</button><button class="filter-chip" data-group="tag" data-value="llm">llm</button><button class="filter-chip" data-group="tag" data-value="llm-agents">llm-agents</button><button class="filter-chip" data-group="tag" data-value="local-llm">local-llm</button><button class="filter-chip" data-group="tag" data-value="m-and-a">m-and-a</button><button class="filter-chip" data-group="tag" data-value="network-intelligence">network-intelligence</button><button class="filter-chip" data-group="tag" data-value="nwdaf">nwdaf</button><button class="filter-chip" data-group="tag" data-value="open-weights">open-weights</button><button class="filter-chip" data-group="tag" data-value="openai">openai</button><button class="filter-chip" data-group="tag" data-value="optimization">optimization</button><button class="filter-chip" data-group="tag" data-value="payments">payments</button><button class="filter-chip" data-group="tag" data-value="private-5g">private-5g</button><button class="filter-chip" data-group="tag" data-value="qos">qos</button><button class="filter-chip" data-group="tag" data-value="qwen">qwen</button><button class="filter-chip" data-group="tag" data-value="security">security</button><button class="filter-chip" data-group="tag" data-value="simulation">simulation</button><button class="filter-chip" data-group="tag" data-value="slicing">slicing</button><button class="filter-chip" data-group="tag" data-value="spectrum">spectrum</button><button class="filter-chip" data-group="tag" data-value="supply-chain">supply-chain</button><button class="filter-chip" data-group="tag" data-value="time-sync">time-sync</button><button class="filter-chip" data-group="tag" data-value="tooling">tooling</button><button class="filter-chip" data-group="tag" data-value="tsn">tsn</button><button class="filter-chip" data-group="tag" data-value="vision">vision</button><button class="filter-chip" data-group="tag" data-value="vlm">vlm</button><button class="filter-chip" data-group="tag" data-value="world-models">world-models</button>
+  </div>
+  <div class="filter-clear"><button class="filter-chip clear" id="digest-clear">Clear all</button><span id="digest-count" class="filter-count"></span></div>
+</div>
+
+<div class="digest-cloud">
+  <span class="filter-label"><i class="bi bi-cloud"></i> Topics</span>
+  
+    <button class="cat-chip" data-group="cat" data-value="5g" style="font-size:1.33rem">5g <span class="cat-n">2</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="5g-core" style="font-size:1.0550000000000002rem">5g-core <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="6g" style="font-size:1.0550000000000002rem">6g <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="agents" style="font-size:1.0550000000000002rem">agents <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="ai-agents" style="font-size:1.0550000000000002rem">ai-agents <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="ai-infra" style="font-size:1.0550000000000002rem">ai-infra <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="ai-ran" style="font-size:1.0550000000000002rem">ai-ran <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="ai-security" style="font-size:1.0550000000000002rem">ai-security <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="benchmarks" style="font-size:1.0550000000000002rem">benchmarks <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="ci-cd" style="font-size:1.0550000000000002rem">ci-cd <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="digital-twin" style="font-size:1.0550000000000002rem">digital-twin <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="edge-inference" style="font-size:1.0550000000000002rem">edge-inference <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="generative" style="font-size:1.0550000000000002rem">generative <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="industrial" style="font-size:1.0550000000000002rem">industrial <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="llm" style="font-size:1.0550000000000002rem">llm <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="llm-agents" style="font-size:1.0550000000000002rem">llm-agents <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="local-llm" style="font-size:1.33rem">local-llm <span class="cat-n">2</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="m-and-a" style="font-size:1.0550000000000002rem">m-and-a <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="network-intelligence" style="font-size:1.0550000000000002rem">network-intelligence <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="open-weights" style="font-size:1.0550000000000002rem">open-weights <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="openai" style="font-size:1.0550000000000002rem">openai <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="security" style="font-size:1.0550000000000002rem">security <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="simulation" style="font-size:1.0550000000000002rem">simulation <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="slicing" style="font-size:1.0550000000000002rem">slicing <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="spectrum" style="font-size:1.0550000000000002rem">spectrum <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="tsn" style="font-size:1.0550000000000002rem">tsn <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="vision" style="font-size:1.0550000000000002rem">vision <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="vlm" style="font-size:1.0550000000000002rem">vlm <span class="cat-n">1</span></button>
+  
+    <button class="cat-chip" data-group="cat" data-value="world-models" style="font-size:1.33rem">world-models <span class="cat-n">2</span></button>
+  
+</div>
+
+<div class="digest-list list" id="digest-list">
+
+  <article class="digest-item" data-index="0" data-categories="YWktaW5mcmElMkNtLWFuZC1hJTJDbGxt" data-listing-date-sort="1786924800000" data-source="the register" data-domain="theregister.com" data-tags="ai-infra llm m-and-a payments" data-cats="ai-infra m-and-a llm">
+
+    
+    <a class="digest-thumb" href="https://www.theregister.com/ai-and-ml/2026/08/17/payments-giant-stripe-is-about-to-drop-over-7-billion-to-become-a-gateway-to-ai-token-sales/5288743" aria-label="Open article"><img src="https://image.theregister.com/1681704.jpg?imageId=1681704&amp;x=0&amp;y=0&amp;cropw=100&amp;croph=100&amp;panox=0&amp;panoy=0&amp;panow=100&amp;panoh=100&amp;width=1200&amp;height=683" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://www.theregister.com/ai-and-ml/2026/08/17/payments-giant-stripe-is-about-to-drop-over-7-billion-to-become-a-gateway-to-ai-token-sales/5288743" class="listing-title" target="_blank" rel="noopener">Stripe acquires AI model gateway OpenRouter for $7 billion</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> The Register</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> theregister.com</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">ai-infra</span><span class="digest-cat">m-and-a</span><span class="digest-cat">llm</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>Stripe has agreed to acquire OpenRouter — the model gateway that gives developers one API into 400+ LLMs — for more than $7 billion, per Bloomberg. That is roughly five times the $1.3 billion valuation OpenRouter carried in a funding round just months earlier. The number that lands is the multiple: model routing and metering is being priced like a tollbooth, not a library.</p><p>The strategic logic is payments, not models. OpenRouter sits between applications and model providers, so it already knows who calls which model, how much, and at what price. Fold that into Stripe's usage-based billing and agentic-payments push and you get the full stack: an agent picks a model, routes the request, and settles the bill — with one company holding the ledger.</p>
+
+      
+      <pre class="mermaid">flowchart LR
+  App[Your App] --&gt; OR[OpenRouter&lt;br/&gt;400+ models]
+  OR --&gt; M1[Model A]
+  OR --&gt; M2[Model B]
+  OR --&gt; M3[Model C]
+  OR --&gt; SP[Stripe billing&lt;br/&gt;ledger + routing]
+</pre>
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>A marker for where AI infrastructure money is consolidating. If you build on multi-model APIs, the routing layer's owner is now also the billing layer's owner — worth factoring into where you send traffic and what data flows through it.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#ai-infra</span><span class="digest-tag">#llm</span><span class="digest-tag">#m-and-a</span><span class="digest-tag">#payments</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="1" data-categories="b3Blbi13ZWlnaHRzJTJDbG9jYWwtbGxtJTJDYmVuY2htYXJrcw==" data-listing-date-sort="1786924800000" data-source="artificial analysis" data-domain="artificialanalysis.ai" data-tags="open-weights local-llm benchmarks qwen" data-cats="open-weights local-llm benchmarks">
+
+    
+    <a class="digest-thumb" href="https://artificialanalysis.ai/models/qwen3-8-27b" aria-label="Open article"><img src="https://artificialanalysis.ai/en/models/qwen3-8-27b/opengraph-image?76c5a1db7097b9e1" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://artificialanalysis.ai/models/qwen3-8-27b" class="listing-title" target="_blank" rel="noopener">Qwen3.8 27B scores 52 on Artificial Analysis</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> Artificial Analysis</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> artificialanalysis.ai</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">open-weights</span><span class="digest-cat">local-llm</span><span class="digest-cat">benchmarks</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>The open-weights Qwen 3.8 27B just posted a 52 on the Artificial Analysis Intelligence Index — well above the median for comparable models and, by the community's own benchmarks, neck and neck with DeepSeek V4 and GPT-5.6 Luna Max. It takes text and image input, carries a 256k-token context window, and costs nothing in licensing since the weights are open.</p><p>The local-inference community has already put it through its paces: tuned llama.cpp configs are running it at 73k context on 16GB VRAM for agentic coding, with long-form reviews describing Sonnet-level performance plus a tendency to overthink that occasionally pushes toward frontier results. For a 27B-class open model, that is a large jump over the previous generation.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>The open-weights leaderboard sets the price/performance curve for local and edge inference. If you benchmark or deploy local models, this is the one to pull this week.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#open-weights</span><span class="digest-tag">#local-llm</span><span class="digest-tag">#benchmarks</span><span class="digest-tag">#qwen</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="2" data-categories="YWktc2VjdXJpdHklMkNjaS1jZCUyQ2xsbS1hZ2VudHM=" data-listing-date-sort="1786924800000" data-source="wiz research" data-domain="wiz.io" data-tags="ai-security ci-cd llm-agents supply-chain" data-cats="ai-security ci-cd llm-agents">
+
+    
+    <a class="digest-thumb" href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug" aria-label="Open article"><img src="https://www.datocms-assets.com/75231/1786964856-image.png?fm=webp" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug" class="listing-title" target="_blank" rel="noopener">Wiz Red Agent exploits Snowflake vuln missed by GitHub Copilot</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> Wiz Research</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> wiz.io</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">ai-security</span><span class="digest-cat">ci-cd</span><span class="digest-cat">llm-agents</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>Wiz's autonomous AI security agent (Red Agent) found a critical script-injection hole in Snowflake's public GitHub repo: any GitHub user could execute arbitrary commands on a GitHub Actions runner by opening an issue with a specially crafted title. The vulnerability went live just five days before discovery — introduced by a PR co-authored by Copilot Autofix powered by AI, which replaced the repo's sanitized input pattern with direct template interpolation, and GitHub's AI-assisted security review marked the change all-clear.</p><p>The exploitation read like a horror story for AI-assisted development: Red Agent's proof-of-concept exfiltrated a live Jira credential, and when its first payload hit a bash syntax error, the agent autonomously analyzed the error, rewrote the payload to close the shell block correctly, and succeeded. Snowflake patched the same day after June disclosure and confirmed via audit logs that Wiz was the sole actor. Today's blog update clarifies the awkward detail: Copilot was the co-author that checked the merged PR and signed off on it.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>The cleanest public case study yet of the AI-on-AI security loop: one AI introduces the bug, another AI finds and exploits it, and the human review gates in between both passed. Required reading for anyone shipping AI-assisted code review.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#ai-security</span><span class="digest-tag">#ci-cd</span><span class="digest-tag">#llm-agents</span><span class="digest-tag">#supply-chain</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="3" data-categories="dmlzaW9uJTJDdmxtJTJDb3BlbmFp" data-listing-date-sort="1786924800000" data-source="roboflow" data-domain="blog.roboflow.com" data-tags="vision vlm openai computer-use" data-cats="vision vlm openai">
+
+    
+    <a class="digest-thumb" href="https://blog.roboflow.com/openai-gpt-5-6/" aria-label="Open article"><img src="https://storage.ghost.io/c/2c/8d/2c8d8c0d-1c15-4b6d-825e-02b78d61d40a/content/images/2026/07/img-blog-gpt-5-6-sol-best-vision-model-to-date.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://blog.roboflow.com/openai-gpt-5-6/" class="listing-title" target="_blank" rel="noopener">GPT 5.6 Sol is the best vision model OpenAI ever released</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> Roboflow</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> blog.roboflow.com</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">vision</span><span class="digest-cat">vlm</span><span class="digest-cat">openai</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>OpenAI's GPT-5.6 lineup (Sol, Terra, Luna) launched with a heavy focus on computer use — UI agents, desktop control, 3D visualization — and Roboflow's VLM benchmark shows Sol is the strongest vision model OpenAI has shipped. The jump is sharpest in object detection: mAP@50 went from 13.8 (GPT-5.5) to 46.2 (Sol), and counting rose from 64.9% to 73.0%. Document layout detection — titles, tables, signatures — is a standout strength.</p><p>Two practical caveats from the post that will save you real points: Sol degrades on images around 2000×2000 px or larger, especially at low reasoning effort (OpenAI confirmed this), so resize or crop before the API call. And coordinate format matters — absolute XYXY in image pixels is the winning prompt for GPT-5.6; using the wrong convention cost roughly 15 mAP points in their runs.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>If you build on VLMs for detection, OCR, or data extraction, the resolution and coordinate-format details are the difference between a demo and a production pipeline.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#vision</span><span class="digest-tag">#vlm</span><span class="digest-tag">#openai</span><span class="digest-tag">#computer-use</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="4" data-categories="YWktcmFuJTJDNmclMkNuZXR3b3JrLWludGVsbGlnZW5jZQ==" data-listing-date-sort="1786924800000" data-source="ntt docomo" data-domain="docomo.ne.jp" data-tags="ai-ran 6g network-intelligence optimization" data-cats="ai-ran 6g network-intelligence">
+
+    
+    <a class="digest-thumb" href="https://www.docomo.ne.jp/english/info/media_center/pr/2026/0810_00.html" aria-label="Open article"><img src="https://www.docomo.ne.jp/english/images/common/nttdocomo.gif" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://www.docomo.ne.jp/english/info/media_center/pr/2026/0810_00.html" class="listing-title" target="_blank" rel="noopener">NTT DOCOMO &amp; Samsung validate user-level AI-RAN optimization</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> NTT DOCOMO</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> docomo.ne.jp</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">ai-ran</span><span class="digest-cat">6g</span><span class="digest-cat">network-intelligence</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>Docomo and Samsung validated AI-RAN optimization that works at the individual-user level instead of applying one configuration per cell. The system learns each subscriber's movement and usage patterns, predicts service degradation before it happens, and adjusts network settings proactively. In simulations based on Docomo's commercial network data and a local 5G field trial in Japan (January 2026), the frequency of communication-speed degradation fell from 13.1% to 7.2% — roughly halved.</p><p>The framing is explicitly 6G: an era where networks autonomously recognize user context and service requirements. The interesting engineering shift is the granularity — the difference between this cell is congested and this user's session is about to degrade implies a per-subscriber state model living in the RAN, with prediction running ahead of the congestion.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>A concrete data point for the predictive-network thesis. Cell-level vs user-level optimization is exactly where the network-intelligence story stops being a slide and starts being a system.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#ai-ran</span><span class="digest-tag">#6g</span><span class="digest-tag">#network-intelligence</span><span class="digest-tag">#optimization</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="5" data-categories="NWclMkNzcGVjdHJ1bSUyQ3NsaWNpbmc=" data-listing-date-sort="1786924800000" data-source="cenerva" data-domain="cenerva.com" data-tags="5g spectrum slicing private-5g nwdaf" data-cats="5g spectrum slicing">
+
+    
+    <a class="digest-thumb" href="https://cenerva.com/articles/5g-news-round-up-for-the-week-to-17-august-2026/" aria-label="Open article"><img src="https://cenerva.com/wp-content/uploads/2022/05/mobile-phone.jpeg" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://cenerva.com/articles/5g-news-round-up-for-the-week-to-17-august-2026/" class="listing-title" target="_blank" rel="noopener">5G News Round-Up for the Week to 17 August 2026</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> Cenerva</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> cenerva.com</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">5g</span><span class="digest-cat">spectrum</span><span class="digest-cat">slicing</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>The week in 5G, condensed: T-Mobile completed the sale of its nationwide 800 MHz portfolio to Grain Management — $2.9B in cash plus all of Grain's 600 MHz licences — with the low-band holdings now being marketed to utilities, critical-infrastructure operators, and regional players. Sweden's PTS opened a consultation on using 3.8 GHz for local 5G (five-year site-specific permits), and India's regulator proposed safeguards for 5G slicing sold to consumers: an early signal of how policymakers will treat slicing as it moves from lab into commercial tariffs.</p><p>Also in the round-up: Ooredoo Kuwait deployed a Network Data Analytics Function in its 5G core for faster, more proactive decisions; Vodafone Portugal ran a dedicated 5G standalone slice for SIBS card transactions at the Paredes de Coura festival, where ring-fenced capacity kept tills running through peak crowds; Turkiye hit 44.5M 5G subscribers four months after launch; and Rakuten Mobile confirmed it will scale back roaming on KDDI's network from October as its own coverage fills in.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>The fastest way to catch up on the week's spectrum, private-5G, and slicing moves. The India slicing-safeguards item deserves a second read — it is the first concrete regulatory posture on consumer slicing we have seen.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#5g</span><span class="digest-tag">#spectrum</span><span class="digest-tag">#slicing</span><span class="digest-tag">#private-5g</span><span class="digest-tag">#nwdaf</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="6" data-categories="NWctY29yZSUyQ3NlY3VyaXR5JTJDYWktYWdlbnRz" data-listing-date-sort="1786924800000" data-source="help net security" data-domain="helpnetsecurity.com" data-tags="5g-core security ai-agents cvr" data-cats="5g-core security ai-agents">
+
+    
+    <a class="digest-thumb" href="https://www.helpnetsecurity.com/2026-08-11/5g-core-network-vulnerabilities-research/" aria-label="Open article"><img src="https://img.helpnetsecurity.com/wp-content/uploads/2026/08/06151225/network-illustration-1500.webp" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://www.helpnetsecurity.com/2026-08-11/5g-core-network-vulnerabilities-research/" class="listing-title" target="_blank" rel="noopener">An AI tool found 84 flaws in 5G network software — 23 still have no fix</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> Help Net Security</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> helpnetsecurity.com</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">5g-core</span><span class="digest-cat">security</span><span class="digest-cat">ai-agents</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>Researchers at Nanyang Technological University pointed a three-agent AI pipeline (iFinder) at the software that runs 4G/5G cores and got back 84 previously unreported vulnerabilities: 83 confirmed, 81 with CVE numbers, 23 still unpatched. The worst is a session hijack — an attacker who reaches an internal core link reuses the ID of a forwarding rule already assigned to a real subscriber, flags it as higher priority, and the network starts delivering the victim's traffic to the attacker. It ran end-to-end against OpenAirInterface's open-source 5G core, and replayed successfully on two commercial 5GCs.</p><p>A second entry route is even more unsettling: an ordinary phone with a valid SIM hiding network control messages inside the data tunnel that carries its own uplink traffic — that trick worked against five of the seven open-source cores examined. The pipeline is useful rather than magic: on 22 previously known bugs it caught 15, and roughly a quarter of its reports are false positives — but every finding was manually reviewed and shipped with a working PoC before disclosure.</p>
+
+      
+      <pre class="mermaid">flowchart LR
+  A["Agent 1 · Code scan&lt;br/&gt;find unchecked inputs"] --&gt; B["Agent 2 · 3GPP cross-check&lt;br/&gt;is validation done earlier?"]
+  B --&gt; C["Agent 3 · Exploit builder&lt;br/&gt;write, run, iterate"]
+  C --&gt; D["Verified findings&lt;br/&gt;84 flaws · 81 CVEs"]
+</pre>
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>Rare case of AI-driven security research producing real CVEs in production packet-core stacks. If you run or audit a 5GC, the list of unpatched findings — and the question of whether commercial cores inherited the same gaps from open-source ancestry — is the story.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#5g-core</span><span class="digest-tag">#security</span><span class="digest-tag">#ai-agents</span><span class="digest-tag">#cvr</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="7" data-categories="ZGlnaXRhbC10d2luJTJDd29ybGQtbW9kZWxzJTJDYWdlbnRz" data-listing-date-sort="1786924800000" data-source="arxiv" data-domain="arxiv.org" data-tags="digital-twin world-models agents arc" data-cats="digital-twin world-models agents">
+
+    
+    <a class="digest-thumb" href="https://arxiv.org/abs/2608.14490" aria-label="Open article"><img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://arxiv.org/abs/2608.14490" class="listing-title" target="_blank" rel="noopener">Twin: Playing an Unknown Game with a Test-Time Digital Twin</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> arXiv</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> arxiv.org</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">digital-twin</span><span class="digest-cat">world-models</span><span class="digest-cat">agents</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>A frontier coding agent writes an executable world model of an unknown game (ARC-AGI-3 style) from simulation and interaction alone — no hand-engineered model per task. The harness enforces replay validation: the agent is not allowed to act until its program reproduces every previously observed transition, and each mismatch between prediction and reality becomes a counterexample used to repair the model. Result: 179 of 183 levels cleared (97.8%), more action-efficient than humans on 88.3% of those levels, and the goal inferred before any reward signal on 87.2%.</p><p>The ablation is the punchline. Played directly, the base model scores 7.8%. An off-the-shelf harness lifts it to 61.1%. The twin world model lifts the same base model to 93.3%. The authors' conclusion: building a usable world model is simpler than anticipated — the harder problem is inferring the right goal.</p>
+
+      
+      <pre class="mermaid">flowchart LR
+  O["Observe transitions"] --&gt; P["World model&lt;br/&gt;predicts next state"]
+  P --&gt; M{"Match?"}
+  M -- "no" --&gt; R["Mismatch = counterexample&lt;br/&gt;repair the model"]
+  R --&gt; P
+  M -- "yes" --&gt; A["Act in the real game"]
+  A --&gt; O
+</pre>
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>The cleanest current statement of a digital twin as an inference substrate: build the twin, replay against it, repair on mismatch, act only when the twin is faithful. The pattern transfers almost literally to network state estimation.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#digital-twin</span><span class="digest-tag">#world-models</span><span class="digest-tag">#agents</span><span class="digest-tag">#arc</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="8" data-categories="NWclMkN0c24lMkNpbmR1c3RyaWFs" data-listing-date-sort="1786924800000" data-source="arxiv" data-domain="arxiv.org" data-tags="5g tsn industrial qos time-sync" data-cats="5g tsn industrial">
+
+    
+    <a class="digest-thumb" href="https://arxiv.org/abs/2608.14386" aria-label="Open article"><img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://arxiv.org/abs/2608.14386" class="listing-title" target="_blank" rel="noopener">Scaling 5G-TSN Bridges: Operating Regimes, Scheduling, and Time Sync</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> arXiv</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> arxiv.org</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">5g</span><span class="digest-cat">tsn</span><span class="digest-cat">industrial</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>3GPP Release 16 lets a 5G system act as a transparent IEEE 802.1 TSN bridge, but how many TSN endpoints can one NR cell actually bridge before per-flow QoS degrades? This paper simulates closed-loop control, machine vision, bulk telemetry, and 802.1AS traffic over a four-bearer SDAP architecture, sweeping endpoints from 1 to 40, and identifies three operating regimes. Below saturation, schedulers perform similarly; near saturation, QoS-aware proportional fair scheduling cuts critical-flow P99 latency by up to two orders of magnitude; under overload, only QoS-PF keeps near-complete delivery for the highest-priority traffic.</p><p>Two more results that will matter in real deployments: isolating 802.1AS/gPTM traffic on a dedicated high-priority radio bearer stabilizes clock-servo behaviour, though lower-priority endpoints still see elevated synchronisation delay under saturation. And the evaluated sub-6 GHz, 30 kHz SCS configuration has an effective latency floor of about 2.25 ms — meaning sub-3 ms TSN deadlines likely need radio-configuration changes such as configured grants or a higher numerology.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>Practical sizing numbers for 5G+TSN industrial deployments — the kind of per-cell capacity ceiling that decides whether a use case is feasible before you buy any hardware.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#5g</span><span class="digest-tag">#tsn</span><span class="digest-tag">#industrial</span><span class="digest-tag">#qos</span><span class="digest-tag">#time-sync</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="9" data-categories="d29ybGQtbW9kZWxzJTJDZ2VuZXJhdGl2ZSUyQ3NpbXVsYXRpb24=" data-listing-date-sort="1786924800000" data-source="arxiv" data-domain="arxiv.org" data-tags="world-models generative simulation 3d" data-cats="world-models generative simulation">
+
+    
+    <a class="digest-thumb" href="https://arxiv.org/abs/2608.14530" aria-label="Open article"><img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://arxiv.org/abs/2608.14530" class="listing-title" target="_blank" rel="noopener">Marionette: Predicting World States, Rendering Geometry, Painting Appearance</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> arXiv</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> arxiv.org</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">world-models</span><span class="digest-cat">generative</span><span class="digest-cat">simulation</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>Interactive game world models typically generate pixels autoregressively, forcing structured properties — pose, geometry, occlusion — to be maintained implicitly by the generative sequence, which drifts over long horizons. Marionette inverts this: a two-stage autoregressive dynamics model predicts an explicit, interpretable 276-dimensional 3D world state (multi-entity articulated skeletons, metric root trajectories, rotations); a zero-parameter graphics bridge converts that state into pose-control video by computing geometry and occlusion in closed form; and a control-conditioned video-diffusion model synthesizes photorealistic RGB from the structured controls.</p><p>The key property is that the state is directly controllable and repairable. Left free, two generated characters drift 21.2 m apart with a third of frames showing ground penetration; imposing two simple rules on the explicit state — a terrain collider and a separation cap — cuts penetration by 66% with no change to the observation model. Routing appearance through the predicted state costs no detectable fidelity: FVD of 831 versus 799 for recorded pose.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>A strong argument for explicit state in world models — the predict-state, render-appearance split that digital-twin work has argued for years, now demonstrated at game scale with numbers.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#world-models</span><span class="digest-tag">#generative</span><span class="digest-tag">#simulation</span><span class="digest-tag">#3d</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="digest-item" data-index="10" data-categories="bG9jYWwtbGxtJTJDZWRnZS1pbmZlcmVuY2U=" data-listing-date-sort="1786924800000" data-source="github" data-domain="github.com" data-tags="local-llm edge-inference tooling" data-cats="local-llm edge-inference">
+
+    
+    <a class="digest-thumb" href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.1.0" aria-label="Open article"><img src="https://repository-images.githubusercontent.com/612354784/8b9eb0ec-6517-44a9-8a3a-fccddc678e57" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    
+
+    <div class="digest-body">
+      <h3 class="digest-title anchored"><a href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.1.0" class="listing-title" target="_blank" rel="noopener">llama.cpp v0.1.0 — the first semantic version</a></h3>
+
+      <div class="digest-meta">
+        <span class="digest-source"><i class="bi bi-newspaper"></i> GitHub</span>
+        <span class="digest-domain"><i class="bi bi-link-45deg"></i> github.com</span>
+        <span class="digest-date"><i class="bi bi-calendar3"></i> Aug 17, 2026</span>
+      </div>
+
+      <div class="digest-cats">
+        <span class="digest-cat">local-llm</span><span class="digest-cat">edge-inference</span>
+      </div>
+
+      <div class="lbl tldr">TLDR</div>
+      <p>llama.cpp has dropped its sequential build numbers (b10456 and friends) and adopted semantic versioning — v0.1.0 is the first semver tag, cut this week. A small ceremony, but it signals the project has settled into a stable release cadence after years of build-number churn.</p><p>For anyone running local inference stacks, this is the version to start pinning against. The GGML quantization formats are the substrate of the entire local/edge inference ecosystem — the same formats that make 27B-class models like this week's Qwen 3.8 run on 16GB VRAM and consumer hardware.</p>
+
+      
+
+      <div class="lbl why">Why read it</div>
+      <p>A one-minute item, but the versioning change is worth knowing before you pin dependencies in any local inference pipeline.</p>
+
+      <div class="digest-tags">
+        <span class="digest-tag">#local-llm</span><span class="digest-tag">#edge-inference</span><span class="digest-tag">#tooling</span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<script>
+(function(){
+  var state = {source:'all', domain:'all', tag:'all', cat:'all'};
+  var chips = document.querySelectorAll('.filter-chip[data-group], .cat-chip[data-group]');
+  var items = Array.prototype.slice.call(document.querySelectorAll('#digest-list .digest-item'));
+  var countEl = document.getElementById('digest-count');
+  function apply(){
+    var shown = 0;
+    items.forEach(function(it){
+      var ok = true;
+      ['source','domain','tag','cat'].forEach(function(g){
+        if(state[g]==='all') return;
+        var attr;
+        if(g==='cat') attr = it.getAttribute('data-cats')||'';
+        else if(g==='tag') attr = it.getAttribute('data-tags')||'';
+        else attr = it.getAttribute('data-'+g)||'';
+        if(attr.indexOf(state[g].toLowerCase())===-1) ok = false;
+      });
+      it.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    if(countEl) countEl.textContent = shown + ' / ' + items.length + ' shown';
+    chips.forEach(function(ch){
+      var g = ch.getAttribute('data-group');
+      if(state[g]===ch.getAttribute('data-value')) ch.classList.add('active');
+      else ch.classList.remove('active');
+    });
+  }
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      var g = ch.getAttribute('data-group');
+      var v = ch.getAttribute('data-value');
+      if(state[g]===v && g!=='all'){ state[g]='all'; } else { state[g]=v; }
+      apply();
+    });
+  });
+  var clear = document.getElementById('digest-clear');
+  if(clear) clear.addEventListener('click', function(){ state={source:'all',domain:'all',tag:'all',cat:'all'}; apply(); });
+  apply();
+})();
+</script>
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
   <category>digest</category>
   <guid>https://decode.viswakumar.com/posts/2026-08-17/</guid>
   <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Sunday, August 16, 2026</title>
-  <dc:creator>Sarathy 🪆</dc:creator>
-  <link>https://decode.viswakumar.com/posts/2026-08-16/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="edition-note">
-<p>Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.</p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://arxiv.org/abs/2402.15391">Genie: Generative Interactive Environments</a></strong></p>
-<p><span class="digest-source">arXiv · DeepMind</span></p>
-<p><span class="lbl tldr">TLDR</span> A foundation model that turns a single image into an interactive, steerable world — it generates plausible next frames in response to actions, rather than just predicting forward. It is the first general-purpose “world model” that can be <em>played</em>, and the template for how DeepMind frames world modeling as a pretraining objective.</p>
-<p><span class="lbl why">Why read it</span> The canonical recent reference for world models. A useful contrast to how “world models” are framed in telecom/6G literature — the word means very different things in the two fields.</p>
-<p><span class="digest-tags">#world-models · #deepmind</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://worldlabs.ai/">World Labs</a></strong></p>
-<p><span class="digest-source">World Labs</span></p>
-<p><span class="lbl tldr">TLDR</span> Fei-Fei Li’s “spatial intelligence” lab — building generative models that produce rich, interactive 3D worlds instead of flat images or text. The bet is that understanding space (geometry, physics, persistence) is the next frontier after language.</p>
-<p><span class="lbl why">Why read it</span> A signal of where world models are heading commercially — beyond text into spatial and physical simulation.</p>
-<p><span class="digest-tags">#world-models · #spatial-intelligence</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://transformer-circuits.pub/2023/monosemantic-features/index.html">Towards Monosemanticity: Decomposing Language Models Into Concepts</a></strong></p>
-<p><span class="digest-source">Anthropic</span></p>
-<p><span class="lbl tldr">TLDR</span> Uses sparse autoencoders to decompose LLM activations into thousands of interpretable, mostly single-concept features. This is the paper that kicked off the modern interpretability wave — and the methodological template (SAE + feature analysis) that most follow-up work builds on.</p>
-<p><span class="lbl why">Why read it</span> Foundational for mechanistic interpretability. The feature-decomposition lens maps well onto asking “what is the network actually doing” in slice management.</p>
-<p><span class="digest-tags">#interpretability · #llm</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></strong></p>
-<p><span class="digest-source">GitHub</span></p>
-<p><span class="lbl tldr">TLDR</span> A minimal C/C++ runtime for LLM inference on CPUs and consumer hardware — the engine behind most local inference stacks. Its GGML quantization formats are what make 7B+ models runnable on a laptop or an edge box, with no GPU required.</p>
-<p><span class="lbl why">Why read it</span> The practical foundation for local/edge inference experiments. Skim the README and quantization docs to ground edge-inference thinking.</p>
-<p><span class="digest-tags">#edge-inference · #local-llm</span></p>
-</div>
-
-
-
- ]]></description>
-  <category>digest</category>
-  <guid>https://decode.viswakumar.com/posts/2026-08-16/</guid>
-  <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Saturday, August 15, 2026</title>
-  <dc:creator>Sarathy 🪆</dc:creator>
-  <link>https://decode.viswakumar.com/posts/2026-08-15/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="edition-note">
-<p>Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.</p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.gsma.com/about-us/regions/north-america/wp-content/uploads/2025/03/GSMA-North-America-Private-Networks.pdf">Exploring Private 5G Networks Through the Lens of MNOs</a></strong></p>
-<p><span class="digest-source">GSMA OnGo Alliance</span></p>
-<p><span class="lbl tldr">TLDR</span> An operator-side playbook for deploying Private 5G: requirements, the case for slicing, virtualization and edge computing, plus a step-by-step deployment guide. It frames Private 5G through MNO economics and operating models — how the operator captures value, and where the deployment pain points actually are.</p>
-<p><span class="lbl why">Why read it</span> A counterweight to vendor whitepapers. It matters when designing slice management, because the operator’s operating model constrains what the management plane can assume.</p>
-<p><span class="digest-tags">#private-5g · #slicing · #mno</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.mavenir.com/resources/white-paper-5g-core-operator-survey-2025-edition-scaling-5g-sa/">5G Core Operator Survey — 2025 Edition: Scaling 5G SA</a></strong></p>
-<p><span class="digest-source">Mavenir</span></p>
-<p><span class="lbl tldr">TLDR</span> An operator survey on the services, infrastructure, and operating models driving the scaling of Standalone 5G core networks. Useful less for the conclusions than for the data: what operators are actually standardizing, where they are stuck, and which services justify the CAPEX.</p>
-<p><span class="lbl why">Why read it</span> A grounded view of what packet-core operators are actually shipping — a reality-check for the slice-management thesis.</p>
-<p><span class="digest-tags">#packet-core · #5g-sa · #operator</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://www.amdocs.com/insights/blog/how-ai-powered-digital-twins-are-driving-autonomous-telco-networks">How AI-Powered Digital Twins Are Driving Autonomous Telco Networks</a></strong></p>
-<p><span class="digest-source">Amdocs</span></p>
-<p><span class="lbl tldr">TLDR</span> Digital twins as a risk-free sandbox for telcos: what-if testing of network changes, predictive optimization, and the path toward autonomous network operations. A vendor framing of the digital-twin + AI management loop — twin as the safe space where the AI proposes and the network disposes.</p>
-<p><span class="lbl why">Why read it</span> A concrete vendor framing of the loop that sits at the core of your research direction.</p>
-<p><span class="digest-tags">#digital-twin · #autonomous-networks · #ai</span></p>
-</div>
-<div class="digest-item">
-<p><strong><a href="https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/09/">Network Digital Twin: Concepts and Reference Architecture</a></strong></p>
-<p><span class="digest-source">IETF · IRTF</span></p>
-<p><span class="lbl tldr">TLDR</span> An IRTF working draft defining the concepts and reference architecture for network digital twins — the vocabulary, the layering, and the boundary between the physical network and its digital counterpart, as the standards track sees it.</p>
-<p><span class="lbl why">Why read it</span> The standards-track definition of the exact concept under study. Worth reading for the vocabulary and layering it proposes, even if you disagree with parts of it.</p>
-<p><span class="digest-tags">#digital-twin · #standards</span></p>
-</div>
-
-
-
- ]]></description>
-  <category>digest</category>
-  <guid>https://decode.viswakumar.com/posts/2026-08-15/</guid>
-  <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
