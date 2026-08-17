@@ -8,10 +8,4 @@ listing:
   contents: stories.yml
   template: digest.ejs.md
   sort: false
-  categories: cloud
-  page-size: 50
 ---
-
-::: {.edition-note}
-**Theme of the day — AI agents closing the loop on real infrastructure.** An autonomous security agent caught a critical 5G-core-class flaw that an AI coder introduced, another AI pipeline shipped 81 CVEs against production packet-core stacks, and a coding agent learned to write its own executable world model of an unknown game. Meanwhile the industry side moved: Stripe bought the biggest AI model gateway, Docomo and Samsung validated per-user AI-RAN, and the week's 5G spectrum and slicing news landed. Use the filters below to slice the digest by source, domain, tag, or topic.
-:::
