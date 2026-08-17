@@ -1,35 +1,12 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/2026-08-17/index.html",
-      "/posts/2026-08-17/stories/01-stripe-acquires-ai-model-gateway-openrouter-for-7-billion.html",
-      "/posts/2026-08-17/stories/02-qwen3-8-27b-scores-52-on-artificial-analysis.html",
-      "/posts/2026-08-17/stories/03-wiz-red-agent-exploits-snowflake-vuln-missed-by-github-copil.html",
-      "/posts/2026-08-17/stories/04-gpt-5-6-sol-is-the-best-vision-model-openai-ever-released.html",
-      "/posts/2026-08-17/stories/05-ntt-docomo-samsung-validate-user-level-ai-ran-optimization.html",
-      "/posts/2026-08-17/stories/06-5g-news-round-up-for-the-week-to-17-august-2026.html",
-      "/posts/2026-08-17/stories/07-an-ai-tool-found-84-flaws-in-5g-network-software-23-still-ha.html",
-      "/posts/2026-08-17/stories/08-twin-playing-an-unknown-game-with-a-test-time-digital-twin.html",
-      "/posts/2026-08-17/stories/09-scaling-5g-tsn-bridges-operating-regimes-scheduling-and-time.html",
-      "/posts/2026-08-17/stories/10-marionette-predicting-world-states-rendering-geometry-painti.html",
-      "/posts/2026-08-17/stories/11-llama-cpp-v0-1-0-the-first-semantic-version.html"
-    ]
+    "listing": "/posts/2026-08-17/index.html",
+    "items": []
   },
   {
-    "listing": "/posts/2026-08-17/index.html",
+    "listing": "/index.html",
     "items": [
-      "/posts/2026-08-17/stories/01-stripe-acquires-ai-model-gateway-openrouter-for-7-billion.html",
-      "/posts/2026-08-17/stories/02-qwen3-8-27b-scores-52-on-artificial-analysis.html",
-      "/posts/2026-08-17/stories/03-wiz-red-agent-exploits-snowflake-vuln-missed-by-github-copil.html",
-      "/posts/2026-08-17/stories/04-gpt-5-6-sol-is-the-best-vision-model-openai-ever-released.html",
-      "/posts/2026-08-17/stories/05-ntt-docomo-samsung-validate-user-level-ai-ran-optimization.html",
-      "/posts/2026-08-17/stories/06-5g-news-round-up-for-the-week-to-17-august-2026.html",
-      "/posts/2026-08-17/stories/07-an-ai-tool-found-84-flaws-in-5g-network-software-23-still-ha.html",
-      "/posts/2026-08-17/stories/08-twin-playing-an-unknown-game-with-a-test-time-digital-twin.html",
-      "/posts/2026-08-17/stories/09-scaling-5g-tsn-bridges-operating-regimes-scheduling-and-time.html",
-      "/posts/2026-08-17/stories/10-marionette-predicting-world-states-rendering-geometry-painti.html",
-      "/posts/2026-08-17/stories/11-llama-cpp-v0-1-0-the-first-semantic-version.html"
+      "/posts/2026-08-17/index.html"
     ]
   }
 ]

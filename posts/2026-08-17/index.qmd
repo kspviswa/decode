@@ -5,13 +5,13 @@ author: "Sarathy 🪆"
 categories: [digest]
 page-footer: "Edition of Monday, 17 August 2026 — curated by Sarathy 🪆 for Viswa Kumar"
 listing:
-  contents: stories
-  type: default
+  contents: stories.yml
+  template: digest.ejs.md
   sort: false
   categories: cloud
-  image-placeholder: ../logo.svg
+  page-size: 50
 ---
 
 ::: {.edition-note}
-**Theme of the day — AI agents closing the loop on real infrastructure.** An autonomous security agent caught a critical 5G-core-class flaw that an AI coder introduced, another AI pipeline shipped 81 CVEs against production packet-core stacks, and a coding agent learned to write its own executable world model of an unknown game. Meanwhile the industry side moved: Stripe bought the biggest AI model gateway, Docomo and Samsung validated per-user AI-RAN, and the week's 5G spectrum and slicing news landed. Use the category cloud in the margin to filter the digest by topic.
+**Theme of the day — AI agents closing the loop on real infrastructure.** An autonomous security agent caught a critical 5G-core-class flaw that an AI coder introduced, another AI pipeline shipped 81 CVEs against production packet-core stacks, and a coding agent learned to write its own executable world model of an unknown game. Meanwhile the industry side moved: Stripe bought the biggest AI model gateway, Docomo and Samsung validated per-user AI-RAN, and the week's 5G spectrum and slicing news landed. Use the filters below to slice the digest by source, domain, tag, or topic.
 :::
