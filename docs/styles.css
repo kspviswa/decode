@@ -1,8 +1,8 @@
 /* ============================================================
    Decode — digest styling (on top of the Quarto "sketchy" theme)
-   Newspaper-style single-page digest, modelled on tdd.cat:
-   each story flows as image → headline → body, with a subtle
-   "why read it" note. No metadata bars, no chips, no filters.
+   Newspaper-style single-page digest: headline + subtle source
+   badge, TLDR body, mermaid, subtle "why read it" note.
+   No images, no metadata bars, no chips, no filters.
    ============================================================ */
 
 /* --- Story -------------------------------------------------- */
@@ -13,9 +13,28 @@
 }
 .story:last-child { border-bottom: none; }
 
-/* --- Headline ----------------------------------------------- */
-.story-headline {
+/* --- Headline + source badge -------------------------------- */
+.story-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
   margin: 0 0 0.9rem;
+}
+.story-badge {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #fff;
+  background: #2563eb;
+  border-radius: 4px;
+  padding: 0.12rem 0.45rem;
+  line-height: 1.3;
+  transform: translateY(-0.15rem);
+}
+.story-headline {
+  margin: 0;
   font-size: 1.35rem;
   line-height: 1.25;
   font-weight: 700;
@@ -25,26 +44,6 @@
   color: inherit;
 }
 .story-headline a:hover { text-decoration: underline; }
-
-/* --- Featured image (tdd.cat style: compact, subtle) ---------- */
-.story-image-wrapper {
-  width: 100%;
-  max-width: 320px;
-  margin: 0 0 0.9rem;
-  border-radius: 4px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.05);
-}
-.story-image-wrapper img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 560 / 418;
-  object-fit: cover;
-  display: block;
-  mix-blend-mode: multiply;
-  border-radius: 4px;
-  filter: contrast(1.12) brightness(1.04) saturate(0.95);
-}
 
 /* --- Story body --------------------------------------------- */
 .story-body { line-height: 1.7; }

@@ -1,13 +1,10 @@
 ```{=html}
 <% for (const item of items) { %>
   <article class="story">
-    <h3 class="story-headline"><a href="<%- item.link %>" target="_blank" rel="noopener"><%= item.title %></a></h3>
-
-    <% if (item.image) { %>
-    <div class="story-image-wrapper">
-      <img src="<%- item.image %>" alt="" loading="lazy" referrerpolicy="no-referrer">
+    <div class="story-head">
+      <% if (item.source) { %><span class="story-badge"><%= item.source %></span><% } %>
+      <h3 class="story-headline"><a href="<%- item.link %>" target="_blank" rel="noopener"><%= item.title %></a></h3>
     </div>
-    <% } %>
 
     <div class="story-body">
       <% for (const p of (item.tldr||[])) { %><p><%= p %></p><% } %>
