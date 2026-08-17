@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Viswa Kumar">
+<meta name="author" content="Sarathy 🪆">
 <meta name="dcterms.date" content="2026-08-17">
 
 <title>Monday, August 17, 2026 – Decode</title>
@@ -97,10 +97,6 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/kspviswa"> <i class="bi bi-github" role="img">
 </i> 
@@ -135,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Viswa Kumar </p>
+               <p>Sarathy 🪆 </p>
             </div>
     </div>
       
@@ -161,74 +157,36 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p class="edition-note">
-Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.
-</p>
-<div class="digest-item">
-<div class="digest-item-header">
-<pre><code>&lt;a class="digest-item-title" href="https://datatracker.ietf.org/doc/rfc9889/" target="_blank" rel="noopener"&gt;RFC 9889: A Realization of Network Slices for 5G Networks Using Current IP/MPLS Technologies&lt;/a&gt;
-&lt;span class="digest-item-source"&gt;IETF&lt;/span&gt;</code></pre>
-</div>
-<p>
-<span class="digest-label tldr">TLDR</span> The first RFC specifying how to realize 5G network slices on existing IP/MPLS transport — bridging the 3GPP slice construct with real transport engineering.
-</p>
-<p>
-<span class="digest-label why">Why read it</span> A rare IETF/3GPP convergence artifact; directly relevant to slice management and Private 5G over existing fabrics.
-</p>
-<div class="digest-tags">
-<pre><code>&lt;span class="digest-tag"&gt;slicing&lt;/span&gt;
-&lt;span class="digest-tag"&gt;ip-mpls&lt;/span&gt;
-&lt;span class="digest-tag"&gt;private-5g&lt;/span&gt;</code></pre>
-</div>
+<div class="edition-note">
+<p>Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.</p>
 </div>
 <div class="digest-item">
-<div class="digest-item-header">
-<pre><code>&lt;a class="digest-item-title" href="https://arxiv.org/abs/2510.12458" target="_blank" rel="noopener"&gt;A Network Digital Twin of a 5G Private Network&lt;/a&gt;
-&lt;span class="digest-item-source"&gt;arXiv&lt;/span&gt;</code></pre>
-</div>
-<p>
-<span class="digest-label tldr">TLDR</span> A full digital twin of a 5G private network — RAN plus core — covering data collection, device control, and mapping physical elements to their digital counterparts.
-</p>
-<p>
-<span class="digest-label why">Why read it</span> Exactly at the intersection: Private 5G + digital twins + network intelligence. A concrete reference architecture to critique.
-</p>
-<div class="digest-tags">
-<pre><code>&lt;span class="digest-tag"&gt;digital-twin&lt;/span&gt;
-&lt;span class="digest-tag"&gt;private-5g&lt;/span&gt;</code></pre>
-</div>
+<p><strong><a href="https://datatracker.ietf.org/doc/rfc9889/">RFC 9889: A Realization of Network Slices for 5G Networks Using Current IP/MPLS Technologies</a></strong></p>
+<p><span class="digest-source">IETF · RFC</span></p>
+<p><span class="lbl tldr">TLDR</span> The first RFC that specifies how to realize 5G network slices on existing IP/MPLS transport. It maps the 3GPP slice construct onto the fabric operators already run — service chaining, EVPN, segment routing — and lays out how a slice request flows from the core down to the transport plane. It is the reference for what “a slice” concretely means when it hits the network, rather than staying a core-side abstraction.</p>
+<p><span class="lbl why">Why read it</span> A rare IETF/3GPP convergence artifact. Directly relevant to slice management and Private 5G over existing fabrics — worth reading before designing any slice-management plane.</p>
+<p><span class="digest-tags">#private-5g · #slicing · #ip-mpls</span></p>
 </div>
 <div class="digest-item">
-<div class="digest-item-header">
-<pre><code>&lt;a class="digest-item-title" href="https://arxiv.org/abs/2410.01584" target="_blank" rel="noopener"&gt;AI-Native Network Digital Twin for Intelligent Network Management&lt;/a&gt;
-&lt;span class="digest-item-source"&gt;arXiv&lt;/span&gt;</code></pre>
-</div>
-<p>
-<span class="digest-label tldr">TLDR</span> Proposes an AI-native network digital twin for intelligent network management in the 5G → 6G transition.
-</p>
-<p>
-<span class="digest-label why">Why read it</span> The “intelligent network management” axis of the thesis, condensed into one paper.
-</p>
-<div class="digest-tags">
-<pre><code>&lt;span class="digest-tag"&gt;digital-twin&lt;/span&gt;
-&lt;span class="digest-tag"&gt;network-management&lt;/span&gt;
-&lt;span class="digest-tag"&gt;6g&lt;/span&gt;</code></pre>
-</div>
+<p><strong><a href="https://arxiv.org/abs/2510.12458">A Network Digital Twin of a 5G Private Network</a></strong></p>
+<p><span class="digest-source">arXiv</span></p>
+<p><span class="lbl tldr">TLDR</span> A full digital twin of a 5G private network — RAN plus core — covering data collection, device control, and the mapping of physical elements to their digital counterparts. Notable because it treats the <em>whole</em> network (not just the RAN) as the twin, and walks through the synchronization and control loops that keep the twin faithful.</p>
+<p><span class="lbl why">Why read it</span> Exactly at the intersection: Private 5G + digital twins + network intelligence. A concrete reference architecture to critique.</p>
+<p><span class="digest-tags">#digital-twin · #private-5g</span></p>
 </div>
 <div class="digest-item">
-<div class="digest-item-header">
-<pre><code>&lt;a class="digest-item-title" href="https://ollama.com/" target="_blank" rel="noopener"&gt;Ollama&lt;/a&gt;
-&lt;span class="digest-item-source"&gt;Ollama&lt;/span&gt;</code></pre>
+<p><strong><a href="https://arxiv.org/abs/2410.01584">AI-Native Network Digital Twin for Intelligent Network Management</a></strong></p>
+<p><span class="digest-source">arXiv</span></p>
+<p><span class="lbl tldr">TLDR</span> Proposes an AI-native network digital twin for intelligent network management in the 5G → 6G transition. The key claim: the twin is not just a simulation sandbox, but the substrate on which the management and optimization AI runs — perception, prediction, and closed-loop control all operate through the twin.</p>
+<p><span class="lbl why">Why read it</span> The “intelligent network management” axis of your thesis, condensed into one paper.</p>
+<p><span class="digest-tags">#digital-twin · #network-management · #6g</span></p>
 </div>
-<p>
-<span class="digest-label tldr">TLDR</span> The de-facto local LLM runtime — pull and serve models with one command, with a simple OpenAI-compatible API.
-</p>
-<p>
-<span class="digest-label why">Why read it</span> The fastest way to stand up a local inference stack for edge experiments; pairs naturally with llama.cpp.
-</p>
-<div class="digest-tags">
-<pre><code>&lt;span class="digest-tag"&gt;edge-inference&lt;/span&gt;
-&lt;span class="digest-tag"&gt;local-llm&lt;/span&gt;</code></pre>
-</div>
+<div class="digest-item">
+<p><strong><a href="https://ollama.com/">Ollama</a></strong></p>
+<p><span class="digest-source">Ollama</span></p>
+<p><span class="lbl tldr">TLDR</span> The de-facto local LLM runtime: pull and serve models with one command, with a simple OpenAI-compatible API on top. It wraps llama.cpp, so it inherits the GGML quantization story that makes 7B+ models runnable on a laptop or an edge box.</p>
+<p><span class="lbl why">Why read it</span> The fastest way to stand up a local inference stack for edge experiments.</p>
+<p><span class="digest-tags">#edge-inference · #local-llm</span></p>
 </div>
 
 
@@ -307,7 +265,7 @@ Sample edition — placeholder content demonstrating the digest format. Real cur
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/kspviswa\.github\.io\/decode");
+        var filterRegex = new RegExp("https:\/\/decode\.viswakumar\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -635,6 +593,19 @@ Sample edition — placeholder content demonstrating the digest format. Real cur
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Curated by Sarathy 🪆 for Viswa Kumar — making difficult technical material understandable · est. 2026-08-17</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

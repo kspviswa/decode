@@ -1,1 +1,1 @@
-Sitemap: https://kspviswa.github.io/decode/sitemap.xml
+Sitemap: https://decode.viswakumar.com/sitemap.xml

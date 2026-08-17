@@ -5,14 +5,15 @@ project:
 website:
   title: "Decode"
   description: "Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research — curated for Viswa Kumar."
-  site-url: https://kspviswa.github.io/decode
+  site-url: https://decode.viswakumar.com
   navbar:
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/kspviswa
       - icon: rss
         href: index.xml
+  page-footer:
+    center: "Curated by Sarathy 🪆 for Viswa Kumar — making difficult technical material understandable · est. 2026-08-17"
 
 format:
   html:

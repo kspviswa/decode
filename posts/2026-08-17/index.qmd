@@ -1,62 +1,59 @@
 ---
 title: "Monday, August 17, 2026"
 date: "2026-08-17"
-author: "Viswa Kumar"
+author: "Sarathy 🪆"
 categories: [digest]
+page-footer: "Edition of Monday, 17 August 2026 — curated by Sarathy 🪆 for Viswa Kumar"
 ---
 
-<p class="edition-note">Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.</p>
+::: {.edition-note}
+Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.
+:::
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://datatracker.ietf.org/doc/rfc9889/" target="_blank" rel="noopener">RFC 9889: A Realization of Network Slices for 5G Networks Using Current IP/MPLS Technologies</a>
-    <span class="digest-item-source">IETF</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> The first RFC specifying how to realize 5G network slices on existing IP/MPLS transport — bridging the 3GPP slice construct with real transport engineering.</p>
-  <p><span class="digest-label why">Why read it</span> A rare IETF/3GPP convergence artifact; directly relevant to slice management and Private 5G over existing fabrics.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">slicing</span>
-    <span class="digest-tag">ip-mpls</span>
-    <span class="digest-tag">private-5g</span>
-  </div>
-</div>
+::: {.digest-item}
+**[RFC 9889: A Realization of Network Slices for 5G Networks Using Current IP/MPLS Technologies](https://datatracker.ietf.org/doc/rfc9889/)**
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://arxiv.org/abs/2510.12458" target="_blank" rel="noopener">A Network Digital Twin of a 5G Private Network</a>
-    <span class="digest-item-source">arXiv</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> A full digital twin of a 5G private network — RAN plus core — covering data collection, device control, and mapping physical elements to their digital counterparts.</p>
-  <p><span class="digest-label why">Why read it</span> Exactly at the intersection: Private 5G + digital twins + network intelligence. A concrete reference architecture to critique.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">digital-twin</span>
-    <span class="digest-tag">private-5g</span>
-  </div>
-</div>
+<span class="digest-source">IETF · RFC</span>
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://arxiv.org/abs/2410.01584" target="_blank" rel="noopener">AI-Native Network Digital Twin for Intelligent Network Management</a>
-    <span class="digest-item-source">arXiv</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> Proposes an AI-native network digital twin for intelligent network management in the 5G → 6G transition.</p>
-  <p><span class="digest-label why">Why read it</span> The "intelligent network management" axis of the thesis, condensed into one paper.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">digital-twin</span>
-    <span class="digest-tag">network-management</span>
-    <span class="digest-tag">6g</span>
-  </div>
-</div>
+<span class="lbl tldr">TLDR</span> The first RFC that specifies how to realize 5G network slices on existing IP/MPLS transport. It maps the 3GPP slice construct onto the fabric operators already run — service chaining, EVPN, segment routing — and lays out how a slice request flows from the core down to the transport plane. It is the reference for what "a slice" concretely means when it hits the network, rather than staying a core-side abstraction.
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a>
-    <span class="digest-item-source">Ollama</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> The de-facto local LLM runtime — pull and serve models with one command, with a simple OpenAI-compatible API.</p>
-  <p><span class="digest-label why">Why read it</span> The fastest way to stand up a local inference stack for edge experiments; pairs naturally with llama.cpp.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">edge-inference</span>
-    <span class="digest-tag">local-llm</span>
-  </div>
-</div>
+<span class="lbl why">Why read it</span> A rare IETF/3GPP convergence artifact. Directly relevant to slice management and Private 5G over existing fabrics — worth reading before designing any slice-management plane.
+
+<span class="digest-tags">#private-5g · #slicing · #ip-mpls</span>
+:::
+
+::: {.digest-item}
+**[A Network Digital Twin of a 5G Private Network](https://arxiv.org/abs/2510.12458)**
+
+<span class="digest-source">arXiv</span>
+
+<span class="lbl tldr">TLDR</span> A full digital twin of a 5G private network — RAN plus core — covering data collection, device control, and the mapping of physical elements to their digital counterparts. Notable because it treats the *whole* network (not just the RAN) as the twin, and walks through the synchronization and control loops that keep the twin faithful.
+
+<span class="lbl why">Why read it</span> Exactly at the intersection: Private 5G + digital twins + network intelligence. A concrete reference architecture to critique.
+
+<span class="digest-tags">#digital-twin · #private-5g</span>
+:::
+
+::: {.digest-item}
+**[AI-Native Network Digital Twin for Intelligent Network Management](https://arxiv.org/abs/2410.01584)**
+
+<span class="digest-source">arXiv</span>
+
+<span class="lbl tldr">TLDR</span> Proposes an AI-native network digital twin for intelligent network management in the 5G → 6G transition. The key claim: the twin is not just a simulation sandbox, but the substrate on which the management and optimization AI runs — perception, prediction, and closed-loop control all operate through the twin.
+
+<span class="lbl why">Why read it</span> The "intelligent network management" axis of your thesis, condensed into one paper.
+
+<span class="digest-tags">#digital-twin · #network-management · #6g</span>
+:::
+
+::: {.digest-item}
+**[Ollama](https://ollama.com/)**
+
+<span class="digest-source">Ollama</span>
+
+<span class="lbl tldr">TLDR</span> The de-facto local LLM runtime: pull and serve models with one command, with a simple OpenAI-compatible API on top. It wraps llama.cpp, so it inherits the GGML quantization story that makes 7B+ models runnable on a laptop or an edge box.
+
+<span class="lbl why">Why read it</span> The fastest way to stand up a local inference stack for edge experiments.
+
+<span class="digest-tags">#edge-inference · #local-llm</span>
+:::

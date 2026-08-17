@@ -1,63 +1,59 @@
 ---
 title: "Saturday, August 15, 2026"
 date: "2026-08-15"
-author: "Viswa Kumar"
+author: "Sarathy 🪆"
 categories: [digest]
+page-footer: "Edition of Saturday, 15 August 2026 — curated by Sarathy 🪆 for Viswa Kumar"
 ---
 
-<p class="edition-note">Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.</p>
+::: {.edition-note}
+Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.
+:::
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://www.gsma.com/about-us/regions/north-america/wp-content/uploads/2025/03/GSMA-North-America-Private-Networks.pdf" target="_blank" rel="noopener">Exploring Private 5G Networks Through the Lens of MNOs</a>
-    <span class="digest-item-source">GSMA OnGo Alliance</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> An operator-side playbook for deploying Private 5G — requirements, the case for slicing, virtualization and edge computing, plus a step-by-step deployment guide.</p>
-  <p><span class="digest-label why">Why read it</span> A counterweight to vendor whitepapers: it frames Private 5G through MNO economics and operating models, which matters when designing slice management.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">private-5g</span>
-    <span class="digest-tag">slicing</span>
-    <span class="digest-tag">mno</span>
-  </div>
-</div>
+::: {.digest-item}
+**[Exploring Private 5G Networks Through the Lens of MNOs](https://www.gsma.com/about-us/regions/north-america/wp-content/uploads/2025/03/GSMA-North-America-Private-Networks.pdf)**
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://www.mavenir.com/resources/white-paper-5g-core-operator-survey-2025-edition-scaling-5g-sa/" target="_blank" rel="noopener">5G Core Operator Survey — 2025 Edition: Scaling 5G SA</a>
-    <span class="digest-item-source">Mavenir</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> An operator survey on the services, infrastructure, and operating models driving the scaling of Standalone 5G core networks.</p>
-  <p><span class="digest-label why">Why read it</span> A grounded view of what packet-core operators are actually standardizing — useful reality-check for the slice-management thesis.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">packet-core</span>
-    <span class="digest-tag">5g-sa</span>
-    <span class="digest-tag">operator</span>
-  </div>
-</div>
+<span class="digest-source">GSMA OnGo Alliance</span>
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://www.amdocs.com/insights/blog/how-ai-powered-digital-twins-are-driving-autonomous-telco-networks" target="_blank" rel="noopener">How AI-Powered Digital Twins Are Driving Autonomous Telco Networks</a>
-    <span class="digest-item-source">Amdocs</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> Digital twins as a risk-free sandbox for telcos: what-if testing, predictive optimization, and the path to autonomous network operations.</p>
-  <p><span class="digest-label why">Why read it</span> A concrete vendor framing of the digital-twin + AI network-management loop that sits at the core of the research direction.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">digital-twin</span>
-    <span class="digest-tag">autonomous-networks</span>
-    <span class="digest-tag">ai</span>
-  </div>
-</div>
+<span class="lbl tldr">TLDR</span> An operator-side playbook for deploying Private 5G: requirements, the case for slicing, virtualization and edge computing, plus a step-by-step deployment guide. It frames Private 5G through MNO economics and operating models — how the operator captures value, and where the deployment pain points actually are.
 
-<div class="digest-item">
-  <div class="digest-item-header">
-    <a class="digest-item-title" href="https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/09/" target="_blank" rel="noopener">Network Digital Twin: Concepts and Reference Architecture</a>
-    <span class="digest-item-source">IETF</span>
-  </div>
-  <p><span class="digest-label tldr">TLDR</span> An IRTF working draft defining the concepts and reference architecture for network digital twins.</p>
-  <p><span class="digest-label why">Why read it</span> The standards-track definition of the exact concept under study — worth reading for the vocabulary and layering it proposes.</p>
-  <div class="digest-tags">
-    <span class="digest-tag">digital-twin</span>
-    <span class="digest-tag">standards</span>
-  </div>
-</div>
+<span class="lbl why">Why read it</span> A counterweight to vendor whitepapers. It matters when designing slice management, because the operator's operating model constrains what the management plane can assume.
+
+<span class="digest-tags">#private-5g · #slicing · #mno</span>
+:::
+
+::: {.digest-item}
+**[5G Core Operator Survey — 2025 Edition: Scaling 5G SA](https://www.mavenir.com/resources/white-paper-5g-core-operator-survey-2025-edition-scaling-5g-sa/)**
+
+<span class="digest-source">Mavenir</span>
+
+<span class="lbl tldr">TLDR</span> An operator survey on the services, infrastructure, and operating models driving the scaling of Standalone 5G core networks. Useful less for the conclusions than for the data: what operators are actually standardizing, where they are stuck, and which services justify the CAPEX.
+
+<span class="lbl why">Why read it</span> A grounded view of what packet-core operators are actually shipping — a reality-check for the slice-management thesis.
+
+<span class="digest-tags">#packet-core · #5g-sa · #operator</span>
+:::
+
+::: {.digest-item}
+**[How AI-Powered Digital Twins Are Driving Autonomous Telco Networks](https://www.amdocs.com/insights/blog/how-ai-powered-digital-twins-are-driving-autonomous-telco-networks)**
+
+<span class="digest-source">Amdocs</span>
+
+<span class="lbl tldr">TLDR</span> Digital twins as a risk-free sandbox for telcos: what-if testing of network changes, predictive optimization, and the path toward autonomous network operations. A vendor framing of the digital-twin + AI management loop — twin as the safe space where the AI proposes and the network disposes.
+
+<span class="lbl why">Why read it</span> A concrete vendor framing of the loop that sits at the core of your research direction.
+
+<span class="digest-tags">#digital-twin · #autonomous-networks · #ai</span>
+:::
+
+::: {.digest-item}
+**[Network Digital Twin: Concepts and Reference Architecture](https://datatracker.ietf.org/doc/draft-irtf-nmrg-network-digital-twin-arch/09/)**
+
+<span class="digest-source">IETF · IRTF</span>
+
+<span class="lbl tldr">TLDR</span> An IRTF working draft defining the concepts and reference architecture for network digital twins — the vocabulary, the layering, and the boundary between the physical network and its digital counterpart, as the standards track sees it.
+
+<span class="lbl why">Why read it</span> The standards-track definition of the exact concept under study. Worth reading for the vocabulary and layering it proposes, even if you disagree with parts of it.
+
+<span class="digest-tags">#digital-twin · #standards</span>
+:::
