@@ -1,0 +1,28 @@
+---
+title: "Marionette: Predicting World States, Rendering Geometry, Painting Appearance"
+date: "2026-08-17"
+categories: ["world-models", "generative", "simulation"]
+tags: ["world-models", "generative", "simulation", "3d"]
+source: "arXiv"
+domain: "arxiv.org"
+link: "https://arxiv.org/abs/2608.14530"
+description: "Interactive game world models typically generate pixels autoregressively, forcing structured properties — pose, geometry, occlusion — to be maintained implicitly by the generative sequence, which drifts over long horizons. Marionette inverts this: a two-stage autoregressive dynamics model predicts an explicit, interpretable 276-dimensional 3D world state (multi-entity articulated skeletons, metric root trajectories, rotations); a zero-parameter graphics bridge converts that state into pose-control video by computing geometry and occlusion in closed form; and a control-conditioned video-diffusion model synthesizes photorealistic RGB from the structured controls."
+image: "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+---
+
+::: {.digest-body-full}
+
+<span class="lbl tldr">TLDR</span>
+
+Interactive game world models typically generate pixels autoregressively, forcing structured properties — pose, geometry, occlusion — to be maintained implicitly by the generative sequence, which drifts over long horizons. Marionette inverts this: a two-stage autoregressive dynamics model predicts an explicit, interpretable 276-dimensional 3D world state (multi-entity articulated skeletons, metric root trajectories, rotations); a zero-parameter graphics bridge converts that state into pose-control video by computing geometry and occlusion in closed form; and a control-conditioned video-diffusion model synthesizes photorealistic RGB from the structured controls.
+
+The key property is that the state is directly controllable and repairable. Left free, two generated characters drift 21.2 m apart with a third of frames showing ground penetration; imposing two simple rules on the explicit state — a terrain collider and a separation cap — cuts penetration by 66% with no change to the observation model. Routing appearance through the predicted state costs no detectable fidelity: FVD of 831 versus 799 for recorded pose.
+
+
+<span class="lbl why">Why read it</span>
+
+A strong argument for explicit state in world models — the predict-state, render-appearance split that digital-twin work has argued for years, now demonstrated at game scale with numbers.
+
+:::
+
+**[Read the original article](https://arxiv.org/abs/2608.14530)**

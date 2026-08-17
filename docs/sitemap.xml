@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://decode.viswakumar.com/posts/2026-08-17/index.html</loc>
-    <lastmod>2026-08-17T22:41:08.843Z</lastmod>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/11-llama-cpp-v0-1-0-the-first-semantic-version.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/09-scaling-5g-tsn-bridges-operating-regimes-scheduling-and-time.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/07-an-ai-tool-found-84-flaws-in-5g-network-software-23-still-ha.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/05-ntt-docomo-samsung-validate-user-level-ai-ran-optimization.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/03-wiz-red-agent-exploits-snowflake-vuln-missed-by-github-copil.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/01-stripe-acquires-ai-model-gateway-openrouter-for-7-billion.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
   </url>
   <url>
     <loc>https://decode.viswakumar.com/index.html</loc>
     <lastmod>2026-08-17T03:54:28.245Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/index.html</loc>
+    <lastmod>2026-08-17T22:49:58.871Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/02-qwen3-8-27b-scores-52-on-artificial-analysis.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/04-gpt-5-6-sol-is-the-best-vision-model-openai-ever-released.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/06-5g-news-round-up-for-the-week-to-17-august-2026.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/08-twin-playing-an-unknown-game-with-a-test-time-digital-twin.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://decode.viswakumar.com/posts/2026-08-17/stories/10-marionette-predicting-world-states-rendering-geometry-painti.html</loc>
+    <lastmod>2026-08-17T22:48:17.980Z</lastmod>
   </url>
 </urlset>

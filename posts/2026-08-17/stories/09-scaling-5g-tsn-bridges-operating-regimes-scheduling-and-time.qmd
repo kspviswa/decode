@@ -1,0 +1,28 @@
+---
+title: "Scaling 5G-TSN Bridges: Operating Regimes, Scheduling, and Time Sync"
+date: "2026-08-17"
+categories: ["5g", "tsn", "industrial"]
+tags: ["5g", "tsn", "industrial", "qos", "time-sync"]
+source: "arXiv"
+domain: "arxiv.org"
+link: "https://arxiv.org/abs/2608.14386"
+description: "3GPP Release 16 lets a 5G system act as a transparent IEEE 802.1 TSN bridge, but how many TSN endpoints can one NR cell actually bridge before per-flow QoS degrades? This paper simulates closed-loop control, machine vision, bulk telemetry, and 802.1AS traffic over a four-bearer SDAP architecture, sweeping endpoints from 1 to 40, and identifies three operating regimes. Below saturation, schedulers perform similarly; near saturation, QoS-aware proportional fair scheduling cuts critical-flow P99 latency by up to two orders of magnitude; under overload, only QoS-PF keeps near-complete delivery for the highest-priority traffic."
+image: "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+---
+
+::: {.digest-body-full}
+
+<span class="lbl tldr">TLDR</span>
+
+3GPP Release 16 lets a 5G system act as a transparent IEEE 802.1 TSN bridge, but how many TSN endpoints can one NR cell actually bridge before per-flow QoS degrades? This paper simulates closed-loop control, machine vision, bulk telemetry, and 802.1AS traffic over a four-bearer SDAP architecture, sweeping endpoints from 1 to 40, and identifies three operating regimes. Below saturation, schedulers perform similarly; near saturation, QoS-aware proportional fair scheduling cuts critical-flow P99 latency by up to two orders of magnitude; under overload, only QoS-PF keeps near-complete delivery for the highest-priority traffic.
+
+Two more results that will matter in real deployments: isolating 802.1AS/gPTM traffic on a dedicated high-priority radio bearer stabilizes clock-servo behaviour, though lower-priority endpoints still see elevated synchronisation delay under saturation. And the evaluated sub-6 GHz, 30 kHz SCS configuration has an effective latency floor of about 2.25 ms — meaning sub-3 ms TSN deadlines likely need radio-configuration changes such as configured grants or a higher numerology.
+
+
+<span class="lbl why">Why read it</span>
+
+Practical sizing numbers for 5G+TSN industrial deployments — the kind of per-cell capacity ceiling that decides whether a use case is feasible before you buy any hardware.
+
+:::
+
+**[Read the original article](https://arxiv.org/abs/2608.14386)**

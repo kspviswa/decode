@@ -1,0 +1,28 @@
+---
+title: "NTT DOCOMO & Samsung validate user-level AI-RAN optimization"
+date: "2026-08-17"
+categories: ["ai-ran", "6g", "network-intelligence"]
+tags: ["ai-ran", "6g", "network-intelligence", "optimization"]
+source: "NTT DOCOMO"
+domain: "docomo.ne.jp"
+link: "https://www.docomo.ne.jp/english/info/media_center/pr/2026/0810_00.html"
+description: "Docomo and Samsung validated AI-RAN optimization that works at the individual-user level instead of applying one configuration per cell. The system learns each subscriber's movement and usage patterns, predicts service degradation before it happens, and adjusts network settings proactively. In simulations based on Docomo's commercial network data and a local 5G field trial in Japan (January 2026), the frequency of communication-speed degradation fell from 13.1% to 7.2% — roughly halved."
+image: "https://www.docomo.ne.jp/english/images/common/nttdocomo.gif"
+---
+
+::: {.digest-body-full}
+
+<span class="lbl tldr">TLDR</span>
+
+Docomo and Samsung validated AI-RAN optimization that works at the individual-user level instead of applying one configuration per cell. The system learns each subscriber's movement and usage patterns, predicts service degradation before it happens, and adjusts network settings proactively. In simulations based on Docomo's commercial network data and a local 5G field trial in Japan (January 2026), the frequency of communication-speed degradation fell from 13.1% to 7.2% — roughly halved.
+
+The framing is explicitly 6G: an era where networks autonomously recognize user context and service requirements. The interesting engineering shift is the granularity — the difference between this cell is congested and this user's session is about to degrade implies a per-subscriber state model living in the RAN, with prediction running ahead of the congestion.
+
+
+<span class="lbl why">Why read it</span>
+
+A concrete data point for the predictive-network thesis. Cell-level vs user-level optimization is exactly where the network-intelligence story stops being a slide and starts being a system.
+
+:::
+
+**[Read the original article](https://www.docomo.ne.jp/english/info/media_center/pr/2026/0810_00.html)**

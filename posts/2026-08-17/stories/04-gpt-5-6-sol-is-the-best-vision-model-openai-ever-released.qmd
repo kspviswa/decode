@@ -1,0 +1,28 @@
+---
+title: "GPT 5.6 Sol is the best vision model OpenAI ever released"
+date: "2026-08-17"
+categories: ["vision", "vlm", "openai"]
+tags: ["vision", "vlm", "openai", "computer-use"]
+source: "Roboflow"
+domain: "blog.roboflow.com"
+link: "https://blog.roboflow.com/openai-gpt-5-6/"
+description: "OpenAI's GPT-5.6 lineup (Sol, Terra, Luna) launched with a heavy focus on computer use — UI agents, desktop control, 3D visualization — and Roboflow's VLM benchmark shows Sol is the strongest vision model OpenAI has shipped. The jump is sharpest in object detection: mAP@50 went from 13.8 (GPT-5.5) to 46.2 (Sol), and counting rose from 64.9% to 73.0%. Document layout detection — titles, tables, signatures — is a standout strength."
+image: "https://storage.ghost.io/c/2c/8d/2c8d8c0d-1c15-4b6d-825e-02b78d61d40a/content/images/2026/07/img-blog-gpt-5-6-sol-best-vision-model-to-date.jpg"
+---
+
+::: {.digest-body-full}
+
+<span class="lbl tldr">TLDR</span>
+
+OpenAI's GPT-5.6 lineup (Sol, Terra, Luna) launched with a heavy focus on computer use — UI agents, desktop control, 3D visualization — and Roboflow's VLM benchmark shows Sol is the strongest vision model OpenAI has shipped. The jump is sharpest in object detection: mAP@50 went from 13.8 (GPT-5.5) to 46.2 (Sol), and counting rose from 64.9% to 73.0%. Document layout detection — titles, tables, signatures — is a standout strength.
+
+Two practical caveats from the post that will save you real points: Sol degrades on images around 2000×2000 px or larger, especially at low reasoning effort (OpenAI confirmed this), so resize or crop before the API call. And coordinate format matters — absolute XYXY in image pixels is the winning prompt for GPT-5.6; using the wrong convention cost roughly 15 mAP points in their runs.
+
+
+<span class="lbl why">Why read it</span>
+
+If you build on VLMs for detection, OCR, or data extraction, the resolution and coordinate-format details are the difference between a demo and a production pipeline.
+
+:::
+
+**[Read the original article](https://blog.roboflow.com/openai-gpt-5-6/)**

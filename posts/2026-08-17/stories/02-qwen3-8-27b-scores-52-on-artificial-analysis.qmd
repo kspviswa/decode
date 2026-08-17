@@ -1,0 +1,28 @@
+---
+title: "Qwen3.8 27B scores 52 on Artificial Analysis"
+date: "2026-08-17"
+categories: ["open-weights", "local-llm", "benchmarks"]
+tags: ["open-weights", "local-llm", "benchmarks", "qwen"]
+source: "Artificial Analysis"
+domain: "artificialanalysis.ai"
+link: "https://artificialanalysis.ai/models/qwen3-8-27b"
+description: "The open-weights Qwen 3.8 27B just posted a 52 on the Artificial Analysis Intelligence Index — well above the median for comparable models and, by the community's own benchmarks, neck and neck with DeepSeek V4 and GPT-5.6 Luna Max. It takes text and image input, carries a 256k-token context window, and costs nothing in licensing since the weights are open."
+image: "https://artificialanalysis.ai/en/models/qwen3-8-27b/opengraph-image?76c5a1db7097b9e1"
+---
+
+::: {.digest-body-full}
+
+<span class="lbl tldr">TLDR</span>
+
+The open-weights Qwen 3.8 27B just posted a 52 on the Artificial Analysis Intelligence Index — well above the median for comparable models and, by the community's own benchmarks, neck and neck with DeepSeek V4 and GPT-5.6 Luna Max. It takes text and image input, carries a 256k-token context window, and costs nothing in licensing since the weights are open.
+
+The local-inference community has already put it through its paces: tuned llama.cpp configs are running it at 73k context on 16GB VRAM for agentic coding, with long-form reviews describing Sonnet-level performance plus a tendency to overthink that occasionally pushes toward frontier results. For a 27B-class open model, that is a large jump over the previous generation.
+
+
+<span class="lbl why">Why read it</span>
+
+The open-weights leaderboard sets the price/performance curve for local and edge inference. If you benchmark or deploy local models, this is the one to pull this week.
+
+:::
+
+**[Read the original article](https://artificialanalysis.ai/models/qwen3-8-27b)**
