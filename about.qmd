@@ -4,16 +4,39 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    - icon: bluesky
-      text: Bluesky
-      href: https://bsky.app/
+    - icon: globe
+      text: viswakumar.com
+      href: https://www.viswakumar.com
+    - icon: github
+      text: GitHub
+      href: https://github.com/kspviswa
+    - icon: scholar
+      text: Google Scholar
+      href: https://scholar.google.com/citations?hl=en&user=ej1F520AAAAJ
+    - icon: orcid
+      text: ORCiD
+      href: https://orcid.org/0009-0008-4377-7764
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
-    - icon: github
-      text: Github
-      href: https://github.com
-
+      href: https://www.linkedin.com/
 ---
 
-About this blog
+## Viswa Kumar
+
+**Senior Systems Architect · Private 5G · Network Intelligence & AI**
+
+Senior systems architect in the telecom field, currently focused on **Private 5G** with a specialization in the **packet core**. Pursuing a PhD (VAE route) on *Intelligent Network Slice Management* under Prof. Abdulhalim Dandoush. Research lives at the intersection of AI and telecom network systems — network management & automation, distributed systems, and intelligent systems.
+
+## What is Decode?
+
+**Decode** is a personal daily news digest — *making difficult technical material understandable*.
+
+Each edition is a short, opinionated list of items that matter to this work and research:
+
+- **Private 5G** — packet core, network slicing, 5G-Advanced / 6G
+- **Network intelligence & AI** — network management, automation, digital twins
+- **AI research** — local / edge inference, mechanistic interpretability, world models
+
+Every item carries a **TLDR** (what it says), a **why read it** note (why it matters here), and a link to the original. The format is inspired by [The Daily Diff](https://tdd.cat).
+
+Curated and delivered daily by [Sarathy 🪆](https://github.com/kspviswa/sarathy).

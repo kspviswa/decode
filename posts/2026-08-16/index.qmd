@@ -1,0 +1,60 @@
+---
+title: "Sunday, August 16, 2026"
+date: "2026-08-16"
+author: "Viswa Kumar"
+categories: [digest]
+---
+
+<p class="edition-note">Sample edition — placeholder content demonstrating the digest format. Real curation starts once the pipeline is wired up.</p>
+
+<div class="digest-item">
+  <div class="digest-item-header">
+    <a class="digest-item-title" href="https://arxiv.org/abs/2402.15391" target="_blank" rel="noopener">Genie: Generative Interactive Environments</a>
+    <span class="digest-item-source">arXiv · DeepMind</span>
+  </div>
+  <p><span class="digest-label tldr">TLDR</span> A foundation model that turns a single image into an interactive, steerable world — an early step toward general-purpose world models.</p>
+  <p><span class="digest-label why">Why read it</span> The canonical recent reference for world models; a useful contrast to how "world models" are framed in telecom/6G literature.</p>
+  <div class="digest-tags">
+    <span class="digest-tag">world-models</span>
+    <span class="digest-tag">deepmind</span>
+  </div>
+</div>
+
+<div class="digest-item">
+  <div class="digest-item-header">
+    <a class="digest-item-title" href="https://worldlabs.ai/" target="_blank" rel="noopener">World Labs</a>
+    <span class="digest-item-source">World Labs</span>
+  </div>
+  <p><span class="digest-label tldr">TLDR</span> Fei-Fei Li's "spatial intelligence" lab — building generative models that produce rich, interactive 3D worlds.</p>
+  <p><span class="digest-label why">Why read it</span> A signal of where world models are heading commercially — beyond text into spatial and physical simulation.</p>
+  <div class="digest-tags">
+    <span class="digest-tag">world-models</span>
+    <span class="digest-tag">spatial-intelligence</span>
+  </div>
+</div>
+
+<div class="digest-item">
+  <div class="digest-item-header">
+    <a class="digest-item-title" href="https://transformer-circuits.pub/2023/monosemantic-features/index.html" target="_blank" rel="noopener">Towards Monosemanticity: Decomposing Language Models Into Concepts</a>
+    <span class="digest-item-source">Anthropic</span>
+  </div>
+  <p><span class="digest-label tldr">TLDR</span> Uses sparse autoencoders to decompose LLM activations into interpretable, mostly monosemantic features — the paper that kicked off the modern interpretability wave.</p>
+  <p><span class="digest-label why">Why read it</span> Foundational for mechanistic interpretability; the feature-decomposition lens maps well onto asking "what is the network actually doing" in slice management.</p>
+  <div class="digest-tags">
+    <span class="digest-tag">interpretability</span>
+    <span class="digest-tag">llm</span>
+  </div>
+</div>
+
+<div class="digest-item">
+  <div class="digest-item-header">
+    <a class="digest-item-title" href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">llama.cpp</a>
+    <span class="digest-item-source">GitHub</span>
+  </div>
+  <p><span class="digest-label tldr">TLDR</span> A minimal C/C++ runtime for LLM inference on CPUs and consumer hardware — the engine behind most local inference stacks.</p>
+  <p><span class="digest-label why">Why read it</span> The practical foundation for local/edge inference experiments; skim the README and quantization docs to ground edge-inference thinking.</p>
+  <div class="digest-tags">
+    <span class="digest-tag">edge-inference</span>
+    <span class="digest-tag">local-llm</span>
+  </div>
+</div>

@@ -1,23 +1,23 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  description: "A blog built with Quarto"
-  site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
   title: "Decode"
+  description: "Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research — curated for Viswa Kumar."
+  site-url: https://kspviswa.github.io/decode
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: bluesky
-        href: https://bsky.app/
+        href: https://github.com/kspviswa
+      - icon: rss
+        href: index.xml
+
 format:
   html:
     theme:
-      - cosmo
+      - sketchy
       - brand
     css: styles.css
-
-
-
+    toc: false
