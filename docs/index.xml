@@ -29,7 +29,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">The Register</span>
+      <span class="badge text-bg-primary">The Register</span>
       <h3 class="story-headline anchored"><a href="https://www.theregister.com/ai-and-ml/2026/08/17/payments-giant-stripe-is-about-to-drop-over-7-billion-to-become-a-gateway-to-ai-token-sales/5288743" target="_blank" rel="noopener">Stripe acquires AI model gateway OpenRouter for $7 billion</a></h3>
     </div>
 
@@ -52,7 +52,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">Artificial Analysis</span>
+      <span class="badge text-bg-primary">Artificial Analysis</span>
       <h3 class="story-headline anchored"><a href="https://artificialanalysis.ai/models/qwen3-8-27b" target="_blank" rel="noopener">Qwen3.8 27B scores 52 on Artificial Analysis</a></h3>
     </div>
 
@@ -67,7 +67,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">Wiz Research</span>
+      <span class="badge text-bg-primary">Wiz Research</span>
       <h3 class="story-headline anchored"><a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug" target="_blank" rel="noopener">Wiz Red Agent exploits Snowflake vuln missed by GitHub Copilot</a></h3>
     </div>
 
@@ -82,7 +82,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">Roboflow</span>
+      <span class="badge text-bg-primary">Roboflow</span>
       <h3 class="story-headline anchored"><a href="https://blog.roboflow.com/openai-gpt-5-6/" target="_blank" rel="noopener">GPT 5.6 Sol is the best vision model OpenAI ever released</a></h3>
     </div>
 
@@ -97,7 +97,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">NTT DOCOMO</span>
+      <span class="badge text-bg-primary">NTT DOCOMO</span>
       <h3 class="story-headline anchored"><a href="https://www.docomo.ne.jp/english/info/media_center/pr/2026/0810_00.html" target="_blank" rel="noopener">NTT DOCOMO &amp; Samsung validate user-level AI-RAN optimization</a></h3>
     </div>
 
@@ -112,7 +112,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">Cenerva</span>
+      <span class="badge text-bg-primary">Cenerva</span>
       <h3 class="story-headline anchored"><a href="https://cenerva.com/articles/5g-news-round-up-for-the-week-to-17-august-2026/" target="_blank" rel="noopener">5G News Round-Up for the Week to 17 August 2026</a></h3>
     </div>
 
@@ -127,7 +127,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">Help Net Security</span>
+      <span class="badge text-bg-primary">Help Net Security</span>
       <h3 class="story-headline anchored"><a href="https://www.helpnetsecurity.com/2026-08-11/5g-core-network-vulnerabilities-research/" target="_blank" rel="noopener">An AI tool found 84 flaws in 5G network software — 23 still have no fix</a></h3>
     </div>
 
@@ -148,7 +148,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">arXiv</span>
+      <span class="badge text-bg-primary">arXiv</span>
       <h3 class="story-headline anchored"><a href="https://arxiv.org/abs/2608.14490" target="_blank" rel="noopener">Twin: Playing an Unknown Game with a Test-Time Digital Twin</a></h3>
     </div>
 
@@ -172,7 +172,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">arXiv</span>
+      <span class="badge text-bg-primary">arXiv</span>
       <h3 class="story-headline anchored"><a href="https://arxiv.org/abs/2608.14386" target="_blank" rel="noopener">Scaling 5G-TSN Bridges: Operating Regimes, Scheduling, and Time Sync</a></h3>
     </div>
 
@@ -187,7 +187,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">arXiv</span>
+      <span class="badge text-bg-primary">arXiv</span>
       <h3 class="story-headline anchored"><a href="https://arxiv.org/abs/2608.14530" target="_blank" rel="noopener">Marionette: Predicting World States, Rendering Geometry, Painting Appearance</a></h3>
     </div>
 
@@ -202,7 +202,7 @@
 
   <article class="story">
     <div class="story-head">
-      <span class="story-badge">GitHub</span>
+      <span class="badge text-bg-primary">GitHub</span>
       <h3 class="story-headline anchored"><a href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.1.0" target="_blank" rel="noopener">llama.cpp v0.1.0 — the first semantic version</a></h3>
     </div>
 

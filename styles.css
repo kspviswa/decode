@@ -13,25 +13,17 @@
 }
 .story:last-child { border-bottom: none; }
 
-/* --- Headline + source badge -------------------------------- */
+/* --- Headline + source badge (native .badge, theme-styled) --- */
 .story-head {
   display: flex;
   align-items: baseline;
-  gap: 0.55rem;
+  gap: 0.6rem;
   margin: 0 0 0.9rem;
 }
-.story-badge {
+.story-head .badge {
   flex-shrink: 0;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #fff;
-  background: #2563eb;
-  border-radius: 4px;
-  padding: 0.12rem 0.45rem;
-  line-height: 1.3;
   transform: translateY(-0.15rem);
+  margin-right: 0;
 }
 .story-headline {
   margin: 0;

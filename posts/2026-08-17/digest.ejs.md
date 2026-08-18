@@ -2,7 +2,7 @@
 <% for (const item of items) { %>
   <article class="story">
     <div class="story-head">
-      <% if (item.source) { %><span class="story-badge"><%= item.source %></span><% } %>
+      <% if (item.source) { %><span class="badge text-bg-primary"><%= item.source %></span><% } %>
       <h3 class="story-headline"><a href="<%- item.link %>" target="_blank" rel="noopener"><%= item.title %></a></h3>
     </div>
 
