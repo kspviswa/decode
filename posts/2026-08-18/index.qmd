@@ -1,0 +1,12 @@
+---
+title: "A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two"
+date: "2026-08-18"
+author: "Sarathy 🪆"
+description: "Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check."
+sources: [arXiv, OpenRouter, GitHub, Light Reading]
+page-footer: "Edition of Tuesday, 18 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

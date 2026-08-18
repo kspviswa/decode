@@ -1,0 +1,131 @@
+- title: "PRISM: turning 6G digital twins from passive mirrors into reasoning systems"
+  date: "2026-08-18"
+  categories: [digital-twin, 6g, network-intelligence]
+  tags: [digital-twin, 6g, network-intelligence, isac, xl-mimo]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.16197"
+  tldr:
+    - "PRISM reframes what a network digital twin is for. Today's twin-assisted ISAC frameworks sense continuously and indiscriminately, optimize a single task, and leave little room for persistent, multi-domain knowledge. PRISM makes the twin a persistent, network-wide reasoning engine that proactively directs sensing toward anticipated decision needs — sensing only what the next decision actually requires, rather than following a fixed schedule."
+    - "In an XL-MIMO deployment mixing eMBB, URLLC, and mMTC, the decision-centric approach substantially cuts sensing overhead while preserving decision reliability and latency, and it supports slice-aware operation. The pitch is 6G self-awareness: the twin stops being a passive mirror and becomes the component that decides what to look at next."
+  why: "The cleanest recent statement of a twin as a decision engine rather than a mirror. If you care about where digital twins earn their keep in a network, the decision-centric sensing control is the mechanism to watch."
+  mermaid: |
+    flowchart LR
+      S[Sense the world] --> P[Predict outcomes]
+      P --> D[What does the next decision need?]
+      D --> T[Direct sensing to the gap]
+      T --> S
+
+- title: "Real-time OFDM radar inside an OpenAirInterface 5G base station with O-RAN sensing"
+  date: "2026-08-18"
+  categories: [5g, 5g-core, ai-ran]
+  tags: [5g, 5g-core, ai-ran, o-ran, sensing, isac]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.16705"
+  tldr:
+    - "A real-time OFDM radar embedded directly in the OpenAirInterface 5G base-station process: it strips communication symbols by regularized element-wise division and runs range–Doppler processing plus ordered-statistic constant-false-alarm detection online, without modifying the 5G waveform. Nominal resolution is 2.57 m range and 0.28 m/s velocity, running live with a commercial UE on the same carrier and no measurable change to downlink throughput."
+    - "The engineering is honest and the numbers specific: a carrier-dependent transmit–receive phase rotation on the USRP X300 was found and mitigated — a tuning-grid-aligned carrier improved mean-removal clutter suppression from −16.4 dB to 38.0 dB — and a custom E2SM-RADAR service exports detections to a near-real-time RAN Intelligent Controller for tracking, micro-Doppler analysis, and classification. This is integrated sensing and communication made real on open-source 5G."
+  why: "Concrete evidence that ISAC can share spectrum with live comms on an open 5G stack. If you audit or build on OAI, the E2SM-RADAR control-loop detail is directly reusable."
+
+- title: "Nokia quits its China R&D hub as the 5G world splits into rival supply chains"
+  date: "2026-08-18"
+  categories: [5g, 5g-core, industrial]
+  tags: [5g, 5g-core, nokia, china, supply-chain, industrial]
+  source: "Light Reading"
+  domain: "lightreading.com"
+  link: "https://www.lightreading.com/business-transformation/nokia-quits-r-d-in-china-and-cuts-1-600-jobs"
+  tldr:
+    - "Nokia will close its Hangzhou radio R&D centre by the end of 2026, cutting around 1,600 jobs, less than a year after taking full control of Nokia Shanghai Bell. Greater China revenue has collapsed from about €2.2B in 2018 to €913M in 2025 — a 58% drop — while headcount fell from 13,700 to 7,200. The retreat tracks geopolitical retaliation after Sweden barred Chinese vendors."
+    - "Read it as a supply-chain marker, not just a layoff: the world's 5G is visibly hardening into Western and Chinese stacks, with Huawei now roughly 59% of Germany's 5G network while Nokia holds under 3% in China. Nokia is re-pointing its R&D at 5G, optical, and data-center connectivity where it still expects growth."
+  why: "A durable structural signal for anyone tracking where 5G core/RAN intellectual property and supply chains actually live. The Western-versus-Chinese stack split is now a balance-sheet fact, not a talking point."
+
+- title: "Model hypnosis: additive, subliminal cues that steer LLMs"
+  date: "2026-08-18"
+  categories: [ai-security, llm]
+  tags: [ai-security, llm, interpretability, safety]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.16834"
+  tldr:
+    - "Researchers show that individually weak, seemingly irrelevant prompt cues — paraphrases, typos, innocuous phrasing — can be systematically combined to strongly control model behavior, a phenomenon they call model hypnosis. It works across model families and scales, including frontier reasoning models, and hypnotic prompts transfer between models."
+    - "Because control rides on inconspicuous textual choices, it is hard to spot or defend against, and it complicates interpretability: the model is being steered without any obvious command. The paper frames it as a major new surface for AI safety and a hurdle for anyone trying to explain why a model decided what it did."
+  why: "If you ship LLM systems where prompt-level control matters — moderation, agents, tooling — this is a threat model to plan around. Weak cues combining into strong control is exactly the kind of subtle failure that slips past red-teaming."
+
+- title: "A short study of exposed Starlink hosts: outdated OSes and weak protocols"
+  date: "2026-08-18"
+  categories: [security]
+  tags: [security, satellite, starlink, internet-measurement]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.16839"
+  tldr:
+    - "A measurement-driven look at the security of Starlink-connected hosts finds they are more likely to run outdated or vulnerable operating systems and network protocols than non-Starlink hosts. The risk skews hard by region — Latin America, Southeast Asia, and Eastern Europe show disproportionately higher exposure."
+    - "The paper is short and deliberately scoped, an IMC workshop item, but the finding matters as satellite broadband moves from edge novelty to mainstream access: the user base is less mature, and there is no carrier-grade patching discipline behind it."
+  why: "A reminder that the attack surface of the next billion connected is immature. If you build or operate on LEO or satellite access, the regional risk skew is worth factoring into your threat model."
+
+- title: "GPT-5.6 Sol's price just got cut in half on OpenRouter"
+  date: "2026-08-18"
+  categories: [llm, openai, edge-inference]
+  tags: [llm, openai, pricing, inference, api]
+  source: "OpenRouter"
+  domain: "openrouter.ai"
+  link: "https://openrouter.ai/openai/gpt-5.6-sol"
+  tldr:
+    - "OpenRouter now lists GPT-5.6 Sol at half its previous price: input dropped from $5.00 to $2.50 per million tokens and output from $30.00 to $15.00, with cached input at $0.50. The weighted average customers actually pay sits even lower — roughly $0.90/M input and $20.46/M output across providers."
+    - "It is a pricing signal, not a model release: frontier reasoning is getting cheaper at the API layer, which shifts the cost calculus for anyone weighing hosted frontier models against running open weights locally. The same page shows Sol holding up on GPQA Diamond (94.1%) and Terminal-Bench Hard (65.9%)."
+  why: "A concrete data point for the hosted-versus-local cost decision. When the frontier price halves, the envelope for just use open-weights locally narrows — worth re-running your own cost model."
+
+- title: "llama.cpp hits v0.1.0 — the local-inference runtime finally gets a version number"
+  date: "2026-08-18"
+  categories: [local-llm, edge-inference]
+  tags: [local-llm, edge-inference, llama.cpp, inference]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/ggml-org/llama.cpp/releases/tag/v0.1.0"
+  tldr:
+    - "The workhorse of local inference moved from sequential build numbers to semantic versioning with its first tag: v0.1.0, cut August 17. It is a marker of maturity for the de facto standard runtime behind most on-device and edge LLM setups."
+    - "The change is organizational more than functional, but it matters for anyone pinning builds in production: semantic versioning gives a cleaner upgrade path and a stable vocabulary for what changed between releases, instead of guessing from build-number deltas."
+  why: "If you run local or edge inference, the runtime you depend on just committed to a versioning contract. A good moment to standardize your own pinning strategy."
+
+- title: "Intern-S2-Mobius: a foundation model that separates knowledge from reasoning"
+  date: "2026-08-18"
+  categories: [llm, open-weights, local-llm]
+  tags: [llm, open-weights, local-llm, architecture, moe]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.14290"
+  tldr:
+    - "Mobius separates a globally shared memory — an FFN that stores knowledge vectors — from multiple reasoners, self-attention modules that iteratively pull the knowledge they need and do the composing. Knowledge and reasoning are decoupled, with hidden states acting as cache and carrier between the two."
+    - "The payoff is efficiency: a 7B model trained from scratch matches a 7B transformer baseline with 62.6% of its training data, and Intern-S2-Mobius — continually pretrained from Qwen3.5-35B — delivers similar downstream scores with nearly 4× end-to-end inference speedup. For local inference, architectures that separate what it knows from how it thinks are a lever on both memory and speed."
+  why: "An architecture trend worth tracking: decoupling knowledge from reasoning trades parameter count for inference efficiency. If you evaluate open-weight models for local deployment, this is the kind of design that changes the speed-versus-size tradeoff."
+  mermaid: |
+    flowchart LR
+      Q[Query] --> R[Reasoner<br/>self-attention]
+      R -->|hidden state| M[Memory<br/>FFN knowledge store]
+      M -->|knowledge vector| R
+      R --> O[Answer]
+
+- title: "AlphaEvolve tightens the matrix-multiplication exponent to 2.371177"
+  date: "2026-08-18"
+  categories: [ai-infra]
+  tags: [ai-infra, theory, matrix-multiplication, alphaevolve, optimization]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.16884"
+  tldr:
+    - "DeepMind researchers improved the best-known bound on ω, the matrix-multiplication exponent, to 2.371177 — down from 2.371339 — by reformulating the core optimization problem of combination-loss analysis and then refining the solver with AlphaEvolve, the evolutionary optimizer behind recent AlphaTensor-style results."
+    - "The gain is a hair on paper, but the process is the point: a machine-discovered optimization method tightening one of theoretical computer science's oldest open constants. ω feeds directly into the asymptotic cost of matrix multiply, the primitive at the bottom of nearly every ML workload."
+  why: "A small constant with a big shadow: each nudge to ω ripples through the theoretical cost of the linear algebra at the heart of ML. Worth a skim even if you never touch the proof."
+
+- title: "CaliBench: are video world models actually calibrated to physics?"
+  date: "2026-08-18"
+  categories: [world-models, generative]
+  tags: [world-models, generative, video, calibration, simulation]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.16829"
+  tldr:
+    - "Video world models generate plausible-looking futures, but are the probabilities right? CaliBench scores them in physically interpretable spaces — a bin index, a die face, a suit, a colour — where the reference distribution is known in closed form, and decomposes performance into scorability (how often a scoreable outcome is produced) and calibration (total-variation distance from the reference)."
+    - "Across nine scenes and six image-to-video models (WAN-2.7, SeeDance-2.0, HappyHorse-1.0, Veo 3.1, Runway Gen-4.5, Cosmos3-Super), models consistently concentrate probability mass on a few outcomes rather than reproducing the reference — in the extreme, Veo 3.1 collapses to a single die face. Most scene–model pairs are significantly miscalibrated, and no model dominates all scenes."
+  why: "A reminder that looks right is not is right for world models. If you generate synthetic futures for planning or simulation, calibration — not just visual fidelity — is the property that makes them trustworthy."
