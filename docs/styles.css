@@ -78,3 +78,23 @@
   margin-bottom: 0.15rem;
   opacity: 0.75;
 }
+
+/* --- Home page: day cards (native .card listing) ------------- */
+.home-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.day-card { border-width: 2px; border-radius: 0.4rem; }
+.day-card .card-body { padding: 1.2rem 1.4rem; }
+.day-card:hover { box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.12); }
+.day-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+.day-meta .badge { transform: none; }
+.day-title { margin: 0 0 0.5rem; font-size: 1.5rem; line-height: 1.2; font-weight: 700; }
+.day-title a { text-decoration: none; }
+.day-title a:hover { text-decoration: underline; }
+.day-desc { margin: 0 0 0.7rem; font-size: 1rem; line-height: 1.55; opacity: 0.9; }
+.day-read { font-weight: 600; text-decoration: none; }
+.day-read:hover { text-decoration: underline; }

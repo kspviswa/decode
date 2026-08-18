@@ -5,8 +5,7 @@ listing:
   contents: posts
   feed: true
   sort: "date desc"
-  type: default
-  categories: true
+  template: home.ejs.md
   sort-ui: false
   filter-ui: false
 page-layout: full

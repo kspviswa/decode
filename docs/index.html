@@ -85,9 +85,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -188,14 +188,14 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
+    <div class="quarto-title column-page">
       <h1 class="title">Decode</h1>
             <p class="subtitle lead">Making difficult technical material understandable</p>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta column-page">
 
       
     
@@ -206,10 +206,9 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlnZXN0">digest <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
@@ -219,38 +218,25 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ZGlnZXN0" data-listing-date-sort="1786924800000" data-listing-file-modified-sort="1787008657775" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail"><a href="./posts/2026-08-17/index.html" class="no-external">
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-08-17/index.html" class="no-external">Monday, August 17, 2026</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlnZXN0'); return false;">digest</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-08-17/index.html" class="no-external">
-Docomo and Samsung validated AI-RAN optimization that works at the individual-user level instead of applying one configuration per cell. The system learns each subscriber's…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-08-17/index.html" class="no-external">
-<div class="listing-date">
-Aug 17, 2026
-</div>
-<div class="listing-author">
-Sarathy 🪆
-</div>
-</a>
-</div>
-</div>
+<div class="home-list">
+  
+  <article class="card day-card">
+    <div class="card-body">
+      <div class="day-meta">
+        <span class="badge text-bg-light">Monday, August 17, 2026</span>
+        
+          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
+          <span class="badge text-bg-secondary">+4 more</span>
+        
+      </div>
+      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
+      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
+      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+    </div>
+  </article>
+  
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
