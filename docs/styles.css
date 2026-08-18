@@ -2,7 +2,8 @@
    Decode — digest styling (on top of the Quarto "sketchy" theme)
    Newspaper-section layout: each section is a native sketchy
    .card with a colored .card-header (text-bg-*), containing its
-   stories. Headline links are colored to match the section.
+   stories. Headline links are colored to match the section, and
+   each story ends with a native .alert "Why read it" tip callout.
    No images, no metadata clutter.
    ============================================================ */
 
@@ -59,19 +60,21 @@
 }
 .story-body .mermaid svg { max-width: 100%; height: auto; }
 
-/* --- Why read it (subtle note) ------------------------------- */
+/* --- "Why read it" tip callout (native .alert) ------------- */
 .story-why {
-  margin-top: 0.4rem;
-  padding-top: 0.6rem;
+  margin: 0.6rem 0 0;
+  padding: 0.6rem 0.9rem;
   font-size: 0.93rem;
-  opacity: 0.88;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  line-height: 1.5;
+  border-width: 2px;                 /* sketchy hand-drawn border */
+  border-radius: 0.35rem;
 }
 .why-label {
-  font-size: 0.7rem;
+  display: block;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  opacity: 0.6;
-  margin-right: 0.35rem;
+  margin-bottom: 0.15rem;
+  opacity: 0.75;
 }

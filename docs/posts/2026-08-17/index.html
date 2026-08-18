@@ -249,7 +249,9 @@ window.Quarto = {
         <div class="story-body">
           <p>Docomo and Samsung validated AI-RAN optimization that works at the individual-user level instead of applying one configuration per cell. The system learns each subscriber's movement and usage patterns, predicts service degradation before it happens, and adjusts network settings proactively. In simulations based on Docomo's commercial network data and a local 5G field trial in Japan (January 2026), the frequency of communication-speed degradation fell from 13.1% to 7.2% — roughly halved.</p><p>The framing is explicitly 6G: an era where networks autonomously recognize user context and service requirements. The interesting engineering shift is the granularity — the difference between this cell is congested and this user's session is about to degrade implies a per-subscriber state model living in the RAN, with prediction running ahead of the congestion.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> A concrete data point for the predictive-network thesis. Cell-level vs user-level optimization is exactly where the network-intelligence story stops being a slide and starts being a system.</p>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete data point for the predictive-network thesis. Cell-level vs user-level optimization is exactly where the network-intelligence story stops being a slide and starts being a system.
         </div>
       </article>
       
@@ -261,7 +263,9 @@ window.Quarto = {
         <div class="story-body">
           <p>The week in 5G, condensed: T-Mobile completed the sale of its nationwide 800 MHz portfolio to Grain Management — $2.9B in cash plus all of Grain's 600 MHz licences — with the low-band holdings now being marketed to utilities, critical-infrastructure operators, and regional players. Sweden's PTS opened a consultation on using 3.8 GHz for local 5G (five-year site-specific permits), and India's regulator proposed safeguards for 5G slicing sold to consumers: an early signal of how policymakers will treat slicing as it moves from lab into commercial tariffs.</p><p>Also in the round-up: Ooredoo Kuwait deployed a Network Data Analytics Function in its 5G core for faster, more proactive decisions; Vodafone Portugal ran a dedicated 5G standalone slice for SIBS card transactions at the Paredes de Coura festival, where ring-fenced capacity kept tills running through peak crowds; Turkiye hit 44.5M 5G subscribers four months after launch; and Rakuten Mobile confirmed it will scale back roaming on KDDI's network from October as its own coverage fills in.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> The fastest way to catch up on the week's spectrum, private-5G, and slicing moves. The India slicing-safeguards item deserves a second read — it is the first concrete regulatory posture on consumer slicing we have seen.</p>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> The fastest way to catch up on the week's spectrum, private-5G, and slicing moves. The India slicing-safeguards item deserves a second read — it is the first concrete regulatory posture on consumer slicing we have seen.
         </div>
       </article>
       
@@ -279,7 +283,9 @@ window.Quarto = {
   C --&gt; D["Verified findings&lt;br/&gt;84 flaws · 81 CVEs"]
 </pre>
           
-          <p class="story-why"><span class="why-label">Why read it</span> Rare case of AI-driven security research producing real CVEs in production packet-core stacks. If you run or audit a 5GC, the list of unpatched findings — and the question of whether commercial cores inherited the same gaps from open-source ancestry — is the story.</p>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> Rare case of AI-driven security research producing real CVEs in production packet-core stacks. If you run or audit a 5GC, the list of unpatched findings — and the question of whether commercial cores inherited the same gaps from open-source ancestry — is the story.
         </div>
       </article>
       
@@ -291,7 +297,9 @@ window.Quarto = {
         <div class="story-body">
           <p>3GPP Release 16 lets a 5G system act as a transparent IEEE 802.1 TSN bridge, but how many TSN endpoints can one NR cell actually bridge before per-flow QoS degrades? This paper simulates closed-loop control, machine vision, bulk telemetry, and 802.1AS traffic over a four-bearer SDAP architecture, sweeping endpoints from 1 to 40, and identifies three operating regimes. Below saturation, schedulers perform similarly; near saturation, QoS-aware proportional fair scheduling cuts critical-flow P99 latency by up to two orders of magnitude; under overload, only QoS-PF keeps near-complete delivery for the highest-priority traffic.</p><p>Two more results that will matter in real deployments: isolating 802.1AS/gPTM traffic on a dedicated high-priority radio bearer stabilizes clock-servo behaviour, though lower-priority endpoints still see elevated synchronisation delay under saturation. And the evaluated sub-6 GHz, 30 kHz SCS configuration has an effective latency floor of about 2.25 ms — meaning sub-3 ms TSN deadlines likely need radio-configuration changes such as configured grants or a higher numerology.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> Practical sizing numbers for 5G+TSN industrial deployments — the kind of per-cell capacity ceiling that decides whether a use case is feasible before you buy any hardware.</p>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> Practical sizing numbers for 5G+TSN industrial deployments — the kind of per-cell capacity ceiling that decides whether a use case is feasible before you buy any hardware.
         </div>
       </article>
       
@@ -312,7 +320,9 @@ window.Quarto = {
         <div class="story-body">
           <p>Wiz's autonomous AI security agent (Red Agent) found a critical script-injection hole in Snowflake's public GitHub repo: any GitHub user could execute arbitrary commands on a GitHub Actions runner by opening an issue with a specially crafted title. The vulnerability went live just five days before discovery — introduced by a PR co-authored by Copilot Autofix powered by AI, which replaced the repo's sanitized input pattern with direct template interpolation, and GitHub's AI-assisted security review marked the change all-clear.</p><p>The exploitation read like a horror story for AI-assisted development: Red Agent's proof-of-concept exfiltrated a live Jira credential, and when its first payload hit a bash syntax error, the agent autonomously analyzed the error, rewrote the payload to close the shell block correctly, and succeeded. Snowflake patched the same day after June disclosure and confirmed via audit logs that Wiz was the sole actor. Today's blog update clarifies the awkward detail: Copilot was the co-author that checked the merged PR and signed off on it.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> The cleanest public case study yet of the AI-on-AI security loop: one AI introduces the bug, another AI finds and exploits it, and the human review gates in between both passed. Required reading for anyone shipping AI-assisted code review.</p>
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> The cleanest public case study yet of the AI-on-AI security loop: one AI introduces the bug, another AI finds and exploits it, and the human review gates in between both passed. Required reading for anyone shipping AI-assisted code review.
         </div>
       </article>
       
@@ -341,7 +351,9 @@ window.Quarto = {
   OR --&gt; SP[Stripe billing&lt;br/&gt;ledger + routing]
 </pre>
           
-          <p class="story-why"><span class="why-label">Why read it</span> A marker for where AI infrastructure money is consolidating. If you build on multi-model APIs, the routing layer's owner is now also the billing layer's owner — worth factoring into where you send traffic and what data flows through it.</p>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A marker for where AI infrastructure money is consolidating. If you build on multi-model APIs, the routing layer's owner is now also the billing layer's owner — worth factoring into where you send traffic and what data flows through it.
         </div>
       </article>
       
@@ -353,7 +365,9 @@ window.Quarto = {
         <div class="story-body">
           <p>The open-weights Qwen 3.8 27B just posted a 52 on the Artificial Analysis Intelligence Index — well above the median for comparable models and, by the community's own benchmarks, neck and neck with DeepSeek V4 and GPT-5.6 Luna Max. It takes text and image input, carries a 256k-token context window, and costs nothing in licensing since the weights are open.</p><p>The local-inference community has already put it through its paces: tuned llama.cpp configs are running it at 73k context on 16GB VRAM for agentic coding, with long-form reviews describing Sonnet-level performance plus a tendency to overthink that occasionally pushes toward frontier results. For a 27B-class open model, that is a large jump over the previous generation.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> The open-weights leaderboard sets the price/performance curve for local and edge inference. If you benchmark or deploy local models, this is the one to pull this week.</p>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> The open-weights leaderboard sets the price/performance curve for local and edge inference. If you benchmark or deploy local models, this is the one to pull this week.
         </div>
       </article>
       
@@ -365,7 +379,9 @@ window.Quarto = {
         <div class="story-body">
           <p>OpenAI's GPT-5.6 lineup (Sol, Terra, Luna) launched with a heavy focus on computer use — UI agents, desktop control, 3D visualization — and Roboflow's VLM benchmark shows Sol is the strongest vision model OpenAI has shipped. The jump is sharpest in object detection: mAP@50 went from 13.8 (GPT-5.5) to 46.2 (Sol), and counting rose from 64.9% to 73.0%. Document layout detection — titles, tables, signatures — is a standout strength.</p><p>Two practical caveats from the post that will save you real points: Sol degrades on images around 2000×2000 px or larger, especially at low reasoning effort (OpenAI confirmed this), so resize or crop before the API call. And coordinate format matters — absolute XYXY in image pixels is the winning prompt for GPT-5.6; using the wrong convention cost roughly 15 mAP points in their runs.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> If you build on VLMs for detection, OCR, or data extraction, the resolution and coordinate-format details are the difference between a demo and a production pipeline.</p>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> If you build on VLMs for detection, OCR, or data extraction, the resolution and coordinate-format details are the difference between a demo and a production pipeline.
         </div>
       </article>
       
@@ -377,7 +393,9 @@ window.Quarto = {
         <div class="story-body">
           <p>llama.cpp has dropped its sequential build numbers (b10456 and friends) and adopted semantic versioning — v0.1.0 is the first semver tag, cut this week. A small ceremony, but it signals the project has settled into a stable release cadence after years of build-number churn.</p><p>For anyone running local inference stacks, this is the version to start pinning against. The GGML quantization formats are the substrate of the entire local/edge inference ecosystem — the same formats that make 27B-class models like this week's Qwen 3.8 run on 16GB VRAM and consumer hardware.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> A one-minute item, but the versioning change is worth knowing before you pin dependencies in any local inference pipeline.</p>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A one-minute item, but the versioning change is worth knowing before you pin dependencies in any local inference pipeline.
         </div>
       </article>
       
@@ -407,7 +425,9 @@ window.Quarto = {
   A --&gt; O
 </pre>
           
-          <p class="story-why"><span class="why-label">Why read it</span> The cleanest current statement of a digital twin as an inference substrate: build the twin, replay against it, repair on mismatch, act only when the twin is faithful. The pattern transfers almost literally to network state estimation.</p>
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> The cleanest current statement of a digital twin as an inference substrate: build the twin, replay against it, repair on mismatch, act only when the twin is faithful. The pattern transfers almost literally to network state estimation.
         </div>
       </article>
       
@@ -419,7 +439,9 @@ window.Quarto = {
         <div class="story-body">
           <p>Interactive game world models typically generate pixels autoregressively, forcing structured properties — pose, geometry, occlusion — to be maintained implicitly by the generative sequence, which drifts over long horizons. Marionette inverts this: a two-stage autoregressive dynamics model predicts an explicit, interpretable 276-dimensional 3D world state (multi-entity articulated skeletons, metric root trajectories, rotations); a zero-parameter graphics bridge converts that state into pose-control video by computing geometry and occlusion in closed form; and a control-conditioned video-diffusion model synthesizes photorealistic RGB from the structured controls.</p><p>The key property is that the state is directly controllable and repairable. Left free, two generated characters drift 21.2 m apart with a third of frames showing ground penetration; imposing two simple rules on the explicit state — a terrain collider and a separation cap — cuts penetration by 66% with no change to the observation model. Routing appearance through the predicted state costs no detectable fidelity: FVD of 831 versus 799 for recorded pose.</p>
           
-          <p class="story-why"><span class="why-label">Why read it</span> A strong argument for explicit state in world models — the predict-state, render-appearance split that digital-twin work has argued for years, now demonstrated at game scale with numbers.</p>
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A strong argument for explicit state in world models — the predict-state, render-appearance split that digital-twin work has argued for years, now demonstrated at game scale with numbers.
         </div>
       </article>
       

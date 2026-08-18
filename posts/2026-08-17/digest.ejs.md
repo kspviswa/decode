@@ -33,7 +33,9 @@ for (const it of items) { (grouped[bucket(it)] = grouped[bucket(it)] || []).push
           <% if (item.mermaid) { %>
           <pre class="mermaid"><%- item.mermaid %></pre>
           <% } %>
-          <p class="story-why"><span class="why-label">Why read it</span> <%= item.why %></p>
+        </div>
+        <div class="alert alert-<%- s.color %> story-why" role="alert">
+          <span class="why-label">Why read it</span> <%= item.why %>
         </div>
       </article>
       <% } %>
