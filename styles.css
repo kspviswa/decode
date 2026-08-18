@@ -98,3 +98,17 @@
 .day-desc { margin: 0 0 0.7rem; font-size: 1rem; line-height: 1.55; opacity: 0.9; }
 .day-read { font-weight: 600; text-decoration: none; }
 .day-read:hover { text-decoration: underline; }
+
+/* --- Story key-concept highlights (native .badge) ----------- */
+.story-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.6rem;
+}
+.story-highlights .badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  transform: none;
+}

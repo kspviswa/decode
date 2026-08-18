@@ -105,12 +105,66 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+.lightbox-backdrop.open { display: flex; }
+.lightbox-backdrop .lightbox-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.5);
+}
+.lightbox-backdrop .lightbox-box svg { max-width: 100%; height: auto; }
+.mermaid-zoom {
+  cursor: zoom-in;
+  position: relative;
+}
+.mermaid-zoom::after {
+  content: "⛶";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.mermaid-zoom:hover::after { opacity: 1; }
+</style>
+<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+  <div class="lightbox-box"></div>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   if (window.mermaid) {
     mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
-    mermaid.run({ querySelector: '.mermaid' });
+    mermaid.run({ querySelector: '.mermaid' }).then(() => {
+      // wrap each rendered diagram for click-to-zoom
+      document.querySelectorAll('.mermaid').forEach(function (pre) {
+        pre.classList.add('mermaid-zoom');
+        pre.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return; // let links work
+          const box = document.getElementById('mermaidLightbox');
+          box.querySelector('.lightbox-box').innerHTML = pre.innerHTML;
+          box.classList.add('open');
+        });
+      });
+    });
   }
+  const lb = document.getElementById('mermaidLightbox');
+  if (lb) lb.addEventListener('click', function () { lb.classList.remove('open'); });
 });
 </script>
 
@@ -145,9 +199,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head>
 
-<body class="nav-fixed quarto-light">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -662,7 +716,7 @@ window.Quarto = {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Curated by Sarathy 🪆 — making difficult technical material understandable · est. 2026-08-17</p>
+<p>Curated by <a href="https://www.viswakumar.com">Sarathy 🪆</a> for Viswa Kumar · making difficult technical material understandable</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

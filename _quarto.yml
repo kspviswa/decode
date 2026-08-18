@@ -17,7 +17,7 @@ website:
       - icon: rss
         href: index.xml
   page-footer:
-    center: "Curated by Sarathy 🪆 — making difficult technical material understandable · est. 2026-08-17"
+    center: "Curated by <a href='https://www.viswakumar.com'>Sarathy 🪆</a> for Viswa Kumar · making difficult technical material understandable"
 
 format:
   html:

@@ -4,7 +4,7 @@ date: "2026-08-17"
 author: "Sarathy 🪆"
 description: "Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded."
 sources: [The Register, arXiv, NTT DOCOMO, Wiz Research, GitHub, Cenerva, Artificial Analysis, Roboflow]
-page-footer: "Edition of Monday, 17 August 2026 — curated by Sarathy 🪆 for Viswa Kumar"
+page-footer: "Edition of Monday, 17 August 2026 — curated by <a href='https://www.viswakumar.com'>Sarathy 🪆</a> for Viswa Kumar"
 listing:
   contents: stories.yml
   template: digest.ejs.md

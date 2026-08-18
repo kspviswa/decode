@@ -28,6 +28,11 @@ for (const it of items) { (grouped[bucket(it)] = grouped[bucket(it)] || []).push
           <% if (item.source) { %><span class="badge text-bg-primary"><%= item.source %></span><% } %>
           <h3 class="story-headline"><a class="link-<%- s.color %>" href="<%- item.link %>" target="_blank" rel="noopener"><%= item.title %></a></h3>
         </div>
+        <% if (item.highlights && item.highlights.length) { %>
+        <div class="story-highlights">
+          <% for (const h of item.highlights) { %><span class="badge text-bg-light"><%= h %></span><% } %>
+        </div>
+        <% } %>
         <div class="story-body">
           <% for (const p of (item.tldr||[])) { %><p><%= p %></p><% } %>
           <% if (item.mermaid) { %>
