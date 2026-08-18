@@ -1,55 +1,56 @@
 /* ============================================================
    Decode — digest styling (on top of the Quarto "sketchy" theme)
-   Each story is a native sketchy .card (hand-drawn 2px border):
-   source badge + colored headline link, TLDR body, mermaid,
-   subtle "why read it" note. No images, no clutter.
+   Newspaper-section layout: each section is a native sketchy
+   .card with a colored .card-header (text-bg-*), containing its
+   stories. Headline links are colored to match the section.
+   No images, no metadata clutter.
    ============================================================ */
 
-/* --- Story card (native .card from sketchy theme) ------------ */
-.story-card {
-  margin-bottom: 1.4rem;
-  border-width: 2px;               /* sketchy hand-drawn look */
-  border-radius: 0.35rem;
-  box-shadow: 0 0.125rem 0.4rem rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+/* --- Section card (native .card + colored header) ----------- */
+.sec-card { margin-bottom: 2rem; }
+.sec-card .card { border-width: 2px; border-radius: 0.4rem; }
+.sec-card .card-header {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.6rem 1.1rem;
+  border-bottom: 2px solid inherit;
 }
-.story-card:hover {
-  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
-}
+.sec-card .card-body { padding: 1.1rem 1.3rem; }
 
-/* --- Headline + source badge (native .badge) ----------------- */
+/* --- Story -------------------------------------------------- */
+.story {
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.2rem;
+}
+.story:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.story + .story { border-top: 1px dashed rgba(0,0,0,0.12); padding-top: 1.2rem; }
+
+/* --- Headline + source badge (native) ----------------------- */
 .story-head {
   display: flex;
   align-items: baseline;
   gap: 0.6rem;
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.6rem;
 }
 .story-head .badge {
   flex-shrink: 0;
   transform: translateY(-0.15rem);
   margin-right: 0;
 }
-.story-headline {
-  margin: 0;
-  font-size: 1.3rem;
-  line-height: 1.25;
-  font-weight: 700;
-}
-.story-headline a {
-  text-decoration: none;           /* color set by .link-* class */
-}
+.story-headline { margin: 0; font-size: 1.22rem; line-height: 1.25; font-weight: 700; }
+.story-headline a { text-decoration: none; }
 .story-headline a:hover { text-decoration: underline; }
 
 /* --- Story body --------------------------------------------- */
-.story-body { line-height: 1.7; }
-.story-body p { margin: 0 0 0.9rem; }
+.story-body { line-height: 1.65; }
+.story-body p { margin: 0 0 0.8rem; }
 
 /* --- Mermaid ------------------------------------------------ */
 .story-body .mermaid {
-  margin: 0.9rem 0;
+  margin: 0.8rem 0;
   padding: 0.8rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0,0,0,0.12);
   border-radius: 8px;
   background: #fff;
   overflow-x: auto;
@@ -62,9 +63,9 @@
 .story-why {
   margin-top: 0.4rem;
   padding-top: 0.6rem;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   opacity: 0.88;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 .why-label {
   font-size: 0.7rem;

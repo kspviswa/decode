@@ -1,34 +1,44 @@
 ```{=html}
 <%
-// Map a story's primary category to a sketchy-theme link color.
-const linkColor = (cats) => {
-  const c = (cats || [])[0] || '';
-  if (['ai-security','security'].includes(c)) return 'link-danger';
-  if (['5g','6g','5g-core','spectrum','slicing','tsn','ai-ran','network-intelligence','industrial'].includes(c)) return 'link-info';
-  if (['digital-twin','world-models','simulation','generative'].includes(c)) return 'link-success';
-  if (['m-and-a'].includes(c)) return 'link-warning';
-  if (['ci-cd'].includes(c)) return 'link-secondary';
-  return 'link-primary'; // ai-infra, llm, local-llm, open-weights, vision, vlm, openai, agents, edge-inference
+// Newspaper sections — each is a native sketchy .card with a colored
+// .text-bg-* header. Stories bucket into sections by primary category.
+const sections = [
+  { key: 'networks',  name: 'Networks · 5G & 6G',      color: 'info',     cats: ['5g','6g','5g-core','spectrum','slicing','tsn','ai-ran','network-intelligence','industrial'] },
+  { key: 'security',  name: 'Security',                color: 'danger',   cats: ['ai-security','security'] },
+  { key: 'ai',        name: 'AI & Models',             color: 'success',  cats: ['ai-infra','llm','open-weights','local-llm','benchmarks','vision','vlm','openai','ai-agents','llm-agents','edge-inference','ci-cd'] },
+  { key: 'business',  name: 'Business & Funding',      color: 'warning',  cats: ['m-and-a'] },
+  { key: 'research',  name: 'Research & World Models', color: 'secondary',cats: ['digital-twin','world-models','generative','simulation','agents'] },
+];
+const bucket = (item) => {
+  const c = item.categories || [];
+  for (const s of sections) if (c.some(x => s.cats.includes(x))) return s.key;
+  return 'research';
 };
+const grouped = {};
+for (const it of items) { (grouped[bucket(it)] = grouped[bucket(it)] || []).push(it); }
 %>
-<% for (const item of items) { %>
-  <article class="card story-card">
+<% for (const s of sections) { const list = grouped[s.key] || []; if (!list.length) continue; %>
+<section class="sec-card">
+  <div class="card sec-<%- s.key %>">
+    <div class="card-header text-bg-<%- s.color %>"><%= s.name %></div>
     <div class="card-body">
-      <div class="story-head">
-        <% if (item.source) { %><span class="badge text-bg-primary"><%= item.source %></span><% } %>
-        <h3 class="story-headline"><a class="<%- linkColor(item.categories) %>" href="<%- item.link %>" target="_blank" rel="noopener"><%= item.title %></a></h3>
-      </div>
-
-      <div class="story-body">
-        <% for (const p of (item.tldr||[])) { %><p><%= p %></p><% } %>
-
-        <% if (item.mermaid) { %>
-        <pre class="mermaid"><%- item.mermaid %></pre>
-        <% } %>
-
-        <p class="story-why"><span class="why-label">Why read it</span> <%= item.why %></p>
-      </div>
+      <% for (const item of list) { %>
+      <article class="story">
+        <div class="story-head">
+          <% if (item.source) { %><span class="badge text-bg-primary"><%= item.source %></span><% } %>
+          <h3 class="story-headline"><a class="link-<%- s.color %>" href="<%- item.link %>" target="_blank" rel="noopener"><%= item.title %></a></h3>
+        </div>
+        <div class="story-body">
+          <% for (const p of (item.tldr||[])) { %><p><%= p %></p><% } %>
+          <% if (item.mermaid) { %>
+          <pre class="mermaid"><%- item.mermaid %></pre>
+          <% } %>
+          <p class="story-why"><span class="why-label">Why read it</span> <%= item.why %></p>
+        </div>
+      </article>
+      <% } %>
     </div>
-  </article>
+  </div>
+</section>
 <% } %>
 ```
