@@ -14,8 +14,8 @@ Script JSON schema:
 }
 
 Voices:
-  aria -> en-US-AriaNeural (female)
-  guy  -> en-US-GuyNeural  (male)
+  aria -> en-IN-NeerjaNeural  (female, English-India)
+  guy  -> en-IN-PrabhatNeural (male, English-India)
 
 Usage:
   .venv-tts/bin/python scripts/make_podcast.py [--script work/podcast_script.json] [--out podcast.mp3]
@@ -23,8 +23,8 @@ Usage:
 import argparse, asyncio, json, os, subprocess, sys, tempfile, time
 
 VOICES = {
-    "aria": "en-US-AriaNeural",
-    "guy": "en-US-GuyNeural",
+    "aria": "en-IN-NeerjaNeural",
+    "guy": "en-IN-PrabhatNeural",
 }
 DEFAULT_GAP = 0.5  # seconds between turns
 
