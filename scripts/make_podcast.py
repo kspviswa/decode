@@ -9,13 +9,13 @@ Script JSON schema:
 {
   "title": "Optional title",
   "lines": [
-    {"speaker": "aria"|"guy", "text": "...", "gap_after": 0.5}
+    {"speaker": "neerja"|"prabhat", "text": "...", "gap_after": 0.5}
   ]
 }
 
-Voices:
-  aria -> en-IN-NeerjaNeural  (female, English-India)
-  guy  -> en-IN-PrabhatNeural (male, English-India)
+Hosts & voices:
+  neerja  -> en-IN-NeerjaNeural  (female, English-India)
+  prabhat -> en-IN-PrabhatNeural (male, English-India)
 
 Usage:
   .venv-tts/bin/python scripts/make_podcast.py [--script work/podcast_script.json] [--out podcast.mp3]
@@ -23,8 +23,8 @@ Usage:
 import argparse, asyncio, json, os, subprocess, sys, tempfile, time
 
 VOICES = {
-    "aria": "en-IN-NeerjaNeural",
-    "guy": "en-IN-PrabhatNeural",
+    "neerja": "en-IN-NeerjaNeural",
+    "prabhat": "en-IN-PrabhatNeural",
 }
 DEFAULT_GAP = 0.5  # seconds between turns
 
@@ -63,8 +63,8 @@ def main():
 
         # Synthesize each turn, interleave with silences.
         for i, line in enumerate(lines):
-            speaker = line.get("speaker", "aria").lower()
-            voice = VOICES.get(speaker, VOICES["aria"])
+            speaker = line.get("speaker", "neerja").lower()
+            voice = VOICES.get(speaker, VOICES["neerja"])
             seg = os.path.join(tmp, f"seg_{i:03d}.mp3")
             synth_line(voice, line["text"], seg)
             parts.append(seg)
