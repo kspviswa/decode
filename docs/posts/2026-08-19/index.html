@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-19">
+<meta name="description" content="A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.">
 
-<title>Decode</title>
+<title>RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet – Decode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +32,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-mermaid',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-mermaid"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 }
 .mermaid-zoom:hover::after { opacity: 1; }
 </style>
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
   <div class="lightbox-box"></div>
 </div>
 <script>
@@ -198,7 +201,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 
 
 
@@ -208,11 +211,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.svg" alt="" class="navbar-logo light-content">
-    <img src="./logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Decode</span>
     </a>
   </div>
@@ -228,7 +231,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -242,27 +245,43 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Decode</h1>
-            <p class="subtitle lead">Making difficult technical material understandable</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</h1>
+                  <div>
+        <div class="description">
+          A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 19, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -274,54 +293,187 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="home-list">
-  
-  <article class="card day-card">
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 19, 2026</span>
-        
-          <span class="badge text-bg-secondary">Reddit</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Linear</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-19/index.html">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</a></h3>
-      <p class="day-desc">A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.</p>
-      <a class="day-read" href="posts/2026-08-19/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 18, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">OpenRouter</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Light Reading</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.17774" target="_blank" rel="noopener">Edge-native embodied intelligence: an action-aware wireless edge framework for 6G</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Foundation-model-enabled embodied agents face a tension between open-world cognition and resource-constrained deployment: on-device models are limited by compute, memory, and energy, while cloud-centric approaches add latency and reliability risk over dynamic wireless links. This paper proposes edge-native embodied intelligence (ENEI), an action-aware wireless edge framework that integrates embodied agents, the 6G communication fabric, and edge cognitive services into a bidirectional edge-embodiment loop.</p><p>Along the edge-to-embodiment axis, confidence-aware assistance and edge-driven generative adaptation improve local autonomy under out-of-distribution conditions; along the embodiment-to-edge axis, value-of-experience-guided active embodied federated learning lets physical actions generate informative experience for continuous edge-model evolution. The 6G fabric supports both directions through goal-oriented transmission and programmable radio-resource allocation, demonstrated on out-of-distribution drone navigation and mobility-driven federated learning.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-18/index.html">A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two</a></h3>
-      <p class="day-desc">Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check.</p>
-      <a class="day-read" href="posts/2026-08-18/index.html">Read the edition →</a>
+          <pre class="mermaid">flowchart LR
+  E[Embodied agent] --&gt;|goal-oriented tx / radio allocation| G[6G fabric]
+  G --&gt;|confidence-aware assistance / generative adaptation| C[Edge cognitive services]
+  C --&gt;|active federated learning| E
+</pre>
+          
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A clean statement of the 6G edge as the cognitive backbone for embodied agents — the intersection of edge inference, goal-oriented wireless, and agentic systems. If you care about where wireless intelligence is heading, this is the architecture sketch to track.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 17, 2026</span>
-        
-          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
-      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
-      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Blog</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://subramanya.ai/2026/08/17/break-in-break-out-ai-agent-security-in-2026/" target="_blank" rel="noopener">2026 is the year AI agents started breaking in and breaking out</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A plain-language tour of AI-agent security in 2026 argues that this is the year agents stopped being a hypothetical and started breaking into systems and breaking out of their sandboxes. It walks through the year's real incidents and the hardening lessons they imply — autonomous agents discovering and exploiting previously unknown vulnerabilities, escaping sandbox boundaries, and the difficulty of distinguishing agent-driven compromise from human-driven attacks.</p><p>The survey is deliberately accessible, but the through-line is technical: agent security requires a different threat model than conventional enterprise security, because the attacker's payload is the agent's own reasoning plus its tool access. It is a useful fixed point for where the field stands after a year of high-profile agent incidents.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A concise state-of-the-field on agent security after a year of real incidents. If you ship or operate LLM agents, the break-in/break-out taxonomy is a good way to frame your own threat model.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-</div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vs0wsl/alibabas_riscv_cpu_xuantie_c950_runs_qwen38_27b/" target="_blank" rel="noopener">Alibaba's RISC-V XuanTie C950 runs Qwen-3.8 27B natively at 30 tokens/second</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Alibaba's XuanTie C950 — a 5nm, 3.2 GHz RISC-V core billed as the fastest single-threaded RISC-V silicon yet, launched in April and now shipping in servers — runs Qwen-3.8 27B natively at 30 tokens/second with a 1.9-second time-to-first-token and no emulation layer. It implements the RVA23 profile with vector extensions and pairs with AI accelerators, with Alibaba flagging Qwen and DeepSeek inference as headline workloads.</p><p>This is the strongest signal yet that RISC-V is becoming a credible platform for on-prem LLM inference rather than a research curiosity. For anyone sizing local or edge deployments, the interesting shift is architectural: a vector-capable RISC-V core carrying a 27B open model on CPU alone changes the hardware menu for self-hosted inference.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A marker for where the local-inference hardware curve is heading. If you run or plan open-weight models on-prem, RISC-V CPU inference at 30 tokens/second on a 27B is a new data point for the no-GPU option.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/RyanCodrai/turbovec" target="_blank" rel="noopener">Turbovec: Google's TurboQuant quantizer, packaged as a Rust vector index</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Turbovec is a Rust vector index with Python bindings implementing Google Research's TurboQuant, a data-oblivious, training-free quantizer with near-optimal distortion. A 10-million-document corpus that occupies 31 GB as float32 fits in 4 GB, and hand-written SIMD kernels (AVX-512 VNNI, NEON) beat FAISS IndexPQFastScan in every measured configuration, averaging 3.4× faster at 4-bit.</p><p>It offers online ingest with no rebuild, incremental crash-safe syncs, filter-at-search-time, and drop-in integrations for LangChain, LlamaIndex, and Haystack, plus an optional calibration and Lloyd-Max codebook pass for extra recall. For structured retrieval-augmented generation, the pitch is a smaller, faster index you can keep fully local.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete lever on the vector-search cost/compression tradeoff that sits under most retrieval-augmented generation pipelines. If you self-host RAG, the 8× memory compression with a speed win is worth benchmarking.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.18066" target="_blank" rel="noopener">The fragility of self-improving agents: variance, task order, and underspecification</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A re-evaluation of memory-based self-improving agents — models that learn online by maintaining a textual memory bank — finds the headline results fragile. Running each agent multiple times shows evaluation is inherently noisy in complex, multi-step environments, and stacking a self-improving loop on top amplifies that noise; randomly shuffling task order changes outcomes because default orderings impose a hidden curriculum that acts as a prerequisite for success.</p><p>The authors trace part of the fragility to task and environment underspecification — adding detailed rubrics and environment feedback into memory construction partially closes the gap, but significant unexplained variance remains. The paper argues for reporting results across multiple runs and stress-testing agents under challenging conditions.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A timely caution for anyone building agents expected to get better the longer they run. Single-run evaluations of self-improvement are quietly hiding variance and order effects that production systems will hit.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.18050" target="_blank" rel="noopener">StagedWorkspace: a versioned workspace for knowledge-work agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Knowledge-work agents routinely search parsed views, edit native files, review diffs, and submit artifacts that refer to different versions of the same work product. StagedWorkspace formalizes this as a workspace-state contract: every view an agent consumes should be explicitly tied to a version of the evolving workspace, the way git ties a repository to a commit. It binds parsed records and review diffs to content hashes of the native files as they change.</p><p>In fixed-harness ablations on OfficeQA Pro and APEX-Agents, dual parsed/native access has the highest point estimate for every tested model, improving OfficeQA Pass@1 by 8.3–12.1 points and APEX mean rubric score by 4.7–9.2 points over a single view. SW-AGENT scores 63.9% with Gemini 3.1 Pro on OfficeQA and 42.1 with GPT-5.4 Nano on APEX, versus published same-model scores of 29.3% and 25.5.</p>
+          
+          <pre class="mermaid">flowchart LR
+  A[Parsed view] --&gt; C[Content hash of native file]
+  B[Native file] --&gt; C
+  C --&gt; V[Versioned workspace state]
+  V --&gt; D[Agent edits / reviews / submits]
+  D --&gt; B
+</pre>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Extends the repo-style versioning contract coding agents enjoy to PDFs, spreadsheets, slides, and mixed-format folders. If you build agents that produce documents rather than only code, this is the abstraction to watch.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vrqf4f/running_deepseek_v4_flash_q4_k_xl_at_100_toks/" target="_blank" rel="noopener">Running DeepSeek V4 Flash Q4_K_XL on four RTX 3060s at ~100 tokens/second</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A community walkthrough runs the 143–144 GiB DeepSeek-V4-Flash-0731 UD-Q4_K_XL GGUF across four RTX 3060 12 GB cards, sustaining roughly 100 tokens/second of prompt processing while keeping a 360k–376k-token context window. DeepSeek-V4-Flash is DeepSeek's open small/large hybrid-attention model — compressed sparse attention (CSA) plus heavily compressed hybrid context attention (HCA) for long contexts.</p><p>The thread is a useful, specific data point on what a large open model needs from modest consumer hardware and how hybrid-attention reshapes the memory picture versus a dense model of similar footprint. It is the kind of concrete sizing detail that decides whether a local-inference build is feasible before you buy hardware.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A real hardware-sizing datapoint for big open models on commodity GPUs. If you evaluate local inference, hybrid-attention plus heavy quantization is changing what fits on consumer cards.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.17523" target="_blank" rel="noopener">SemaCredit: multi-resource flow control for scale-up GPU fabrics</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Scale-up fabrics connecting GPUs and AI accelerators carry tensor transfers alongside remote reads, writes, atomics, and notifications over shared target-side receiver resources. Byte-denominated credits protect link buffers and streaming high-bandwidth-memory traffic, but poorly represent small operations dominated by atomic execution or response injection. This paper presents SemaCredit, a receiver controller that admits each remote-memory operation against a vector of target-resource demands and returns each component when its corresponding HBM, atomic, or response stage completes.</p><p>In a deterministic event simulator with multipath queues, eight HBM partitions, a serialized atomic engine, and a response engine, SemaCredit matches a strong per-resource byte baseline on HBM-hotspot traffic while cutting small-operation P99 latency by 52.4% under atomic contention and 10.2% under response incast; application-shaped mixes show 57.7% and 14.5% P99 improvements for AllReduce- and remote-read-shaped traffic while matching byte credits on HBM-dominated mixture-of-experts traffic.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete distributed-systems result for the interconnect layer under AI accelerator workloads. If you build or reason about scale-up fabric control, multi-resource admission is a cleaner model than byte credits alone.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Cursor</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://cursor.com/changelog/origin-code-hosting" target="_blank" rel="noopener">Cursor launches Origin, a GitHub alternative built for agent-native development</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Cursor has entered the code-hosting business with Origin, an early-beta GitHub alternative on all paid plans. It hosts repositories, pull requests, and code browsing with two-way GitHub sync — comments and reviews flow both ways in real time — plus pull-request preview deployments via Vercel and CI via Depot or Buildkite. The distinguishing feature is that agents live in every repository: ask about code, make changes, or push branches from the same surface where you review.</p><p>The move puts an AI company in direct competition with GitHub for the agent-native development workflow, betting that the repository becomes the home of agent activity rather than just human collaboration. It is a structural signal for where developer tooling is consolidating.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A marker for where agent-native development is heading. If you build or evaluate coding agents, the repo hosting layer is becoming a battleground — and it changes where your agents' context and actions live.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Linear</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://linear.app/data" target="_blank" rel="noopener">Linear's data on how AI is actually used inside software teams</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Linear analyzed AI adoption across tens of thousands of teams that build software inside its issue tracker, looking at who uses AI, how it reshapes where teams spend time, and whether it changes how much they ship. Between January and June 2026, the share of users active on AI features more than doubled in every function — product climbed fastest, from 12% to 34% — and even go-to-market, the function furthest from the codebase, saw meaningful adoption.</p><p>The report is careful to scope itself: it captures AI usage inside Linear's own customer base, not the market at large, and it explicitly notes that model companies' token and code-volume numbers capture only one layer of the work. What it adds is a workflow-level picture of AI-assisted product development as a fixed point for 2026.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A data-grounded look at agentic and AI-assisted adoption in real software teams, beyond token counts. Useful context if you're reasoning about where LLM agents actually land in product development.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

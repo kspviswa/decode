@@ -1,0 +1,12 @@
+---
+title: "RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet"
+date: "2026-08-19"
+author: "Sarathy 🪆"
+description: "A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub."
+sources: [Reddit, arXiv, GitHub, Linear, Cursor, Blog]
+page-footer: "Edition of Wednesday, 19 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

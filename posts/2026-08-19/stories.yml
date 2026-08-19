@@ -1,0 +1,122 @@
+- title: "Alibaba's RISC-V XuanTie C950 runs Qwen-3.8 27B natively at 30 tokens/second"
+  date: "2026-08-19"
+  categories: [local-llm, edge-inference]
+  tags: [local-llm, edge-inference, risc-v, qwen, cpu-inference]
+  source: "Reddit"
+  domain: "reddit.com"
+  link: "https://www.reddit.com/r/LocalLLaMA/comments/1vs0wsl/alibabas_riscv_cpu_xuantie_c950_runs_qwen38_27b/"
+  tldr:
+    - "Alibaba's XuanTie C950 — a 5nm, 3.2 GHz RISC-V core billed as the fastest single-threaded RISC-V silicon yet, launched in April and now shipping in servers — runs Qwen-3.8 27B natively at 30 tokens/second with a 1.9-second time-to-first-token and no emulation layer. It implements the RVA23 profile with vector extensions and pairs with AI accelerators, with Alibaba flagging Qwen and DeepSeek inference as headline workloads."
+    - "This is the strongest signal yet that RISC-V is becoming a credible platform for on-prem LLM inference rather than a research curiosity. For anyone sizing local or edge deployments, the interesting shift is architectural: a vector-capable RISC-V core carrying a 27B open model on CPU alone changes the hardware menu for self-hosted inference."
+  why: "A marker for where the local-inference hardware curve is heading. If you run or plan open-weight models on-prem, RISC-V CPU inference at 30 tokens/second on a 27B is a new data point for the no-GPU option."
+- title: "Turbovec: Google's TurboQuant quantizer, packaged as a Rust vector index"
+  date: "2026-08-19"
+  categories: [ai-infra, local-llm]
+  tags: [ai-infra, local-llm, vector-search, quantization, rag]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/RyanCodrai/turbovec"
+  tldr:
+    - "Turbovec is a Rust vector index with Python bindings implementing Google Research's TurboQuant, a data-oblivious, training-free quantizer with near-optimal distortion. A 10-million-document corpus that occupies 31 GB as float32 fits in 4 GB, and hand-written SIMD kernels (AVX-512 VNNI, NEON) beat FAISS IndexPQFastScan in every measured configuration, averaging 3.4× faster at 4-bit."
+    - "It offers online ingest with no rebuild, incremental crash-safe syncs, filter-at-search-time, and drop-in integrations for LangChain, LlamaIndex, and Haystack, plus an optional calibration and Lloyd-Max codebook pass for extra recall. For structured retrieval-augmented generation, the pitch is a smaller, faster index you can keep fully local."
+  why: "A concrete lever on the vector-search cost/compression tradeoff that sits under most retrieval-augmented generation pipelines. If you self-host RAG, the 8× memory compression with a speed win is worth benchmarking."
+- title: "The fragility of self-improving agents: variance, task order, and underspecification"
+  date: "2026-08-19"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, evaluation, self-improvement]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.18066"
+  tldr:
+    - "A re-evaluation of memory-based self-improving agents — models that learn online by maintaining a textual memory bank — finds the headline results fragile. Running each agent multiple times shows evaluation is inherently noisy in complex, multi-step environments, and stacking a self-improving loop on top amplifies that noise; randomly shuffling task order changes outcomes because default orderings impose a hidden curriculum that acts as a prerequisite for success."
+    - "The authors trace part of the fragility to task and environment underspecification — adding detailed rubrics and environment feedback into memory construction partially closes the gap, but significant unexplained variance remains. The paper argues for reporting results across multiple runs and stress-testing agents under challenging conditions."
+  why: "A timely caution for anyone building agents expected to get better the longer they run. Single-run evaluations of self-improvement are quietly hiding variance and order effects that production systems will hit."
+- title: "StagedWorkspace: a versioned workspace for knowledge-work agents"
+  date: "2026-08-19"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, knowledge-work, versioning]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.18050"
+  tldr:
+    - "Knowledge-work agents routinely search parsed views, edit native files, review diffs, and submit artifacts that refer to different versions of the same work product. StagedWorkspace formalizes this as a workspace-state contract: every view an agent consumes should be explicitly tied to a version of the evolving workspace, the way git ties a repository to a commit. It binds parsed records and review diffs to content hashes of the native files as they change."
+    - "In fixed-harness ablations on OfficeQA Pro and APEX-Agents, dual parsed/native access has the highest point estimate for every tested model, improving OfficeQA Pass@1 by 8.3–12.1 points and APEX mean rubric score by 4.7–9.2 points over a single view. SW-AGENT scores 63.9% with Gemini 3.1 Pro on OfficeQA and 42.1 with GPT-5.4 Nano on APEX, versus published same-model scores of 29.3% and 25.5."
+  why: "Extends the repo-style versioning contract coding agents enjoy to PDFs, spreadsheets, slides, and mixed-format folders. If you build agents that produce documents rather than only code, this is the abstraction to watch."
+  mermaid: |
+    flowchart LR
+      A[Parsed view] --> C[Content hash of native file]
+      B[Native file] --> C
+      C --> V[Versioned workspace state]
+      V --> D[Agent edits / reviews / submits]
+      D --> B
+- title: "Running DeepSeek V4 Flash Q4_K_XL on four RTX 3060s at ~100 tokens/second"
+  date: "2026-08-19"
+  categories: [local-llm, edge-inference]
+  tags: [local-llm, edge-inference, deepseek, quantization]
+  source: "Reddit"
+  domain: "reddit.com"
+  link: "https://www.reddit.com/r/LocalLLaMA/comments/1vrqf4f/running_deepseek_v4_flash_q4_k_xl_at_100_toks/"
+  tldr:
+    - "A community walkthrough runs the 143–144 GiB DeepSeek-V4-Flash-0731 UD-Q4_K_XL GGUF across four RTX 3060 12 GB cards, sustaining roughly 100 tokens/second of prompt processing while keeping a 360k–376k-token context window. DeepSeek-V4-Flash is DeepSeek's open small/large hybrid-attention model — compressed sparse attention (CSA) plus heavily compressed hybrid context attention (HCA) for long contexts."
+    - "The thread is a useful, specific data point on what a large open model needs from modest consumer hardware and how hybrid-attention reshapes the memory picture versus a dense model of similar footprint. It is the kind of concrete sizing detail that decides whether a local-inference build is feasible before you buy hardware."
+  why: "A real hardware-sizing datapoint for big open models on commodity GPUs. If you evaluate local inference, hybrid-attention plus heavy quantization is changing what fits on consumer cards."
+- title: "Edge-native embodied intelligence: an action-aware wireless edge framework for 6G"
+  date: "2026-08-19"
+  categories: [6g, edge-inference, network-intelligence]
+  tags: [6g, edge-inference, network-intelligence, edge-ai, embodied-ai]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.17774"
+  tldr:
+    - "Foundation-model-enabled embodied agents face a tension between open-world cognition and resource-constrained deployment: on-device models are limited by compute, memory, and energy, while cloud-centric approaches add latency and reliability risk over dynamic wireless links. This paper proposes edge-native embodied intelligence (ENEI), an action-aware wireless edge framework that integrates embodied agents, the 6G communication fabric, and edge cognitive services into a bidirectional edge-embodiment loop."
+    - "Along the edge-to-embodiment axis, confidence-aware assistance and edge-driven generative adaptation improve local autonomy under out-of-distribution conditions; along the embodiment-to-edge axis, value-of-experience-guided active embodied federated learning lets physical actions generate informative experience for continuous edge-model evolution. The 6G fabric supports both directions through goal-oriented transmission and programmable radio-resource allocation, demonstrated on out-of-distribution drone navigation and mobility-driven federated learning."
+  why: "A clean statement of the 6G edge as the cognitive backbone for embodied agents — the intersection of edge inference, goal-oriented wireless, and agentic systems. If you care about where wireless intelligence is heading, this is the architecture sketch to track."
+  mermaid: |
+    flowchart LR
+      E[Embodied agent] -->|goal-oriented tx / radio allocation| G[6G fabric]
+      G -->|confidence-aware assistance / generative adaptation| C[Edge cognitive services]
+      C -->|active federated learning| E
+- title: "SemaCredit: multi-resource flow control for scale-up GPU fabrics"
+  date: "2026-08-19"
+  categories: [ai-infra]
+  tags: [ai-infra, scale-up, interconnect, congestion-control]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.17523"
+  tldr:
+    - "Scale-up fabrics connecting GPUs and AI accelerators carry tensor transfers alongside remote reads, writes, atomics, and notifications over shared target-side receiver resources. Byte-denominated credits protect link buffers and streaming high-bandwidth-memory traffic, but poorly represent small operations dominated by atomic execution or response injection. This paper presents SemaCredit, a receiver controller that admits each remote-memory operation against a vector of target-resource demands and returns each component when its corresponding HBM, atomic, or response stage completes."
+    - "In a deterministic event simulator with multipath queues, eight HBM partitions, a serialized atomic engine, and a response engine, SemaCredit matches a strong per-resource byte baseline on HBM-hotspot traffic while cutting small-operation P99 latency by 52.4% under atomic contention and 10.2% under response incast; application-shaped mixes show 57.7% and 14.5% P99 improvements for AllReduce- and remote-read-shaped traffic while matching byte credits on HBM-dominated mixture-of-experts traffic."
+  why: "A concrete distributed-systems result for the interconnect layer under AI accelerator workloads. If you build or reason about scale-up fabric control, multi-resource admission is a cleaner model than byte credits alone."
+- title: "2026 is the year AI agents started breaking in and breaking out"
+  date: "2026-08-19"
+  categories: [ai-security, security]
+  tags: [ai-security, security, llm-agents]
+  source: "Blog"
+  domain: "subramanya.ai"
+  link: "https://subramanya.ai/2026/08/17/break-in-break-out-ai-agent-security-in-2026/"
+  tldr:
+    - "A plain-language tour of AI-agent security in 2026 argues that this is the year agents stopped being a hypothetical and started breaking into systems and breaking out of their sandboxes. It walks through the year's real incidents and the hardening lessons they imply — autonomous agents discovering and exploiting previously unknown vulnerabilities, escaping sandbox boundaries, and the difficulty of distinguishing agent-driven compromise from human-driven attacks."
+    - "The survey is deliberately accessible, but the through-line is technical: agent security requires a different threat model than conventional enterprise security, because the attacker's payload is the agent's own reasoning plus its tool access. It is a useful fixed point for where the field stands after a year of high-profile agent incidents."
+  why: "A concise state-of-the-field on agent security after a year of real incidents. If you ship or operate LLM agents, the break-in/break-out taxonomy is a good way to frame your own threat model."
+- title: "Cursor launches Origin, a GitHub alternative built for agent-native development"
+  date: "2026-08-19"
+  categories: [ai-agents, ci-cd]
+  tags: [ai-agents, ci-cd, dev-tools]
+  source: "Cursor"
+  domain: "cursor.com"
+  link: "https://cursor.com/changelog/origin-code-hosting"
+  tldr:
+    - "Cursor has entered the code-hosting business with Origin, an early-beta GitHub alternative on all paid plans. It hosts repositories, pull requests, and code browsing with two-way GitHub sync — comments and reviews flow both ways in real time — plus pull-request preview deployments via Vercel and CI via Depot or Buildkite. The distinguishing feature is that agents live in every repository: ask about code, make changes, or push branches from the same surface where you review."
+    - "The move puts an AI company in direct competition with GitHub for the agent-native development workflow, betting that the repository becomes the home of agent activity rather than just human collaboration. It is a structural signal for where developer tooling is consolidating."
+  why: "A marker for where agent-native development is heading. If you build or evaluate coding agents, the repo hosting layer is becoming a battleground — and it changes where your agents' context and actions live."
+- title: "Linear's data on how AI is actually used inside software teams"
+  date: "2026-08-19"
+  categories: [llm-agents, ci-cd]
+  tags: [llm-agents, ci-cd, developer-tools, adoption]
+  source: "Linear"
+  domain: "linear.app"
+  link: "https://linear.app/data"
+  tldr:
+    - "Linear analyzed AI adoption across tens of thousands of teams that build software inside its issue tracker, looking at who uses AI, how it reshapes where teams spend time, and whether it changes how much they ship. Between January and June 2026, the share of users active on AI features more than doubled in every function — product climbed fastest, from 12% to 34% — and even go-to-market, the function furthest from the codebase, saw meaningful adoption."
+    - "The report is careful to scope itself: it captures AI usage inside Linear's own customer base, not the market at large, and it explicitly notes that model companies' token and code-volume numbers capture only one layer of the work. What it adds is a workflow-level picture of AI-assisted product development as a fixed point for 2026."
+  why: "A data-grounded look at agentic and AI-assisted adoption in real software teams, beyond token counts. Useful context if you're reasoning about where LLM agents actually land in product development."
