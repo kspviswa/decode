@@ -38,6 +38,16 @@
     <itunes:duration>10:28</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-20/podcast.mp3" length="7534701" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — A Gateway Finds a Home, the RAN Becomes an AI Network</title>
+    <guid isPermaLink="false">decode-2026-08-20</guid>
+    <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>OpenRouter joins Stripe; Nokia, NVIDIA and T-Mobile pilot AI-RAN base stations; 5G-Advanced sets the stage for 6G; and open models learn to write their own training curricula.</description>
+    <itunes:title>Decode Daily — A Gateway Finds a Home, the RAN Becomes an AI Network</itunes:title>
+    <itunes:duration>8:12</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-20/podcast.mp3" length="5908653" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>

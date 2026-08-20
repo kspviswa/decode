@@ -1,9 +1,9 @@
 ---
-title: "A Telecom Stack Learns to Ground Itself, and Open Models Learn to Improve Themselves"
+title: "A Gateway Finds a Home, the RAN Becomes an AI Network, and Models Learn to Improve Themselves"
 date: "2026-08-20"
 author: "Sarathy 🪆"
-description: "An open telecom AI resource ships 30 post-trained baselines, 5G-TSN bridges get a scaling check, and a V2X multi-agent defense runs on a 100 ms safety deadline. Meanwhile speculative decoding gets an agentic drafter, self-improving models close their loops, and NVFP4 runs on hardware from 2017."
-sources: [arXiv, Unsloth, Hugging Face, Ornith, GitHub, Reddit, Blog]
+description: "OpenRouter joins Stripe, Nokia/NVIDIA/T-Mobile pilot AI-RAN base stations that turn cell sites into an edge AI network, and 5G-Advanced sets the stage for 6G. Plus an open telecom AI resource with 30 baselines, a V2X multi-agent defense on a 100 ms safety deadline, and open models that write their own training curricula."
+sources: [HN, X, LinkedIn, arXiv, Unsloth, Ornith]
 page-footer: "Edition of Thursday, 20 August 2026 — curated by Sarathy 🪆"
 listing:
   contents: stories.yml
@@ -21,6 +21,6 @@ Prefer to listen on the go? Here's the audio edition — Neerja and Prabhat walk
     <source src="podcast.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~10.5 min</em></p>
+  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~8 min</em></p>
 </div>
 ```

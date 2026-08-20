@@ -12,7 +12,7 @@
 <generator>quarto-1.10.18</generator>
 <lastBuildDate>Thu, 20 Aug 2026 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>A Telecom Stack Learns to Ground Itself, and Open Models Learn to Improve Themselves</title>
+  <title>A Gateway Finds a Home, the RAN Becomes an AI Network, and Models Learn to Improve Themselves</title>
   <dc:creator>Sarathy 🪆</dc:creator>
   <link>https://decode.viswakumar.com/posts/2026-08-20/</link>
   <description><![CDATA[ 
@@ -29,7 +29,7 @@
     <source src="podcast.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~10.5 min</em></p>
+  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~8 min</em></p>
 </div>
 
 
@@ -42,6 +42,48 @@
   <div class="card sec-networks">
     <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
     <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">X</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://x.com/nokia/status/2033813122322976775" target="_blank" rel="noopener">Nokia, NVIDIA and T-Mobile pilot AI-RAN base stations that turn cell sites into an edge AI network</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Nokia announced a partnership with NVIDIA and T-Mobile to pioneer AI-RAN infrastructure: T-Mobile is piloting Nokia AI-RAN base stations powered by NVIDIA RTX PRO Blackwell Server Edition GPUs. The stated effect is that cell sites become a distributed edge AI network rather than just radio transport.</p><p>This is a concrete operator-scale move in the AI-RAN direction — running AI workloads, not just RAN software, on the same hardware at the edge. It pairs a major US operator with a RAN vendor and a GPU vendor on the specific bet that the radio access network is the place to host distributed AI inference.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A direct signal in your AI×telecom intersection: AI-RAN moving from vendor demos to an operator pilot with T-Mobile. Worth watching for whether edge AI on the RAN becomes a real workload anchor.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">LinkedIn</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://www.linkedin.com/posts/xingqin-lin-8b86b627_the-bridge-toward-6g-5g-advanced-evolution-activity-7336226847417896960-ffov" target="_blank" rel="noopener">How 5G-Advanced sets the stage for 6G: Xingqin Lin on the Release 19 bridge</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Xingqin Lin, a Senior 3GPP Standards Engineer at NVIDIA, shares analysis on how 5G-Advanced evolution in 3GPP Release 19 is the bridge toward 6G. The thread walks through which Release 19 features — AI/ML in the RAN, enhanced positioning, and the continued AI-RAN push — lay the technical groundwork that 6G will build on.</p><p>The framing treats 5G-Advanced not as an endpoint but as the standards vehicle that carries the AI-native features 6G is expected to formalize. For operators and researchers, it is a map of which Release 19 work items are the on-ramp to the next generation.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A standards-level view of the exact 5G→6G + AI path you follow. Xingqin Lin's posts are a reliable read on where 3GPP Release 19 and the AI-RAN agenda are actually heading.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">LinkedIn</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://www.linkedin.com/posts/dilip-tandekar-00419a6_github-indianinnovationask3gpp-com-3gpp-activity-7425562632822149120-6cGH" target="_blank" rel="noopener">3GPP Research Agent: an open-source, cost-optimized RAG assistant for 5G/6G specs</a></h3>
+        </div>
+        <div class="story-body">
+          <p>The 3GPP Research Agent is a production-grade, cost-optimized RAG (Retrieval-Augmented Generation) system built to answer questions grounded in 3GPP 5G/6G specifications. It is open source, and the launch post walks through the architecture and the cost-efficiency choices made to keep it cheap to run while answering spec-level questions accurately.</p><p>This sits squarely in the pattern of grounding LLMs in standards documents — a lightweight, self-serve way to query the enormous 3GPP specification corpus instead of hunting through PDFs. The open-source angle means the retrieval stack is inspectable and reusable.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete, open example of the LLM×telecom RAG pattern you care about — grounding assistants in 3GPP specs. Useful as both a tool and a reference architecture for spec-grounded retrieval.
+        </div>
+      </article>
       
       <article class="story">
         <div class="story-head">
@@ -111,43 +153,15 @@
       
       <article class="story">
         <div class="story-head">
-          <span class="badge text-bg-primary">Unsloth</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://unsloth.ai/docs/basics/dynamic-3.0-ggufs" target="_blank" rel="noopener">Unsloth Dynamic 3.0 GGUFs: better top-1% accuracy at the same disk size for Qwen3.8-27B</a></h3>
+          <span class="badge text-bg-primary">HN</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/" target="_blank" rel="noopener">OpenRouter is joining Stripe</a></h3>
         </div>
         <div class="story-body">
-          <p>Unsloth's Dynamic v3.0 quantization release targets Qwen3.8-27B, claiming more than 10% better top-1% accuracy at the same disk size than other providers' quants, backed by a new imatrix calibration set tuned for agentic coding, chat, and multilingual use. Everything is pure post-training quantization — no QAT, no QAD — and the imatrix is released for community reuse. Headline numbers include a 6.2 GB UD-IQ1_S that keeps roughly 72% of top-1% accuracy while being 89% smaller.</p><p>The quants work in llama.cpp and Unsloth Desktop, and the release is notable for publishing the calibration data alongside the artifacts. For anyone running open-weight models locally, this is a concrete claim about getting more retained quality per gigabyte at the same quantization level.</p>
+          <p>OpenRouter, the largest AI model marketplace and gateway, is joining forces with Stripe. It processes 10+ trillion tokens per day from 400+ AI models for a community of over 10 million developers and companies, with at least 10x inference growth every year. The announced plan is to keep operating exactly as before — same mission, name, product, and roadmap — so existing integrations do not change.</p><p>The pairing is framed around shared DNA: both abstract complex infrastructure into clean developer APIs. Stripe brings a large customer network, trust, fraud/abuse tooling, and global infrastructure experience, which OpenRouter argues will matter more as AI abuse grows. The deal is subject to customary closing conditions, expected to close in the coming weeks.</p>
           
         </div>
         <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A directly usable quantization release with an unusually honest published calibration set. If you serve or run Qwen3.8-27B locally, the Dynamic 3.0 imatrix and quants are worth benchmarking against your current provider's build.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Hugging Face</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/Avifenesh/Qwen3.8-27B-DSpark-Agentic" target="_blank" rel="noopener">Qwen3.8-27B-DSpark-Agentic: a 1.36B draft model for speculative decoding on agentic workloads</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A 1.36B-parameter DSpark speculative-decoding drafter for Qwen3.8-27B, trained from scratch on real agentic coding and assistant sessions rather than generic text. DSpark drafts a block of tokens conditioned on auxiliary features tapped from the target model's layers, with a Markov head for intra-block dependency and a confidence head that predicts per-position acceptance. A drafter never changes output — every drafted token is verified by the target — it only changes decode speed.</p><p>The model card reports a mean acceptance length of 2.88–2.92 on held-out agentic turns and 4.61 on GSM8K at DSpark block size 7, with 693 tokens/second aggregate decode at concurrency 8 on a single RTX PRO 6000 Blackwell. It is Apache-2.0, SGLang-compatible, and the training labels came from Qwen3.8-27B itself, so the whole pipeline is reproducible from open components.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete, open speculative-decoding drafter aimed at the exact workload that dominates real agent runs — long agentic turns. If you serve open models for agent workloads, acceptance-length numbers like these directly translate into latency and throughput.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Ornith</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://ornith.ai/ornith_1_5.html" target="_blank" rel="noopener">Ornith-1.5: from self-scaffolding to a closed self-improvement loop</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Ornith-1.5 extends the self-scaffolding idea into a closed self-improvement loop: the model proposes new tasks, generates task-specific scaffolds, and produces solution rollouts, with GRPO rewards flowing back into all three stages. Task reward is the product of validity, frontier difficulty (targeting roughly 20% success rate), and novelty against previously generated tasks, so the curriculum automatically gets harder as the model improves.</p><p>It ships at three scales — 397B MoE, 35B MoE (3B active), and a 9B mobile-tier dense model — with the 397B scoring 86.1 on Terminal-Bench 2.1, on par with Claude Opus 4.8, and outperforming GLM-5.2 and DeepSeek-V4-Flash-0731. The 9B model, with a quantized mobile version, is deployable on phones while beating much larger models like Gemma 4-31B and Qwen 3.6-35B on agentic coding.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> One of the more complete demonstrations of end-to-end self-improvement — the model writes its own tasks, harnesses, and rollouts, and rewards feed back into all three. If you follow self-improving and agentic training loops, this is the current state of the art in open models.
+          <span class="why-label">Why read it</span> The gateway you likely route models through is being acquired by the payments platform that sets the developer-API standard. Nothing changes for builders today, but it signals where neutral multi-model routing is headed — and it is the #2 story on the HN front page this morning.
         </div>
       </article>
       
@@ -173,43 +187,29 @@
       
       <article class="story">
         <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.19072" target="_blank" rel="noopener">What is missing from AI post-training AI: an empirical analysis of agent-run training loops</a></h3>
+          <span class="badge text-bg-primary">Unsloth</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://unsloth.ai/docs/basics/dynamic-3.0-ggufs" target="_blank" rel="noopener">Unsloth Dynamic 3.0 GGUFs: better top-1% accuracy at the same disk size for Qwen3.8-27B</a></h3>
         </div>
         <div class="story-body">
-          <p>LLM agents can now post-train an LLM end-to-end — writing code, launching training, and evaluating checkpoints — but this paper argues the field conflates two distinct capabilities: execution-level iteration within a chosen strategy, and strategy-level revision as evidence accumulates. Analyzing a large corpus of publicly released post-training trajectories, the authors find that agents lock in their training strategy at the very start and spend the entire remaining budget on local adjustments.</p><p>In other words, the systems are good at executing a plan but poor at revising the plan itself when results come back. It is a sharp empirical caution for anyone building self-improving training pipelines: the bottleneck is not running the steps but re-deciding the strategy mid-run.</p>
+          <p>Unsloth's Dynamic v3.0 quantization release targets Qwen3.8-27B, claiming more than 10% better top-1% accuracy at the same disk size than other providers' quants, backed by a new imatrix calibration set tuned for agentic coding, chat, and multilingual use. Everything is pure post-training quantization — no QAT, no QAD — and the imatrix is released for community reuse. Headline numbers include a 6.2 GB UD-IQ1_S that keeps roughly 72% of top-1% accuracy while being 89% smaller.</p><p>The quants work in llama.cpp and Unsloth Desktop, and the release is notable for publishing the calibration data alongside the artifacts. For anyone running open-weight models locally, this is a concrete claim about getting more retained quality per gigabyte at the same quantization level.</p>
           
         </div>
         <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A clean diagnostic for a gap that matters as agentic training loops mature — the ability to revise strategy, not just iterate within it. Directly relevant if you build or evaluate agents that train models.
+          <span class="why-label">Why read it</span> A directly usable quantization release with an unusually honest published calibration set. If you serve or run Qwen3.8-27B locally, the Dynamic 3.0 imatrix and quants are worth benchmarking against your current provider's build.
         </div>
       </article>
       
       <article class="story">
         <div class="story-head">
-          <span class="badge text-bg-primary">GitHub</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/SigmanticAI/apex-inference-chip" target="_blank" rel="noopener">apex-inference-chip: an open LLM inference chip on FPGA, bit-exact against a golden model</a></h3>
+          <span class="badge text-bg-primary">Ornith</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://ornith.ai/ornith_1_5.html" target="_blank" rel="noopener">Ornith-1.5: from self-scaffolding to a closed self-improvement loop</a></h3>
         </div>
         <div class="story-body">
-          <p>This repo implements one transformer decoder layer in RTL for Qwen2.5-0.5B and runs the real model on an FPGA at a measured 0.56 tokens/second — every silicon value bit-exact against a golden software reference, with a claimed 140× speedup over the initial naive version. The full evidence trail (waveforms, bit-exact checks, power numbers) is in the repo, making it an unusually honest hardware deep-dive.</p><p>The architectural bet is that the KV cache is the growing memory bottleneck, so it compresses keys and values in-datapath (per-channel INT4 keys, per-token INT4 values, an fp16 outlier lane) the moment they are produced. It is one tile rather than a full chip, sized for 7B-class models in the paper architecture, and it is the rare open project that shows an actual LLM executing on custom silicon rather than just a simulator.</p>
+          <p>Ornith-1.5 extends the self-scaffolding idea into a closed self-improvement loop: the model proposes new tasks, generates task-specific scaffolds, and produces solution rollouts, with GRPO rewards flowing back into all three stages. Task reward is the product of validity, frontier difficulty (targeting roughly 20% success rate), and novelty against previously generated tasks, so the curriculum automatically gets harder as the model improves.</p><p>It ships at three scales — 397B MoE, 35B MoE (3B active), and a 9B mobile-tier dense model — with the 397B scoring 86.1 on Terminal-Bench 2.1, on par with Claude Opus 4.8, and outperforming GLM-5.2 and DeepSeek-V4-Flash-0731. The 9B model, with a quantized mobile version, is deployable on phones while beating much larger models like Gemma 4-31B and Qwen 3.6-35B on agentic coding.</p>
           
         </div>
         <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A rare, verification-first account of running an LLM on real silicon, with the KV-compression story made concrete in hardware. If you care about edge inference or custom accelerators, this is the honest engineering reference.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Reddit</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vsq3zg/nvfp4_on_volta_despite_being_built_for_blackwell/" target="_blank" rel="noopener">NVFP4 on Volta: running Qwen 3.8's Blackwell-era format natively on four 2017 V100s</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A r/LocalLLaMA post claims to run Qwen 3.8 in NVFP4 — a format built for Blackwell hardware — natively on four 2017-era V100s, reportedly matching the author's $6,000 RTX 5090 on single-request decode. The V100s ran Qwen3.8's published mixed FP4/FP8 weights directly, without an emulation layer.</p><p>If the numbers hold up, it is a striking example of extracting frontier-era quantization from eight-year-old hardware, and a good sanity-check on what the 4-bit format war actually costs in practice. Community threads like this are worth reading as a counterweight to vendor claims about which GPUs can run which formats.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete data point on whether the newest quantization formats are really locked to the newest silicon — relevant for anyone sizing local inference on older, cheaper GPUs.
+          <span class="why-label">Why read it</span> One of the more complete demonstrations of end-to-end self-improvement — the model writes its own tasks, harnesses, and rollouts, and rewards feed back into all three. If you follow self-improving and agentic training loops, this is the current state of the art in open models.
         </div>
       </article>
       
@@ -224,15 +224,15 @@
       
       <article class="story">
         <div class="story-head">
-          <span class="badge text-bg-primary">Blog</span>
-          <h3 class="story-headline anchored"><a class="link-secondary" href="https://www.raphaelbauer.com/posts/postgresql-everything/" target="_blank" rel="noopener">PostgreSQL for everything: the one-database consolidation argument</a></h3>
+          <span class="badge text-bg-primary">HN</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://dontpastetheai.com/" target="_blank" rel="noopener">Don't Paste the AI, please</a></h3>
         </div>
         <div class="story-body">
-          <p>An essay arguing that PostgreSQL quietly replaces a surprising amount of the modern stack: Solr/Elasticsearch for full-text, MongoDB for jsonb, Kafka/RabbitMQ via SKIP LOCKED queues, ClickHouse via TimescaleDB, Redis via unlogged tables, the filesystem, graph databases via ltree, and even microservice middleware — with pgvector and pgai covering AI retrieval workflows.</p><p>The message for builders is a consolidation reflex: before adding shiny technology X, ask whether Postgres can already do it. It is a practical, opinionated guide to the one-database era that resonates with the cloud-native instinct to reduce moving parts.</p>
+          <p>A short site making one pointed argument: when someone asks you a question, they want your answer, not an unedited wall of chatbot output. The person on the other side has the same tools you do — if they wanted the generic answer they would have gotten it in four seconds. They asked you because they wanted your context, your taste, your judgement.</p><p>The suggested alternative: use the AI as a drafting partner, read what it gives you, then write your own take. Pull out the bit that actually answers the question and drop the rest — three sentences from you beat a long paste. If a piece of the model's answer is genuinely useful, quote it and say why. And if you have nothing to add, 'no strong opinion here' is a real, helpful reply.</p>
           
         </div>
         <div class="alert alert-secondary story-why">
-          <span class="why-label">Why read it</span> A pragmatic consolidation playbook that maps familiar workloads onto a single database, including the AI retrieval layer via pgvector/pgai. If you lean toward fewer moving parts in your stack, this is a useful checklist.
+          <span class="why-label">Why read it</span> The #1 story on the HN front page this morning — a sharp reminder about the difference between relaying model output and adding actual judgment. Relevant as a checkpoint for how AI-assisted work gets communicated.
         </div>
       </article>
       
