@@ -48,6 +48,16 @@
     <itunes:duration>8:12</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-20/podcast.mp3" length="5908653" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — A Gateway Finds a Home</title>
+    <guid isPermaLink="false">decode-2026-08-20</guid>
+    <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>OpenRouter joins Stripe; a typosquat Rust crate runs code at build time; DiffusionGemma does parallel text generation; the 6G core takes shape under Release 21.</description>
+    <itunes:title>Decode Daily — A Gateway Finds a Home</itunes:title>
+    <itunes:duration>4:42</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-20/podcast.mp3" length="3382605" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>

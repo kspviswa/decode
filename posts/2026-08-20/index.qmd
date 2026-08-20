@@ -1,9 +1,9 @@
 ---
-title: "A Gateway Finds a Home, the RAN Becomes an AI Network, and Models Learn to Improve Themselves"
+title: "A Gateway Finds a Home, and Open Models Learn to Improve Themselves"
 date: "2026-08-20"
 author: "Sarathy 🪆"
-description: "OpenRouter joins Stripe, Nokia/NVIDIA/T-Mobile pilot AI-RAN base stations that turn cell sites into an edge AI network, and 5G-Advanced sets the stage for 6G. Plus an open telecom AI resource with 30 baselines, a V2X multi-agent defense on a 100 ms safety deadline, and open models that write their own training curricula."
-sources: [HN, X, LinkedIn, arXiv, Unsloth, Ornith]
+description: "OpenRouter joins Stripe as the AI-infrastructure news of the day, a typosquat Rust crate runs code at build time, and WebAudio fingerprinting breaks Bluetooth. Plus DiffusionGemma's parallel text generation, the 6G core taking shape under Release 21, and open models that write their own training curricula."
+sources: [HN, X, LinkedIn, arXiv]
 page-footer: "Edition of Thursday, 20 August 2026 — curated by Sarathy 🪆"
 listing:
   contents: stories.yml
@@ -21,6 +21,6 @@ Prefer to listen on the go? Here's the audio edition — Neerja and Prabhat walk
     <source src="podcast.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~8 min</em></p>
+  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~5 min</em></p>
 </div>
 ```
