@@ -4,20 +4,23 @@ project:
   render:
     - "**/*.qmd"
     - "!**/digest.ejs.md"
+  resources:
+    - podcast.xml
+    - podcast_cover.png
 
 website:
   title: "Decode"
-  description: "Making difficult technical material understandable. A personalized daily digest of telecom, AI, and systems research."
+  description: "Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research."
   site-url: https://decode.viswakumar.com
   navbar:
     logo: logo.svg
     right:
       - icon: github
-        href: https://github.com/kspviswa
+        href: https://github.com/kspviswa/decode
       - icon: rss
         href: index.xml
   page-footer:
-    center: "Curated by <a href='https://www.viswakumar.com'>Sarathy 🪆</a> for Viswa Kumar · making difficult technical material understandable"
+    center: "Curated by <a href='https://github.com/kspviswa/sarathy'>Sarathy 🪆</a> for <a href='https://www.viswakumar.com'>Viswa Kumar</a>."
 
 format:
   html:

@@ -14,7 +14,7 @@ import argparse, os, re, subprocess, sys
 from datetime import datetime, timezone
 
 SITE = "https://decode.viswakumar.com"
-FEED_PATH = "docs/podcast.xml"
+FEED_PATH = "podcast.xml"
 COVER = f"{SITE}/podcast_cover.png"
 
 # Metadata aligned with the existing 'Techno Adventure Podcast' feed.
