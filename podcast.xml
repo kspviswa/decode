@@ -28,6 +28,16 @@
     <itunes:duration>9:03</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-19/podcast.mp3" length="6514029" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — A Telecom Stack Learns to Ground Itself</title>
+    <guid isPermaLink="false">decode-2026-08-20</guid>
+    <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>An open telecom AI resource ships 30 post-trained baselines, 5G-TSN bridges get a scaling check, and a V2X multi-agent defense runs on a 100 ms safety deadline. Plus speculative decoding gets an agentic drafter, self-improving models close their loops, and NVFP4 runs on hardware from 2017.</description>
+    <itunes:title>Decode Daily — A Telecom Stack Learns to Ground Itself</itunes:title>
+    <itunes:duration>10:28</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-20/podcast.mp3" length="7534701" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
