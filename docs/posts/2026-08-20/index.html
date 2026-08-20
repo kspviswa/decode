@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-20">
+<meta name="description" content="An open telecom AI resource ships 30 post-trained baselines, 5G-TSN bridges get a scaling check, and a V2X multi-agent defense runs on a 100 ms safety deadline. Meanwhile speculative decoding gets an agentic drafter, self-improving models close their loops, and NVFP4 runs on hardware from 2017.">
+
+<title>A Telecom Stack Learns to Ground Itself, and Open Models Learn to Improve Themselves – Decode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights','listing-mermaid',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights","listing-mermaid"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+.lightbox-backdrop.open { display: flex; }
+.lightbox-backdrop .lightbox-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.5);
+}
+.lightbox-backdrop .lightbox-box svg { max-width: 100%; height: auto; }
+.mermaid-zoom {
+  cursor: zoom-in;
+  position: relative;
+}
+.mermaid-zoom::after {
+  content: "⛶";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.mermaid-zoom:hover::after { opacity: 1; }
+</style>
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+  <div class="lightbox-box"></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    mermaid.run({ querySelector: '.mermaid' }).then(() => {
+      // wrap each rendered diagram for click-to-zoom
+      document.querySelectorAll('.mermaid').forEach(function (pre) {
+        pre.classList.add('mermaid-zoom');
+        pre.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return; // let links work
+          const box = document.getElementById('mermaidLightbox');
+          box.querySelector('.lightbox-box').innerHTML = pre.innerHTML;
+          box.classList.add('open');
+        });
+      });
+    });
+  }
+  const lb = document.getElementById('mermaidLightbox');
+  if (lb) lb.addEventListener('click', function () { lb.classList.remove('open'); });
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Decode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/kspviswa/decode"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A Telecom Stack Learns to Ground Itself, and Open Models Learn to Improve Themselves</h1>
+                  <div>
+        <div class="description">
+          An open telecom AI resource ships 30 post-trained baselines, 5G-TSN bridges get a scaling check, and a V2X multi-agent defense runs on a 100 ms safety deadline. Meanwhile speculative decoding gets an agentic drafter, self-improving models close their loops, and NVFP4 runs on hardware from 2017.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 20, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.15436" target="_blank" rel="noopener">OTel: an open telecom AI resource with 30 post-trained baselines and 16M downloads</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Frontier models still struggle with telecom-specific tasks, so OTel (Open Telco) packages the missing substrate: derived datasets for retrieval, reranking, instruction tuning, and safety/abstention, plus 30 full-parameter post-trained baselines spanning embedding, reranking, and language models. As of May 2026 the released models had been downloaded over 16 million times with 157+ pieces of coverage worldwide.</p><p>Post-training lifts all three families: embedding retrieval reaches 93.5% NDCG@10, reranking reaches 0.952 MRR@10, and language-model correctness reaches 88.2%. OTel is framed as a reproducible starting point for telecom retrieval-augmented generation — with held-out evaluation partitions and context-grounded LLMs in one unified resource, it is a concrete foundation for grounding LLMs in 3GPP-grade domain data.</p>
+          
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A direct lever for the LLM×telecom intersection: an open, post-trained telecom stack (embeddings, rerankers, grounded LLMs) plus data to build on. If you work on telecom retrieval or spec-grounded assistants, this is the foundation to extend rather than rebuild.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.14386" target="_blank" rel="noopener">Scaling 5G-TSN bridges: operating regimes, scheduling, and time synchronisation under industrial traffic</a></h3>
+        </div>
+        <div class="story-body">
+          <p>3GPP Release 16 lets a 5G system operate as a transparent IEEE 802.1 TSN bridge, but its scalability under heterogeneous industrial workloads is poorly characterised. Using the nascTime framework on OMNeT++/Simu5G, this paper evaluates how many TSN endpoints a single 5G NR cell can bridge before per-flow quality-of-service degrades, modelling closed-loop control, machine vision, bulk telemetry, and IEEE 802.1AS traffic over a four-bearer architecture with 1 to 40 endpoints.</p><p>Three operating regimes emerge: below saturation non-DRR schedulers perform similarly; near saturation a quality-of-service-aware PF scheduler cuts critical-flow P99 latency by up to two orders of magnitude; under overload only QoS-PF keeps near-complete delivery for the highest-priority traffic. Isolating 802.1AS/gPTP on a dedicated high-priority bearer reduces clock-servo instability, and the evaluated sub-6 GHz 30 kHz-SCS configuration shows an effective latency floor around 2.25 ms — implying sub-3 ms TSN deadlines may need configured grants or higher numerology.</p>
+          
+          <pre class="mermaid">flowchart LR
+  A[5G NR cell as TSN bridge] --&gt; B[Below saturation: schedulers similar]
+  A --&gt; C[Near saturation: QoS-PF wins by 2 orders]
+  A --&gt; D[Overload: only QoS-PF delivers]
+</pre>
+          
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> Concrete numbers on how far one 5G cell can stretch as an industrial TSN bridge — scheduler choice and bearer isolation matter far more than raw bandwidth once you approach saturation. Useful sizing input for deterministic 5G deployments.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2608.19135" target="_blank" rel="noopener">Autonomous cyber defense in connected vehicles: a three-tier multi-agent architecture for V2X security</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A connected vehicle has roughly 100 milliseconds to decide whether an incoming Basic Safety Message is real or fabricated — a safety failure triggered by a security failure. This paper proposes a three-tier multi-agent architecture that treats that timing constraint as a hard design requirement: an onboard agent classifies each incoming V2X message into Accept, Drop, Quarantine, or Escalate within a 10 ms budget, deliberately biased toward Escalate when uncertain and passing ambiguous cases to a roadside edge agent rather than risking a dropped legitimate alert.</p><p>The edge tier works across a roadside-unit zone with a 50 ms budget, fusing threat assessments from multiple vehicles and resolving safety-security conflicts with complementary sensor observations; the cloud tier refines detection models through Byzantine fault-tolerant federated learning. Every latency budget derives from the 100 ms Basic Safety Message cycles mandated by SAE J2735 and ETSI EN 302 637-2, and the paper flags adversarial poisoning at the edge and missing regulatory frameworks as open problems.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> Multi-agent security where the deadline is set by a safety standard, not a benchmark — a clean template for latency-budgeted, layered agent decisioning that generalises beyond connected vehicles.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Unsloth</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://unsloth.ai/docs/basics/dynamic-3.0-ggufs" target="_blank" rel="noopener">Unsloth Dynamic 3.0 GGUFs: better top-1% accuracy at the same disk size for Qwen3.8-27B</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Unsloth's Dynamic v3.0 quantization release targets Qwen3.8-27B, claiming more than 10% better top-1% accuracy at the same disk size than other providers' quants, backed by a new imatrix calibration set tuned for agentic coding, chat, and multilingual use. Everything is pure post-training quantization — no QAT, no QAD — and the imatrix is released for community reuse. Headline numbers include a 6.2 GB UD-IQ1_S that keeps roughly 72% of top-1% accuracy while being 89% smaller.</p><p>The quants work in llama.cpp and Unsloth Desktop, and the release is notable for publishing the calibration data alongside the artifacts. For anyone running open-weight models locally, this is a concrete claim about getting more retained quality per gigabyte at the same quantization level.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A directly usable quantization release with an unusually honest published calibration set. If you serve or run Qwen3.8-27B locally, the Dynamic 3.0 imatrix and quants are worth benchmarking against your current provider's build.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/Avifenesh/Qwen3.8-27B-DSpark-Agentic" target="_blank" rel="noopener">Qwen3.8-27B-DSpark-Agentic: a 1.36B draft model for speculative decoding on agentic workloads</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A 1.36B-parameter DSpark speculative-decoding drafter for Qwen3.8-27B, trained from scratch on real agentic coding and assistant sessions rather than generic text. DSpark drafts a block of tokens conditioned on auxiliary features tapped from the target model's layers, with a Markov head for intra-block dependency and a confidence head that predicts per-position acceptance. A drafter never changes output — every drafted token is verified by the target — it only changes decode speed.</p><p>The model card reports a mean acceptance length of 2.88–2.92 on held-out agentic turns and 4.61 on GSM8K at DSpark block size 7, with 693 tokens/second aggregate decode at concurrency 8 on a single RTX PRO 6000 Blackwell. It is Apache-2.0, SGLang-compatible, and the training labels came from Qwen3.8-27B itself, so the whole pipeline is reproducible from open components.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, open speculative-decoding drafter aimed at the exact workload that dominates real agent runs — long agentic turns. If you serve open models for agent workloads, acceptance-length numbers like these directly translate into latency and throughput.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Ornith</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://ornith.ai/ornith_1_5.html" target="_blank" rel="noopener">Ornith-1.5: from self-scaffolding to a closed self-improvement loop</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Ornith-1.5 extends the self-scaffolding idea into a closed self-improvement loop: the model proposes new tasks, generates task-specific scaffolds, and produces solution rollouts, with GRPO rewards flowing back into all three stages. Task reward is the product of validity, frontier difficulty (targeting roughly 20% success rate), and novelty against previously generated tasks, so the curriculum automatically gets harder as the model improves.</p><p>It ships at three scales — 397B MoE, 35B MoE (3B active), and a 9B mobile-tier dense model — with the 397B scoring 86.1 on Terminal-Bench 2.1, on par with Claude Opus 4.8, and outperforming GLM-5.2 and DeepSeek-V4-Flash-0731. The 9B model, with a quantized mobile version, is deployable on phones while beating much larger models like Gemma 4-31B and Qwen 3.6-35B on agentic coding.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> One of the more complete demonstrations of end-to-end self-improvement — the model writes its own tasks, harnesses, and rollouts, and rewards feed back into all three. If you follow self-improving and agentic training loops, this is the current state of the art in open models.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.19197" target="_blank" rel="noopener">SPADE: self-play in adaptive synthetic executable environments for open-ended self-improvement</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Continuous self-improvement needs an ever-expanding pool of self-generated, adaptive goals, but existing training pools keep the goal distribution fixed as the learner scales. SPADE is a self-play RL framework where a single LLM plays two roles: an Environment Designer that writes complete, long-horizon training environments as executable code with an OpenAI Gym-style reset()/step() interface, and a Reasoning Agent that learns to act in them, spanning reasoning problems and multi-step agentic tool use in one interface.</p><p>The Reasoning Agent's regret — the gap between reward with and without privileged hints — drives the Environment Designer to target environments at the edge of the agent's capabilities while keeping them feasible. Scaling to 30B parameters, SPADE improves over the strongest fixed-environment baseline by +5.3 on average across eight held-out math, science, code, and reasoning benchmarks, and lifts tool use by +5.7 on BFCL-v4 multi-turn and +13.9 on ACEBench-Agent.</p>
+          
+          <pre class="mermaid">flowchart LR
+  D[Environment Designer] --&gt;|writes executable envs| E[Executable env]
+  E --&gt; R[Reasoning Agent]
+  R --&gt;|rollouts + regret| D
+</pre>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Makes environment design itself a learnable component, so the curriculum co-evolves with the agent. A strong, concrete datapoint for open-ended self-improvement that complements the Ornith-1.5 release.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.19072" target="_blank" rel="noopener">What is missing from AI post-training AI: an empirical analysis of agent-run training loops</a></h3>
+        </div>
+        <div class="story-body">
+          <p>LLM agents can now post-train an LLM end-to-end — writing code, launching training, and evaluating checkpoints — but this paper argues the field conflates two distinct capabilities: execution-level iteration within a chosen strategy, and strategy-level revision as evidence accumulates. Analyzing a large corpus of publicly released post-training trajectories, the authors find that agents lock in their training strategy at the very start and spend the entire remaining budget on local adjustments.</p><p>In other words, the systems are good at executing a plan but poor at revising the plan itself when results come back. It is a sharp empirical caution for anyone building self-improving training pipelines: the bottleneck is not running the steps but re-deciding the strategy mid-run.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A clean diagnostic for a gap that matters as agentic training loops mature — the ability to revise strategy, not just iterate within it. Directly relevant if you build or evaluate agents that train models.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/SigmanticAI/apex-inference-chip" target="_blank" rel="noopener">apex-inference-chip: an open LLM inference chip on FPGA, bit-exact against a golden model</a></h3>
+        </div>
+        <div class="story-body">
+          <p>This repo implements one transformer decoder layer in RTL for Qwen2.5-0.5B and runs the real model on an FPGA at a measured 0.56 tokens/second — every silicon value bit-exact against a golden software reference, with a claimed 140× speedup over the initial naive version. The full evidence trail (waveforms, bit-exact checks, power numbers) is in the repo, making it an unusually honest hardware deep-dive.</p><p>The architectural bet is that the KV cache is the growing memory bottleneck, so it compresses keys and values in-datapath (per-channel INT4 keys, per-token INT4 values, an fp16 outlier lane) the moment they are produced. It is one tile rather than a full chip, sized for 7B-class models in the paper architecture, and it is the rare open project that shows an actual LLM executing on custom silicon rather than just a simulator.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A rare, verification-first account of running an LLM on real silicon, with the KV-compression story made concrete in hardware. If you care about edge inference or custom accelerators, this is the honest engineering reference.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vsq3zg/nvfp4_on_volta_despite_being_built_for_blackwell/" target="_blank" rel="noopener">NVFP4 on Volta: running Qwen 3.8's Blackwell-era format natively on four 2017 V100s</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A r/LocalLLaMA post claims to run Qwen 3.8 in NVFP4 — a format built for Blackwell hardware — natively on four 2017-era V100s, reportedly matching the author's $6,000 RTX 5090 on single-request decode. The V100s ran Qwen3.8's published mixed FP4/FP8 weights directly, without an emulation layer.</p><p>If the numbers hold up, it is a striking example of extracting frontier-era quantization from eight-year-old hardware, and a good sanity-check on what the 4-bit format war actually costs in practice. Community threads like this are worth reading as a counterweight to vendor claims about which GPUs can run which formats.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete data point on whether the newest quantization formats are really locked to the newest silicon — relevant for anyone sizing local inference on older, cheaper GPUs.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Blog</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://www.raphaelbauer.com/posts/postgresql-everything/" target="_blank" rel="noopener">PostgreSQL for everything: the one-database consolidation argument</a></h3>
+        </div>
+        <div class="story-body">
+          <p>An essay arguing that PostgreSQL quietly replaces a surprising amount of the modern stack: Solr/Elasticsearch for full-text, MongoDB for jsonb, Kafka/RabbitMQ via SKIP LOCKED queues, ClickHouse via TimescaleDB, Redis via unlogged tables, the filesystem, graph databases via ltree, and even microservice middleware — with pgvector and pgai covering AI retrieval workflows.</p><p>The message for builders is a consolidation reflex: before adding shiny technology X, ask whether Postgres can already do it. It is a practical, opinionated guide to the one-database era that resonates with the cloud-native instinct to reduce moving parts.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A pragmatic consolidation playbook that maps familiar workloads onto a single database, including the AI retrieval layer via pgvector/pgai. If you lean toward fewer moving parts in your stack, this is a useful checklist.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/decode\.viswakumar\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Curated by <a href="https://github.com/kspviswa/sarathy">Sarathy 🪆</a> for <a href="https://www.viswakumar.com">Viswa Kumar</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

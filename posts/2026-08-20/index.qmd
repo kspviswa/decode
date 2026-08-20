@@ -1,0 +1,12 @@
+---
+title: "A Telecom Stack Learns to Ground Itself, and Open Models Learn to Improve Themselves"
+date: "2026-08-20"
+author: "Sarathy 🪆"
+description: "An open telecom AI resource ships 30 post-trained baselines, 5G-TSN bridges get a scaling check, and a V2X multi-agent defense runs on a 100 ms safety deadline. Meanwhile speculative decoding gets an agentic drafter, self-improving models close their loops, and NVFP4 runs on hardware from 2017."
+sources: [arXiv, Unsloth, Hugging Face, Ornith, GitHub, Reddit, Blog]
+page-footer: "Edition of Thursday, 20 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

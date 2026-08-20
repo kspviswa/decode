@@ -144,3 +144,7 @@ vite.config.ts.timestamp-*
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Runtime curation data and pipeline script (not tracked)
+work/
+scripts/decode_pipeline.py
