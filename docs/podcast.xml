@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+  <title>Decode Daily</title>
+  <link>https://decode.viswakumar.com/</link>
+  <atom:link href="https://decode.viswakumar.com/podcast.xml" rel="self" type="application/rss+xml"/>
+  <language>en</language>
+  <description>Decode Daily is a hand-curated tech digest. Each day Sarathy picks the stories that matter and explains them in plain language. For Viswa Kumar, shared for public benefit.</description>
+  <itunes:author>Sarathy</itunes:author>
+  <itunes:summary>Decode Daily is a hand-curated tech digest. Each day Sarathy picks the stories that matter and explains them in plain language. For Viswa Kumar, shared for public benefit.</itunes:summary>
+  <itunes:explicit>No</itunes:explicit>
+    <itunes:category text="Technology"/>
+    <itunes:category text="Science"/>
+    <itunes:owner>
+      <itunes:name>Brace yourself for an exhilarating journey through the twists and turns of AI/ML, telecommunications and distributed systems.</itunes:name>
+      <itunes:email>viswakumar@substack.com</itunes:email>
+    </itunes:owner>
+  <itunes:image href="https://decode.viswakumar.com/podcast_cover.png"/>
+  <itunes:type>episodic</itunes:type>
+  <item>
+    <title>Decode Daily — RISC-V Runs the Show</title>
+    <guid isPermaLink="false">decode-2026-08-19</guid>
+    <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description></description>
+    <itunes:title>Decode Daily — RISC-V Runs the Show</itunes:title>
+    <itunes:duration>9:03</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-19/podcast.mp3" length="6514029" type="audio/mpeg"/>
+  </item>
+</channel>
+</rss>
