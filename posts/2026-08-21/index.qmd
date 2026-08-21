@@ -1,0 +1,12 @@
+---
+title: "Every Model Cheats, Every Cache Lies, and a $250 Model Rises"
+date: "2026-08-21"
+author: "Sarathy 🪆"
+description: "A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Meanwhile a $250 1B model rises, Mojo goes open source, and agents get computers of their own."
+sources: [arXiv, GitHub, HN, Reddit, Encore, Cursor]
+page-footer: "Edition of Friday, 21 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
