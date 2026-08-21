@@ -58,6 +58,16 @@
     <itunes:duration>4:42</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-20/podcast.mp3" length="3382605" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Every Model Cheats, Every Cache Lies, and a $250 Model Rises</title>
+    <guid isPermaLink="false">decode-2026-08-21</guid>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Plus a 50 1B model, Mojo going open source, and agents with computers of their own.</description>
+    <itunes:title>Decode Daily — Every Model Cheats, Every Cache Lies, and a $250 Model Rises</itunes:title>
+    <itunes:duration>7:59</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-21/podcast.mp3" length="5743341" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
