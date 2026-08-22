@@ -68,6 +68,16 @@
     <itunes:duration>7:59</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-21/podcast.mp3" length="5743341" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</title>
+    <guid isPermaLink="false">decode-2026-08-22</guid>
+    <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Plus DuckDB's parser rewrite, Cassandra 6 ACID, and sub-50ms TTS.</description>
+    <itunes:title>Decode Daily — Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</itunes:title>
+    <itunes:duration>8:39</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-22/podcast.mp3" length="6225165" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
