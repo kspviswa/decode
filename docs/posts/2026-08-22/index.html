@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-22">
+<meta name="description" content="A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF’s NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.">
 
-<title>Decode</title>
+<title>Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark – Decode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +32,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 }
 .mermaid-zoom:hover::after { opacity: 1; }
 </style>
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
   <div class="lightbox-box"></div>
 </div>
 <script>
@@ -198,7 +201,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 
 
 
@@ -208,11 +211,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.svg" alt="" class="navbar-logo light-content">
-    <img src="./logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Decode</span>
     </a>
   </div>
@@ -228,7 +231,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -242,27 +245,43 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Decode</h1>
-            <p class="subtitle lead">Making difficult technical material understandable</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</h1>
+                  <div>
+        <div class="description">
+          A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF’s NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 22, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -274,99 +293,182 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="home-list">
-  
-  <article class="card day-card">
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Saturday, August 22, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">IETF</span><span class="badge text-bg-secondary">Nari Labs</span><span class="badge text-bg-secondary">DuckDB</span>
-          <span class="badge text-bg-secondary">+5 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-22/index.html">Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</a></h3>
-      <p class="day-desc">A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.</p>
-      <a class="day-read" href="posts/2026-08-22/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Friday, August 21, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-21/index.html">Every Model Cheats, Every Cache Lies, and a $250 Model Rises</a></h3>
-      <p class="day-desc">A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Meanwhile a $250 1B model rises, Mojo goes open source, and agents get computers of their own.</p>
-      <a class="day-read" href="posts/2026-08-21/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 20, 2026</span>
-        
-          <span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">X</span><span class="badge text-bg-secondary">LinkedIn</span><span class="badge text-bg-secondary">arXiv</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">IETF</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://datatracker.ietf.org/doc/draft-cui-nmrg-llm-benchmark/" target="_blank" rel="noopener">NetConfBench: an IETF framework to evaluate LLM agents for network configuration</a></h3>
+        </div>
+        <div class="story-body">
+          <p>An Internet-Draft from the IETF Network Management Research Group specifies NetConfBench, a framework for evaluating intent-driven network configuration by LLM-based agents. It combines an emulator-based interactive environment, a suite of representative tasks, and two-layer metrics: outcome metrics that verify functional correctness in a method-agnostic way, plus agentic process metrics assessing reasoning quality and command generation, with optional efficiency metrics for time and token cost.</p><p>Because ground-truth configurations may admit more than one validated solution, functional test cases are the primary metric, with command and reasoning scores as diagnostic estimates. The goal is reproducible, fair comparison across both agentic and non-agentic approaches while highlighting what is specific to autonomous agents — a useful step toward benchmarking LLM agents doing real network configuration work.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-20/index.html">A Gateway Finds a Home, and Open Models Learn to Improve Themselves</a></h3>
-      <p class="day-desc">OpenRouter joins Stripe as the AI-infrastructure news of the day, a typosquat Rust crate runs code at build time, and WebAudio fingerprinting breaks Bluetooth. Plus DiffusionGemma's parallel text generation, the 6G core taking shape under Release 21, and open models that write their own training curricula.</p>
-      <a class="day-read" href="posts/2026-08-20/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> Directly on the LLM-for-network-management intersection: a standards-body attempt to benchmark agents that configure networks. If you build or evaluate agents that touch network devices or intent-driven config, this is the evaluation harness to watch and extend.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 19, 2026</span>
-        
-          <span class="badge text-bg-secondary">Reddit</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Linear</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-19/index.html">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</a></h3>
-      <p class="day-desc">A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.</p>
-      <a class="day-read" href="posts/2026-08-19/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 18, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">OpenRouter</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Light Reading</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">VMware</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://blogs.vmware.com/telco/5g-attack-surface-in-ai-world/" target="_blank" rel="noopener">The 5G attack surface: why VMware Telco Cloud Platform 9 should be on your upgrade list</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Software-defined 4G/5G architectures have shifted the telecom defensive bottleneck from vulnerability discovery to remediation: modern 5G networks rely on huge open-source codebases and legacy protocols, and 3GPP TS 33.501 defines five security domains with GTP-U on N3 (port 2152) as a prime attack vector. Frontier AI has collapsed the discovery-to-weaponization window from months to hours, and the same scaffolding that finds a flaw in a User Plane Function can write the exploit for it.</p><p>Recent campaigns — the Salt Typhoon congressional investigation and a Poland attack pivoting through a private cellular network — show state-backed and criminal actors exploiting converged architectures, misconfigurations, and trusted interconnections. The post argues this is why VMware Telco Cloud Platform 9 should be on upgrade plans.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-18/index.html">A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two</a></h3>
-      <p class="day-desc">Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check.</p>
-      <a class="day-read" href="posts/2026-08-18/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete read on how frontier agents change the 5G packet-core threat model: the bottleneck is now remediation speed, not discovery. If you work on network core security, this reframes where to invest.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 17, 2026</span>
-        
-          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
-      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
-      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20290" target="_blank" rel="noopener">Phantom Gains: auditing self-improvement against a measured null</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Whether a model has improved itself is increasingly judged by which individual problems it gains and loses — but differencing two noisy estimates makes those transitions vulnerable to measurement artifacts. Auditing three rounds of rank-32 LoRA self-training on Qwen3-8B against a frozen control pushed through the identical pipeline, this paper identifies seven measurement failures, each of which inverts a reported finding when its control is absent. Several are standard practice.</p><p>A single greedy decode manufactures apparent capability changes on an untrained model, the popular acquisition-versus-sharpening expansion statistic assigns that same model a rate of 0.280, and the natural threshold repair does not survive replication. Replaced with a per-problem exact test under false-discovery-rate control, the audit finds external distillation reliably improves problems the base model rarely reaches while three forms of self-training do not — and self-training corrupts problems solved at baseline well above the measured floor. Every number is recomputed from released per-problem records.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A rigorous, reproducible methodology for the hardest question in agentic training: did the model actually improve, or did the measurement pretend it did? If you build or evaluate self-improving agents, the null-controlled transition audit is the reporting standard to adopt.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20314" target="_blank" rel="noopener">MidTool: mid-training data synthesis for agentic tool use</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Tool use is usually left to post-training, but this paper argues general tool use deserves its own mid-training stage. MidTool is an open corpus-construction pipeline that combines web, PDF, and code data with synthesized supervision drawn from real tool APIs, MCP (Model Context Protocol) skills, and document-grounded workflows — teaching models to recognize tool affordances, ground arguments from context, compose call workflows, and recover from incomplete information.</p><p>Mid-training Qwen3-4B-Base and Qwen3-8B-Base on MidTool-Mix, then applying both supervised fine-tuning and reinforcement learning, consistently improves downstream results on BFCL, tau2-Bench, and MCP Universe versus skipping the stage. The takeaway is that agentic capability, like math and science, benefits from targeted mid-training rather than being left entirely to post-training.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete recipe for the capability most agent stacks depend on: reliable tool use. If you train or fine-tune models that call MCP servers or APIs, MidTool-Mix is a directly reusable corpus and the results justify a dedicated mid-training stage.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Nari Labs</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://nari-labs.com/blog/qwen3-tts-speed-cost-frontier/" target="_blank" rel="noopener">Pushing the speed-cost frontier for Qwen3-TTS: sub-50 ms time-to-first-audio</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Nari Labs open-sources a serving implementation for Qwen3-TTS 1.7B CustomVoice that holds sub-50 ms p95 time-to-first-audio at 10 requests per second on a single H100, staying under 100 ms even at 20 RPS while maintaining real-time playback. The keys are scheduling all three modules — Talker, Code Predictor, Codec — on one shared surface, capturing the Code Predictor's fixed 15-step loop as CUDA graphs, and state-caching the codec so it never replays prior frames.</p><p>At full utilization that is roughly $2 per million characters versus $49–100 for commercial APIs. Compared against five implementations under Poisson open-loop traffic, it is the only one to reach sub-50 ms p95 TTFA — a concrete case study in latency-bound edge serving.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, reproducible win in low-latency audio serving: scheduling and state-caching rather than bigger hardware. If you build real-time TTS or any latency-sensitive edge pipeline, this is a sharp reference.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Doubleword</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://blog.doubleword.ai/" target="_blank" rel="noopener">What happens when a GPU reads memory</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Fergus Finn of Doubleword (formerly TitanML) reverse-engineers the full hardware path of a single LDG.E global load on an RTX 4090 — from the warp scheduler through the operand collector, coalescer, virtually-tagged 4-way L1, physically-tagged L2, per-SM TLB, slice hash, and memory controller down to a DRAM row activation, recovering undocumented details purely from timing experiments.</p><p>The measured payoff: an in-row read costs about 3.4 ns while opening a fresh row costs roughly 15x that. For anyone trying to reason about why LLM inference and GPU kernels behave the way they do, this is a rare, reproducible account of the memory hierarchy.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, measurement-driven account of GPU memory behavior that defies intuition. If you optimize LLM inference or GPU kernels, understanding the DRAM row activation cost is directly relevant.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">EurekAlert</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.eurekalert.org/news-releases/1141085" target="_blank" rel="noopener">Every LLM agent framework minimizes manual intervention: LLM-IDA for industrial design automation</a></h3>
+        </div>
+        <div class="story-body">
+          <p>LLM-IDA is a tiered multi-agent framework for industrial design automation, splitting the pipeline into three vertical layers: bottom L0 multimodal black-box models that interpret natural-language requirements and draft conceptual designs; middle L1 grey-box layer embedding CAE knowledge graphs and optimization to translate concepts into constraint-compliant schematics; and top L2 white-box layer connecting directly to CAD/CAE APIs to build parametric prototypes and run finite-element evaluation with automated feedback.</p><p>The specification module formalizes unstructured requests into optimization problem tuples, and a code-generation module runs quantification, surrogate, and prototyping sub-units. It is a structured counter to the reliability gaps of black-box LLMs in iterative engineering design.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A clean, tiered multi-agent design for a domain where LLM reliability matters: engineering design automation. If you build multi-agent systems for structured technical work, the black-box/grey-box/white-box layering is a useful pattern.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-</div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">DuckDB</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://duckdb.org/2026/08/20/duckdb-20-peg-parser.html" target="_blank" rel="noopener">DuckDB v2.0 replaces its SQL parser with a PEG grammar</a></h3>
+        </div>
+        <div class="story-body">
+          <p>DuckDB v2.0 quietly swaps the PostgreSQL-derived Bison grammar it has carried since its first 2018 commit for a PEG-based parser and rewritten grammar producing the same DuckSQL dialect. The motivation is extensibility: LALR(1) shift/reduce conflicts made every dialect addition harder, while PEG rules expose named extension points where extensions can register new syntax and reuse DuckDB's existing transformer functions instead of re-implementing SQL.</p><p>A Pipe SQL extension demonstrates adding clauses without touching the rest of the language. The move is a pragmatic systems decision — replace a mature parser not for correctness but for the ability to keep evolving the dialect without friction.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A clean, first-principles take on when to rewrite a parser: not because the old one was wrong, but because LALR(1) conflict resolution caps extensibility. If you build or extend query engines, this is a useful lens on grammar design.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">The Consensus</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://theconsensus.dev/p/2026/08/16/transactions-in-cassandra.html" target="_blank" rel="noopener">The road to ACID transactions in Cassandra 6</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A hands-on tour of a three-node Cassandra 6 pre-release cluster through four transactional regimes: plain writes, atomic batches, Paxos-backed lightweight transactions, and the new Accord-based strictly serializable cross-partition transactions, driven by a concurrent accounting workload. Accord finally gives the eventually-consistent database real ACID semantics.</p><p>But concurrent readers intermittently observed balances that did not sum even though final results stayed correct — a genuine isolation bug in unreleased Cassandra, confirmed by Apple's C. Scott Andreas. It is a useful field report for anyone evaluating Cassandra 6.0 before adopting it.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> Early field evidence on whether Cassandra 6's new transaction layer is ready. If you run eventually-consistent distributed databases and care about strict serializability, this documents a real isolation gap to test before upgrading.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hacker News</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://danluu.com/perf-opt/" target="_blank" rel="noopener">There's no reason for software to be slow anymore</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Dan Luu argues that the cost of formerly specialized performance work has dropped by orders of magnitude: work that used to require a rare-skilled person or team can now be done by anyone who can type a few sentences. Dynamic custom software fitted to a particular workload rather than a class of workloads becomes a plausible outcome, echoing FFTW and demoscene techniques.</p><p>The piece is a running conversation with Marc Brooker and Michael Malis about how LLMs lower the barrier to writing JIT compilers and other historically hard components, making performance engineering a much wider discipline.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A strong, evidence-led argument that LLMs are collapsing the cost of performance engineering. If you build or evaluate AI-assisted systems, this reframes what is worth optimizing now.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

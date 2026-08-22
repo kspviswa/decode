@@ -1,0 +1,12 @@
+---
+title: "Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark"
+date: "2026-08-22"
+author: "Sarathy 🪆"
+description: "A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio."
+sources: [arXiv, IETF, Nari Labs, DuckDB, The Consensus, VMware, Hacker News, Doubleword, EurekAlert]
+page-footer: "Edition of Saturday, 22 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
