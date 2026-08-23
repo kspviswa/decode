@@ -1,0 +1,120 @@
+- title: "The new MCP roadmap: tasks, transports, and agent identity"
+  date: "2026-08-23"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, mcp, agent-protocol]
+  source: "MCP Blog"
+  domain: "blog.modelcontextprotocol.io"
+  link: "https://blog.modelcontextprotocol.io/posts/mcp-roadmap/"
+  tldr:
+    - "The Model Context Protocol maintainers published an updated roadmap with five priority areas. Agentic messaging primitives get server-initiated events (webhooks and channels so clients are not left polling) and the Tasks extension matures into the specification; transport work unifies on HTTP-native transports including Streamable HTTP over stdio for local servers."
+    - "Agent identity moves to standardized DPoP (Demonstrating Proof of Possession) and workload identity federation instead of pasted API keys, tool results get a single contract alongside progressive tool discovery, and SDK ergonomics round out the list. It is a clear signal of where the protocol layer for agents is heading."
+  why: "The agent-protocol layer is becoming as important as the models themselves. If you build agents or tool integrations, the MCP roadmap tells you which primitives are about to become stable."
+  highlights: [Tasks extension, DPoP identity, Streamable HTTP]
+- title: "From agent behaviour to agent-friendly documentation"
+  date: "2026-08-23"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, documentation, coding-agents]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.20195"
+  tldr:
+    - "An empirical study of how coding agents discover, read, and write technical documentation, grounded in 557 agentic coding sessions from SWE-chat yielding 94,813 developer turns. It maps which documents agents actually consult, when they read them, and what changes follow."
+    - "The evidence argues for treating AGENTS.md-style documentation as a first-class interface rather than an afterthought written for humans. As an increasing share of software change is authored autonomously, documentation optimized for human onboarding increasingly misses its largest reader."
+  why: "A concrete, behaviour-grounded answer to a question every agentic-codebase maintainer faces: how do agents actually use docs? If you write AGENTS.md or repo docs, this tells you what agents really consult."
+  highlights: [94,813 turns, AGENTS.md, first-class interface]
+- title: "Inducing task models from computer-use traces"
+  date: "2026-08-23"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, task-models, computer-use]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.20319"
+  tldr:
+    - "Passively recorded screenshots and mouse or keyboard actions from naturalistic computer-use traces are mined into symbolic, auditable, and reusable models of how everyday work actually flows. The paper induces task models from these traces rather than relying on opaque end-to-end policies."
+    - "The payoff is inspectable task models you can verify and reuse, plus a data path for teaching agents real office procedures. It is a counterweight to black-box behavior cloning for computer-use agents."
+  why: "A concrete answer to the auditability problem in computer-use agents. If you build or evaluate agents that operate real desktops, symbolic task models are the verifiable alternative to opaque policies."
+  highlights: [symbolic models, auditable, computer-use]
+- title: "Sprix SAGE Router: state-aware matching for open A2A networks"
+  date: "2026-08-23"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, a2a, orchestration]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/wang2122/sprix-sage-router"
+  tldr:
+    - "Sprix SAGE Router is an MIT-licensed research preview that routes work across agent-to-agent (A2A) networks through explicit states: continue alone, recruit complementary collaborators, or hand off — then assign task-DAG roles and schedule dependencies. The routing policy is inspectable instead of emergent."
+    - "The project signals appetite for structured multi-agent orchestration, with over a thousand stars within days. It gives agents a shared autonomy dial for deciding when to self-serve versus collaborate."
+  why: "A concrete, inspectable alternative to emergent multi-agent coordination. If you orchestrate agents across teams or services, explicit SELF/COLLABORATE/HANDOFF routing is a useful pattern to study."
+  highlights: [SELF/COLLABORATE/HANDOFF, task-DAG, inspectable policy]
+- title: "Rust Glancer: a Rust LSP using 100x less RAM"
+  date: "2026-08-23"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, rust, lsp]
+  source: "GitHub"
+  domain: "rust-glancer.github.io"
+  link: "https://rust-glancer.github.io/"
+  tldr:
+    - "Rust Glancer is a four-month alternative to rust-analyzer that targets under 100 MB of RAM by rejecting incrementality: workspace analysis is frozen to the filesystem, loaded on demand per query, and reused instantly after an editor restart. The trade is shallower analysis between saves, but large Rust workspaces become usable on an 8 GB MacBook."
+    - "Chalk is wired in for trait solving, and the author candidly documents building most of it with LLMs under per-PR human review — itself a datapoint for LLM-assisted systems building."
+  why: "A concrete systems trade: trading incrementality for memory efficiency, plus an honest account of LLM-assisted development. If you work on developer tooling or large-codebase ergonomics, this is a sharp reference."
+  highlights: [frozen workspaces, <100 MB, LLM-built]
+- title: "JIT compiling code in 5 microseconds"
+  date: "2026-08-23"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, jit, database]
+  source: "Michael Malis"
+  domain: "malisper.me"
+  link: "https://malisper.me/jit-compiling-code-in-5-us/"
+  tldr:
+    - "Historically, fast JIT compilation was a black art requiring assembly expertise; no production database today ships its own JIT — they use LLVM or generate C/C++, both with high compile times. With AI assistance, Michael Malis built a JIT compiler for pgrust that compiles code in about 5 microseconds, enabling every SQL query to be JIT compiled rather than a subset."
+    - "The post walks through building a simple regex engine with JIT compilation as a worked example and argues this is an area of opportunity for new databases to improve on old ones — the same LLM-lowered barrier that makes workload-fitted code plausible."
+  why: "A concrete demonstration that LLMs collapse the cost of performance engineering: a database JIT compiler that used to require rare specialists is now a weekend-sized project. Directly relevant if you build or evaluate query engines."
+  highlights: [5μs compile, pgrust, LLM-assisted JIT]
+- title: "Large models for small devices: empirical analysis of edge AI deployment"
+  date: "2026-08-23"
+  categories: [edge-inference, local-llm]
+  tags: [edge-inference, local-llm, quantization, on-device]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.15693"
+  tldr:
+    - "What compresses well need not deploy well. This survey folds dozens of recent works reporting compression results on real hardware into practical deployment guidelines, then deploys compact language and image models following them. The authors report their own measurements of pruning, quantization, and LoRA recovery evaluated on GPU, CPU, and Raspberry Pi across natural workloads."
+    - "The contribution is empirical grounding for edge-AI decisions: which compression techniques actually pay off on commodity hardware, and where the reported numbers mislead."
+  why: "A much-needed empirical counterweight to compression papers that measure only model size. If you deploy quantized or pruned models on edge hardware, the deployment-guideline distillation is directly actionable."
+  highlights: [pruning vs quantization, LoRA recovery, Raspberry Pi]
+- title: "Why your local LLM feels dumber than it is"
+  date: "2026-08-23"
+  categories: [local-llm, edge-inference]
+  tags: [local-llm, edge-inference, quantization, serving]
+  source: "Level1Techs"
+  domain: "forum.level1techs.com"
+  link: "https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917"
+  tldr:
+    - "A hands-on series of experiments argues that 'same weights, different answers' starts with implementation-specific hazards: mixed GPU generations, differing instruction sets, quantization, and serving stacks all nudge logits before prompting even begins."
+    - "The prescription is measuring your own stack with long-context tool-calling benchmarks instead of judging a model from three temp-0 test prompts. The post is required reading before blaming the model for your llama.cpp config."
+  why: "A practical, evidence-led account of why local inference varies across setups. If you run local models, this reframes model evaluation as stack evaluation."
+  highlights: [logit drift, stack-specific eval, llama.cpp]
+- title: "Qwen3.8-27B: 'the highest level of agency I've ever seen in a local model'"
+  date: "2026-08-23"
+  categories: [local-llm, llm-agents]
+  tags: [local-llm, llm-agents, qwen, agentic-coding]
+  source: "Reddit"
+  domain: "reddit.com"
+  link: "https://www.reddit.com/r/LocalLLaMA/comments/1vt78xd/qwen3827b_has_the_highest_level_of_agency_ive/"
+  tldr:
+    - "The running verdict on r/LocalLLaMA for Alibaba's Qwen3.8-27B keeps converging on agentic initiative: posters report it planning multi-step terminal work with unusually few nudges, and commenters express amazement that it runs locally at all, even at 3-bit quantizations."
+    - "Artificial Analysis benchmarks put it neck and neck with DeepSeek V4 and GPT-5.6 Luna Max on several tasks, making it a strong candidate for a local brain for coding agents."
+  why: "Useful field data if you are picking a local model for coding agents. The combination of frontier-adjacent benchmarks and strong reported agency makes Qwen3.8-27B a concrete reference point."
+  highlights: [3-bit quants, multi-step agency, coding agents]
+- title: "NanoGPT Speedrun Frontier: frontier models iterating on a 124M training recipe"
+  date: "2026-08-23"
+  categories: [ai-infra, benchmarks]
+  tags: [ai-infra, benchmarks, nanogpt, autonomous-research]
+  source: "Prime Intellect"
+  domain: "primeintellect.ai"
+  link: "https://www.primeintellect.ai/research/nanogpt-speedrun"
+  tldr:
+    - "Prime Intellect released full traces and setup from 153 autonomous runs across 18 frontier models on the NanoGPT optimizer speedrun: agents iterating on a 124M-parameter GPT training recipe from a shared baseline, changing only optimizer-related hyperparameters, with no internet access."
+    - "The leaderboard shows the frontier of autonomous research — which coding agents close issues, how much wall-clock they take, and how the runs compare on the speedrun benchmark. It is one of the largest open experiments on how frontier models do AI research."
+  why: "A concrete, reproducible benchmark for autonomous agentic research. If you care about self-improving systems or agent evaluation, the released traces make this a rare open dataset."
+  highlights: [153 runs, 18 models, optimizer speedrun]

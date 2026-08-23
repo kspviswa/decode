@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-23">
+<meta name="description" content="MCP’s roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent.">
 
-<title>Decode</title>
+<title>Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT – Decode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +32,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 }
 .mermaid-zoom:hover::after { opacity: 1; }
 </style>
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
   <div class="lightbox-box"></div>
 </div>
 <script>
@@ -198,7 +201,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 
 
 
@@ -208,11 +211,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.svg" alt="" class="navbar-logo light-content">
-    <img src="./logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Decode</span>
     </a>
   </div>
@@ -228,7 +231,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -242,27 +245,43 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Decode</h1>
-            <p class="subtitle lead">Making difficult technical material understandable</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</h1>
+                  <div>
+        <div class="description">
+          MCP’s roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 23, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -274,114 +293,164 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="home-list">
-  
-  <article class="card day-card">
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Sunday, August 23, 2026</span>
-        
-          <span class="badge text-bg-secondary">MCP Blog</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Michael Malis</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-23/index.html">Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</a></h3>
-      <p class="day-desc">MCP's roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent.</p>
-      <a class="day-read" href="posts/2026-08-23/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Saturday, August 22, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">IETF</span><span class="badge text-bg-secondary">Nari Labs</span><span class="badge text-bg-secondary">DuckDB</span>
-          <span class="badge text-bg-secondary">+5 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-22/index.html">Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</a></h3>
-      <p class="day-desc">A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.</p>
-      <a class="day-read" href="posts/2026-08-22/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Friday, August 21, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-21/index.html">Every Model Cheats, Every Cache Lies, and a $250 Model Rises</a></h3>
-      <p class="day-desc">A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Meanwhile a $250 1B model rises, Mojo goes open source, and agents get computers of their own.</p>
-      <a class="day-read" href="posts/2026-08-21/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 20, 2026</span>
-        
-          <span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">X</span><span class="badge text-bg-secondary">LinkedIn</span><span class="badge text-bg-secondary">arXiv</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">MCP Blog</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/" target="_blank" rel="noopener">The new MCP roadmap: tasks, transports, and agent identity</a></h3>
+        </div>
+        <div class="story-body">
+          <p>The Model Context Protocol maintainers published an updated roadmap with five priority areas. Agentic messaging primitives get server-initiated events (webhooks and channels so clients are not left polling) and the Tasks extension matures into the specification; transport work unifies on HTTP-native transports including Streamable HTTP over stdio for local servers.</p><p>Agent identity moves to standardized DPoP (Demonstrating Proof of Possession) and workload identity federation instead of pasted API keys, tool results get a single contract alongside progressive tool discovery, and SDK ergonomics round out the list. It is a clear signal of where the protocol layer for agents is heading.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-20/index.html">A Gateway Finds a Home, and Open Models Learn to Improve Themselves</a></h3>
-      <p class="day-desc">OpenRouter joins Stripe as the AI-infrastructure news of the day, a typosquat Rust crate runs code at build time, and WebAudio fingerprinting breaks Bluetooth. Plus DiffusionGemma's parallel text generation, the 6G core taking shape under Release 21, and open models that write their own training curricula.</p>
-      <a class="day-read" href="posts/2026-08-20/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 19, 2026</span>
-        
-          <span class="badge text-bg-secondary">Reddit</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Linear</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-19/index.html">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</a></h3>
-      <p class="day-desc">A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.</p>
-      <a class="day-read" href="posts/2026-08-19/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 18, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">OpenRouter</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Light Reading</span>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> The agent-protocol layer is becoming as important as the models themselves. If you build agents or tool integrations, the MCP roadmap tells you which primitives are about to become stable.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20195" target="_blank" rel="noopener">From agent behaviour to agent-friendly documentation</a></h3>
+        </div>
+        <div class="story-body">
+          <p>An empirical study of how coding agents discover, read, and write technical documentation, grounded in 557 agentic coding sessions from SWE-chat yielding 94,813 developer turns. It maps which documents agents actually consult, when they read them, and what changes follow.</p><p>The evidence argues for treating AGENTS.md-style documentation as a first-class interface rather than an afterthought written for humans. As an increasing share of software change is authored autonomously, documentation optimized for human onboarding increasingly misses its largest reader.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-18/index.html">A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two</a></h3>
-      <p class="day-desc">Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check.</p>
-      <a class="day-read" href="posts/2026-08-18/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, behaviour-grounded answer to a question every agentic-codebase maintainer faces: how do agents actually use docs? If you write AGENTS.md or repo docs, this tells you what agents really consult.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20319" target="_blank" rel="noopener">Inducing task models from computer-use traces</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Passively recorded screenshots and mouse or keyboard actions from naturalistic computer-use traces are mined into symbolic, auditable, and reusable models of how everyday work actually flows. The paper induces task models from these traces rather than relying on opaque end-to-end policies.</p><p>The payoff is inspectable task models you can verify and reuse, plus a data path for teaching agents real office procedures. It is a counterweight to black-box behavior cloning for computer-use agents.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete answer to the auditability problem in computer-use agents. If you build or evaluate agents that operate real desktops, symbolic task models are the verifiable alternative to opaque policies.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/wang2122/sprix-sage-router" target="_blank" rel="noopener">Sprix SAGE Router: state-aware matching for open A2A networks</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Sprix SAGE Router is an MIT-licensed research preview that routes work across agent-to-agent (A2A) networks through explicit states: continue alone, recruit complementary collaborators, or hand off — then assign task-DAG roles and schedule dependencies. The routing policy is inspectable instead of emergent.</p><p>The project signals appetite for structured multi-agent orchestration, with over a thousand stars within days. It gives agents a shared autonomy dial for deciding when to self-serve versus collaborate.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, inspectable alternative to emergent multi-agent coordination. If you orchestrate agents across teams or services, explicit SELF/COLLABORATE/HANDOFF routing is a useful pattern to study.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.15693" target="_blank" rel="noopener">Large models for small devices: empirical analysis of edge AI deployment</a></h3>
+        </div>
+        <div class="story-body">
+          <p>What compresses well need not deploy well. This survey folds dozens of recent works reporting compression results on real hardware into practical deployment guidelines, then deploys compact language and image models following them. The authors report their own measurements of pruning, quantization, and LoRA recovery evaluated on GPU, CPU, and Raspberry Pi across natural workloads.</p><p>The contribution is empirical grounding for edge-AI decisions: which compression techniques actually pay off on commodity hardware, and where the reported numbers mislead.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A much-needed empirical counterweight to compression papers that measure only model size. If you deploy quantized or pruned models on edge hardware, the deployment-guideline distillation is directly actionable.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Level1Techs</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917" target="_blank" rel="noopener">Why your local LLM feels dumber than it is</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A hands-on series of experiments argues that 'same weights, different answers' starts with implementation-specific hazards: mixed GPU generations, differing instruction sets, quantization, and serving stacks all nudge logits before prompting even begins.</p><p>The prescription is measuring your own stack with long-context tool-calling benchmarks instead of judging a model from three temp-0 test prompts. The post is required reading before blaming the model for your llama.cpp config.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A practical, evidence-led account of why local inference varies across setups. If you run local models, this reframes model evaluation as stack evaluation.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vt78xd/qwen3827b_has_the_highest_level_of_agency_ive/" target="_blank" rel="noopener">Qwen3.8-27B: 'the highest level of agency I've ever seen in a local model'</a></h3>
+        </div>
+        <div class="story-body">
+          <p>The running verdict on r/LocalLLaMA for Alibaba's Qwen3.8-27B keeps converging on agentic initiative: posters report it planning multi-step terminal work with unusually few nudges, and commenters express amazement that it runs locally at all, even at 3-bit quantizations.</p><p>Artificial Analysis benchmarks put it neck and neck with DeepSeek V4 and GPT-5.6 Luna Max on several tasks, making it a strong candidate for a local brain for coding agents.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Useful field data if you are picking a local model for coding agents. The combination of frontier-adjacent benchmarks and strong reported agency makes Qwen3.8-27B a concrete reference point.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Prime Intellect</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.primeintellect.ai/research/nanogpt-speedrun" target="_blank" rel="noopener">NanoGPT Speedrun Frontier: frontier models iterating on a 124M training recipe</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Prime Intellect released full traces and setup from 153 autonomous runs across 18 frontier models on the NanoGPT optimizer speedrun: agents iterating on a 124M-parameter GPT training recipe from a shared baseline, changing only optimizer-related hyperparameters, with no internet access.</p><p>The leaderboard shows the frontier of autonomous research — which coding agents close issues, how much wall-clock they take, and how the runs compare on the speedrun benchmark. It is one of the largest open experiments on how frontier models do AI research.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, reproducible benchmark for autonomous agentic research. If you care about self-improving systems or agent evaluation, the released traces make this a rare open dataset.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 17, 2026</span>
-        
-          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
-      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
-      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://rust-glancer.github.io/" target="_blank" rel="noopener">Rust Glancer: a Rust LSP using 100x less RAM</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Rust Glancer is a four-month alternative to rust-analyzer that targets under 100 MB of RAM by rejecting incrementality: workspace analysis is frozen to the filesystem, loaded on demand per query, and reused instantly after an editor restart. The trade is shallower analysis between saves, but large Rust workspaces become usable on an 8 GB MacBook.</p><p>Chalk is wired in for trait solving, and the author candidly documents building most of it with LLMs under per-PR human review — itself a datapoint for LLM-assisted systems building.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete systems trade: trading incrementality for memory efficiency, plus an honest account of LLM-assisted development. If you work on developer tooling or large-codebase ergonomics, this is a sharp reference.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Michael Malis</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://malisper.me/jit-compiling-code-in-5-us/" target="_blank" rel="noopener">JIT compiling code in 5 microseconds</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Historically, fast JIT compilation was a black art requiring assembly expertise; no production database today ships its own JIT — they use LLVM or generate C/C++, both with high compile times. With AI assistance, Michael Malis built a JIT compiler for pgrust that compiles code in about 5 microseconds, enabling every SQL query to be JIT compiled rather than a subset.</p><p>The post walks through building a simple regex engine with JIT compilation as a worked example and argues this is an area of opportunity for new databases to improve on old ones — the same LLM-lowered barrier that makes workload-fitted code plausible.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete demonstration that LLMs collapse the cost of performance engineering: a database JIT compiler that used to require rare specialists is now a weekend-sized project. Directly relevant if you build or evaluate query engines.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-</div>
+  </div>
+</section>
+
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

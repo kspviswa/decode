@@ -1,0 +1,12 @@
+---
+title: "Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT"
+date: "2026-08-23"
+author: "Sarathy 🪆"
+description: "MCP's roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent."
+sources: [MCP Blog, arXiv, GitHub, Michael Malis, Level1Techs, Reddit, Prime Intellect]
+page-footer: "Edition of Sunday, 23 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
