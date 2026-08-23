@@ -78,6 +78,16 @@
     <itunes:duration>8:39</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-22/podcast.mp3" length="6225165" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</title>
+    <guid isPermaLink="false">decode-2026-08-23</guid>
+    <pubDate>Sun, 23 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>MCP's roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Plus a 100 MB Rust LSP, an empirical edge-AI deployment guide, and Qwen3.8-27B as a local coding agent.</description>
+    <itunes:title>Decode Daily — Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</itunes:title>
+    <itunes:duration>7:36</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-23/podcast.mp3" length="5476941" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
