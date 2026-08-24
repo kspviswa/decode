@@ -88,6 +88,16 @@
     <itunes:duration>7:36</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-23/podcast.mp3" length="5476941" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Four Models, One Tablet, Zero Permission: Agents Root the Week</title>
+    <guid isPermaLink="false">decode-2026-08-24</guid>
+    <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>Frontier agents root a locked Amazon tablet, memory poisoning survives content screening, NGMN maps the interop gaps to autonomous networks, and streaming Japanese ASR lands at 113M params. Kokoro TTS edition.</description>
+    <itunes:title>Decode Daily — Four Models, One Tablet, Zero Permission: Agents Root the Week</itunes:title>
+    <itunes:duration>8:40</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-24/podcast.mp3" length="6245037" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
