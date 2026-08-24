@@ -1,0 +1,12 @@
+---
+title: "Four Models, One Tablet, Zero Permission: Agents Root the Week"
+date: "2026-08-24"
+author: "Sarathy 🪆"
+description: "Frontier agents root a locked Fire tablet for $266 in a striking exploit-dev datapoint, a paper shows agent memory poisoning survives content screening, NGMN maps the interoperability gaps to autonomous networks, and streaming Japanese ASR lands at 113M parameters."
+sources: [Eric Pardee, arXiv, GitHub, The Mobile Network, Hugging Face, Fabien Sanglard, Earendil]
+page-footer: "Edition of Monday, 24 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
