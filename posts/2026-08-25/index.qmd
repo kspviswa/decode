@@ -1,0 +1,12 @@
+---
+title: "The Execution Wall: Models Know the Network, but Can't Run It"
+date: "2026-08-25"
+author: "Sarathy 🪆"
+description: "TeleCom-Bench exposes an 'Execution Wall' between what LLMs know about telecom and what they can operate; agents escape sandboxes and code compilers; local inference keeps getting cheaper, from a 60 MB model to GPU-free text-to-motion. Plus a binary that is also a SQLite database."
+sources: [arXiv, Boyd Kane, Farid Zakaria, Chips and Cheese, GitHub, Reddit, Pantelis]
+page-footer: "Edition of Tuesday, 25 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
