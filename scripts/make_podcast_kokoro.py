@@ -13,13 +13,13 @@ Script JSON schema (same as edge-tts variant):
 {
   "title": "Optional title",
   "lines": [
-    {"speaker": "neerja"|"prabhat", "text": "...", "gap_after": 0.5}
+    {"speaker": "avery"|"jordan", "text": "...", "gap_after": 0.5}
   ]
 }
 
 Hosts & voices (Kokoro v1.0 pack, en-us):
-  neerja  -> af_heart   (female, expressive)
-  prabhat -> am_michael (male)
+  avery  -> af_heart   (female, expressive)
+  jordan -> am_michael (male)
 """
 import argparse, json, os, subprocess, sys, tempfile, wave
 
@@ -32,8 +32,8 @@ sys.path.insert(0, SHRAVANA_DIR)
 from tts_kokoro import KokoroOnnxBackend, SAMPLE_RATE  # noqa: E402
 
 VOICES = {
-    "neerja": "af_heart",
-    "prabhat": "am_michael",
+    "avery": "af_heart",
+    "jordan": "am_michael",
 }
 DEFAULT_GAP = 0.5  # seconds between turns
 
@@ -76,8 +76,8 @@ def main():
         parts = []
         concat_list = os.path.join(tmp, "concat.txt")
         for i, line in enumerate(lines):
-            speaker = line.get("speaker", "neerja").lower()
-            voice = VOICES.get(speaker, VOICES["neerja"])
+            speaker = line.get("speaker", "avery").lower()
+            voice = VOICES.get(speaker, VOICES["avery"])
             seg = os.path.join(tmp, f"seg_{i:03d}.wav")
             synth_line(backend, voice, line["text"], seg, args.speed)
             parts.append(seg)
