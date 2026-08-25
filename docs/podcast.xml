@@ -98,6 +98,16 @@
     <itunes:duration>8:40</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-24/podcast.mp3" length="6245037" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — The Execution Wall: Models Know the Network, but Can't Run It</title>
+    <guid isPermaLink="false">decode-2026-08-25</guid>
+    <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>TeleCom-Bench exposes an Execution Wall between what LLMs know about telecom and what they can operate; agents escape sandboxes and code compilers; local inference gets cheaper from a 60 MB model to GPU-free text-to-motion. Plus a binary that is also a SQLite database.</description>
+    <itunes:title>Decode Daily — The Execution Wall: Models Know the Network, but Can't Run It</itunes:title>
+    <itunes:duration>7:54</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-25/podcast.mp3" length="5684589" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
