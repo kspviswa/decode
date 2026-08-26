@@ -10,7 +10,218 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Tue, 25 Aug 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 26 Aug 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-08-26/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.23179" target="_blank" rel="noopener">NetConfArena: an executable benchmark for LLM agents in closed-loop network configuration</a></h3>
+        </div>
+        <div class="story-body">
+          <p>NetConfArena is an executable benchmark that drops LLM agents into a closed-loop network configuration task: they must read a network's current state, decide on configuration changes, apply them, and observe the result — repeating until the network converges on the target behaviour. Unlike Q&amp;A-style benchmarks, agents are scored on whether the network actually ends up correctly configured.</p><p>It is a strong step toward measuring the thing that matters for network automation — not what an agent can recite about networking, but whether it can drive a real configuration loop to a correct, converged state.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete, executable benchmark for LLM agents doing closed-loop network configuration — directly relevant to LLM-driven network management and autonomous operations.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.24496" target="_blank" rel="noopener">A capability broker for workflow–network QoS coordination in B5G/6G industrial services</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A capability broker that coordinates workflow demands with network quality-of-service (QoS) for beyond-5G/6G industrial services. The broker mediates between application workflows and the network slice/QoS layer, so industrial traffic gets the latency and reliability it needs without manual per-application configuration.</p><p>It speaks to the slice-orchestration problem in industrial 5G: pairing service-level intents with the right network resources in a dynamic, multi-tenant setting.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete look at brokering QoS between industrial workflows and B5G/6G network slices — relevant to network slicing orchestration and intent-based, LLM-assisted network management.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Tech Xplore</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://techxplore.com/news/2026-08-peering-llm-based-multi-agent.html" target="_blank" rel="noopener">Peering inside LLM-based multi-agent systems could expose stealthy attacks</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A framework presented at ICML 2026 analyzes numerical signals produced inside individual LLMs to identify agents in a multi-agent system that may have been compromised — a way of detecting stealthy attacks that don't show up in the agents' visible outputs.</p><p>It matters because multi-agent systems are increasingly used for high-stakes orchestration, and a single compromised agent can steer the whole system; internal-signal monitoring is a promising detector.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A concrete attack-detection technique for multi-agent systems — relevant to agent security and trustworthy multi-agent orchestration.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Seth Larson</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://sethmlarson.dev/when-str-lower-is-a-security-vulnerability" target="_blank" rel="noopener">When str.lower() is a security vulnerability in Python</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A deep dive into how Unicode case-folding and Internationalized Domain Names (IDNA) interact with Python's str.lower(), and the cases where that interaction becomes a security vulnerability — particularly around domain-name normalization and authentication-relevant string comparisons.</p><p>A clear reminder that string normalization is a security boundary, and that IDNA 2003 vs IDNA 2008 handling can diverge in ways that matter for security-sensitive code.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A precise, non-obvious security bug class in Unicode normalization — relevant to anyone doing domain or string comparisons in security-sensitive code.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2607.21503" target="_blank" rel="noopener">Agentic context management: treating agent memory and cost as architecture problems</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Argues that agent memory and inference cost should be designed as first-class architecture concerns — as lifecycle and architecture problems — rather than bolted on. It frames context as a managed resource with its own lifecycle: what to keep, what to evict, and how to structure retrieval so long-running agents stay both correct and cheap.</p><p>The framing is a useful corrective to the 'just stuff everything in context' approach, tying token budgets and memory structure directly to how agents are built.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A systems view of agent memory and cost as architecture decisions — directly relevant to anyone building long-lived agents or agent platforms.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">SemiAnalysis</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener">OpenAI Jalapeño: better than Nvidia Blackwell?</a></h3>
+        </div>
+        <div class="story-body">
+          <p>SemiAnalysis reports on OpenAI's Jalapeño accelerator, arguing it beats Nvidia's Blackwell on key metrics — the latest salvo in OpenAI's push to build its own silicon rather than buy it. The piece walks through the chip's architecture, its compute-per-dollar positioning, and what it means for the AI hardware landscape.</p><p>A useful read for anyone tracking where inference economics are headed.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete look at custom accelerator economics and inference cost trends — relevant to anyone sizing AI infrastructure or watching where inference pricing is going.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">ModelScope</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.modelscope.cn/models/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noopener">Qwen 3.8-Flash-Next: a 125B-parameter MoE with 6B active, releasing tomorrow</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Qwen teases Qwen 3.8-Flash-Next, a 125B-parameter mixture-of-experts (MoE) model with only ~6B active parameters, promising flagship-level quality at a fraction of the inference cost. The sparse-activation design keeps the model interesting for local and edge serving.</p><p>The model card is live on ModelScope ahead of release, and the community is already benchmarking what a 6B-active MoE can run on.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A flagship-class open-weight MoE with a small active parameter count — directly relevant to local and edge inference economics.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vymha8/open_source_kernel_in_qwen3635ba3b_for_amd_mi350x/" target="_blank" rel="noopener">Open-source kernel runs Qwen3.6-35B-A3B on AMD MI350X at 78,498 output tokens/s across 8 GPUs</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A post details an open-source inference kernel that runs Qwen3.6-35B-A3B on AMD MI350X hardware, sustaining 78,498 output tokens per second across eight GPUs. The write-up contrasts it with the typical CUDA-only path most people use, highlighting where the AMD open-source kernel stack now stands.</p><p>A concrete datapoint on how far open-source ROCm-side inference has come for large MoE models.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A specific, measurable open-source inference result on AMD silicon — relevant to local/edge inference and open-hardware serving.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Surya Narreddi</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://surya.website/rling-qwen-to-paint-with-code" target="_blank" rel="noopener">Training AI to paint with code: RL-tuning Qwen to write p5.js brush code</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A hands-on account of reinforcement-learning a Qwen model to generate code that paints images — treating the canvas as an environment and brush strokes as actions. The write-up covers reward design, the action space, and what emerged from training.</p><p>A compact, concrete example of RL-for-code that goes beyond toy text tasks, and a different route than the imperative-code-generation path.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete RL-for-code result with a visual, verifiable reward — relevant to agentic code generation and creative-code tooling.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/jeffhajewski/latticedb" target="_blank" rel="noopener">LatticeDB: a single-file graph database with vector and full-text search for RAG apps</a></h3>
+        </div>
+        <div class="story-body">
+          <p>LatticeDB brings the single-file, embeddable, zero-config ethos of SQLite to graph databases, adding native vector similarity (HNSW) and BM25 full-text search over the same dataset in one query layer. It is aimed at relationship-heavy, local workloads like Graph RAG, agent memory, and knowledge tools.</p><p>For structured RAG, the appeal is obvious: traverse relationships, run semantic search, and do full-text retrieval against one file, with a durable event log for consuming graph changes.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A practical, local-first graph database with vector + full-text search — directly relevant to structured RAG and agent-memory storage.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/runetes/maiao" target="_blank" rel="noopener">Maiao: Gerrit-style code review workflow for GitHub, GitLab, and Gitea</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Maiao brings the Gerrit-style code review model — stacked changes, review-before-merge semantics, and a linear history — to GitHub, GitLab, and Gitea. It layers a review-first workflow on top of the host's existing PR/merge infrastructure.</p><p>For teams that prefer a strict, stacked-commit review flow, it is a way to get Gerrit-like discipline without migrating away from their current forge.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A practical dev-tooling story about bringing Gerrit-style review workflows to mainstream forges — relevant to cloud-native development practice.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-08-26/</guid>
+  <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>The Execution Wall: Models Know the Network, but Can’t Run It</title>
   <dc:creator>Sarathy 🪆</dc:creator>

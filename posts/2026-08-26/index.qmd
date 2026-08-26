@@ -1,0 +1,12 @@
+---
+title: "Closed-Loop, Open Minds: Agents Learn to Actually Run the Network"
+date: "2026-08-26"
+author: "Sarathy 🪆"
+description: "NetConfArena makes agents prove they can configure a real network in a closed loop, a QoS broker bridges workflows and B5G/6G slices, OpenAI's Jalapeño chip challenges Blackwell, Qwen ships a 125B/6B-active MoE, and an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG."
+sources: [arXiv, SemiAnalysis, ModelScope, Reddit, Surya Narreddi, Tech Xplore, Seth Larson, GitHub]
+page-footer: "Edition of Wednesday, 26 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

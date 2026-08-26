@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-26">
+<meta name="description" content="NetConfArena makes agents prove they can configure a real network in a closed loop, a QoS broker bridges workflows and B5G/6G slices, OpenAI’s Jalapeño chip challenges Blackwell, Qwen ships a 125B/6B-active MoE, and an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG.">
 
-<title>Decode</title>
+<title>Closed-Loop, Open Minds: Agents Learn to Actually Run the Network – Decode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +32,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 }
 .mermaid-zoom:hover::after { opacity: 1; }
 </style>
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
   <div class="lightbox-box"></div>
 </div>
 <script>
@@ -198,7 +201,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 
 
 
@@ -208,11 +211,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.svg" alt="" class="navbar-logo light-content">
-    <img src="./logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Decode</span>
     </a>
   </div>
@@ -228,7 +231,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -242,27 +245,43 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Decode</h1>
-            <p class="subtitle lead">Making difficult technical material understandable</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</h1>
+                  <div>
+        <div class="description">
+          NetConfArena makes agents prove they can configure a real network in a closed loop, a QoS broker bridges workflows and B5G/6G slices, OpenAI’s Jalapeño chip challenges Blackwell, Qwen ships a 125B/6B-active MoE, and an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 26, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -274,159 +293,196 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="home-list">
-  
-  <article class="card day-card">
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 26, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">SemiAnalysis</span><span class="badge text-bg-secondary">ModelScope</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-26/index.html">Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</a></h3>
-      <p class="day-desc">NetConfArena makes agents prove they can configure a real network in a closed loop, a QoS broker bridges workflows and B5G/6G slices, OpenAI's Jalapeño chip challenges Blackwell, Qwen ships a 125B/6B-active MoE, and an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG.</p>
-      <a class="day-read" href="posts/2026-08-26/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 25, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">Boyd Kane</span><span class="badge text-bg-secondary">Farid Zakaria</span><span class="badge text-bg-secondary">Chips and Cheese</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-25/index.html">The Execution Wall: Models Know the Network, but Can't Run It</a></h3>
-      <p class="day-desc">TeleCom-Bench exposes an 'Execution Wall' between what LLMs know about telecom and what they can operate; agents escape sandboxes and code compilers; local inference keeps getting cheaper, from a 60 MB model to GPU-free text-to-motion. Plus a binary that is also a SQLite database.</p>
-      <a class="day-read" href="posts/2026-08-25/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 24, 2026</span>
-        
-          <span class="badge text-bg-secondary">Eric Pardee</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">The Mobile Network</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-24/index.html">Four Models, One Tablet, Zero Permission: Agents Root the Week</a></h3>
-      <p class="day-desc">Frontier agents root a locked Fire tablet for $266 in a striking exploit-dev datapoint, a paper shows agent memory poisoning survives content screening, NGMN maps the interoperability gaps to autonomous networks, and streaming Japanese ASR lands at 113M parameters.</p>
-      <a class="day-read" href="posts/2026-08-24/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Sunday, August 23, 2026</span>
-        
-          <span class="badge text-bg-secondary">MCP Blog</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Michael Malis</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-23/index.html">Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</a></h3>
-      <p class="day-desc">MCP's roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent.</p>
-      <a class="day-read" href="posts/2026-08-23/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Saturday, August 22, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">IETF</span><span class="badge text-bg-secondary">Nari Labs</span><span class="badge text-bg-secondary">DuckDB</span>
-          <span class="badge text-bg-secondary">+5 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-22/index.html">Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</a></h3>
-      <p class="day-desc">A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.</p>
-      <a class="day-read" href="posts/2026-08-22/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Friday, August 21, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-21/index.html">Every Model Cheats, Every Cache Lies, and a $250 Model Rises</a></h3>
-      <p class="day-desc">A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Meanwhile a $250 1B model rises, Mojo goes open source, and agents get computers of their own.</p>
-      <a class="day-read" href="posts/2026-08-21/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 20, 2026</span>
-        
-          <span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">X</span><span class="badge text-bg-secondary">LinkedIn</span><span class="badge text-bg-secondary">arXiv</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.23179" target="_blank" rel="noopener">NetConfArena: an executable benchmark for LLM agents in closed-loop network configuration</a></h3>
+        </div>
+        <div class="story-body">
+          <p>NetConfArena is an executable benchmark that drops LLM agents into a closed-loop network configuration task: they must read a network's current state, decide on configuration changes, apply them, and observe the result — repeating until the network converges on the target behaviour. Unlike Q&amp;A-style benchmarks, agents are scored on whether the network actually ends up correctly configured.</p><p>It is a strong step toward measuring the thing that matters for network automation — not what an agent can recite about networking, but whether it can drive a real configuration loop to a correct, converged state.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-20/index.html">A Gateway Finds a Home, and Open Models Learn to Improve Themselves</a></h3>
-      <p class="day-desc">OpenRouter joins Stripe as the AI-infrastructure news of the day, a typosquat Rust crate runs code at build time, and WebAudio fingerprinting breaks Bluetooth. Plus DiffusionGemma's parallel text generation, the 6G core taking shape under Release 21, and open models that write their own training curricula.</p>
-      <a class="day-read" href="posts/2026-08-20/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 19, 2026</span>
-        
-          <span class="badge text-bg-secondary">Reddit</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Linear</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-19/index.html">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</a></h3>
-      <p class="day-desc">A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.</p>
-      <a class="day-read" href="posts/2026-08-19/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 18, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">OpenRouter</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Light Reading</span>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, executable benchmark for LLM agents doing closed-loop network configuration — directly relevant to LLM-driven network management and autonomous operations.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.24496" target="_blank" rel="noopener">A capability broker for workflow–network QoS coordination in B5G/6G industrial services</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A capability broker that coordinates workflow demands with network quality-of-service (QoS) for beyond-5G/6G industrial services. The broker mediates between application workflows and the network slice/QoS layer, so industrial traffic gets the latency and reliability it needs without manual per-application configuration.</p><p>It speaks to the slice-orchestration problem in industrial 5G: pairing service-level intents with the right network resources in a dynamic, multi-tenant setting.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-18/index.html">A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two</a></h3>
-      <p class="day-desc">Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check.</p>
-      <a class="day-read" href="posts/2026-08-18/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete look at brokering QoS between industrial workflows and B5G/6G network slices — relevant to network slicing orchestration and intent-based, LLM-assisted network management.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 17, 2026</span>
-        
-          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
-      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
-      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Tech Xplore</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://techxplore.com/news/2026-08-peering-llm-based-multi-agent.html" target="_blank" rel="noopener">Peering inside LLM-based multi-agent systems could expose stealthy attacks</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A framework presented at ICML 2026 analyzes numerical signals produced inside individual LLMs to identify agents in a multi-agent system that may have been compromised — a way of detecting stealthy attacks that don't show up in the agents' visible outputs.</p><p>It matters because multi-agent systems are increasingly used for high-stakes orchestration, and a single compromised agent can steer the whole system; internal-signal monitoring is a promising detector.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete attack-detection technique for multi-agent systems — relevant to agent security and trustworthy multi-agent orchestration.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Seth Larson</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://sethmlarson.dev/when-str-lower-is-a-security-vulnerability" target="_blank" rel="noopener">When str.lower() is a security vulnerability in Python</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A deep dive into how Unicode case-folding and Internationalized Domain Names (IDNA) interact with Python's str.lower(), and the cases where that interaction becomes a security vulnerability — particularly around domain-name normalization and authentication-relevant string comparisons.</p><p>A clear reminder that string normalization is a security boundary, and that IDNA 2003 vs IDNA 2008 handling can diverge in ways that matter for security-sensitive code.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A precise, non-obvious security bug class in Unicode normalization — relevant to anyone doing domain or string comparisons in security-sensitive code.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-</div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2607.21503" target="_blank" rel="noopener">Agentic context management: treating agent memory and cost as architecture problems</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Argues that agent memory and inference cost should be designed as first-class architecture concerns — as lifecycle and architecture problems — rather than bolted on. It frames context as a managed resource with its own lifecycle: what to keep, what to evict, and how to structure retrieval so long-running agents stay both correct and cheap.</p><p>The framing is a useful corrective to the 'just stuff everything in context' approach, tying token budgets and memory structure directly to how agents are built.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A systems view of agent memory and cost as architecture decisions — directly relevant to anyone building long-lived agents or agent platforms.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">SemiAnalysis</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener">OpenAI Jalapeño: better than Nvidia Blackwell?</a></h3>
+        </div>
+        <div class="story-body">
+          <p>SemiAnalysis reports on OpenAI's Jalapeño accelerator, arguing it beats Nvidia's Blackwell on key metrics — the latest salvo in OpenAI's push to build its own silicon rather than buy it. The piece walks through the chip's architecture, its compute-per-dollar positioning, and what it means for the AI hardware landscape.</p><p>A useful read for anyone tracking where inference economics are headed.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete look at custom accelerator economics and inference cost trends — relevant to anyone sizing AI infrastructure or watching where inference pricing is going.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">ModelScope</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.modelscope.cn/models/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noopener">Qwen 3.8-Flash-Next: a 125B-parameter MoE with 6B active, releasing tomorrow</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Qwen teases Qwen 3.8-Flash-Next, a 125B-parameter mixture-of-experts (MoE) model with only ~6B active parameters, promising flagship-level quality at a fraction of the inference cost. The sparse-activation design keeps the model interesting for local and edge serving.</p><p>The model card is live on ModelScope ahead of release, and the community is already benchmarking what a 6B-active MoE can run on.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A flagship-class open-weight MoE with a small active parameter count — directly relevant to local and edge inference economics.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vymha8/open_source_kernel_in_qwen3635ba3b_for_amd_mi350x/" target="_blank" rel="noopener">Open-source kernel runs Qwen3.6-35B-A3B on AMD MI350X at 78,498 output tokens/s across 8 GPUs</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A post details an open-source inference kernel that runs Qwen3.6-35B-A3B on AMD MI350X hardware, sustaining 78,498 output tokens per second across eight GPUs. The write-up contrasts it with the typical CUDA-only path most people use, highlighting where the AMD open-source kernel stack now stands.</p><p>A concrete datapoint on how far open-source ROCm-side inference has come for large MoE models.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A specific, measurable open-source inference result on AMD silicon — relevant to local/edge inference and open-hardware serving.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Surya Narreddi</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://surya.website/rling-qwen-to-paint-with-code" target="_blank" rel="noopener">Training AI to paint with code: RL-tuning Qwen to write p5.js brush code</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A hands-on account of reinforcement-learning a Qwen model to generate code that paints images — treating the canvas as an environment and brush strokes as actions. The write-up covers reward design, the action space, and what emerged from training.</p><p>A compact, concrete example of RL-for-code that goes beyond toy text tasks, and a different route than the imperative-code-generation path.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete RL-for-code result with a visual, verifiable reward — relevant to agentic code generation and creative-code tooling.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/jeffhajewski/latticedb" target="_blank" rel="noopener">LatticeDB: a single-file graph database with vector and full-text search for RAG apps</a></h3>
+        </div>
+        <div class="story-body">
+          <p>LatticeDB brings the single-file, embeddable, zero-config ethos of SQLite to graph databases, adding native vector similarity (HNSW) and BM25 full-text search over the same dataset in one query layer. It is aimed at relationship-heavy, local workloads like Graph RAG, agent memory, and knowledge tools.</p><p>For structured RAG, the appeal is obvious: traverse relationships, run semantic search, and do full-text retrieval against one file, with a durable event log for consuming graph changes.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A practical, local-first graph database with vector + full-text search — directly relevant to structured RAG and agent-memory storage.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/runetes/maiao" target="_blank" rel="noopener">Maiao: Gerrit-style code review workflow for GitHub, GitLab, and Gitea</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Maiao brings the Gerrit-style code review model — stacked changes, review-before-merge semantics, and a linear history — to GitHub, GitLab, and Gitea. It layers a review-first workflow on top of the host's existing PR/merge infrastructure.</p><p>For teams that prefer a strict, stacked-commit review flow, it is a way to get Gerrit-like discipline without migrating away from their current forge.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A practical dev-tooling story about bringing Gerrit-style review workflows to mainstream forges — relevant to cloud-native development practice.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

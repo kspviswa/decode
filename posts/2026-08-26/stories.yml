@@ -1,0 +1,132 @@
+- title: "NetConfArena: an executable benchmark for LLM agents in closed-loop network configuration"
+  date: "2026-08-26"
+  categories: [network-intelligence, llm-agents]
+  tags: [network-intelligence, llm-agents, network-configuration, benchmark]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.23179"
+  tldr:
+    - "NetConfArena is an executable benchmark that drops LLM agents into a closed-loop network configuration task: they must read a network's current state, decide on configuration changes, apply them, and observe the result — repeating until the network converges on the target behaviour. Unlike Q&A-style benchmarks, agents are scored on whether the network actually ends up correctly configured."
+    - "It is a strong step toward measuring the thing that matters for network automation — not what an agent can recite about networking, but whether it can drive a real configuration loop to a correct, converged state."
+  why: "A concrete, executable benchmark for LLM agents doing closed-loop network configuration — directly relevant to LLM-driven network management and autonomous operations."
+  highlights: [closed-loop config, executable eval, convergence]
+- title: "A capability broker for workflow–network QoS coordination in B5G/6G industrial services"
+  date: "2026-08-26"
+  categories: [network-intelligence, 5g-core]
+  tags: [network-intelligence, 5g-core, 6g, qos, industrial]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.24496"
+  tldr:
+    - "A capability broker that coordinates workflow demands with network quality-of-service (QoS) for beyond-5G/6G industrial services. The broker mediates between application workflows and the network slice/QoS layer, so industrial traffic gets the latency and reliability it needs without manual per-application configuration."
+    - "It speaks to the slice-orchestration problem in industrial 5G: pairing service-level intents with the right network resources in a dynamic, multi-tenant setting."
+  why: "A concrete look at brokering QoS between industrial workflows and B5G/6G network slices — relevant to network slicing orchestration and intent-based, LLM-assisted network management."
+  highlights: [QoS broker, industrial 5G/6G, slice orchestration]
+- title: "Agentic context management: treating agent memory and cost as architecture problems"
+  date: "2026-08-26"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, context-management, agent-memory]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2607.21503"
+  tldr:
+    - "Argues that agent memory and inference cost should be designed as first-class architecture concerns — as lifecycle and architecture problems — rather than bolted on. It frames context as a managed resource with its own lifecycle: what to keep, what to evict, and how to structure retrieval so long-running agents stay both correct and cheap."
+    - "The framing is a useful corrective to the 'just stuff everything in context' approach, tying token budgets and memory structure directly to how agents are built."
+  why: "A systems view of agent memory and cost as architecture decisions — directly relevant to anyone building long-lived agents or agent platforms."
+  highlights: [context lifecycle, token budgeting, agent memory]
+- title: "OpenAI Jalapeño: better than Nvidia Blackwell?"
+  date: "2026-08-26"
+  categories: [ai-infra, ai-hardware]
+  tags: [ai-infra, ai-hardware, accelerators, inference]
+  source: "SemiAnalysis"
+  domain: "newsletter.semianalysis.com"
+  link: "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia"
+  tldr:
+    - "SemiAnalysis reports on OpenAI's Jalapeño accelerator, arguing it beats Nvidia's Blackwell on key metrics — the latest salvo in OpenAI's push to build its own silicon rather than buy it. The piece walks through the chip's architecture, its compute-per-dollar positioning, and what it means for the AI hardware landscape."
+    - "A useful read for anyone tracking where inference economics are headed."
+  why: "A concrete look at custom accelerator economics and inference cost trends — relevant to anyone sizing AI infrastructure or watching where inference pricing is going."
+  highlights: [Jalapeño, Blackwell, compute-per-dollar]
+- title: "Qwen 3.8-Flash-Next: a 125B-parameter MoE with 6B active, releasing tomorrow"
+  date: "2026-08-26"
+  categories: [open-weights, edge-inference]
+  tags: [open-weights, edge-inference, moe, qwen]
+  source: "ModelScope"
+  domain: "modelscope.cn"
+  link: "https://www.modelscope.cn/models/Qwen/Qwen3.8-Flash-Next"
+  tldr:
+    - "Qwen teases Qwen 3.8-Flash-Next, a 125B-parameter mixture-of-experts (MoE) model with only ~6B active parameters, promising flagship-level quality at a fraction of the inference cost. The sparse-activation design keeps the model interesting for local and edge serving."
+    - "The model card is live on ModelScope ahead of release, and the community is already benchmarking what a 6B-active MoE can run on."
+  why: "A flagship-class open-weight MoE with a small active parameter count — directly relevant to local and edge inference economics."
+  highlights: [125B a6B MoE, sparse activation, open weights]
+- title: "Open-source kernel runs Qwen3.6-35B-A3B on AMD MI350X at 78,498 output tokens/s across 8 GPUs"
+  date: "2026-08-26"
+  categories: [edge-inference, open-weights]
+  tags: [edge-inference, open-weights, amd, kernels]
+  source: "Reddit"
+  domain: "reddit.com"
+  link: "https://www.reddit.com/r/LocalLLaMA/comments/1vymha8/open_source_kernel_in_qwen3635ba3b_for_amd_mi350x/"
+  tldr:
+    - "A post details an open-source inference kernel that runs Qwen3.6-35B-A3B on AMD MI350X hardware, sustaining 78,498 output tokens per second across eight GPUs. The write-up contrasts it with the typical CUDA-only path most people use, highlighting where the AMD open-source kernel stack now stands."
+    - "A concrete datapoint on how far open-source ROCm-side inference has come for large MoE models."
+  why: "A specific, measurable open-source inference result on AMD silicon — relevant to local/edge inference and open-hardware serving."
+  highlights: [78k tok/s, AMD MI350X, open-source kernel]
+- title: "Training AI to paint with code: RL-tuning Qwen to write p5.js brush code"
+  date: "2026-08-26"
+  categories: [ai-agents, llm]
+  tags: [ai-agents, llm, rl, code-generation]
+  source: "Surya Narreddi"
+  domain: "surya.website"
+  link: "https://surya.website/rling-qwen-to-paint-with-code"
+  tldr:
+    - "A hands-on account of reinforcement-learning a Qwen model to generate code that paints images — treating the canvas as an environment and brush strokes as actions. The write-up covers reward design, the action space, and what emerged from training."
+    - "A compact, concrete example of RL-for-code that goes beyond toy text tasks, and a different route than the imperative-code-generation path."
+  why: "A concrete RL-for-code result with a visual, verifiable reward — relevant to agentic code generation and creative-code tooling."
+  highlights: [RL for code, reward design, p5.js]
+- title: "Peering inside LLM-based multi-agent systems could expose stealthy attacks"
+  date: "2026-08-26"
+  categories: [ai-security, security]
+  tags: [ai-security, security, multi-agent, icml]
+  source: "Tech Xplore"
+  domain: "techxplore.com"
+  link: "https://techxplore.com/news/2026-08-peering-llm-based-multi-agent.html"
+  tldr:
+    - "A framework presented at ICML 2026 analyzes numerical signals produced inside individual LLMs to identify agents in a multi-agent system that may have been compromised — a way of detecting stealthy attacks that don't show up in the agents' visible outputs."
+    - "It matters because multi-agent systems are increasingly used for high-stakes orchestration, and a single compromised agent can steer the whole system; internal-signal monitoring is a promising detector."
+  why: "A concrete attack-detection technique for multi-agent systems — relevant to agent security and trustworthy multi-agent orchestration."
+  highlights: [internal signals, compromised-agent detection, ICML 2026]
+- title: "When str.lower() is a security vulnerability in Python"
+  date: "2026-08-26"
+  categories: [security]
+  tags: [security, python, idna, unicode]
+  source: "Seth Larson"
+  domain: "sethmlarson.dev"
+  link: "https://sethmlarson.dev/when-str-lower-is-a-security-vulnerability"
+  tldr:
+    - "A deep dive into how Unicode case-folding and Internationalized Domain Names (IDNA) interact with Python's str.lower(), and the cases where that interaction becomes a security vulnerability — particularly around domain-name normalization and authentication-relevant string comparisons."
+    - "A clear reminder that string normalization is a security boundary, and that IDNA 2003 vs IDNA 2008 handling can diverge in ways that matter for security-sensitive code."
+  why: "A precise, non-obvious security bug class in Unicode normalization — relevant to anyone doing domain or string comparisons in security-sensitive code."
+  highlights: [IDNA, Unicode case-folding, normalization attacks]
+- title: "LatticeDB: a single-file graph database with vector and full-text search for RAG apps"
+  date: "2026-08-26"
+  categories: [cloud-native, structured-rag]
+  tags: [cloud-native, structured-rag, graph-db, embeddings]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/jeffhajewski/latticedb"
+  tldr:
+    - "LatticeDB brings the single-file, embeddable, zero-config ethos of SQLite to graph databases, adding native vector similarity (HNSW) and BM25 full-text search over the same dataset in one query layer. It is aimed at relationship-heavy, local workloads like Graph RAG, agent memory, and knowledge tools."
+    - "For structured RAG, the appeal is obvious: traverse relationships, run semantic search, and do full-text retrieval against one file, with a durable event log for consuming graph changes."
+  why: "A practical, local-first graph database with vector + full-text search — directly relevant to structured RAG and agent-memory storage."
+  highlights: [single-file graph DB, HNSW + BM25, Graph RAG]
+- title: "Maiao: Gerrit-style code review workflow for GitHub, GitLab, and Gitea"
+  date: "2026-08-26"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, code-review, dev-tools]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/runetes/maiao"
+  tldr:
+    - "Maiao brings the Gerrit-style code review model — stacked changes, review-before-merge semantics, and a linear history — to GitHub, GitLab, and Gitea. It layers a review-first workflow on top of the host's existing PR/merge infrastructure."
+    - "For teams that prefer a strict, stacked-commit review flow, it is a way to get Gerrit-like discipline without migrating away from their current forge."
+  why: "A practical dev-tooling story about bringing Gerrit-style review workflows to mainstream forges — relevant to cloud-native development practice."
+  highlights: [Gerrit-style review, stacked changes, multi-forge]
