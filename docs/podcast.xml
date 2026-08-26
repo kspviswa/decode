@@ -118,6 +118,16 @@
     <itunes:duration>7:21</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-26/podcast.mp3" length="5289453" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — 2026-08-26</title>
+    <guid isPermaLink="false">decode-2026-08-26</guid>
+    <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description></description>
+    <itunes:title>Decode Daily — 2026-08-26</itunes:title>
+    <itunes:duration>7:12</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-26/podcast.mp3" length="5186925" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
