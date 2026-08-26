@@ -108,6 +108,16 @@
     <itunes:duration>7:54</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-25/podcast.mp3" length="5684589" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</title>
+    <guid isPermaLink="false">decode-2026-08-26</guid>
+    <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>NetConfArena makes agents prove they can configure a real network in a closed loop; a QoS broker bridges workflows and B5G/6G slices; OpenAI's Jalapeño chip challenges Blackwell; Qwen ships a 125B/6B-active MoE; an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG.</description>
+    <itunes:title>Decode Daily — Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</itunes:title>
+    <itunes:duration>7:21</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-26/podcast.mp3" length="5289453" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
