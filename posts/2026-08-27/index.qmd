@@ -1,0 +1,12 @@
+---
+title: "Cheaper by the Token: Sparse MoEs and a 3x Reasoning Shortcut"
+date: "2026-08-27"
+author: "Sarathy 🪆"
+description: "GLM-5.3-Flash brings a 320B/18B-active sparse-attention MoE to open weights, Prefix Sliding makes long-reasoning inference 3x cheaper, semantic routing thinks about the internet of agents, and a 110M drafter speeds up Qwen on Apple Silicon. Plus DuckDB stays open under AWS and mold parallelizes the linker."
+sources: [Z.ai, arXiv, GitHub, Hugging Face, DuckLabs]
+page-footer: "Edition of Thursday, 27 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

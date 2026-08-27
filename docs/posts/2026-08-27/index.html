@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-27">
+<meta name="description" content="GLM-5.3-Flash brings a 320B/18B-active sparse-attention MoE to open weights, Prefix Sliding makes long-reasoning inference 3x cheaper, semantic routing thinks about the internet of agents, and a 110M drafter speeds up Qwen on Apple Silicon. Plus DuckDB stays open under AWS and mold parallelizes the linker.">
 
-<title>Decode</title>
+<title>Cheaper by the Token: Sparse MoEs and a 3x Reasoning Shortcut – Decode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +32,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 }
 .mermaid-zoom:hover::after { opacity: 1; }
 </style>
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
   <div class="lightbox-box"></div>
 </div>
 <script>
@@ -198,7 +201,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 
 
 
@@ -208,11 +211,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.svg" alt="" class="navbar-logo light-content">
-    <img src="./logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Decode</span>
     </a>
   </div>
@@ -228,7 +231,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -242,27 +245,43 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Decode</h1>
-            <p class="subtitle lead">Making difficult technical material understandable</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Cheaper by the Token: Sparse MoEs and a 3x Reasoning Shortcut</h1>
+                  <div>
+        <div class="description">
+          GLM-5.3-Flash brings a 320B/18B-active sparse-attention MoE to open weights, Prefix Sliding makes long-reasoning inference 3x cheaper, semantic routing thinks about the internet of agents, and a 110M drafter speeds up Qwen on Apple Silicon. Plus DuckDB stays open under AWS and mold parallelizes the linker.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 27, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -274,174 +293,173 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="home-list">
-  
-  <article class="card day-card">
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 27, 2026</span>
-        
-          <span class="badge text-bg-secondary">Z.ai</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Hugging Face</span>
-          <span class="badge text-bg-secondary">+1 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-27/index.html">Cheaper by the Token: Sparse MoEs and a 3x Reasoning Shortcut</a></h3>
-      <p class="day-desc">GLM-5.3-Flash brings a 320B/18B-active sparse-attention MoE to open weights, Prefix Sliding makes long-reasoning inference 3x cheaper, semantic routing thinks about the internet of agents, and a 110M drafter speeds up Qwen on Apple Silicon. Plus DuckDB stays open under AWS and mold parallelizes the linker.</p>
-      <a class="day-read" href="posts/2026-08-27/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 26, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">SemiAnalysis</span><span class="badge text-bg-secondary">ModelScope</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-26/index.html">Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</a></h3>
-      <p class="day-desc">NetConfArena makes agents prove they can configure a real network in a closed loop, a QoS broker bridges workflows and B5G/6G slices, OpenAI's Jalapeño chip challenges Blackwell, Qwen ships a 125B/6B-active MoE, and an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG.</p>
-      <a class="day-read" href="posts/2026-08-26/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 25, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">Boyd Kane</span><span class="badge text-bg-secondary">Farid Zakaria</span><span class="badge text-bg-secondary">Chips and Cheese</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-25/index.html">The Execution Wall: Models Know the Network, but Can't Run It</a></h3>
-      <p class="day-desc">TeleCom-Bench exposes an 'Execution Wall' between what LLMs know about telecom and what they can operate; agents escape sandboxes and code compilers; local inference keeps getting cheaper, from a 60 MB model to GPU-free text-to-motion. Plus a binary that is also a SQLite database.</p>
-      <a class="day-read" href="posts/2026-08-25/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 24, 2026</span>
-        
-          <span class="badge text-bg-secondary">Eric Pardee</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">The Mobile Network</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-24/index.html">Four Models, One Tablet, Zero Permission: Agents Root the Week</a></h3>
-      <p class="day-desc">Frontier agents root a locked Fire tablet for $266 in a striking exploit-dev datapoint, a paper shows agent memory poisoning survives content screening, NGMN maps the interoperability gaps to autonomous networks, and streaming Japanese ASR lands at 113M parameters.</p>
-      <a class="day-read" href="posts/2026-08-24/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Sunday, August 23, 2026</span>
-        
-          <span class="badge text-bg-secondary">MCP Blog</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Michael Malis</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-23/index.html">Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</a></h3>
-      <p class="day-desc">MCP's roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent.</p>
-      <a class="day-read" href="posts/2026-08-23/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Saturday, August 22, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">IETF</span><span class="badge text-bg-secondary">Nari Labs</span><span class="badge text-bg-secondary">DuckDB</span>
-          <span class="badge text-bg-secondary">+5 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-22/index.html">Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</a></h3>
-      <p class="day-desc">A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.</p>
-      <a class="day-read" href="posts/2026-08-22/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Friday, August 21, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-21/index.html">Every Model Cheats, Every Cache Lies, and a $250 Model Rises</a></h3>
-      <p class="day-desc">A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Meanwhile a $250 1B model rises, Mojo goes open source, and agents get computers of their own.</p>
-      <a class="day-read" href="posts/2026-08-21/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 20, 2026</span>
-        
-          <span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">X</span><span class="badge text-bg-secondary">LinkedIn</span><span class="badge text-bg-secondary">arXiv</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.25396" target="_blank" rel="noopener">SPFR: semantic potential-field routing for the distributed internet of agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A routing scheme for the emerging 'internet of agents': instead of forwarding messages by fixed address, SPFR routes based on semantic potential fields — agents and tasks are placed in a semantic space and traffic flows toward the agent best matched to the request.</p><p>It is a useful direction for agent-to-agent networking and LLM-agent ecosystems, where semantic routing could replace brittle endpoint addressing the way content-based networking did for data.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-20/index.html">A Gateway Finds a Home, and Open Models Learn to Improve Themselves</a></h3>
-      <p class="day-desc">OpenRouter joins Stripe as the AI-infrastructure news of the day, a typosquat Rust crate runs code at build time, and WebAudio fingerprinting breaks Bluetooth. Plus DiffusionGemma's parallel text generation, the 6G core taking shape under Release 21, and open models that write their own training curricula.</p>
-      <a class="day-read" href="posts/2026-08-20/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete take on semantic routing for agent-to-agent networks — relevant to LLM-agent ecosystems and network-intelligence research.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 19, 2026</span>
-        
-          <span class="badge text-bg-secondary">Reddit</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Linear</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-19/index.html">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</a></h3>
-      <p class="day-desc">A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.</p>
-      <a class="day-read" href="posts/2026-08-19/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 18, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">OpenRouter</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Light Reading</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Z.ai</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://z.ai/blog/glm-5.3-flash" target="_blank" rel="noopener">GLM-5.3-Flash: Zhipu's 320B-A18B sparse-attention model</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Zhipu's flash-tier release is a 320B-parameter mixture-of-experts (MoE) model with roughly 18B active, marshaling hybrid sparse and linear attention to slash long-context serving costs, with Manifold-Constrained Hyper-Connections used to improve scaling. It is natively multimodal and carries a 1M-token context.</p><p>Unsloth had day-zero support and r/LocalLLaMA's megathread was already deep in quants within hours — a flagship-class open-weight model aimed squarely at cheap long-context inference.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-18/index.html">A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two</a></h3>
-      <p class="day-desc">Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check.</p>
-      <a class="day-read" href="posts/2026-08-18/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A flagship open-weight MoE with aggressive sparse attention and a small active parameter count — directly relevant to local and edge inference economics.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.26070" target="_blank" rel="noopener">Prefix Sliding: drop stale reasoning tokens to scale test-time compute</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Long reasoning traces are the memory bottleneck of test-time scaling, but most intermediate reasoning tokens stop mattering as the model continues. Prefix Sliding discards them, keeping only the instruction prefix and the latest window. Without retraining, existing models run roughly 3x faster at test time at equal performance, and reinforcement-learning (RL) training with Prefix Sliding enables reasoning traces beyond 100k tokens.</p><p>Ablations beat both summarizing intermediate tokens and a vanilla sliding window, with code on GitHub.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete efficiency lever for long-reasoning inference — relevant to serving reasoning models and test-time scaling on constrained hardware.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.26052" target="_blank" rel="noopener">How much rank does LoRA need? Rank-error bounds for transformer attention</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A task-dependent theory of low-rank adaptation (LoRA) rank selection: it bounds the minimal Kullback-Leibler (KL) error achievable by a rank-r query LoRA update for a given pretrained attention head, target function, and downstream input distribution.</p><p>The spectral bounds it derives — and the construction showing softmax saturation can let a smaller rank match attention than would match logits — give fine-tuners something concrete instead of folklore when picking rank, including analysis of fused multi-head LoRA and shared query/key constraints.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A principled way to pick LoRA rank instead of guessing — relevant to fine-tuning workflows, including local and edge model adaptation.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/kgoedecke/doop" target="_blank" rel="noopener">doop: an open-source design canvas where humans and AI agents design together</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Positioned as the open-source answer to Paper.design, doop is a multiplayer design canvas where humans and AI agents design together live, with an MCP server built in so tools like Claude Code can participate in the design session natively. The TypeScript codebase is young.</p><p>The direction — agent-participant design tools, not agent-one-shot generation — is a live experiment worth watching for anyone building collaborative agent interfaces.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete open-source tool for human+AI-agent collaboration over MCP — relevant to agent tooling and collaborative workflows.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/mlx-community/collections" target="_blank" rel="noopener">Qwen3.8-27B MTP drafter for MLX: a 110M speculative-decoding sidekick for Apple Silicon</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A 110M-parameter multi-token-prediction (MTP) drafter for Qwen3.8-27B, set up for MLX uniform-4-bit inference — exactly the small satellite model that makes speculative decoding work: the main model takes the easy tokens from the drafter and only verifies. It is ready same-day for the Qwen3.8-27B family.</p><p>A concrete recipe for cutting latency on Apple Silicon without fighting the big checkpoint.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A practical small-model trick for speculative decoding on Apple Silicon — directly relevant to local inference latency.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/salohcin714/granite-4.2-3b-nvfp4-mlx" target="_blank" rel="noopener">Granite 4.2 3B in NVIDIA's NVFP4 format, quantized for MLX</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Granite 4.2 3.8B quantized to NVFP4 — NVIDIA's 4-bit floating-point format — today in MLX, weighing in around 0.9B stored parameters, one of a small family of MXFP4/MXFP8 siblings on the same repo.</p><p>For anyone running 3B-class models on a Mac or a modest GPU, it is a look at the bleeding edge of 4-bit formats converging.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete example of bleeding-edge 4-bit quantization formats landing in MLX — relevant to local inference on modest hardware.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 17, 2026</span>
-        
-          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
-      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
-      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">DuckLabs</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws" target="_blank" rel="noopener">AWS acquires DuckLabs — DuckDB stays MIT and open</a></h3>
+        </div>
+        <div class="story-body">
+          <p>The bootstrapped Amsterdam company behind DuckDB — a million downloads a day — is joining Amazon Web Services, effective early September, with the team staying together in Amsterdam. Crucially for the data/AI ecosystem, DuckDB, DuckLake, and Quack remain free and MIT-licensed, the nonprofit DuckDB Foundation keeps stewardship, and the extension stack is set to open so third parties can sign and ship extensions.</p><p>AWS's quotes read like a commitment letter, but the open-source terms written into the announcement are what builders will hold onto.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A major open-source data-infrastructure acquisition that keeps the core MIT-licensed — relevant to cloud-native data and the open-source ecosystem.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2608.23228" target="_blank" rel="noopener">mold: a massively parallel linker</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A detailed write-up of mold, the massively parallel linker that has become the default linker for many C++ builds. The paper explains how mold parallelizes the traditionally serial linking phases, achieving orders-of-magnitude speedups over GNU ld and linking large programs in a fraction of a second.</p><p>It is a concrete study in applying parallelism to a latency-bound systems tool, and a reminder of how much headroom remains in developer tooling.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete systems-engineering result in massively parallel tooling — relevant to distributed/cloud-native build infrastructure.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/tailscale/tailcat" target="_blank" rel="noopener">Tailcat: like netcat, but over Tailscale's data plane</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Tailcat is a lightweight netcat-style tool that pipes data over Tailscale's encrypted data plane instead of raw TCP, letting you connect to hosts reachable only over your tailnet — with Tailscale's identity, ACLs, and end-to-end encryption doing the transport.</p><p>A small, practical building block for tailnet-native tooling and distributed debugging across your own network.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete tool for tailnet-native networking — relevant to distributed systems and cloud-native tooling.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-</div>
+  </div>
+</section>
+
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

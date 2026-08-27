@@ -1,0 +1,119 @@
+- title: "GLM-5.3-Flash: Zhipu's 320B-A18B sparse-attention model"
+  date: "2026-08-27"
+  categories: [open-weights, edge-inference]
+  tags: [open-weights, edge-inference, moe, glm, sparse-attention]
+  source: "Z.ai"
+  domain: "z.ai"
+  link: "https://z.ai/blog/glm-5.3-flash"
+  tldr:
+    - "Zhipu's flash-tier release is a 320B-parameter mixture-of-experts (MoE) model with roughly 18B active, marshaling hybrid sparse and linear attention to slash long-context serving costs, with Manifold-Constrained Hyper-Connections used to improve scaling. It is natively multimodal and carries a 1M-token context."
+    - "Unsloth had day-zero support and r/LocalLLaMA's megathread was already deep in quants within hours — a flagship-class open-weight model aimed squarely at cheap long-context inference."
+  why: "A flagship open-weight MoE with aggressive sparse attention and a small active parameter count — directly relevant to local and edge inference economics."
+  highlights: [320B A18B MoE, sparse attention, 1M context]
+- title: "Prefix Sliding: drop stale reasoning tokens to scale test-time compute"
+  date: "2026-08-27"
+  categories: [edge-inference, local-llm]
+  tags: [edge-inference, local-llm, reasoning, test-time-compute]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.26070"
+  tldr:
+    - "Long reasoning traces are the memory bottleneck of test-time scaling, but most intermediate reasoning tokens stop mattering as the model continues. Prefix Sliding discards them, keeping only the instruction prefix and the latest window. Without retraining, existing models run roughly 3x faster at test time at equal performance, and reinforcement-learning (RL) training with Prefix Sliding enables reasoning traces beyond 100k tokens."
+    - "Ablations beat both summarizing intermediate tokens and a vanilla sliding window, with code on GitHub."
+  why: "A concrete efficiency lever for long-reasoning inference — relevant to serving reasoning models and test-time scaling on constrained hardware."
+  highlights: [3x test-time speedup, over-100k reasoning tokens, discard stale tokens]
+- title: "How much rank does LoRA need? Rank-error bounds for transformer attention"
+  date: "2026-08-27"
+  categories: [llm, benchmarks]
+  tags: [llm, benchmarks, lora, fine-tuning]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.26052"
+  tldr:
+    - "A task-dependent theory of low-rank adaptation (LoRA) rank selection: it bounds the minimal Kullback-Leibler (KL) error achievable by a rank-r query LoRA update for a given pretrained attention head, target function, and downstream input distribution."
+    - "The spectral bounds it derives — and the construction showing softmax saturation can let a smaller rank match attention than would match logits — give fine-tuners something concrete instead of folklore when picking rank, including analysis of fused multi-head LoRA and shared query/key constraints."
+  why: "A principled way to pick LoRA rank instead of guessing — relevant to fine-tuning workflows, including local and edge model adaptation."
+  highlights: [LoRA rank theory, KL-error bounds, fused multi-head]
+- title: "SPFR: semantic potential-field routing for the distributed internet of agents"
+  date: "2026-08-27"
+  categories: [network-intelligence, llm-agents]
+  tags: [network-intelligence, llm-agents, agent-routing, semantics]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.25396"
+  tldr:
+    - "A routing scheme for the emerging 'internet of agents': instead of forwarding messages by fixed address, SPFR routes based on semantic potential fields — agents and tasks are placed in a semantic space and traffic flows toward the agent best matched to the request."
+    - "It is a useful direction for agent-to-agent networking and LLM-agent ecosystems, where semantic routing could replace brittle endpoint addressing the way content-based networking did for data."
+  why: "A concrete take on semantic routing for agent-to-agent networks — relevant to LLM-agent ecosystems and network-intelligence research."
+  highlights: [semantic routing, internet of agents, potential fields]
+- title: "doop: an open-source design canvas where humans and AI agents design together"
+  date: "2026-08-27"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, mcp, design-tools]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/kgoedecke/doop"
+  tldr:
+    - "Positioned as the open-source answer to Paper.design, doop is a multiplayer design canvas where humans and AI agents design together live, with an MCP server built in so tools like Claude Code can participate in the design session natively. The TypeScript codebase is young."
+    - "The direction — agent-participant design tools, not agent-one-shot generation — is a live experiment worth watching for anyone building collaborative agent interfaces."
+  why: "A concrete open-source tool for human+AI-agent collaboration over MCP — relevant to agent tooling and collaborative workflows."
+  highlights: [MCP-native, multiplayer canvas, agent-participant design]
+- title: "Qwen3.8-27B MTP drafter for MLX: a 110M speculative-decoding sidekick for Apple Silicon"
+  date: "2026-08-27"
+  categories: [edge-inference, local-llm]
+  tags: [edge-inference, local-llm, speculative-decoding, mlx]
+  source: "Hugging Face"
+  domain: "huggingface.co"
+  link: "https://huggingface.co/mlx-community/collections"
+  tldr:
+    - "A 110M-parameter multi-token-prediction (MTP) drafter for Qwen3.8-27B, set up for MLX uniform-4-bit inference — exactly the small satellite model that makes speculative decoding work: the main model takes the easy tokens from the drafter and only verifies. It is ready same-day for the Qwen3.8-27B family."
+    - "A concrete recipe for cutting latency on Apple Silicon without fighting the big checkpoint."
+  why: "A practical small-model trick for speculative decoding on Apple Silicon — directly relevant to local inference latency."
+- title: "Granite 4.2 3B in NVIDIA's NVFP4 format, quantized for MLX"
+  date: "2026-08-27"
+  categories: [edge-inference, local-llm]
+  tags: [edge-inference, local-llm, quantization, nvfp4]
+  source: "Hugging Face"
+  domain: "huggingface.co"
+  link: "https://huggingface.co/salohcin714/granite-4.2-3b-nvfp4-mlx"
+  tldr:
+    - "Granite 4.2 3.8B quantized to NVFP4 — NVIDIA's 4-bit floating-point format — today in MLX, weighing in around 0.9B stored parameters, one of a small family of MXFP4/MXFP8 siblings on the same repo."
+    - "For anyone running 3B-class models on a Mac or a modest GPU, it is a look at the bleeding edge of 4-bit formats converging."
+  why: "A concrete example of bleeding-edge 4-bit quantization formats landing in MLX — relevant to local inference on modest hardware."
+  highlights: [NVFP4, MXFP4, MLX]
+- title: "AWS acquires DuckLabs — DuckDB stays MIT and open"
+  date: "2026-08-27"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, duckdb, open-source]
+  source: "DuckLabs"
+  domain: "ducklabs.com"
+  link: "https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws"
+  tldr:
+    - "The bootstrapped Amsterdam company behind DuckDB — a million downloads a day — is joining Amazon Web Services, effective early September, with the team staying together in Amsterdam. Crucially for the data/AI ecosystem, DuckDB, DuckLake, and Quack remain free and MIT-licensed, the nonprofit DuckDB Foundation keeps stewardship, and the extension stack is set to open so third parties can sign and ship extensions."
+    - "AWS's quotes read like a commitment letter, but the open-source terms written into the announcement are what builders will hold onto."
+  why: "A major open-source data-infrastructure acquisition that keeps the core MIT-licensed — relevant to cloud-native data and the open-source ecosystem."
+  highlights: [DuckDB stays MIT, DuckDB Foundation, extension signing]
+- title: "mold: a massively parallel linker"
+  date: "2026-08-27"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, linker, toolchains]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.23228"
+  tldr:
+    - "A detailed write-up of mold, the massively parallel linker that has become the default linker for many C++ builds. The paper explains how mold parallelizes the traditionally serial linking phases, achieving orders-of-magnitude speedups over GNU ld and linking large programs in a fraction of a second."
+    - "It is a concrete study in applying parallelism to a latency-bound systems tool, and a reminder of how much headroom remains in developer tooling."
+  why: "A concrete systems-engineering result in massively parallel tooling — relevant to distributed/cloud-native build infrastructure."
+  highlights: [parallel linker, build speedup, systems tooling]
+- title: "Tailcat: like netcat, but over Tailscale's data plane"
+  date: "2026-08-27"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, tailscale, networking]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/tailscale/tailcat"
+  tldr:
+    - "Tailcat is a lightweight netcat-style tool that pipes data over Tailscale's encrypted data plane instead of raw TCP, letting you connect to hosts reachable only over your tailnet — with Tailscale's identity, ACLs, and end-to-end encryption doing the transport."
+    - "A small, practical building block for tailnet-native tooling and distributed debugging across your own network."
+  why: "A concrete tool for tailnet-native networking — relevant to distributed systems and cloud-native tooling."
+  highlights: [tailnet, netcat, data plane]
