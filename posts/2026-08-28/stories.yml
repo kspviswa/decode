@@ -1,0 +1,132 @@
+- title: "Terminal-Bench-Science 0.1: benchmarking AI agents on real scientific workflows"
+  date: "2026-08-28"
+  categories: [benchmarks, llm-agents]
+  tags: [benchmarks, llm-agents, science, terminal-bench]
+  source: "Terminal-Bench-Science"
+  domain: "terminal-bench-science.ai"
+  link: "https://www.terminal-bench-science.ai/announcement"
+  tldr:
+    - "Terminal-Bench-Science evaluates AI agents on workflows drawn from researchers' own labs — 70 expert-curated tasks spanning the life, physical, Earth, mathematical, and engineering sciences. The bar is set by domain scientists rather than model vendors, and the benchmark is designed to evolve continuously alongside frontier models."
+    - "The strongest model evaluated so far, Claude Opus 5, resolves 30% of tasks; the leaderboard shows a steep drop-off below that, which makes the benchmark a useful measuring stick for how far agentic tool-use still has to go in research settings."
+  why: "A concrete, expert-curated agent benchmark with real research workflows — directly relevant to evaluating LLM agents and agentic tool use."
+  highlights: [70 research tasks, expert-curated, 30% top resolution]
+- title: "When context gets root: privilege escalation in LLM harnesses"
+  date: "2026-08-28"
+  categories: [ai-security, security]
+  tags: [ai-security, security, agent-harnesses, prompt-injection]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.27299"
+  tldr:
+    - "A new paper names 'instruction privilege escalation': agent harnesses assemble context in ways that can promote low-privilege content into a higher instruction tier, so a model follows attacker text it would have ignored at the original level. Across 13 attack objectives on six coding-agent harnesses, unrestricted execution hit every objective on every harness, and automatic permission review did not save the three harnesses that offer it."
+    - "The authors also reproduce the issue with harness-provided persistent goals and scheduled tasks, which makes the attack surface broader than a single injected instruction."
+  why: "A precise security result on how agent harnesses can silently escalate instruction privilege — relevant to anyone building or hardening agent frameworks."
+  highlights: [instruction privilege escalation, 6 coding harnesses, permission review]
+- title: "Puro-2B: pretrain a 2B model from scratch on RTX 5090s for under $6.9K"
+  date: "2026-08-28"
+  categories: [open-weights, edge-inference]
+  tags: [open-weights, edge-inference, pretraining, fp8]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.27370"
+  tldr:
+    - "A Tsinghua-affiliated team publishes an open pretraining recipe that trains Puro-2B models from scratch on up to 1.4 trillion tokens in FP8 on consumer RTX 5090s. Their best run costs under $6.9K and approaches Qwen2.5-1.5B quality under their protocol; a fitted cost-scaling law suggests roughly $4.4K is enough to match Qwen2-1.5B."
+    - "Data, code, and weights are Apache-2.0 on Hugging Face — a rare full-pipeline recipe rather than weights alone, which matters for reproducible small-model pretraining."
+  why: "An open, full-pipeline small-model pretraining recipe on consumer hardware — relevant to local and edge inference economics and reproducible training."
+  highlights: [FP8 pretraining, RTX 5090, under $6.9K]
+- title: "How Cloudflare saved 100 terabytes of memory in 1.1.1.1's DNS cache"
+  date: "2026-08-28"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, dns, memory-optimization]
+  source: "Cloudflare"
+  domain: "blog.cloudflare.com"
+  link: "https://blog.cloudflare.com/dns-cache-memory-optimization-1111/"
+  tldr:
+    - "Big Pineapple, the platform behind 1.1.1.1 and Cloudflare's other DNS services, stores over 250 billion DNS cache entries at any given time — at that scale, one wasted byte per entry costs more than 250 gigabytes of fleet memory. Five successive changes to how cache entries are stored cut the per-entry footprint by over 50%."
+    - "Across the fleet that freed roughly 100 terabytes of memory — about the RAM in 130 of their Gen 13 servers — while also improving performance: insert throughput rose 43% and lookup latency dropped 19% thanks to fewer allocations and better memory locality."
+  why: "A concrete systems-engineering study in shaving bytes at global scale — relevant to distributed systems and cloud-native infrastructure."
+  highlights: [250B cache entries, 50% footprint cut, 100TB freed]
+- title: "Anthropic previews the Model Hardware Standard for agents in the lab"
+  date: "2026-08-28"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, mcp, robotics]
+  source: "Anthropic"
+  domain: "anthropic.com"
+  link: "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+  tldr:
+    - "Anthropic opened a research preview of the Model Hardware Standard, a shared driver that lets AI agents discover and operate lab and factory instruments — microscopes, liquid handlers, robot arms — through MCP, CLI, or APIs. It started as a collaboration with HHMI Janelia to collapse weeks of bespoke integrations."
+    - "Early partners include AWS Strands Robots, Universal Robots, Tecan, Raspberry Pi, and Hugging Face LeRobot. The spec is model-agnostic and not yet open source; the preview exists to build physical-safety evaluations first, and the announcement is explicit that Claude still needs expert oversight on spatial failures."
+  why: "A concrete standardization push for agents operating physical instruments — relevant to agent tooling, MCP, and physical-world agent safety."
+  highlights: [MCP-based hardware driver, HHMI Janelia, physical-safety evals]
+- title: "WeMM-Embedding: Tencent's open multimodal embedding family"
+  date: "2026-08-28"
+  categories: [llm, embeddings]
+  tags: [llm, embeddings, multimodal, rag]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.24053"
+  tldr:
+    - "Tencent's WeChat Vision team open-sourced WeMM-Embedding, a family of universal multimodal embedding models at 2B, 4B, and 9B parameters that handle text, images, video, visual documents, and interleaved inputs, with Matryoshka dimensions down to 64. On the MMEB-v2 benchmark the 2B checkpoint reports 77.9 average, ahead of Qwen3-VL-Embedding 2B at 73.2."
+    - "The 2B model at 256 dimensions keeps 98.7% of full-dimension image/video performance, and vLLM and SGLang serving recipes are included. Audio is not supported; the scores are the authors' reported numbers."
+  why: "A concrete open multimodal embedding family with strong benchmark numbers — relevant to structured RAG, retrieval, and embedding-based search."
+  highlights: [2B/4B/9B, MMEB-v2 77.9, Matryoshka dims]
+- title: "Small models have arrived"
+  date: "2026-08-28"
+  categories: [local-llm, edge-inference]
+  tags: [local-llm, edge-inference, token-economics, small-models]
+  source: "Calvin French-Owen"
+  domain: "calv.info"
+  link: "https://calv.info/small-models-have-arrived"
+  tldr:
+    - "Calvin French-Owen argues the interesting story in 2026 is not another frontier model but cheap, fast ones: gpt-5.6-luna ripping through code and email at around 100 tokens per second for tens of cents, with GLM 5.3 sitting on a new Pareto frontier. He maps consumer-AI's missing wave to token cost — a personalized daily-news toy that used to cost about a dollar on Sonnet-class models now lands around ten cents on luna."
+    - "Most company work, in his telling, is responsive 'token spewer' labor, so demand for good-enough small models is about to take off even as frontier spend keeps compounding."
+  why: "A sharp, concrete argument on small-model token economics — relevant to local inference and where the cheap-model wave is heading."
+  highlights: [100 tps for cents, Pareto frontier, token cost]
+- title: "Experiential: an open gateway that turns your traffic into a better router"
+  date: "2026-08-28"
+  categories: [ai-infra, llm]
+  tags: [ai-infra, llm, gateway, routing]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/experientiallabs/experiential"
+  tldr:
+    - "Experiential is an open-source OpenAI-compatible gateway that sits across hosted, bring-your-own-key, and local models, then turns production traces into a fitted router or a fine-tuned model. A local 'exp' wizard issues a key and a public alias, and you can load a project router as an official OpenAI client."
+    - "The closed loop is the point: collect OpenTelemetry (OTLP) traces, run 'exp build', then 'exp optimize model' via Tinker — an OpenRouter-shaped control plane that actually trains on your traffic."
+  why: "A concrete open tool for traffic-driven model routing and optimization — relevant to LLM infrastructure and cost control."
+  highlights: [OTLP traces, fitted router, fine-tunes on traffic]
+- title: "Tencent drops Hy4-preview: a 770B-A49B MoE for open weights"
+  date: "2026-08-28"
+  categories: [open-weights, moe]
+  tags: [open-weights, moe, tencent, hunyuan]
+  source: "Hugging Face"
+  domain: "huggingface.co"
+  link: "https://huggingface.co/tencent/Hy4-preview"
+  tldr:
+    - "Tencent released Hy4-preview, a large mixture-of-experts (MoE) model with roughly 770B total parameters and 49B active, into the open-weights ecosystem. It continues the Hunyuan line and arrives with safetensors weights and conversational tags ready for inference."
+    - "The community is already placing it alongside the other big open MoEs of the season, which keeps the pressure on the frontier of what can be served locally and in-house."
+  why: "A major open-weight MoE release — relevant to open-weights ecosystem and the local/edge inference conversation."
+  highlights: [770B-A49B MoE, Hunyuan line, open weights]
+- title: "Nvidia agrees to acquire Hugging Face for about $13 billion"
+  date: "2026-08-28"
+  categories: [m-and-a]
+  tags: [m-and-a, nvidia, hugging-face, open-source]
+  source: "TechCrunch"
+  domain: "techcrunch.com"
+  link: "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/"
+  tldr:
+    - "Nvidia has reportedly agreed to acquire Hugging Face, the open-source AI model hub, for roughly $12.9-13 billion, per The Information, Bloomberg, and others. Hugging Face is the default distribution point for open-weight models, quantized checkpoints, and datasets, and the deal would give Nvidia a central position in the developer funnel where models are selected and downloaded."
+    - "The open-source community is watching closely — the hub hosts most of the weights that make local and edge inference possible, so stewardship of the platform matters beyond the price tag."
+  why: "A major acquisition at the center of the open-weights ecosystem — relevant to anyone relying on Hugging Face for local and edge model distribution."
+  highlights: [~$13B deal, model hub, open-weights funnel]
+- title: "Reverse-engineering an NPU vendor's engine format to run GGUF"
+  date: "2026-08-28"
+  categories: [edge-inference, local-llm]
+  tags: [edge-inference, local-llm, npu, gguf]
+  source: "Reddit"
+  domain: "reddit.com"
+  link: "https://www.reddit.com/r/LocalLLaMA/comments/1w0hrrn/i_reverseengineered_an_npu_vendors_engine_format/"
+  tldr:
+    - "A developer reverse-engineered an NPU vendor's proprietary engine format — int8 weights stored as two nibble planes — to get GGUF models running on the hardware. The write-up walks through the bit-level layout discovery and the bridge needed to map standard model formats onto the vendor's engine expectations."
+    - "It is a concrete reminder that edge inference still depends on cracking proprietary silicon conventions, and that format-level reverse engineering can unlock hardware that vendors haven't fully opened."
+  why: "A hands-on account of making GGUF run on a closed NPU engine — relevant to edge inference and hardware-software interop."
+  highlights: [int8 nibble planes, GGUF on NPU, format reverse-engineering]

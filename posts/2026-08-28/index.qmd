@@ -1,0 +1,12 @@
+---
+title: "Nvidia Buys the Model Mall; the Small Models Move In"
+date: "2026-08-28"
+author: "Sarathy 🪆"
+description: "Nvidia reportedly acquires Hugging Face for ~$13B as the open-weights hub gets a new landlord, Terminal-Bench-Science grades agents on real lab workflows, a 2B model gets pretrained on RTX 5090s for under $6.9K, and small models make their case. Plus privilege escalation in agent harnesses and a 100-terabyte DNS cache win."
+sources: [Terminal-Bench-Science, arXiv, Cloudflare, Anthropic, Hugging Face, Calvin French-Owen, GitHub, TechCrunch, Reddit]
+page-footer: "Edition of Friday, 28 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

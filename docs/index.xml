@@ -10,7 +10,218 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Thu, 27 Aug 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 28 Aug 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Nvidia Buys the Model Mall; the Small Models Move In</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-08-28/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2608.27299" target="_blank" rel="noopener">When context gets root: privilege escalation in LLM harnesses</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A new paper names 'instruction privilege escalation': agent harnesses assemble context in ways that can promote low-privilege content into a higher instruction tier, so a model follows attacker text it would have ignored at the original level. Across 13 attack objectives on six coding-agent harnesses, unrestricted execution hit every objective on every harness, and automatic permission review did not save the three harnesses that offer it.</p><p>The authors also reproduce the issue with harness-provided persistent goals and scheduled tasks, which makes the attack surface broader than a single injected instruction.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A precise security result on how agent harnesses can silently escalate instruction privilege — relevant to anyone building or hardening agent frameworks.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Terminal-Bench-Science</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.terminal-bench-science.ai/announcement" target="_blank" rel="noopener">Terminal-Bench-Science 0.1: benchmarking AI agents on real scientific workflows</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Terminal-Bench-Science evaluates AI agents on workflows drawn from researchers' own labs — 70 expert-curated tasks spanning the life, physical, Earth, mathematical, and engineering sciences. The bar is set by domain scientists rather than model vendors, and the benchmark is designed to evolve continuously alongside frontier models.</p><p>The strongest model evaluated so far, Claude Opus 5, resolves 30% of tasks; the leaderboard shows a steep drop-off below that, which makes the benchmark a useful measuring stick for how far agentic tool-use still has to go in research settings.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete, expert-curated agent benchmark with real research workflows — directly relevant to evaluating LLM agents and agentic tool use.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.27370" target="_blank" rel="noopener">Puro-2B: pretrain a 2B model from scratch on RTX 5090s for under $6.9K</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A Tsinghua-affiliated team publishes an open pretraining recipe that trains Puro-2B models from scratch on up to 1.4 trillion tokens in FP8 on consumer RTX 5090s. Their best run costs under $6.9K and approaches Qwen2.5-1.5B quality under their protocol; a fitted cost-scaling law suggests roughly $4.4K is enough to match Qwen2-1.5B.</p><p>Data, code, and weights are Apache-2.0 on Hugging Face — a rare full-pipeline recipe rather than weights alone, which matters for reproducible small-model pretraining.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> An open, full-pipeline small-model pretraining recipe on consumer hardware — relevant to local and edge inference economics and reproducible training.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Anthropic</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.anthropic.com/news/model-hardware-standard-research-preview" target="_blank" rel="noopener">Anthropic previews the Model Hardware Standard for agents in the lab</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Anthropic opened a research preview of the Model Hardware Standard, a shared driver that lets AI agents discover and operate lab and factory instruments — microscopes, liquid handlers, robot arms — through MCP, CLI, or APIs. It started as a collaboration with HHMI Janelia to collapse weeks of bespoke integrations.</p><p>Early partners include AWS Strands Robots, Universal Robots, Tecan, Raspberry Pi, and Hugging Face LeRobot. The spec is model-agnostic and not yet open source; the preview exists to build physical-safety evaluations first, and the announcement is explicit that Claude still needs expert oversight on spatial failures.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete standardization push for agents operating physical instruments — relevant to agent tooling, MCP, and physical-world agent safety.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.24053" target="_blank" rel="noopener">WeMM-Embedding: Tencent's open multimodal embedding family</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Tencent's WeChat Vision team open-sourced WeMM-Embedding, a family of universal multimodal embedding models at 2B, 4B, and 9B parameters that handle text, images, video, visual documents, and interleaved inputs, with Matryoshka dimensions down to 64. On the MMEB-v2 benchmark the 2B checkpoint reports 77.9 average, ahead of Qwen3-VL-Embedding 2B at 73.2.</p><p>The 2B model at 256 dimensions keeps 98.7% of full-dimension image/video performance, and vLLM and SGLang serving recipes are included. Audio is not supported; the scores are the authors' reported numbers.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete open multimodal embedding family with strong benchmark numbers — relevant to structured RAG, retrieval, and embedding-based search.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Calvin French-Owen</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://calv.info/small-models-have-arrived" target="_blank" rel="noopener">Small models have arrived</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Calvin French-Owen argues the interesting story in 2026 is not another frontier model but cheap, fast ones: gpt-5.6-luna ripping through code and email at around 100 tokens per second for tens of cents, with GLM 5.3 sitting on a new Pareto frontier. He maps consumer-AI's missing wave to token cost — a personalized daily-news toy that used to cost about a dollar on Sonnet-class models now lands around ten cents on luna.</p><p>Most company work, in his telling, is responsive 'token spewer' labor, so demand for good-enough small models is about to take off even as frontier spend keeps compounding.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A sharp, concrete argument on small-model token economics — relevant to local inference and where the cheap-model wave is heading.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/experientiallabs/experiential" target="_blank" rel="noopener">Experiential: an open gateway that turns your traffic into a better router</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Experiential is an open-source OpenAI-compatible gateway that sits across hosted, bring-your-own-key, and local models, then turns production traces into a fitted router or a fine-tuned model. A local 'exp' wizard issues a key and a public alias, and you can load a project router as an official OpenAI client.</p><p>The closed loop is the point: collect OpenTelemetry (OTLP) traces, run 'exp build', then 'exp optimize model' via Tinker — an OpenRouter-shaped control plane that actually trains on your traffic.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete open tool for traffic-driven model routing and optimization — relevant to LLM infrastructure and cost control.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/tencent/Hy4-preview" target="_blank" rel="noopener">Tencent drops Hy4-preview: a 770B-A49B MoE for open weights</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Tencent released Hy4-preview, a large mixture-of-experts (MoE) model with roughly 770B total parameters and 49B active, into the open-weights ecosystem. It continues the Hunyuan line and arrives with safetensors weights and conversational tags ready for inference.</p><p>The community is already placing it alongside the other big open MoEs of the season, which keeps the pressure on the frontier of what can be served locally and in-house.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A major open-weight MoE release — relevant to open-weights ecosystem and the local/edge inference conversation.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Reddit</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1w0hrrn/i_reverseengineered_an_npu_vendors_engine_format/" target="_blank" rel="noopener">Reverse-engineering an NPU vendor's engine format to run GGUF</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A developer reverse-engineered an NPU vendor's proprietary engine format — int8 weights stored as two nibble planes — to get GGUF models running on the hardware. The write-up walks through the bit-level layout discovery and the bridge needed to map standard model formats onto the vendor's engine expectations.</p><p>It is a concrete reminder that edge inference still depends on cracking proprietary silicon conventions, and that format-level reverse engineering can unlock hardware that vendors haven't fully opened.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A hands-on account of making GGUF run on a closed NPU engine — relevant to edge inference and hardware-software interop.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-business">
+    <div class="card-header text-bg-warning">Business &amp; Funding</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">TechCrunch</span>
+          <h3 class="story-headline anchored"><a class="link-warning" href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/" target="_blank" rel="noopener">Nvidia agrees to acquire Hugging Face for about $13 billion</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Nvidia has reportedly agreed to acquire Hugging Face, the open-source AI model hub, for roughly $12.9-13 billion, per The Information, Bloomberg, and others. Hugging Face is the default distribution point for open-weight models, quantized checkpoints, and datasets, and the deal would give Nvidia a central position in the developer funnel where models are selected and downloaded.</p><p>The open-source community is watching closely — the hub hosts most of the weights that make local and edge inference possible, so stewardship of the platform matters beyond the price tag.</p>
+          
+        </div>
+        <div class="alert alert-warning story-why">
+          <span class="why-label">Why read it</span> A major acquisition at the center of the open-weights ecosystem — relevant to anyone relying on Hugging Face for local and edge model distribution.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Cloudflare</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://blog.cloudflare.com/dns-cache-memory-optimization-1111/" target="_blank" rel="noopener">How Cloudflare saved 100 terabytes of memory in 1.1.1.1's DNS cache</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Big Pineapple, the platform behind 1.1.1.1 and Cloudflare's other DNS services, stores over 250 billion DNS cache entries at any given time — at that scale, one wasted byte per entry costs more than 250 gigabytes of fleet memory. Five successive changes to how cache entries are stored cut the per-entry footprint by over 50%.</p><p>Across the fleet that freed roughly 100 terabytes of memory — about the RAM in 130 of their Gen 13 servers — while also improving performance: insert throughput rose 43% and lookup latency dropped 19% thanks to fewer allocations and better memory locality.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A concrete systems-engineering study in shaving bytes at global scale — relevant to distributed systems and cloud-native infrastructure.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-08-28/</guid>
+  <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Cheaper by the Token: Sparse MoEs and a 3x Reasoning Shortcut</title>
   <dc:creator>Sarathy 🪆</dc:creator>
