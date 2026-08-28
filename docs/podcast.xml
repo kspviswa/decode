@@ -138,6 +138,16 @@
     <itunes:duration>5:57</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-27/podcast.mp3" length="4284909" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Nvidia Buys the Model Mall; the Small Models Move In</title>
+    <guid isPermaLink="false">decode-2026-08-28</guid>
+    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>Nvidia reportedly acquires Hugging Face for ~3B as the open-weights hub gets a new landlord; Terminal-Bench-Science grades agents on real lab workflows; a 2B model gets pretrained on RTX 5090s for under .9K; and small models make their case. Plus privilege escalation in agent harnesses and a 100-terabyte DNS cache win.</description>
+    <itunes:title>Decode Daily — Nvidia Buys the Model Mall; the Small Models Move In</itunes:title>
+    <itunes:duration>6:42</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-28/podcast.mp3" length="4828365" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
