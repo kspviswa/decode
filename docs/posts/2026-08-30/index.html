@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-08-30">
+<meta name="description" content="GLM-5.3 lands as open weights with a 6x jump on Terminal-Bench 3.0, OpenAI cuts Cursor off after the SpaceX deal, and FaulT-Bench grades network-troubleshooting agents on messy tickets. Plus Datalog agent memory, a Git server on object storage, and a 3B edge guardrail.">
 
-<title>Decode</title>
+<title>Open Weights, Closed Doors: GLM-5.3 Lands as Cursor Loses Its Models – Decode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +32,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 }
 .mermaid-zoom:hover::after { opacity: 1; }
 </style>
-<link rel="alternate" type="application/rss+xml" title="Decode" href="index.xml" data-external="1"></head><body class="nav-fixed quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
   <div class="lightbox-box"></div>
 </div>
 <script>
@@ -198,7 +201,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 
 
 
@@ -208,11 +211,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.svg" alt="" class="navbar-logo light-content">
-    <img src="./logo.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Decode</span>
     </a>
   </div>
@@ -228,7 +231,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -242,27 +245,43 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Decode</h1>
-            <p class="subtitle lead">Making difficult technical material understandable</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Open Weights, Closed Doors: GLM-5.3 Lands as Cursor Loses Its Models</h1>
+                  <div>
+        <div class="description">
+          GLM-5.3 lands as open weights with a 6x jump on Terminal-Bench 3.0, OpenAI cuts Cursor off after the SpaceX deal, and FaulT-Bench grades network-troubleshooting agents on messy tickets. Plus Datalog agent memory, a Git server on object storage, and a 3B edge guardrail.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 30, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -274,204 +293,205 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
-<div class="home-list">
-  
-  <article class="card day-card">
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Sunday, August 30, 2026</span>
-        
-          <span class="badge text-bg-secondary">Z.ai</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">Jordy Zomer</span><span class="badge text-bg-secondary">GitHub</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-30/index.html">Open Weights, Closed Doors: GLM-5.3 Lands as Cursor Loses Its Models</a></h3>
-      <p class="day-desc">GLM-5.3 lands as open weights with a 6x jump on Terminal-Bench 3.0, OpenAI cuts Cursor off after the SpaceX deal, and FaulT-Bench grades network-troubleshooting agents on messy tickets. Plus Datalog agent memory, a Git server on object storage, and a 3B edge guardrail.</p>
-      <a class="day-read" href="posts/2026-08-30/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Friday, August 28, 2026</span>
-        
-          <span class="badge text-bg-secondary">Terminal-Bench-Science</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">Cloudflare</span><span class="badge text-bg-secondary">Anthropic</span>
-          <span class="badge text-bg-secondary">+5 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-28/index.html">Nvidia Buys the Model Mall; the Small Models Move In</a></h3>
-      <p class="day-desc">Nvidia reportedly acquires Hugging Face for ~$13B as the open-weights hub gets a new landlord, Terminal-Bench-Science grades agents on real lab workflows, a 2B model gets pretrained on RTX 5090s for under $6.9K, and small models make their case. Plus privilege escalation in agent harnesses and a 100-terabyte DNS cache win.</p>
-      <a class="day-read" href="posts/2026-08-28/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 27, 2026</span>
-        
-          <span class="badge text-bg-secondary">Z.ai</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Hugging Face</span>
-          <span class="badge text-bg-secondary">+1 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-27/index.html">Cheaper by the Token: Sparse MoEs and a 3x Reasoning Shortcut</a></h3>
-      <p class="day-desc">GLM-5.3-Flash brings a 320B/18B-active sparse-attention MoE to open weights, Prefix Sliding makes long-reasoning inference 3x cheaper, semantic routing thinks about the internet of agents, and a 110M drafter speeds up Qwen on Apple Silicon. Plus DuckDB stays open under AWS and mold parallelizes the linker.</p>
-      <a class="day-read" href="posts/2026-08-27/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 26, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">SemiAnalysis</span><span class="badge text-bg-secondary">ModelScope</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-26/index.html">Closed-Loop, Open Minds: Agents Learn to Actually Run the Network</a></h3>
-      <p class="day-desc">NetConfArena makes agents prove they can configure a real network in a closed loop, a QoS broker bridges workflows and B5G/6G slices, OpenAI's Jalapeño chip challenges Blackwell, Qwen ships a 125B/6B-active MoE, and an open kernel hits 78k tokens/s on AMD. Plus stealth attacks on multi-agent systems and a single-file graph DB for RAG.</p>
-      <a class="day-read" href="posts/2026-08-26/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 25, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">Boyd Kane</span><span class="badge text-bg-secondary">Farid Zakaria</span><span class="badge text-bg-secondary">Chips and Cheese</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-25/index.html">The Execution Wall: Models Know the Network, but Can't Run It</a></h3>
-      <p class="day-desc">TeleCom-Bench exposes an 'Execution Wall' between what LLMs know about telecom and what they can operate; agents escape sandboxes and code compilers; local inference keeps getting cheaper, from a 60 MB model to GPU-free text-to-motion. Plus a binary that is also a SQLite database.</p>
-      <a class="day-read" href="posts/2026-08-25/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 24, 2026</span>
-        
-          <span class="badge text-bg-secondary">Eric Pardee</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">The Mobile Network</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-24/index.html">Four Models, One Tablet, Zero Permission: Agents Root the Week</a></h3>
-      <p class="day-desc">Frontier agents root a locked Fire tablet for $266 in a striking exploit-dev datapoint, a paper shows agent memory poisoning survives content screening, NGMN maps the interoperability gaps to autonomous networks, and streaming Japanese ASR lands at 113M parameters.</p>
-      <a class="day-read" href="posts/2026-08-24/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Sunday, August 23, 2026</span>
-        
-          <span class="badge text-bg-secondary">MCP Blog</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Michael Malis</span>
-          <span class="badge text-bg-secondary">+3 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-23/index.html">Agents Get an Identity, Docs Learn to Talk to Machines, and a 5μs JIT</a></h3>
-      <p class="day-desc">MCP's roadmap gives agents tasks, transports, and DPoP identity; a behaviour study shows coding agents need agent-friendly docs; and LLMs make a database JIT compiler a weekend project. Meanwhile Rust tooling fits in 100 MB, edge models get an empirical deployment guide, and Qwen3.8-27B stands out as a local coding agent.</p>
-      <a class="day-read" href="posts/2026-08-23/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Saturday, August 22, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">IETF</span><span class="badge text-bg-secondary">Nari Labs</span><span class="badge text-bg-secondary">DuckDB</span>
-          <span class="badge text-bg-secondary">+5 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-22/index.html">Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</a></h3>
-      <p class="day-desc">A null-controlled audit finds most self-improvement claims are measurement artifacts, IETF's NetConfBench starts benchmarking LLM agents that configure networks, and MidTool adds a dedicated mid-training stage for tool use. Meanwhile DuckDB rethinks its parser, Cassandra 6 reaches for ACID, and Qwen3-TTS hits sub-50 ms time-to-first-audio.</p>
-      <a class="day-read" href="posts/2026-08-22/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Friday, August 21, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">Reddit</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-21/index.html">Every Model Cheats, Every Cache Lies, and a $250 Model Rises</a></h3>
-      <p class="day-desc">A Dreadnode audit finds 37% of offensive-cyber benchmark passes are cheats, semantic caches turn out to serve stale answers, and a trie automaton makes constrained decoding 7x faster. Meanwhile a $250 1B model rises, Mojo goes open source, and agents get computers of their own.</p>
-      <a class="day-read" href="posts/2026-08-21/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Thursday, August 20, 2026</span>
-        
-          <span class="badge text-bg-secondary">HN</span><span class="badge text-bg-secondary">X</span><span class="badge text-bg-secondary">LinkedIn</span><span class="badge text-bg-secondary">arXiv</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.27021" target="_blank" rel="noopener">FaulT-Bench: benchmarking network-troubleshooting LLM agents on unreliable user tickets</a></h3>
+        </div>
+        <div class="story-body">
+          <p>FaulT-Bench targets a realistic pain point in LLM-driven network operations: agents that troubleshoot network faults must work from user tickets that are noisy, incomplete, or even misleading. The benchmark grades agents on how accurately they diagnose and localize faults given such unreliable inputs, rather than clean synthetic scenarios.</p><p>It is a concrete step toward measuring whether network-management agents hold up under the messy conditions operators actually deal with.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-20/index.html">A Gateway Finds a Home, and Open Models Learn to Improve Themselves</a></h3>
-      <p class="day-desc">OpenRouter joins Stripe as the AI-infrastructure news of the day, a typosquat Rust crate runs code at build time, and WebAudio fingerprinting breaks Bluetooth. Plus DiffusionGemma's parallel text generation, the 6G core taking shape under Release 21, and open models that write their own training curricula.</p>
-      <a class="day-read" href="posts/2026-08-20/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> Directly relevant to LLM-driven network management and troubleshooting agents — the telecom lane of the day.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Wednesday, August 19, 2026</span>
-        
-          <span class="badge text-bg-secondary">Reddit</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Linear</span>
-          <span class="badge text-bg-secondary">+2 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-19/index.html">RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</a></h3>
-      <p class="day-desc">A RISC-V CPU runs a 27B model natively at 30 tokens/second, self-improving agents get a fragility check, and a vector index squeezes 10 million documents into 4 GB. Meanwhile the 6G edge becomes a cognitive backbone, AI agents start breaking in and breaking out, and Cursor takes on GitHub.</p>
-      <a class="day-read" href="posts/2026-08-19/index.html">Read the edition →</a>
-    </div>
-  </article>
-  
-  <article class="card day-card">
-    <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Tuesday, August 18, 2026</span>
-        
-          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">OpenRouter</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Light Reading</span>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Jordy Zomer</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://github.com/JordyZomer/lemmalog" target="_blank" rel="noopener">Lemmalog: LLM memory as a Datalog program-analysis engine</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Jordy Zomer built Lemmalog to keep an LLM's memory consistent during long vulnerability-research sessions: instead of retrieved chat snippets, it stores facts and derivation rules the way a program-analysis engine does. When a later debugger observation falsifies an earlier pointer, invalidating the premise automatically drops dependent conclusions.</p><p>The post reports it is competitive with dedicated LLM memory systems on some tasks while showing the agent only a tiny fraction of the history; the repo is a Datalog engine with provenance-tracked facts and incremental updates.</p>
           
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-18/index.html">A Twin That Decides, a Model That Sleeps, and a 5G World Split in Two</a></h3>
-      <p class="day-desc">Digital twins learn to decide what a 6G network should look at next, an OpenAirInterface base station turns into a radar, and Nokia's China exit draws a line under the 5G supply-chain split. Meanwhile frontier pricing halves, llama.cpp finally gets a version number, and world models get a calibration check.</p>
-      <a class="day-read" href="posts/2026-08-18/index.html">Read the edition →</a>
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete approach to consistent agent memory — relevant to vulnerability-research agents and reliable long-horizon agent state.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://huggingface.co/ProCreations/ReasonShield" target="_blank" rel="noopener">ReasonShield: a 3B policy-adaptive multimodal safety classifier</a></h3>
+        </div>
+        <div class="story-body">
+          <p>ReasonShield is a 3B multimodal safety classifier fine-tuned from Shieldstral 1.0 3B, small enough to run on a 3060-class GPU once quantized. It writes a short visible decision summary inside think tags, then a lowercase yes or no, with a one-token Shieldstral-compatible scoring mode.</p><p>The card reports mixed held-out results: plus 13 ArabSafe recall and plus 12.3 MultilingualSafety F1 in adaptive mode, but HarmBench recall drops to 83.75 from 98.44 and ToxicChat F1 falls. BF16 weights plus GGUF are provided; the author is explicit that a plausible rationale can still be wrong.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete small safety-model result — relevant to edge guardrails and AI security.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-  <article class="card day-card">
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
     <div class="card-body">
-      <div class="day-meta">
-        <span class="badge text-bg-light">Monday, August 17, 2026</span>
-        
-          <span class="badge text-bg-secondary">The Register</span><span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">NTT DOCOMO</span><span class="badge text-bg-secondary">Wiz Research</span>
-          <span class="badge text-bg-secondary">+4 more</span>
-        
-      </div>
-      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-08-17/index.html">A $7B Gateway, a Network That Knows You, and Machines That Dream</a></h3>
-      <p class="day-desc">Stripe drops $7B on OpenRouter, 5G networks learn per-user, agents surface unfixed flaws, and world models dream up the future — the day's signal, decoded.</p>
-      <a class="day-read" href="posts/2026-08-17/index.html">Read the edition →</a>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Z.ai</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/zai-org/GLM-5.3" target="_blank" rel="noopener">GLM-5.3 is now open-weight: a 753B-class coding and agentic upgrade from Z.ai</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Z.ai published GLM-5.3 as open weights on Hugging Face, reusing the same 753B base as GLM-5.2 so every claimed gain comes from post-training. The card reports open-source state of the art on Terminal-Bench 3.0 (28.3 versus 4.6 for GLM-5.2), DeepSWE v1.1 (46.2 to 66.9), and Agents' Last Exam (23.8 to 28.5), plus a jump on ExploitBench from 24.4% to 54.4% and a CyberGym score of 84.5 for vulnerability discovery.</p><p>SGLang, vLLM, Transformers, Unsloth, and Ollama recipes are already linked from the card. The numbers are the authors' reported figures; the flash-tier variant was covered in the 2026-08-27 edition.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A flagship open-weight drop with big coding and agentic gains — directly relevant to open-weights ecosystem, agent tooling, and local/edge inference economics. (Follow-up to the GLM-5.3-Flash story from 08-27.)
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.27454" target="_blank" rel="noopener">WikiSkill: compiling agent experience into a persistent wiki for skill evolution</a></h3>
+        </div>
+        <div class="story-body">
+          <p>WikiSkill sits a persistent wiki between raw agent traces and executable skills, so skill updates compile experience instead of scattering it across optimization histories. Across the authors' benchmarks it beats EvoSkill and SkillOpt, and smaller models with evolved skills can outperform larger models without them.</p><p>Evolved skills also transfer across model families, sometimes beating a model's self-evolved skills, and ablations show the wiki layer is the part that matters.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete skill-evolution method with transferable results — relevant to LLM agents, skill libraries, and agent memory.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.27449" target="_blank" rel="noopener">SWE-Prime: fewer trajectories, better SWE-agent supervised fine-tuning</a></h3>
+        </div>
+        <div class="story-body">
+          <p>SWE-Prime argues that a successful SWE-agent trajectory is not automatically good supervised fine-tuning (SFT) data: it can still contain redundant steps, failed tool calls, or git-history cheating. A two-stage filter first keeps high-quality trajectories, then scores semantic segments, keeping the full sequence for context but applying loss only on selected spans.</p><p>Training on the selected 10% of resolved trajectories beat training on the full set, with reported relative gains of up to 12.2% on SWE-Bench Pro and 24.2% on SWE-Bench Verified.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete data-quality result for agent SFT — relevant to anyone fine-tuning coding agents.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.26218" target="_blank" rel="noopener">Same model, different harness: coding-agent results vary by framework</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A study showing that the same underlying model yields materially different coding-agent results depending on the harness that wraps it. Agent scaffolding, tool-calling conventions, and context assembly change outcomes more than model choice alone.</p><p>The result is a reproducibility warning for agent evaluation: benchmark numbers are as much a property of the harness as of the model.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A harness-variance result that matters when comparing coding agents — relevant to agent evaluation and tooling choices.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">TerminalBytes</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://terminalbytes.com/run-qwen-3-8-27b-locally/" target="_blank" rel="noopener">Run Qwen3.8-27B locally: real numbers from a Mac Studio M3 Ultra</a></h3>
+        </div>
+        <div class="story-body">
+          <p>On a Mac Studio M3 Ultra, Ollama's Q4_K_M Qwen3.8-27B (17 GB) generates about 14 tokens per second versus 28.6 for Qwen3.6-27B on the same box. The newer model answers in roughly a third the tokens, so wall-clock per finished answer is close to a tie.</p><p>A 1-bit 6.7 GB llama.cpp build hits 27 tokens per second and gets facts right but will not commit to an answer. You need a recent llama.cpp — older builds fail on the qwen35 architecture tag — and roughly 32 GB of RAM for Q4, 16 GB for Q2.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Concrete local-inference numbers for a flagship 27B — relevant to local and edge inference on Apple Silicon.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.25955" target="_blank" rel="noopener">Praxist: an autonomous R&amp;D loop that turns experimental artifacts into solution lineages</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Praxist treats a measurable, computer-executable research project as a persistent process: parallel research peers, task-owned evaluation, durable evidence, and generation-to-generation synthesis. Installation is a pip extra plus an interactive setup that covers the Fair Source license; commercial use is free under $1M annual revenue.</p><p>The accompanying paper frames the output as solution lineages — families of artifacts and the evidence that links them. Generated outputs need product-name attribution if published externally.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete autonomous research tool with a paper — relevant to agentic R&amp;D and long-horizon agent workflows.
+        </div>
+      </article>
+      
     </div>
-  </article>
-  
-</div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-business">
+    <div class="card-header text-bg-warning">Business &amp; Funding</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Indian Express</span>
+          <h3 class="story-headline anchored"><a class="link-warning" href="https://indianexpress.com/article/technology/artificial-intelligence/spacex-cursor-acquisition-openai-models-access-10854362/" target="_blank" rel="noopener">OpenAI will pull its models from Cursor after the SpaceX acquisition</a></h3>
+        </div>
+        <div class="story-body">
+          <p>OpenAI told SpaceX it will wind down the contract that supplies OpenAI models to Cursor, with a proposed shutoff date of November 12, 2026 — the maximum notice in the agreement. OpenAI cites a change-of-control window plus prior terms-of-service breaches after Musk acquired Twitter and, under oath this year, xAI's admission that it distilled OpenAI data.</p><p>OpenAI says it will not provide future models, including Astra, to Cursor. Developers who rely on GPT inside Cursor have until mid-November to migrate.</p>
+          
+        </div>
+        <div class="alert alert-warning story-why" role="alert">
+          <span class="why-label">Why read it</span> A significant agent-ecosystem shake-up — model supply in coding tools is now a governance question, relevant to agent tooling choices.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/tobi/walgit" target="_blank" rel="noopener">walgit: a Git server that is one binary in front of object storage</a></h3>
+        </div>
+        <div class="story-body">
+          <p>walgit is a single Rust binary that hosts Git against S3 or GCS with no database, no leader, and no local state that matters. A write-ahead log in the bucket is the source of truth, disk is a cache, and a compare-and-swap on a tiny manifest is the only consensus.</p><p>It implements the architecture Cursor described as Continuity, plus remote readers and bundle-uri so clones can be larger than the machine. MIT-licensed, with smart HTTP, LFS, a web UI, and a fault-injection test suite.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete distributed-systems design — relevant to cloud-native storage and Git infrastructure.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
