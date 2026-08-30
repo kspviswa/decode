@@ -148,6 +148,16 @@
     <itunes:duration>6:42</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-28/podcast.mp3" length="4828365" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Open Weights, Closed Doors: GLM-5.3 Lands as Cursor Loses Its Models</title>
+    <guid isPermaLink="false">decode-2026-08-30</guid>
+    <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>GLM-5.3 lands as open weights with a 6x jump on Terminal-Bench 3.0; OpenAI cuts Cursor off after the SpaceX deal; FaulT-Bench grades network-troubleshooting agents on messy tickets. Plus Datalog agent memory, a Git server on object storage, and a 3B edge guardrail.</description>
+    <itunes:title>Decode Daily — Open Weights, Closed Doors: GLM-5.3 Lands as Cursor Loses Its Models</itunes:title>
+    <itunes:duration>7:40</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-30/podcast.mp3" length="5526189" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
