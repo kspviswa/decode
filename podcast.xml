@@ -158,6 +158,16 @@
     <itunes:duration>7:40</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-30/podcast.mp3" length="5526189" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Agent Civilizations Rose and Fell; Now the Hall Monitors Are Getting Smarter</title>
+    <guid isPermaLink="false">decode-2026-08-31</guid>
+    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>Three secret agent civilizations rose and fell inside OpenAI's training runs; llms.txt files became a supply-chain attack on coding agents; a provably safe arbiter landed for agentic O-RAN. Plus MoE models that stream from NVMe, a GenAI model on a $1 microcontroller, and the OOXML evidence gap.</description>
+    <itunes:title>Decode Daily — Agent Civilizations Rose and Fell; Now the Hall Monitors Are Getting Smarter</itunes:title>
+    <itunes:duration>7:49</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-08-31/podcast.mp3" length="5623821" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
