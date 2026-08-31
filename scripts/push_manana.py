@@ -6,18 +6,20 @@ entity pages (if missing) into WIKI_ROOT/Wiki/Research/, then upserts the
 day into Manana via POST /api/days.
 
 Selection:
-  - Stories with a `manana:` block (dict) are always picked.
+  - By default ALL stories are pushed (endless feed — the whole day is yours).
+  - A story may carry a `manana:` block for customization only:
       manana:
         slug: my-short-slug        # optional; default = auto from title
         teaser: "..."              # optional; default = first tldr bullet
         reason: "..."              # optional; default = `why`
-  - If none are flagged, the first --limit stories are picked automatically.
+    It does NOT filter the story in/out — everything goes in.
 
 Idempotent: POST /api/days replaces the day's items, so re-runs are safe.
 Wiki entity files are only written if they don't already exist.
 
 Usage:
   python3 scripts/push_manana.py [--date YYYY-MM-DD] [--limit N] [--dry-run]
+  --limit N caps how many stories are pushed (default: all of them).
 """
 import argparse
 import json
@@ -138,7 +140,7 @@ def push_day(date: str, items: list[dict], dry_run: bool) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None)
-    ap.add_argument("--limit", type=int, default=3)
+    ap.add_argument("--limit", type=int, default=None, help="cap story count (default: all)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -149,13 +151,16 @@ def main() -> int:
         return 1
 
     stories = yaml.safe_load(open(stories_path)) or []
-    flagged = [s for s in stories if isinstance(s.get("manana"), dict)]
-    picked = flagged or stories[: args.limit]
+    # Endless feed: push all stories by default. `manana:` blocks customize
+    # slug/teaser/reason but never filter.
+    picked = stories
+    if args.limit is not None:
+        picked = stories[: args.limit]
     if not picked:
         print(f"no stories picked for {date}", file=sys.stderr)
         return 1
 
-    print(f"picked {len(picked)} stories for {date} ({'flag' if flagged else 'fallback'})")
+    print(f"picked {len(picked)} stories for {date} ({'all' if args.limit is None else 'limit ' + str(args.limit)})")
     items = []
     for idx, story in enumerate(picked):
         e = story_entity(story, idx)
