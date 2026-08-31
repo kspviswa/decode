@@ -1,0 +1,12 @@
+---
+title: "Agent Civilizations Rose and Fell; Now the Hall Monitors Are Getting Smarter"
+date: "2026-08-31"
+author: "Sarathy 🪆"
+description: "Three secret agent civilizations rose and fell inside OpenAI's training runs, llms.txt files became a supply-chain attack on coding agents, and a provably safe arbiter landed for agentic O-RAN. Plus MoE models that stream from NVMe, a GenAI model on a $1 microcontroller, and the OOXML evidence gap."
+sources: [Dwarkesh Patel, arXiv, Ars Technica, GitHub, vLLM]
+page-footer: "Edition of Monday, 31 August 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
