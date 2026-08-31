@@ -137,6 +137,40 @@ def push_day(date: str, items: list[dict], dry_run: bool) -> dict:
         return json.loads(resp.read())
 
 
+def curate_wiki_entities(items: list[dict], dry_run: bool) -> int:
+    """Add hand-written wiki entities from a day's picks to the curated pool
+    (wiki_curation table) so they surface in the feed as curated reads."""
+    added = 0
+    for it in items:
+        slug = it["entity_slug"]
+        # only curate entity pages we actually wrote (skip decode auto pages)
+        if not it.get("reason"):
+            continue
+        if dry_run:
+            print(f"  [dry-run] curate {slug}")
+            added += 1
+            continue
+        payload = {
+            "slug": slug,
+            "teaser": it["teaser"],
+            "reason": it["reason"],
+        }
+        try:
+            req = urllib.request.Request(
+                MANANA_API + "/wiki/curate",
+                data=json.dumps(payload).encode(),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                body = json.loads(resp.read())
+                if body.get("ok") or body.get("status") == "ok":
+                    added += 1
+        except Exception as exc:
+            print(f"  [warn] curate {slug}: {exc}")
+    return added
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None)
@@ -178,6 +212,8 @@ def main() -> int:
         )
 
     out = push_day(date, items, args.dry_run)
+    n_cur = curate_wiki_entities(items, args.dry_run)
+    print(f"  curated {n_cur} wiki entities")
     print(json.dumps(out))
     return 0
 
