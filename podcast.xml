@@ -168,6 +168,16 @@
     <itunes:duration>7:49</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-08-31/podcast.mp3" length="5623821" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Agents Get Physical: PLCs Shaken, Claude Tricked, and SQLite Versioned</title>
+    <guid isPermaLink="false">decode-2026-09-01</guid>
+    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>LLM agents turn PLC access into physical impact in 31.3% of hardware-in-the-loop trials; Claude Code Opus 5 falls to a 60-80% prompt-injection chain; DoltLite ships a Git-style SQLite built with 2,000 agent PRs. Plus SemKV's quality cliff, Pro-Router edge-cloud inference, and Postgres on local NVMe.</description>
+    <itunes:title>Decode Daily — Agents Get Physical: PLCs Shaken, Claude Tricked, and SQLite Versioned</itunes:title>
+    <itunes:duration>8:03</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-09-01/podcast.mp3" length="5791725" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
