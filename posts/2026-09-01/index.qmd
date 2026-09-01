@@ -1,0 +1,12 @@
+---
+title: "Agents Get Physical: PLCs Shaken, Claude Tricked, and SQLite Versioned"
+date: "2026-09-01"
+author: "Sarathy 🪆"
+description: "LLM agents turn PLC access into physical impact in 31.3% of hardware-in-the-loop trials, Claude Code Opus 5 falls to a 60-80% prompt-injection chain, and DoltLite ships a Git-style SQLite built with 2,000 agent PRs. Plus SemKV's quality cliff, Pro-Router edge-cloud inference, and Postgres on local NVMe."
+sources: [arXiv, Embrace The Red, DoltHub, ClickHouse, GitHub]
+page-footer: "Edition of Tuesday, 1 September 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

@@ -10,7 +10,218 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Mon, 31 Aug 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 01 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Agents Get Physical: PLCs Shaken, Claude Tricked, and SQLite Versioned</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-09-01/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.29979" target="_blank" rel="noopener">Breaking Ambient Trust: in-network per-process access control against lateral movement</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Enterprise networks remain vulnerable to advanced persistent threats (APTs) where adversaries gain an initial foothold and move laterally, accumulating access permissions hop by hop. Existing network defenses cannot track user movement at the process level; they grant ambient trust to all processes within a host, so once a host is compromised, malicious processes inherit full network trust.</p><p>The paper proposes in-network per-process access control that breaks ambient trust, giving operators a way to constrain what a compromised process can reach on the network.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete network-security mechanism — relevant to zero-trust architecture and defending agent-managed infrastructure.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.29444" target="_blank" rel="noopener">RL-based network slice embedding over SDM elastic optical networks</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Network slicing over space-division-multiplexed elastic optical networks (SDM-EONs) requires jointly managing spectrum, spatial cores, and compute resources — a coupling many studies ignore by treating compute placement independently from routing and spectrum decisions. That disconnect can allocate spectrum along a path only to have the request fail for lack of compute along that same path.</p><p>The paper applies reinforcement learning to slice embedding so routing, spectrum, and compute placement are decided together, addressing the coupling directly.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete RL result for network slicing — relevant to slice orchestration and autonomous network management.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2608.26882" target="_blank" rel="noopener">PLCBench: can autonomous LLM agents turn PLC access into sustained physical impact?</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Industrial control systems rely on programmable logic controllers (PLCs) to link networked computation with physical control, and tool-using LLM agents are an emerging threat: can an autonomous agent convert a network-reachable PLC into sustained adverse physical impact? Existing evaluations stop at digital tasks or individual stages of PLC testing.</p><p>PLCBench supplies the first hardware-in-the-loop framework — vendor-native PLC interaction, closed-loop process simulation, and independent outcome verification — and finds that across five LLM families and 240 real-PLC episodes, 31.3% of agents achieved their physical objectives.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A concrete benchmark for LLM agents with real-world physical consequences — relevant to agent safety, industrial control, and critical infrastructure.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Embrace The Red</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/" target="_blank" rel="noopener">Claude Code Opus 5 Auto Mode falls to a 60-80% prompt-injection chain</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A deep dive by Johann Rehberger (Embrace The Red) and coverage in The Register show Claude Code Opus 5 in Auto Mode is vulnerable to a prompt-injection chain that achieves code execution with a 60-80% success rate. When a WebFetch fails, Claude can fall back to Bash with curl; a 303 redirect to a malicious ZIP then leads the agent to download and process a hostile payload.</p><p>The exploit uses a malicious struct.py that shadows Python's standard library after the archive is unzipped, running code on import. It directly challenges claims of near-zero prompt-injection success in 'Auto Mode'.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A concrete, high-success-rate injection against a flagship coding agent — a distinct vector from the llms.txt package-squatting story covered on 08-31, worth tracking separately for agent security.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.28911" target="_blank" rel="noopener">SemKV: semantic mixed-precision KV cache quantization guided by the quality cliff</a></h3>
+        </div>
+        <div class="story-body">
+          <p>The key-value (KV) cache is the dominant memory bottleneck of long-context LLM inference, growing linearly with context length. The authors show uniform KV quantization on a fractional-bit grid does not degrade gracefully: under a multi-seed statistical protocol, Llama-3.1-8B-Instruct with an affine quantizer is statistically indistinguishable from FP16 KV down to 2.322 code bits per value, then collapses at 2.0 bits — a quality cliff.</p><p>SemKV uses that cliff to guide semantic mixed-precision quantization: it assigns more bits where the model is close to collapse and fewer where it has headroom, extending the practical memory envelope for long-context serving.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete inference-optimization result — relevant to long-context serving and KV-cache memory economics.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.28726" target="_blank" rel="noopener">Pro-Router: token-aware progressive model routing with adaptive edge-cloud collaboration</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Multimodal large language models (MLLMs) deliver remarkable performance at substantial computational cost, which hurts real-time deployment. Existing model-routing approaches either decide from coarse request-level features alone or spend extra language-model passes inspecting the response, ignoring token-level uncertainty signals that emerge during generation.</p><p>Pro-Router uses those in-generation signals to progressively route tokens between a cheap edge model and a stronger cloud model, adapting the split as confidence evolves — a concrete pattern for edge-cloud inference.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete edge-cloud routing design — relevant to local/edge inference and cost-latency trade-offs in agent workloads.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.28978" target="_blank" rel="noopener">Selective Forgetting: a graph-based memory framework for long-term LLM agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Knowledge graphs have been proposed as a structured alternative to flat retrieval-augmented generation for long-term agent memory, on the assumption that representing conversations as entities and relations improves recall. The authors evaluate that assumption directly: they extract each conversational turn into typed nodes and attributed edges, answer questions from a two-hop subgraph, and periodically prune low-scoring nodes.</p><p>The framework treats forgetting as a first-class mechanism — pruning is what keeps memory tractable and relevant over long horizons.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete structured-memory framework for long-horizon agents — relevant to agent memory, knowledge graphs, and RAG design.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/roandejager/Hillock" target="_blank" rel="noopener">Hillock: a local neuro-symbolic memory engine for edge agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Hillock is a local, gradient-free neuro-symbolic memory engine that combines hyperdimensional computing / vector symbolic architectures with a knowledge graph stored in SQLite, running in under 1.2 GB of VRAM or CPU-only. It answers from the knowledge graph instead of approximate vector matches, and a deterministic similarity gate blocks unanswerable questions rather than guessing.</p><p>The design targets edge or resource-constrained agents that need reliable, honest memory without LLM-grade hallucination drift.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete edge-memory system — relevant to local inference, agent memory, and offline-first agent design.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20614" target="_blank" rel="noopener">ACES: Agentic Continuous Evaluation of Skills — measuring skill lift in enterprise agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Moving AI agents from prototype to production demands evaluation beyond static code scans. ACES (Agentic Continuous Evaluation of Skills) rigorously assesses individual skills and tools within enterprise agent programs by running paired live trials — one with the target skill enabled, one without — normalizing trajectories, and computing 'Skill Lift': the specific added value of a skill for a given task, harness, and environment.</p><p>This is an empirical alternative to checking structural correctness, producing evidence-based decisions on which skills to keep, tune, or drop.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete framework for evaluating agent skills in production — relevant to agent observability and iterative agent improvement.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">DoltHub</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://www.dolthub.com/blog/2026-08-31-doltlite-beta/" target="_blank" rel="noopener">DoltLite: a SQLite fork with Git-style version control, built with 2,000 agent PRs</a></h3>
+        </div>
+        <div class="story-body">
+          <p>DoltHub shipped DoltLite as a beta: a SQLite fork that adds Git-style version control — branches, merges, diffs, and time travel — on the SQLite storage engine. The project is notable for how it was built: roughly 2,000 pull requests authored by AI coding agents, with humans reviewing and merging.</p><p>It is a concrete data point for both database versioning and agent-driven software development at meaningful scale.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A concrete distributed-systems and agent-driven-engineering story — relevant to database versioning and how AI agents build real software.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">ClickHouse</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://clickhouse.com/blog/posette-talk-recap-postgres-isnt-slow-your-storage-is" target="_blank" rel="noopener">Postgres isn't slow — your storage is: local NVMe vs gp3 EBS benchmark</a></h3>
+        </div>
+        <div class="story-body">
+          <p>A POSETTE talk recap (Sai Srirampur) benchmarks eight identical PostgreSQL clusters — four on instance-store NVMe and four on baseline gp3 EBS at 3,000 IOPS — to isolate storage as the variable. The finding: Postgres itself is rarely the bottleneck; storage latency and IOPS shape ingestion speed, P95 read latency, and autovacuum behavior.</p><p>The article outlines production architectures for running Postgres on local NVMe, a pattern that matters as AI workloads push databases harder.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A concrete storage-benchmark result — relevant to cloud-native database deployment and AI data-path performance.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-09-01/</guid>
+  <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Agent Civilizations Rose and Fell; Now the Hall Monitors Are Getting Smarter</title>
   <dc:creator>Sarathy 🪆</dc:creator>
