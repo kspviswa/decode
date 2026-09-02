@@ -1,0 +1,132 @@
+- title: "OpenAI designates Astra its first Critical-capability model and tightens cyber safeguards"
+  date: "2026-09-02"
+  categories: [ai-security, security]
+  tags: [ai-security, security, agent-safety, frontier-models]
+  source: "OpenAI"
+  domain: "openai.com"
+  link: "https://openai.com/index/path-to-astra/"
+  tldr:
+    - "OpenAI now assesses that Astra meets the Critical cybersecurity threshold under its Preparedness Framework — the first model designated at this level. It can find previously unknown flaws and build working exploit chains across well-protected systems without step-by-step human guidance: a perfect 100% score on ExploitBench, a full browser-compromise chain from an HTML file, and a local privilege-escalation chain to root on a hardened operating system. During evaluation it even discovered two zero-day vulnerabilities, now being disclosed to maintainers."
+    - "Release safeguards were strengthened after the Hugging Face incident: Astra refuses 91.5% of cyber-jailbreak requests (versus 59% for GPT-5.6 Sol), misalignment monitoring can stop unauthorized actions, and access to advanced cyber capabilities starts with a small tester group before expanding through Daybreak Blue."
+  why: "A concrete, first-of-its-kind capability designation with real numbers — relevant to agent safety, frontier-model governance, and how cyber capabilities are gated."
+  highlights: [first Critical designation, 100% ExploitBench, 91.5% jailbreak refusal]
+- title: "Claude Fable 5.1 and Mythos 5.1: the same model, two safeguard dials, 45% cheaper agentic work"
+  date: "2026-09-02"
+  categories: [llm, ai-agents]
+  tags: [llm, ai-agents, frontier-models, agentic-coding]
+  source: "Anthropic"
+  domain: "anthropic.com"
+  link: "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+  tldr:
+    - "Anthropic released Claude Fable 5.1 (generally available) and Claude Mythos 5.1 (trusted access only) — the same model with different safeguard settings. Fable 5.1 leads Terminal-Bench-Science 0.1 at 52.6% (versus 24.7% for Fable 5) and CursorBench 3.2.0 at 73.4%. Mythos 5.1 tops Terminal-Bench 4.0 at 60.9% and, in early-access testing, designed protein binders with roughly 10x higher affinity than prior competition bests and sped up seven open-source genomics models up to 2.5x by writing custom GPU kernels."
+    - "The economics matter for agentic workloads: cache reads drop 75% to $0.25 per million tokens, cutting typical workload cost by about 25% and highly agentic workloads by up to 45%. A new Enterprise Frontier Safeguards system offers zero-data-retention privacy with customer-controlled cloud storage."
+  why: "A concrete frontier-model release with hard benchmark numbers and a structural change in agentic cost economics — relevant to coding agents and inference budgets."
+  highlights: [52.6% Terminal-Bench-Science, 75% cheaper cache reads, Mythos trusted access]
+- title: "SpecMind: spectrum intelligence via multi-agent hybrid retrieval-augmented generation"
+  date: "2026-09-02"
+  categories: [network-intelligence, llm-agents]
+  tags: [network-intelligence, llm-agents, spectrum, rag]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.00427"
+  tldr:
+    - "Exponential wireless-device growth is pushing spectrum management toward fine-grained decisions across space, time, and device constraints, forcing policymakers and engineers to process large volumes of disaggregated, heterogeneous data — text and tables from diverse sources. SpecMind applies a multi-agent hybrid retrieval-augmented generation (RAG) pipeline to spectrum intelligence, letting specialized agents retrieve and reason over those mixed sources."
+    - "The design is a concrete pattern for LLM-driven spectrum analysis, where the retrieval layer must reconcile structured engineering data with unstructured policy text."
+  why: "A direct LLM-plus-telecom application combining multi-agent orchestration with hybrid RAG — squarely in the spectrum-intelligence lane."
+  highlights: [multi-agent RAG, spectrum policy, heterogeneous data]
+- title: "TriSLA: a preventive closed-loop SLA architecture for multidomain 5G network slicing"
+  date: "2026-09-02"
+  categories: [slicing, network-intelligence]
+  tags: [slicing, network-intelligence, sla, multidomain]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.01293"
+  tldr:
+    - "Network slicing in multidomain 5G environments makes guaranteeing service level agreements (SLAs) hard under dynamic resource variability and heterogeneous service requirements. TriSLA is a closed-loop, preventive, SLA-aware architecture that evaluates feasibility at request time and continuously ensures SLA compliance during operation."
+    - "It targets the multi-operator, multi-domain slice orchestration problem where a single domain's decisions can break an end-to-end commitment — a concrete step for autonomous network management."
+  why: "A concrete architecture for multidomain SLA assurance in slicing — relevant to autonomous network management and slice orchestration."
+  highlights: [preventive SLA checks, closed-loop compliance, multidomain]
+- title: "ISO-RAG: isoperimetric noise control for multi-hop retrieval-augmented generation"
+  date: "2026-09-02"
+  categories: [llm, ai-infra]
+  tags: [llm, ai-infra, rag, retrieval]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.00513"
+  tldr:
+    - "Retrieval-augmented generation (RAG) mitigates hallucination, but dense retrieval struggles with the complex reasoning paths of multi-hop question answering, while graph-based RAG captures multi-step relationships at the cost of severe semantic drift and high online latency from noisy global graph traversals."
+    - "ISO-RAG applies isoperimetric principles to control noise during retrieval, keeping the graph traversal local and relevant instead of drifting across the whole graph — a structured-RAG technique aimed at multi-hop QA accuracy with bounded latency."
+  why: "A concrete structured-RAG contribution targeting the multi-hop retrieval gap — relevant to RAG system design and knowledge-graph retrieval."
+  highlights: [isoperimetric retrieval, multi-hop QA, semantic-drift control]
+- title: "Apache Iggy graduates to a Top-Level Project: Rust message streaming with VSR consensus"
+  date: "2026-09-02"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, message-streaming, rust]
+  source: "Apache"
+  domain: "iggy.apache.org"
+  link: "https://iggy.apache.org/blogs/"
+  tldr:
+    - "Apache Iggy, a persistent message-streaming platform written in Rust, graduated from the Apache Incubator to a Top-Level Project. It uses a thread-per-core architecture with io_uring for disk and network I/O, achieving single-digit-millisecond P99+ latencies."
+    - "Notably, it uses Viewstamped Replication Revisited (VSR) for consensus rather than the more common Raft, a choice that shapes its fault-tolerance and performance profile for high-scale data infrastructure."
+  why: "A concrete distributed-systems milestone with a distinctive consensus choice — relevant to cloud-native data infrastructure."
+  highlights: [Apache TLP, thread-per-core, VSR consensus]
+- title: "Neon's Lakebase Postgres autoscales compute independently from durable state"
+  date: "2026-09-02"
+  categories: [cloud-native, distributed]
+  tags: [cloud-native, distributed, postgres, autoscaling]
+  source: "Neon"
+  domain: "neon.com"
+  link: "https://neon.com/blog/autoscaling-lakebase-postgres"
+  tldr:
+    - "Neon's Lakebase Postgres decouples compute from storage so production databases can change compute size tens of thousands of times per month — the average production database resizes about 32,000 times, or once every 81 seconds. Compute nodes run Postgres, execute queries, and cache on local NVMe, but own no durable state."
+    - "All durability and history live in a separate storage layer built on WAL replication via safekeepers, page reconstruction by pageservers, and long-term object storage — a concrete pattern for elastic, stateless database compute."
+  why: "A concrete cloud-native database architecture — relevant to distributed systems and elastic Postgres deployments."
+  highlights: [32k resizes/month, stateless compute, WAL storage layer]
+- title: "RestoreBench: can AI agents restore power-flow convergence?"
+  date: "2026-09-02"
+  categories: [llm-agents, benchmarks]
+  tags: [llm-agents, benchmarks, power-grid, critical-infrastructure]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.00384"
+  tldr:
+    - "LLM agents increasingly automate multi-step engineering workflows through tool use, interpretation of intermediate results, and iterative planning. Diagnosing and resolving non-convergent power-flow cases is a promising but largely unexplored application, since it requires engineering judgment, experimentation, and decision-making within constrained action spaces."
+    - "RestoreBench turns that into a benchmark: can an agent bring a simulated power grid back to convergence, and how does it behave under constrained actions? It is a concrete evaluation of agents in critical infrastructure, following the same spirit as physical-impact agent benchmarks."
+  why: "A concrete agent benchmark for critical-infrastructure operations — relevant to agent reliability and autonomous network management."
+  highlights: [power-flow restoration, constrained action spaces, agent benchmark]
+- title: "Uber's software factory: 70% of pull requests now agent-attributed across 3,600 skills"
+  date: "2026-09-02"
+  categories: [llm-agents, ci-cd]
+  tags: [llm-agents, ci-cd, software-factory, agent-ops]
+  source: "Uber"
+  domain: "stealwhatworks.com"
+  link: "https://stealwhatworks.com/blogs/news/uber-ai-agents-70-percent-prs"
+  tldr:
+    - "Uber reports that more than 70% of pull requests are now attributed to local or cloud AI agents, supported by a skill library exceeding 3,600 entries and more than 30,000 agent skill executions per day across code review, self-healing CI failures, and end-to-end PR completion."
+    - "The economics have been tuned hard: cost per 1,000 model requests fell roughly 34% from its peak and cost per agent session fell about 52%, making large-scale agent adoption cost-effective."
+  why: "A concrete, production-scale agent-driven software development case study — relevant to LLM agents in the SDLC and agent cost engineering."
+  highlights: [70% agent-attributed PRs, 3,600 skills, -34% cost per 1k requests]
+- title: "Sliding-window attention with sinks beats post-trained linear attention on long contexts"
+  date: "2026-09-02"
+  categories: [llm, ai-infra]
+  tags: [llm, ai-infra, attention, long-context]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.28444"
+  tldr:
+    - "Linear attention was proposed to escape the quadratic scaling of transformer attention, but a new study finds that sliding-window attention (SWA) with sink tokens can outperform post-trained linear-attention models by 2-10x on long-context reasoning tasks such as Needle-in-a-Haystack and BABILong."
+    - "SWA needs no post-training, is fast and memory-efficient, and its advantage over linear attention holds even after the linear models are post-trained — a direct challenge to the assumption that linear attention is the better long-context trade-off."
+  why: "A concrete inference-architecture result with direct implications for long-context serving memory costs — relevant to LLM infrastructure choices."
+  highlights: [2-10x on long-context, no post-training, sink tokens]
+- title: "The efficient frontier of LLM inference: trade-off techniques vs frontier-pushing techniques"
+  date: "2026-09-02"
+  categories: [ai-infra, llm]
+  tags: [ai-infra, llm, inference, serving]
+  source: "Baseten"
+  domain: "baseten.co"
+  link: "https://www.baseten.co/blog/the-efficient-frontier-of-llm-inference/"
+  tldr:
+    - "Baseten frames LLM serving around the efficient frontier: some techniques trade one outcome for another along the frontier — batch sizing, tensor versus expert parallelism, attention data parallelism — while others push the entire frontier outward, such as kernel optimization, speculative decoding, and prefill/decode disaggregation."
+    - "The practical note is that the frontier is jagged: small configuration changes have disproportionate effects, so production deployments need empirical sweeps rather than intuition, and frontier-pushing techniques compound (2x hardware times 2x software equals 4x serving)."
+  why: "A concrete, current framework for inference engineering decisions — relevant to serving cost, latency, and throughput trade-offs."
+  highlights: [batch sizing, P/D disaggregation, jagged frontier]
