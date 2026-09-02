@@ -178,6 +178,16 @@
     <itunes:duration>8:03</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-09-01/podcast.mp3" length="5791725" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Astra Earns the Critical Label; Claude Gets a Fable and a Mythos</title>
+    <guid isPermaLink="false">decode-2026-09-02</guid>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>OpenAI designates Astra its first Critical-capability model for cybersecurity; Anthropic ships Claude Fable 5.1 and Mythos 5.1 with up to 45% cheaper agentic workloads; multi-agent hybrid RAG lands on spectrum intelligence. Plus Apache Iggy graduates, Postgres learns to autoscale, and agents learn to restore power grids.</description>
+    <itunes:title>Decode Daily — Astra Earns the Critical Label; Claude Gets a Fable and a Mythos</itunes:title>
+    <itunes:duration>7:53</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-09-02/podcast.mp3" length="5675949" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
