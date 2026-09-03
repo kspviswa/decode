@@ -188,6 +188,16 @@
     <itunes:duration>7:53</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-09-02/podcast.mp3" length="5675949" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — A Cyber Twin, a Speed Demon, and Mind-Reading 6G Agents</title>
+    <guid isPermaLink="false">decode-2026-09-03</guid>
+    <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>Google ships Gemini 3.8 Flash plus a cyber twin for trusted defenders; Inception's Mercury 2.5 generates tokens in parallel at 1,107/sec; and 6G agents learn to model each other's minds. Plus GitSpawn's git-hijack class, structured LLM root-cause analysis for telecom, and Wi-Fi folded into 3GPP slicing.</description>
+    <itunes:title>Decode Daily — A Cyber Twin, a Speed Demon, and Mind-Reading 6G Agents</itunes:title>
+    <itunes:duration>7:56</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-09-03/podcast.mp3" length="5708781" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
