@@ -1,0 +1,132 @@
+- title: "Gemini 3.8 Flash and 3.8 Flash Cyber: one core model, two access envelopes"
+  date: "2026-09-03"
+  categories: [llm, ai-agents]
+  tags: [llm, ai-agents, frontier-models, agentic-ai, cybersecurity]
+  source: "Google"
+  domain: "blog.google"
+  link: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+  tldr:
+    - "Google shipped Gemini 3.8 Flash on 2 September — its third Flash release in six weeks — framed as an update for reasoning, coding, and long-running agentic workflows, priced at the introductory level of 3.7 Flash. A second variant, Gemini 3.8 Flash Cyber, is optimized for autonomous vulnerability discovery and patching and is restricted to trusted defenders through the new Fairwind program."
+    - "Early results indicate Cyber matches state-of-the-art patching benchmarks while generating significantly more correct patches for complex codebases; Google's Chrome security team reportedly measured a 2.6x increase in patch accuracy with the new model."
+  why: "A concrete frontier-model release with a dedicated cyber variant and real patching numbers — relevant to agentic coding and security tooling."
+  highlights: [3rd Flash in 6 weeks, Flash Cyber variant, Fairwind access]
+- title: "LLMs for telecom root cause analysis: a structured reasoning framework for evidence"
+  date: "2026-09-03"
+  categories: [network-intelligence, llm-agents]
+  tags: [network-intelligence, llm-agents, rca, telecom]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.02805"
+  tldr:
+    - "Root cause analysis (RCA) is critical in telecom network operations, but diagnosing performance degradation in 5G and emerging 6G networks is hard because of complex cross-layer dependencies. Large language models (LLMs) offer promising reasoning and knowledge integration, yet vanilla application to telecom RCA leads to hallucination, unstable reasoning, and poor alignment with operational workflows."
+    - "This work proposes a structured reasoning framework for telecom RCA that grounds LLM reasoning in evidence, addressing hallucination and reasoning stability for a task squarely at the intersection of LLMs and network operations."
+  why: "A direct LLM-plus-telecom application for network operations — relevant to autonomous network management and diagnosis."
+  highlights: [evidence-grounded RCA, 5G/6G cross-layer, hallucination control]
+- title: "Agents that model agents: five principles toward a theory of mind for 6G networks"
+  date: "2026-09-03"
+  categories: [network-intelligence, llm-agents]
+  tags: [network-intelligence, llm-agents, 6g, multi-agent]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.01779"
+  tldr:
+    - "Future 6G networks will rely on LLM agents to manage the Radio Access Network (RAN), but current architectures assume inter-agent messages convey objective facts. The paper argues a message is instead a trace of the sender's reasoning: it carries a subjective conclusion, so a syntactically valid report can propagate an AI hallucination and trigger a cascading outage invisible to protocol validation."
+    - "The authors propose five principles toward a theory of mind for 6G agents — modeling what other agents believe — so agents can detect and contain hallucination-propagation before it becomes an outage."
+  why: "A novel angle on multi-agent reliability in telecom: agent reasoning traces as first-class network artifacts."
+  highlights: [theory of mind, hallucination cascades, 6G agent-to-agent]
+- title: "Integrating Wi-Fi into 3GPP 5G network slicing: an experimental prototype study"
+  date: "2026-09-03"
+  categories: [slicing, network-intelligence]
+  tags: [slicing, network-intelligence, wifi, 3gpp]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.02625"
+  tldr:
+    - "Network slicing is a fundamental pillar of 5G-and-beyond networks, providing isolated logical networks tailored to specific quality-of-service (QoS) requirements. While 3GPP standards comprehensively define slicing over cellular access, integrating non-3GPP technologies such as Wi-Fi into a unified slice instance remains open."
+    - "This experimental prototype study builds and validates a Wi-Fi-in-5G-slicing integration, giving concrete evidence on how non-3GPP access can be folded into a 3GPP slice lifecycle."
+  why: "A concrete experimental result on non-3GPP slice integration — relevant to slicing, private networks, and converged access."
+  highlights: [non-3GPP access, slice lifecycle, prototype]
+- title: "Mercury 2.5: Inception's diffusion LLM generates tokens in parallel at 1,107 tokens/sec"
+  date: "2026-09-03"
+  categories: [ai-infra, llm]
+  tags: [ai-infra, llm, diffusion-llm, inference]
+  source: "Inception"
+  domain: "inceptionlabs.ai"
+  link: "https://www.inceptionlabs.ai/"
+  tldr:
+    - "Inception's Mercury 2.5, a diffusion large language model (dLLM), generates tokens in parallel instead of sequentially, claiming 1,107 tokens per second on standard GPUs — roughly an order of magnitude beyond typical autoregressive decode. It adds tunable reasoning levels, parallel tool calls, and schema-aligned JSON output, with preview access live via OpenRouter."
+    - "Mercury 2.5 is text-only with a 256K context, and positioned as the fastest reasoning LLM; quality is described as comparable to cost-optimized frontier models, making it a candidate for latency-sensitive agent pipelines."
+  why: "A concrete architectural shift in inference (parallel token generation) with direct implications for agent latency and serving throughput."
+  highlights: [1,107 tok/s, parallel token generation, dLLM]
+- title: "The memory trust gap: capability-dependent failures in persistent-memory agents"
+  date: "2026-09-03"
+  categories: [llm-agents, ai-agents]
+  tags: [llm-agents, ai-agents, agent-memory, reliability]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.01852"
+  tldr:
+    - "Persistent memory supports personalized agents, but a stale stored fact can override current authoritative evidence without warning. This work studies when that harm begins as model capability changes, using a frozen, closed-set, action-scored benchmark with two suites: a Benefit suite (unsolvable without the stored fact) and a Safety suite (in which an authoritative tool always holds the truth)."
+    - "The result is a capability-dependent trust gap: as models get better at using tools, they may also become more confident in stale memory, and the paper maps when memory should be believed versus overridden."
+  why: "A concrete agent-reliability result about when persistent memory becomes a liability — relevant to building trustworthy agents."
+  highlights: [stale-fact overrides, benefit-vs-safety suites, capability scaling]
+- title: "How fast do agents rot? An empirical study of long-horizon degradation in LLM agents"
+  date: "2026-09-03"
+  categories: [llm-agents, benchmarks]
+  tags: [llm-agents, benchmarks, long-horizon, reliability]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.01660"
+  tldr:
+    - "Production deployments of LLM agents remain unreliable on long, multi-step workflows even as benchmark success rates climb. The authors argue this is largely an artifact of task horizon: benchmarks are dominated by short-to-medium horizons where success stays high, while production workloads demand an order of magnitude more dependent steps."
+    - "They measure the effect directly, characterizing the shape of long-horizon degradation — essentially quantifying 'agent rot' for decision-making agents in production settings."
+  why: "A concrete empirical study of agent reliability over long horizons — relevant to production agent deployment."
+  highlights: [horizon as reliability factor, degradation curve, production gap]
+- title: "GitSpawn: a single flaw class lets untrusted repos run code in AI coding agents"
+  date: "2026-09-03"
+  categories: [ai-security, security]
+  tags: [ai-security, security, git-hijack, coding-agents]
+  source: "Manifold Security"
+  domain: "manifold.security"
+  link: "https://www.manifold.security/blog/ai-coding-agents-git-hijack"
+  tldr:
+    - "Manifold Security disclosed a vulnerability class they call GitSpawn: popular CLI AI coding agents run git commands, including git status, on startup before honoring workspace-trust prompts, without stripping repository config. A poisoned repository's .git/config — via options like core.fsmonitor and git hooks — can trigger arbitrary code execution on the host, affecting Claude Code, Codex, Cursor, Qwen Code, and Grok Build."
+    - "Eight flaws were disclosed; the vector exploits the gap between 'context gathering' and context sanitization, so an untrusted repo you merely open can hijack the agent's execution."
+  why: "A concrete, cross-agent vulnerability class — distinct from the WebFetch-to-curl injection covered on 09-01, this one exploits git metadata itself and affects multiple agents."
+  highlights: [8 flaws across agents, git-hook RCE, trust-prompt bypass]
+- title: "SCX Router: streaming zero-shot model selection with a decoder-KV classifier"
+  date: "2026-09-03"
+  categories: [edge-inference, ai-infra]
+  tags: [edge-inference, ai-infra, model-routing, inference]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.02292"
+  tldr:
+    - "The proliferation of LLMs and their diverse applications creates an optimization opportunity: pick the right model per task while optimizing speed, cost, and quality. But inference endpoints vary widely in quality, price, latency, context support, tool use, domain expertise, and reasoning behavior, making manual configuration impractical."
+    - "SCX Router tackles this with a decoder-KV classifier and a real-world task ontology for streaming, zero-shot model selection — a concrete infrastructure technique for cost-latency-quality-aware serving."
+  why: "A concrete model-routing system — relevant to edge/cloud inference, cost engineering, and multi-model serving."
+  highlights: [decoder-KV classifier, zero-shot routing, task ontology]
+- title: "Semantic Overlays: an 'NX bit' for LLMs against prompt injection"
+  date: "2026-09-03"
+  categories: [ai-security, security]
+  tags: [ai-security, security, prompt-injection, residual-stream]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2608.23873"
+  tldr:
+    - "Prompt injection remains a fundamental headache: models treat all tokens as equally authoritative. Semantic Overlays proposes marking spans of input as 'readable but not executable' by attaching annotations beyond tokens, then guiding them onto steering vectors with small trained adapters that modify the model's residual stream — a mechanism that operates inside the model rather than relying on input filtering."
+    - "The approach is like an NX bit for LLMs, marking attacker-controlled content as data, not instructions, and preventing it from driving behavior in agentic and public-facing applications."
+  why: "A concrete defense-in-depth technique for prompt injection — relevant to agent role and untrusted-input."
+  highlights: [NX-bit concept, residual-stream adapters, annotations beyond tokens]
+- title: "HeadWiseKV: budgeted per-head cache residency for hybrid long-context models"
+  date: "2026-09-03"
+  categories: [ai-infra, llm]
+  tags: [ai-infra, llm, kv-cache, long-context]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.02029"
+  tldr:
+    - "Long-context inference keeps a growing key-value (KV) cache during decoding that consumes substantial GPU memory and can reduce generation throughput. This bottleneck persists in hybrid models because residual global-attention layers dominate context-dependent cache demand."
+    - "HeadWiseKV is a training-free approach to allocate KV state under an aggregate residency budget, per head — where the budget is the total KV cache available — improving long-context inference memory economics."
+  why: "A concrete KV-cache optimization for long-context serving — relevant to inference infrastructure and agent context windows."
+  highlights: [per-head budget, training-free KV, hybrid global attention]

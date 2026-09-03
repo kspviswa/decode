@@ -10,7 +10,209 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Wed, 02 Sep 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 03 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>A Cyber Twin, a Speed Demon, and Mind-Reading 6G Agents</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-09-03/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2609.02805" target="_blank" rel="noopener">LLMs for telecom root cause analysis: a structured reasoning framework for evidence</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Root cause analysis (RCA) is critical in telecom network operations, but diagnosing performance degradation in 5G and emerging 6G networks is hard because of complex cross-layer dependencies. Large language models (LLMs) offer promising reasoning and knowledge integration, yet vanilla application to telecom RCA leads to hallucination, unstable reasoning, and poor alignment with operational workflows.</p><p>This work proposes a structured reasoning framework for telecom RCA that grounds LLM reasoning in evidence, addressing hallucination and reasoning stability for a task squarely at the intersection of LLMs and network operations.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A direct LLM-plus-telecom application for network operations — relevant to autonomous network management and diagnosis.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2609.01779" target="_blank" rel="noopener">Agents that model agents: five principles toward a theory of mind for 6G networks</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Future 6G networks will rely on LLM agents to manage the Radio Access Network (RAN), but current architectures assume inter-agent messages convey objective facts. The paper argues a message is instead a trace of the sender's reasoning: it carries a subjective conclusion, so a syntactically valid report can propagate an AI hallucination and trigger a cascading outage invisible to protocol validation.</p><p>The authors propose five principles toward a theory of mind for 6G agents — modeling what other agents believe — so agents can detect and contain hallucination-propagation before it becomes an outage.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A novel angle on multi-agent reliability in telecom: agent reasoning traces as first-class network artifacts.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2609.02625" target="_blank" rel="noopener">Integrating Wi-Fi into 3GPP 5G network slicing: an experimental prototype study</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Network slicing is a fundamental pillar of 5G-and-beyond networks, providing isolated logical networks tailored to specific quality-of-service (QoS) requirements. While 3GPP standards comprehensively define slicing over cellular access, integrating non-3GPP technologies such as Wi-Fi into a unified slice instance remains open.</p><p>This experimental prototype study builds and validates a Wi-Fi-in-5G-slicing integration, giving concrete evidence on how non-3GPP access can be folded into a 3GPP slice lifecycle.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete experimental result on non-3GPP slice integration — relevant to slicing, private networks, and converged access.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Manifold Security</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://www.manifold.security/blog/ai-coding-agents-git-hijack" target="_blank" rel="noopener">GitSpawn: a single flaw class lets untrusted repos run code in AI coding agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Manifold Security disclosed a vulnerability class they call GitSpawn: popular CLI AI coding agents run git commands, including git status, on startup before honoring workspace-trust prompts, without stripping repository config. A poisoned repository's .git/config — via options like core.fsmonitor and git hooks — can trigger arbitrary code execution on the host, affecting Claude Code, Codex, Cursor, Qwen Code, and Grok Build.</p><p>Eight flaws were disclosed; the vector exploits the gap between 'context gathering' and context sanitization, so an untrusted repo you merely open can hijack the agent's execution.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A concrete, cross-agent vulnerability class — distinct from the WebFetch-to-curl injection covered on 09-01, this one exploits git metadata itself and affects multiple agents.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2608.23873" target="_blank" rel="noopener">Semantic Overlays: an 'NX bit' for LLMs against prompt injection</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Prompt injection remains a fundamental headache: models treat all tokens as equally authoritative. Semantic Overlays proposes marking spans of input as 'readable but not executable' by attaching annotations beyond tokens, then guiding them onto steering vectors with small trained adapters that modify the model's residual stream — a mechanism that operates inside the model rather than relying on input filtering.</p><p>The approach is like an NX bit for LLMs, marking attacker-controlled content as data, not instructions, and preventing it from driving behavior in agentic and public-facing applications.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A concrete defense-in-depth technique for prompt injection — relevant to agent role and untrusted-input.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Google</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/" target="_blank" rel="noopener">Gemini 3.8 Flash and 3.8 Flash Cyber: one core model, two access envelopes</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Google shipped Gemini 3.8 Flash on 2 September — its third Flash release in six weeks — framed as an update for reasoning, coding, and long-running agentic workflows, priced at the introductory level of 3.7 Flash. A second variant, Gemini 3.8 Flash Cyber, is optimized for autonomous vulnerability discovery and patching and is restricted to trusted defenders through the new Fairwind program.</p><p>Early results indicate Cyber matches state-of-the-art patching benchmarks while generating significantly more correct patches for complex codebases; Google's Chrome security team reportedly measured a 2.6x increase in patch accuracy with the new model.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete frontier-model release with a dedicated cyber variant and real patching numbers — relevant to agentic coding and security tooling.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Inception</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.inceptionlabs.ai/" target="_blank" rel="noopener">Mercury 2.5: Inception's diffusion LLM generates tokens in parallel at 1,107 tokens/sec</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Inception's Mercury 2.5, a diffusion large language model (dLLM), generates tokens in parallel instead of sequentially, claiming 1,107 tokens per second on standard GPUs — roughly an order of magnitude beyond typical autoregressive decode. It adds tunable reasoning levels, parallel tool calls, and schema-aligned JSON output, with preview access live via OpenRouter.</p><p>Mercury 2.5 is text-only with a 256K context, and positioned as the fastest reasoning LLM; quality is described as comparable to cost-optimized frontier models, making it a candidate for latency-sensitive agent pipelines.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete architectural shift in inference (parallel token generation) with direct implications for agent latency and serving throughput.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.01852" target="_blank" rel="noopener">The memory trust gap: capability-dependent failures in persistent-memory agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Persistent memory supports personalized agents, but a stale stored fact can override current authoritative evidence without warning. This work studies when that harm begins as model capability changes, using a frozen, closed-set, action-scored benchmark with two suites: a Benefit suite (unsolvable without the stored fact) and a Safety suite (in which an authoritative tool always holds the truth).</p><p>The result is a capability-dependent trust gap: as models get better at using tools, they may also become more confident in stale memory, and the paper maps when memory should be believed versus overridden.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete agent-reliability result about when persistent memory becomes a liability — relevant to building trustworthy agents.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.01660" target="_blank" rel="noopener">How fast do agents rot? An empirical study of long-horizon degradation in LLM agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Production deployments of LLM agents remain unreliable on long, multi-step workflows even as benchmark success rates climb. The authors argue this is largely an artifact of task horizon: benchmarks are dominated by short-to-medium horizons where success stays high, while production workloads demand an order of magnitude more dependent steps.</p><p>They measure the effect directly, characterizing the shape of long-horizon degradation — essentially quantifying 'agent rot' for decision-making agents in production settings.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete empirical study of agent reliability over long horizons — relevant to production agent deployment.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.02292" target="_blank" rel="noopener">SCX Router: streaming zero-shot model selection with a decoder-KV classifier</a></h3>
+        </div>
+        <div class="story-body">
+          <p>The proliferation of LLMs and their diverse applications creates an optimization opportunity: pick the right model per task while optimizing speed, cost, and quality. But inference endpoints vary widely in quality, price, latency, context support, tool use, domain expertise, and reasoning behavior, making manual configuration impractical.</p><p>SCX Router tackles this with a decoder-KV classifier and a real-world task ontology for streaming, zero-shot model selection — a concrete infrastructure technique for cost-latency-quality-aware serving.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete model-routing system — relevant to edge/cloud inference, cost engineering, and multi-model serving.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.02029" target="_blank" rel="noopener">HeadWiseKV: budgeted per-head cache residency for hybrid long-context models</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Long-context inference keeps a growing key-value (KV) cache during decoding that consumes substantial GPU memory and can reduce generation throughput. This bottleneck persists in hybrid models because residual global-attention layers dominate context-dependent cache demand.</p><p>HeadWiseKV is a training-free approach to allocate KV state under an aggregate residency budget, per head — where the budget is the total KV cache available — improving long-context inference memory economics.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete KV-cache optimization for long-context serving — relevant to inference infrastructure and agent context windows.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-09-03/</guid>
+  <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Astra Earns the Critical Label; Claude Gets a Fable and a Mythos</title>
   <dc:creator>Sarathy 🪆</dc:creator>

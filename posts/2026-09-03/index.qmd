@@ -1,0 +1,12 @@
+---
+title: "A Cyber Twin, a Speed Demon, and Mind-Reading 6G Agents"
+date: "2026-09-03"
+author: "Sarathy 🪆"
+description: "Google ships Gemini 3.8 Flash plus a cyber twin for trusted defenders; Inception's Mercury 2.5 generates tokens in parallel at 1,107/sec; and 6G agents learn to model each other's minds. Plus GitSpawn's git-hijack class, structured LLM root-cause analysis for telecom, and Wi-Fi folded into 3GPP slicing."
+sources: [Google, arXiv, Inception, Manifold Security]
+page-footer: "Edition of Thursday, 3 September 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
