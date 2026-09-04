@@ -10,7 +10,200 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Thu, 03 Sep 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 04 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Astra Lands, K2 Opens Its Wings, and KV Caches Learn to Grow</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-09-04/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2609.03229" target="_blank" rel="noopener">BioGlyph: compiling network topology into a language LLMs can reason over</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Networks describe systems from protein interactions and social relationships to power grids and citation records, but large language models (LLMs) struggle to reason about them when the structure is given as edge lists, sentences, or measurement tables — the structural meaning must be inferred. BioGlyph compiles network topology into an interpretable, transferable language of structural roles.</p><p>It combines graph partitioning and structural measurements to identify roles such as hubs, community cores, and cross-community connectors, then maps them into a universal vocabulary via fixed rules, describing each element through its structural role, supporting evidence, and semantic consequences.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete method for letting LLMs reason about graph structure — relevant to network management, packet/topology analysis, and graph-grounded agents.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2609.03590" target="_blank" rel="noopener">Effective Congestion and demonstration-driven RL for deployable NextG network-control agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Delivering delay-sensitive information with strict end-to-end (E2E) peak latency guarantees over dynamic, heterogeneous networks remains an open challenge for next-generation (NextG) interactive applications. Two obstacles limit learning-based network control here: volume-based routing metrics ignore traffic urgency, and deep reinforcement learning (DRL) controllers trained from scratch suffer sample inefficiency, long training times, and early exploration volatility.</p><p>This framework introduces Effective Congestion (EC), a deadline-aware metric family that quantifies interface congestion by packet urgency and proactively filters non-viable traffic, plus a Uniform Path Grouping (UPG) heuristic for robust load balancing. Demonstration-driven reinforcement learning then accelerates the path from prior-guided heuristics to deployable agents.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A concrete, deployment-focused network-control framework applying learning-based agents to E2E latency — directly relevant to autonomous network management.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">OpenAI</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">GPT-6 Astra lands: OpenAI's flagship ships with a 1M-token context and Critical cyber tier</a></h3>
+        </div>
+        <div class="story-body">
+          <p>OpenAI released GPT-6 Astra on 3 September, calling it its most intelligent and aligned model yet, with state-of-the-art results across computer use, coding, cybersecurity, and scientific work. It ships with a 1,050,000-token context window, a 128,000-token maximum output, and an April 2026 knowledge cutoff, and it is the first model OpenAI has designated at the Critical level of cybersecurity capability.</p><p>Rollout is staged for safety: Astra is being offered first to approved testers through the Daybreak program, with added cyber guardrails, following the capability assessment OpenAI published on 1 September. The announcement leans on an 'AGI era' framing as the model aced the hardest reasoning and agentic benchmarks.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> The day's biggest frontier-model release — a concrete follow-up to the 1 September 'Path to Astra' capability assessment covered in the 02 September edition, now with the actual model, benchmarks, and a 1M-token context window.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">IFM</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://ifm.ai/blog/k2/" target="_blank" rel="noopener">IFM opens K2 Horizon: a six-model Apache-2.0 fleet from edge to enterprise</a></h3>
+        </div>
+        <div class="story-body">
+          <p>IFM released K2 Horizon, a connected fleet of six open-weight models — 375B-A23B, 36B-A4B, 32B, 7B, 3.7B, and 0.9B — all under Apache 2.0, with the 0.9B, 3.7B, and 7B models setting state of the art in their size classes. The 36B-A4B model introduces MoVA (Mixture-of-Value Attention), extending mixture-of-experts sparsity to the attention computation itself, reaching near-dense-32B performance while activating only ~4B parameters per token.</p><p>It is the first fully open model fleet for agents: IFM releases intermediate checkpoints, training data or recipes, training code, and logs across pretraining, reasoning, and agentic post-training, so researchers can study where capabilities and unintended behaviors emerge. A companion Uno diffusion adapter gives a lossless inference speedup, and the team published a reward-hacking audit showing a 3.37-point correction on TerminalBench 2.1.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A landmark fully-open, agent-centric model release with a new sparse-attention architecture and transparency into training — highly relevant to local and edge inference and to studying agentic capability development.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Cerebras</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://inference-docs.cerebras.ai/models/overview" target="_blank" rel="noopener">Qwen 3.8 27B on Cerebras serves ~1,500 tokens/s with unpruned weights</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Cerebras lists Qwen 3.8 27B on its public inference endpoints at roughly 1,500 tokens per second with a 64K-token free-tier and 128K-token paid context, alongside OpenAI's gpt-oss-120b at about 3,000 tokens per second. The platform states it serves original, unpruned models: weights use selective storage-time quantization while activations, attention, and the KV cache stay in full precision.</p><p>The listing is a concrete data point on the throughput open-weight models can reach on dedicated inference hardware, and it documents a transparent compression policy (no silent pruning, with REAP-pruned research variants kept separate on Hugging Face).</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete throughput milestone for serving an open-weight model — relevant to edge/cloud inference economics and model-serving choices.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03340" target="_blank" rel="noopener">Fresh memory, stale plans: dependency-scoped validation for distributed LLM-agent memory</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Distributed LLM-agent teams can read the latest shared facts and still act on an obsolete plan. A planner may derive an action from requirement r3, another agent may commit r4, and an executor may receive r4 without replacing the plan derived from r3 — the authors call this stale-plan execution: state freshness does not establish that the plan authorizing an action is still valid.</p><p>The work proposes dependency-scoped validation, tracking which facts a plan depended on so that when shared state changes, only the plans whose dependencies were invalidated need revalidation — a consistency mechanism for multi-agent memory systems.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete multi-agent consistency problem and fix — relevant to building reliable distributed agent systems and agent memory.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03494" target="_blank" rel="noopener">GrowPage: on-demand KV budgeting treats cache capacity as a runtime resource</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Long-output reasoning has made the key-value (KV) cache a critical memory bottleneck for LLM serving. Existing KV compression methods use a predefined per-request budget and only adjust which KV states are retained, leaving total capacity fixed throughout decoding — but reasoning workloads vary substantially: different requests need different KV capacities, and a request's attention demand evolves during generation.</p><p>GrowPage treats KV capacity as a runtime resource, maintaining lightweight dual-timescale query summaries to capture recent and long-term attention behavior and estimate demand evolution. At each capacity boundary it either compresses KV states within the current allocation or acquires an additional physical page when broader demand emerges, integrating with PagedAttention's page management.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete KV-cache optimization that adapts to reasoning demand — relevant to long-context serving and inference infrastructure.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03236" target="_blank" rel="noopener">Speculative Macro Commit speeds tool-using agents with a two-tier actor and drafter</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Tool-using LLM agents spend wall-clock time not only on model inference but also in serial action-observation turns, where each tool call, environment transition, and observation delays subsequent decisions. Speculative Macro Commit (SMC) addresses this with a two-tier system: a large authoritative actor model produces the official trajectory while a faster speculative drafter continuously predicts and executes future action chains on an isolated environment snapshot.</p><p>SMC mines recurring multi-action skeletons from training traces into a macro library, matched against the drafter's predicted chains at runtime. When the actor's next tool call matches the first drafted action, SMC commits the remaining pre-executed draft steps to the official trajectory. Using Qwen3.5-27B INT4 as actor and Qwen3.5-4B as drafter, SMC matches the sequential baseline's quality while cutting wall-clock time.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete runtime technique for cutting agent latency via speculative action execution — relevant to agent performance and cost.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03079" target="_blank" rel="noopener">LeanStream: speculate-and-refine streaming for efficient on-device LLM inference</a></h3>
+        </div>
+        <div class="story-body">
+          <p>On-device LLM inference is attractive for privacy and responsiveness but remains challenging on mobile and embedded devices because model weights far exceed available DRAM. Prior systems exploit activation sparsity and offload weights to SSD or flash storage, but face a fundamental trade-off: accurate sparse-execution decisions need the latest context, while efficient weight streaming needs decisions made ahead of time.</p><p>LeanStream is a speculate-and-refine streaming framework that resolves this by speculatively deciding which weights to load, then refining as context arrives — improving the efficiency of on-device inference under memory constraints.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete on-device inference framework addressing the sparse-execution-versus-weight-streaming trade-off — relevant to edge inference and private local models.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.04098" target="_blank" rel="noopener">Gated DeltaNet survives 4-bit quantization: NVFP4 for the recurrent half of hybrid LLMs</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Hybrid LLMs pair softmax attention with linear-attention layers such as Gated DeltaNet (GDN), whose recurrent state summarizes context in fixed size. Early community 4-bit quantizations of Qwen3.8-27B — which has 48 GDN layers and 16 attention layers — left the GDN block in 8- or 16-bit precision, especially its decay and write-strength gates, on the intuition that errors in a recurrent state could compound.</p><p>This work studies why Gated DeltaNet survives aggressive 4-bit quantization, introducing NVFP4 W4A4 for the recurrent half of the hybrid 27B model — a concrete result on how far the linear-attention component can be compressed without breakdown.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete quantization result on the recurrent half of hybrid LLMs — relevant to memory-constrained local inference and model compression.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03874" target="_blank" rel="noopener">STAIR: a structure-aware information retriever for document-level RAG</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Retrieval-augmented generation (RAG) is key to accurate, hallucination-free answers, but even as LLMs handle longer contexts they still suffer from the 'lost in the middle' problem, so precise retrieval matters. Current retrievers chunk long documents into length-based, content-agnostic pieces, discarding the document's structure.</p><p>STAIR (Structure Aware Information Retriever) introduces a novel dataset and an LLM-based retriever that is aware of document structure, retrieving by layout and hierarchy rather than arbitrary token-length chunks — a concrete step toward structure-aware, document-grounded RAG.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete structured-RAG contribution targeting the chunking blind spot — relevant to RAG system design and document-grounded agents.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-09-04/</guid>
+  <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>A Cyber Twin, a Speed Demon, and Mind-Reading 6G Agents</title>
   <dc:creator>Sarathy 🪆</dc:creator>
