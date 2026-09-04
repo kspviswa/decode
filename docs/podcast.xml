@@ -198,6 +198,16 @@
     <itunes:duration>7:56</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-09-03/podcast.mp3" length="5708781" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — Astra Lands, K2 Opens Its Wings, and KV Caches Learn to Grow</title>
+    <guid isPermaLink="false">decode-2026-09-04</guid>
+    <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>OpenAI ships GPT-6 Astra — its flagship with a 1M-token context and a Critical cyber tier; IFM opens K2 Horizon, a six-model Apache-2.0 fleet with a new sparse-attention architecture; Qwen 3.8 27B hits ~1,500 tokens/s on Cerebras. Plus LLMs reasoning over network topology, on-device inference, KV budgeting, and structure-aware retrieval.</description>
+    <itunes:title>Decode Daily — Astra Lands, K2 Opens Its Wings, and KV Caches Learn to Grow</itunes:title>
+    <itunes:duration>8:06</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-09-04/podcast.mp3" length="5835213" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
