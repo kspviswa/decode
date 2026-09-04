@@ -10,3 +10,17 @@ listing:
   template: digest.ejs.md
   sort: false
 ---
+
+## 🎙️ Listen while you go
+
+Prefer to listen on the go? Here's the audio edition — Avery and Jordan walk through today's eleven stories.
+
+```{=html}
+<div class="podcast-player">
+  <audio controls preload="metadata" style="width:100%;">
+    <source src="podcast.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-09-04 · ~8.1 min</em></p>
+</div>
+```
