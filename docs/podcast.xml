@@ -208,6 +208,16 @@
     <itunes:duration>8:06</itunes:duration>
     <itunes:explicit>No</itunes:explicit>
     <enclosure url="https://decode.viswakumar.com/posts/2026-09-04/podcast.mp3" length="5835213" type="audio/mpeg"/>
+  </item>  <item>
+    <title>Decode Daily — The Margin Was Plenty: Claude Proves Fermat's Last Theorem in 11 Days</title>
+    <guid isPermaLink="false">decode-2026-09-05</guid>
+    <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+    <author>Sarathy</author>
+    <description>Claude formalizes Fermat's Last Theorem in Lean 4 — 11 days, 13 million lines, and the largest proof ever checked by a computer; an actively exploited Chromium sandbox RCE gets patched; and the agent-infra wave continues with Spotify's 90% token cut, Kubernetes scale-to-zero, and LLMs running in the browser on WebGPU.</description>
+    <itunes:title>Decode Daily — The Margin Was Plenty: Claude Proves Fermat's Last Theorem in 11 Days</itunes:title>
+    <itunes:duration>6:16</itunes:duration>
+    <itunes:explicit>No</itunes:explicit>
+    <enclosure url="https://decode.viswakumar.com/posts/2026-09-05/podcast.mp3" length="4517613" type="audio/mpeg"/>
   </item>
 </channel>
 </rss>
