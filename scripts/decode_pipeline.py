@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Decode daily curation — heavy lifting (collect, dedupe, tag, score, shortlist).
+"""Decode curation — heavy lifting (collect, dedupe, tag, score, shortlist).
+
+Supports two cadences:
+  --daily (default): 48h freshness window, per-lane shortlist top 6.
+  --weekly:          168h (7-day) freshness window, HN Algolia past-week search
+                     in addition to the front page, per-lane shortlist top 8 so
+                     the curator can pick a balanced 15-16.
 
 Sources (user-mandated 2026-08-24): HN front page, Reddit RSS, LinkedIn + X via
 uttaram MCP keyword search, and general Uttaram search on Viswa's interests.
@@ -158,6 +164,52 @@ def collect_hn(hours=48):
         print("HN front-page err:", e)
     return out
 
+# Core interest keyword fragments used for the weekly Algolia past-week search.
+ALGOLIA_KEYWORDS = [
+    "telecom network AI",
+    "packet core LLM",
+    "network slicing agent",
+    "autonomous network multi-agent",
+    "local edge inference LLM",
+    "structured RAG",
+    "distributed systems cloud-native LLM",
+    "3GPP 6G AI",
+]
+
+def collect_hn_algolia(hours=168, keywords=ALGOLIA_KEYWORDS, max_per_query=20):
+    """Weekly HN collection via the Algolia Search API (search_by_date).
+
+    The front page only covers the last day or two; for the weekly window we
+    also query the Algolia search_by_date endpoint for each core interest
+    keyword with numericFilters=created_at_i><cutoff> so anything from the past
+    7 days surfaces. Runs IN ADDITION to the real front page (which stays the
+    primary HN signal for recency).
+    """
+    cutoff = int(time.time()) - hours * 3600
+    out = []
+    for kw in keywords:
+        try:
+            u = ("https://hn.algolia.com/api/v1/search_by_date?"
+                 f"query={urllib.parse.quote(kw)}"
+                 f"&numericFilters=created_at_i%3E{cutoff}"
+                 f"&hitsPerPage={max_per_query}")
+            j = json.loads(http_get(u))
+            for hit in j.get("hits", []):
+                title = hit.get("title") or hit.get("story_title") or ""
+                link = hit.get("url") or ""
+                if not title:
+                    continue
+                if not link:
+                    oid = hit.get("objectID")
+                    link = f"https://news.ycombinator.com/item?id={oid}" if oid else ""
+                out.append({"title": title, "link": link,
+                            "date": hit.get("created_at") or "",
+                            "source": "HN", "points": hit.get("points") or 0,
+                            "algolia": True})
+        except Exception as e:
+            print("HN algolia err:", kw, e)
+    return out
+
 def collect_arxiv(cats=("cs.NI", "eess.SP", "cs.AI", "cs.LG", "cs.DC"), hours=48):
     out = []
     for cat in cats:
@@ -180,9 +232,10 @@ def collect_arxiv(cats=("cs.NI", "eess.SP", "cs.AI", "cs.LG", "cs.DC"), hours=48
 
 def collect_reddit(subs=("LocalLLaMA", "MachineLearning"), hours=48):
     out = []
+    top = "week" if hours >= 7 * 24 else "day"
     for s in subs:
         try:
-            u = f"https://www.reddit.com/r/{s}/top/.rss?t=day"
+            u = f"https://www.reddit.com/r/{s}/top/.rss?t={top}"
             for it in parse_feed(http_get(u)):
                 it["source"] = "Reddit"
                 out.append(it)
@@ -243,9 +296,14 @@ def dedupe(items, seen_links):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--hours", type=int, default=48)
+    ap.add_argument("--weekly", action="store_true",
+                    help="weekly mode: 168h window, HN Algolia past-week search, per-lane top 8")
     ap.add_argument("--extra", action="append", default=[], help="JSON file of pre-collected LinkedIn/X results")
     ap.add_argument("--reed", action="store_true", help="load previously-seen links from work/seen.json")
     args = ap.parse_args()
+
+    hours = 168 if args.weekly else args.hours
+    top = 8 if args.weekly else 6
 
     os.makedirs(OUT, exist_ok=True)
     seen = set()
@@ -253,13 +311,16 @@ def main():
         seen = set(json.load(open(os.path.join(OUT, "seen.json"))))
 
     items = []
-    items += collect_hn(args.hours)
-    items += collect_reddit()
+    items += collect_hn(hours)
+    if args.weekly:
+        items += collect_hn_algolia(hours)
+    items += collect_reddit(hours=hours)
     items += collect_mcp()  # LinkedIn + X via uttaram MCP
     items += collect_mcp_general()  # Uttaram search on interests (any site)
     for f in args.extra:
         try:
-            items += json.load(open(f))
+            with open(f) as _f:
+                items += json.load(_f)
         except Exception as e:
             print("extra err:", f, e)
 
@@ -268,7 +329,7 @@ def main():
     items = [score(i) for i in items]
 
     # freshness drop (keep within window unless source says otherwise)
-    cutoff = time.time() - args.hours * 3600
+    cutoff = time.time() - hours * 3600
     fresh = []
     for i in items:
         datestr = (i.get("date") or "").strip()
@@ -279,7 +340,8 @@ def main():
             except Exception:
                 dt = None
         if i["source"] in ("Reddit", "HN"):
-            # Reddit top-of-day is inherently recent; HN front page is live.
+            # Reddit top-of-day is inherently recent; HN front page is live,
+            # and Algolia items were fetched with a created_at_i cutoff.
             fresh.append(i)
         elif dt is not None and dt >= cutoff:
             fresh.append(i)
@@ -289,9 +351,10 @@ def main():
     items = fresh
 
     all_path = os.path.join(OUT, "candidates.json")
-    json.dump(items, open(all_path, "w"), indent=2)
+    with open(all_path, "w") as _f:
+        json.dump(items, _f, indent=2)
 
-    # per-lane shortlist (top 6 each), sorted by score
+    # per-lane shortlist (top 6 daily / top 8 weekly), sorted by score
     short = {}
     # Reserved-source guarantee: these proxy sources must each appear at least
     # once across the shortlist (user-mandated primary-source policy) so they
@@ -315,15 +378,17 @@ def main():
         for it in pool:
             if it not in lane_items:
                 lane_items.append(it)
-            if len(lane_items) >= 6:
+            if len(lane_items) >= top:
                 break
-        short[lane] = lane_items[:6]
+        short[lane] = lane_items[:top]
     short_path = os.path.join(OUT, "shortlist.json")
-    json.dump(short, open(short_path, "w"), indent=2)
+    with open(short_path, "w") as _f:
+        json.dump(short, _f, indent=2)
 
-    json.dump(sorted(seen), open(os.path.join(OUT, "seen.json"), "w"), indent=2)
+    with open(os.path.join(OUT, "seen.json"), "w") as _f:
+        json.dump(sorted(seen), _f, indent=2)
 
-    print(f"collected={len(items)}  seen={len(seen)}")
+    print(f"mode={'weekly' if args.weekly else 'daily'} hours={hours} top={top}/lane  collected={len(items)}  seen={len(seen)}")
     for lane in short:
         print(f"  [{lane}] {len(short[lane])}: " + "; ".join(i['title'][:40] for i in short[lane]))
     print("wrote", all_path, short_path)

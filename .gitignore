@@ -147,3 +147,7 @@ vite.config.ts.timestamp-*
 
 # Runtime curation data (not tracked); pipeline script IS tracked
 work/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
