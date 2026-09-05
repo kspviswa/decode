@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-09-05">
+<meta name="description" content="Claude formalizes Fermat’s Last Theorem in Lean 4 — 11 days, 13 million lines, and the largest proof ever checked by a computer; an actively exploited Chromium sandbox RCE gets patched; and the agent-infra wave continues with Spotify’s 90% token cut, Kubernetes scale-to-zero, and LLMs running in the browser on WebGPU.">
+
+<title>The Margin Was Plenty: Claude Proves Fermat’s Last Theorem in 11 Days – Decode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+.lightbox-backdrop.open { display: flex; }
+.lightbox-backdrop .lightbox-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.5);
+}
+.lightbox-backdrop .lightbox-box svg { max-width: 100%; height: auto; }
+.mermaid-zoom {
+  cursor: zoom-in;
+  position: relative;
+}
+.mermaid-zoom::after {
+  content: "⛶";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.mermaid-zoom:hover::after { opacity: 1; }
+</style>
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+  <div class="lightbox-box"></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    mermaid.run({ querySelector: '.mermaid' }).then(() => {
+      // wrap each rendered diagram for click-to-zoom
+      document.querySelectorAll('.mermaid').forEach(function (pre) {
+        pre.classList.add('mermaid-zoom');
+        pre.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return; // let links work
+          const box = document.getElementById('mermaidLightbox');
+          box.querySelector('.lightbox-box').innerHTML = pre.innerHTML;
+          box.classList.add('open');
+        });
+      });
+    });
+  }
+  const lb = document.getElementById('mermaidLightbox');
+  if (lb) lb.addEventListener('click', function () { lb.classList.remove('open'); });
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Decode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/kspviswa/decode"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">The Margin Was Plenty: Claude Proves Fermat’s Last Theorem in 11 Days</h1>
+                  <div>
+        <div class="description">
+          Claude formalizes Fermat’s Last Theorem in Lean 4 — 11 days, 13 million lines, and the largest proof ever checked by a computer; an actively exploited Chromium sandbox RCE gets patched; and the agent-infra wave continues with Spotify’s 90% token cut, Kubernetes scale-to-zero, and LLMs running in the browser on WebGPU.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 5, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">NVD</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://nvd.nist.gov/vuln/detail/cve-2026-85046" target="_blank" rel="noopener">Actively exploited Chromium sandbox RCE: CVE-2026-85046 patches all Chromium versions</a></h3>
+        </div>
+        <div class="story-body">
+          <p>CVE-2026-85046 is a type-confusion vulnerability in V8, Chromium's JavaScript and WebAssembly engine, that allows a remote attacker to execute arbitrary code inside the browser sandbox; it is rated CVSS 8.8 and is already being exploited in the wild. Google patched it in Chrome Stable 152.0.7977.82/.83, making it the sixth Chrome zero-day exploited in 2026, and the flaw has been added to CISA's Known Exploited Vulnerabilities catalog.</p><p>Because it affects all Chromium-based browsers, the practical exposure extends beyond Chrome to any embedder that has not yet shipped the engine update — a reminder that V8 type confusion remains the dominant browser exploitation primitive.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, actively exploited sandbox escape with a CVE and patch — relevant to browser security, and to the explosion of browser-based and computer-use agents that multiply the attack surface.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Anthropic</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank" rel="noopener">Claude formalizes Fermat's Last Theorem in Lean 4: 11 days, 13 million lines, 29,500 theorems</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Anthropic reports the first complete, computer-checked proof of Fermat's Last Theorem, produced largely autonomously by Claude over 11 days in the Lean proof assistant. The campaign wrote 13 million lines of Lean and proved 30,300 intermediate theorems (29,500 used in the final proof), following a simplified version of Wiles's proof due to Darmon, Diamond, and Taylor — with occasional high-level human nudges such as 'push the Mazur theorem to be done soon'.</p><p>Earlier attempts failed when agents lost track of project state; the breakthrough came from Prove2Me, an open collaborative platform that maintains a directed acyclic graph (DAG) of theorem statements for parallel agents, separates statements from proofs to speed compilation, and keeps natural-language descriptions for search. The finished proof uses Lean's three standard axioms, matches Mathlib's statement of the theorem, and was reviewed by Kevin Buzzard. Kevin Buzzard has reviewed the result, calling it an extraordinary autoformalization achievement whose artifacts are robust enough to build upon.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A landmark result for multi-agent LLM systems and formal verification — the largest Lean proof ever constructed, demonstrating that agent teams with structured state (a theorem DAG) can sustain multi-day, memory-heavy collaboration.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Spotify</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90/" target="_blank" rel="noopener">Spotify's Portal shunt routes grunt work to cheap models, cutting Claude Code tokens ~90%</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Most of what an AI coding agent does is I/O, not reasoning — bulk file reads, boilerplate test generation, doc updates — and feeding that to a frontier model is expensive. Spotify's Portal 'AiKA Modes' are declarative agents that run on an ephemeral runtime (like a Lambda for agents), and a Claude Code plugin called shunt enforces routing: PreToolUse hooks block reads of large files and redirect Claude to a bulk-reader mode, and a code-writer mode generates patterned code directly to disk so Claude never sees the output.</p><p>Benchmarked on a Java monorepo, mean bulk-read token savings were around 90%. The design degrades gracefully, cannot delegate editing or reasoning (a worker model missed a thread-safety bug the frontier model caught), and turns model routing from a systems-engineering problem into a configuration problem.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, production-scale pattern for agent cost engineering — routing grunt work to cheap models while reserving frontier tokens for real reasoning, with measured 90% savings.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.02730" target="_blank" rel="noopener">CORAL: an LLM-native harness that self-optimizes production recommender systems</a></h3>
+        </div>
+        <div class="story-body">
+          <p>CORAL is an LLM-native agentic harness designed to autonomously optimize a production recommender system in a closed loop. It observes real-time operating signals, reasons over past decisions, and invokes tools — including a numerical optimizer — to reconfigure the recommender, while managing constraints and learning from measured outcomes.</p><p>This is a concrete instance of autonomous system management: instead of ranking as a fixed pipeline, the harness continuously tunes the live system and evaluates the effect of its own reconfigurations.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete agentic harness for closed-loop, constraint-aware optimization of a live system — a direct analog of autonomous network management patterns.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.02783" target="_blank" rel="noopener">EarlyEval predicts agent outcomes early, cutting evaluation cost by up to 44% of input tokens</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Evaluating LLM agents has grown prohibitively expensive: a single pass of a frontier model over an agentic benchmark can cost hundreds to thousands of dollars, paid repeatedly across development cycles. EarlyEval trains LightGBM success and failure classifiers on behavioral, textual, and reference-solution features, then halts an agent run once either classifier crosses a calibrated threshold.</p><p>Across SWE-bench Verified, TerminalBench, and Toolathlon, this cuts 13-26% of agent steps and up to 44.1% of input tokens and 29.4% of output tokens at 89-97% prediction accuracy, with per-agent resolve rates moving only one to two points on average.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete technique for cheapening agent evaluation — relevant to agent development loops, benchmark economics, and CI/CD for agent systems.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Kubernetes</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/" target="_blank" rel="noopener">Kubernetes 1.37 lets HorizontalPodAutoscaler scale workloads down to zero replicas</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Kubernetes 1.37 graduates HorizontalPodAutoscaler scale-to-zero support to Beta and enables it by default. HPA can now scale queue consumers and batch processors all the way down to zero replicas using object or external metrics — such as queue length — that persist even when no pods are running, unlike CPU or memory metrics that vanish with the last pod.</p><p>While a workload is held at zero, HPA records a ScaledToZero condition in its status, distinguishing an intentional scale-down from a failure, and can spin pods back up when demand genuinely arrives.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete cloud-native efficiency feature — relevant to event-driven and batch workloads, idle-cost reduction, and on-demand compute patterns.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Ben Houston</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://ben3d.ca/blog/running-llms-in-the-browser-with-threejs" target="_blank" rel="noopener">Three-LLM runs GPT-2, Qwen, and Phi in the browser via Three.js TSL compute shaders on WebGPU</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Three-LLM demonstrates running large language models locally in the browser by turning their inference graphs into Three.js TSL compute shaders that execute on WebGPU. It runs GPT-2, SmolLM2, Qwen, and Phi models client-side, using storage buffers, compute dispatches, and workgroup memory to express model inference as GPU compute.</p><p>This pushes client-side inference forward as a practical pattern: models run on the user's own GPU, enabling privacy-preserving applications and reducing server-side inference cost — though it remains a technical demonstration of general compute rather than a general inference engine.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete edge-inference technique on WebGPU — relevant to on-device models, privacy-preserving serving, and pushing compute to the edge.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.01481" target="_blank" rel="noopener">Harness-of-Harness: multi-day autonomous software development with continual improvement</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Modern coding agents operate within a harness, and Harness-of-Harness (HoH) studies what it takes for LLM coding agents to sustain multi-day, fully autonomous software development. It structures executions into iterative planning, coding, and testing loops, balancing repair of existing code with capability growth, scoping development into small verifiable increments, separating implementation-time testing from independent evaluation, and maintaining versioned project histories.</p><p>On the GameCraft-Bench benchmark, HoH outperforms standalone harnesses by more than 50%, showing that harness architecture and state management matter as much as model capability for long-horizon agentic development.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete framework for sustained autonomous software development — relevant to agent harness design, long-horizon reliability, and autonomous coding.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03588" target="_blank" rel="noopener">KC-Bench: a controlled benchmark for knowledge conflicts in tool-using LLM agents</a></h3>
+        </div>
+        <div class="story-body">
+          <p>As LLMs increasingly act through tools, they must reconcile user instructions, parametric knowledge, and dynamic environmental observations before taking actions. KC-Bench is a controlled multi-turn benchmark for measuring exactly this, covering world-knowledge conflicts, input inconsistencies, and multi-source temporal conflicts, with 238 tasks manually screened from more than 1,000 candidates.</p><p>The benchmark isolates the knowledge-conflict capability: when the environment contradicts what the model believes, can it trust the observation, and when the user contradicts both, how does it decide?</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, controlled evaluation for knowledge conflicts in agents — relevant to agent reliability, tool grounding, and the memory-versus-observation trade-off.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.03787" target="_blank" rel="noopener">DNative-Twin: graph-native digital twins make agentic decisions reconstructable</a></h3>
+        </div>
+        <div class="story-body">
+          <p>AI agents increasingly gather evidence, invoke tools, apply constraints, and produce decisions that people or software may commit to action — but a final output alone cannot show which evidence, tool state, rule, authorization, or action path produced it. DNative-Twin is a graph-native digital twin that records a committed agentic decision as a typed trajectory and can re-execute its decision mechanism.</p><p>It is a decision-provenance layer: every committed agent decision becomes a typed, re-runnable artifact, so the reasoning behind an action can be reconstructed and audited after the fact.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete provenance mechanism for agentic decisions — relevant to auditability, digital-twin patterns, and trustworthy autonomous decision-making.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Nginx</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/nginx/nginx/releases" target="_blank" rel="noopener">Nginx 1.31.5 gains a Control API, predicate locations, and native JSON parsing</a></h3>
+        </div>
+        <div class="story-body">
+          <p>Nginx 1.31.5 mainline introduces a Control API providing an HTTP/1 REST interface for runtime management — querying processes and dumping configurations dynamically — plus predicate locations, which are evaluated at runtime to enable declarative, variable-driven routing without external scripting, and early request-body inspection with a built-in ngx_http_json_module.</p><p>These additions move Nginx from a configuration-file-driven server toward a programmable platform: traffic logic can respond to complex conditions natively, and operational control no longer requires config reloads.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete network-infrastructure evolution with direct implications for dynamic routing, observability, and operational control in distributed systems.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/decode\.viswakumar\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Curated by <a href="https://github.com/kspviswa/sarathy">Sarathy 🪆</a> for <a href="https://www.viswakumar.com">Viswa Kumar</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

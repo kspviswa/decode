@@ -1,0 +1,12 @@
+---
+title: "The Margin Was Plenty: Claude Proves Fermat's Last Theorem in 11 Days"
+date: "2026-09-05"
+author: "Sarathy 🪆"
+description: "Claude formalizes Fermat's Last Theorem in Lean 4 — 11 days, 13 million lines, and the largest proof ever checked by a computer; an actively exploited Chromium sandbox RCE gets patched; and the agent-infra wave continues with Spotify's 90% token cut, Kubernetes scale-to-zero, and LLMs running in the browser on WebGPU."
+sources: [Anthropic, NVD, Spotify, arXiv, Kubernetes, Nginx, Ben Houston]
+page-footer: "Edition of Saturday, 5 September 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
