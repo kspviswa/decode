@@ -171,6 +171,24 @@ def curate_wiki_entities(items: list[dict], dry_run: bool) -> int:
     return added
 
 
+def weave_kindle_chapter(date: str) -> None:
+    """Job 84 hook — weave the day's Manana content into the Kindle book.
+
+    Non-fatal by design: a weave failure is logged and must never break the
+    Manana push. Idempotent: weave_chapter skips dates already present.
+    """
+    try:
+        book_dir = os.path.join(os.path.expanduser("~"), "portals", "manana", "book")
+        if book_dir not in sys.path:
+            sys.path.insert(0, book_dir)
+        import weave_chapter  # noqa: PLC0415
+
+        status, path = weave_chapter.weave_day(date)
+        print(f"  [kindle] {status}: {path}")
+    except Exception as exc:
+        print(f"  [warn] Kindle weave for {date} failed (ignored): {exc}", file=sys.stderr)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None)
@@ -215,6 +233,8 @@ def main() -> int:
     n_cur = curate_wiki_entities(items, args.dry_run)
     print(f"  curated {n_cur} wiki entities")
     print(json.dumps(out))
+    if not args.dry_run:
+        weave_kindle_chapter(date)
     return 0
 
 
