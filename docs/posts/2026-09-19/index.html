@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sarathy 🪆">
+<meta name="dcterms.date" content="2026-09-19">
+<meta name="description" content="Nokia and Microsoft build an agentic data foundation for network automation as Ericsson and VodafoneThree light up a 9 Tbps cloud-native 5G core; meanwhile an AI agent swarm breaches roughly 400 organizations and Anthropic documents agents running the cyber kill chain — plus Bonsai 2’s 27B model under 6 GB, a stateful RAG framework for troubleshooting, and a 176-configuration study of coding-agent harnesses.">
+
+<title>Agents on Both Sides of the Wire: Networks Hire Copilots While Attack Swarms Go Rogue – Decode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8e89598e968dae276a7c79ac60828438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-date','listing-categories','listing-tags','listing-source','listing-domain','listing-link','listing-tldr','listing-why','listing-highlights',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-date","listing-categories","listing-tags","listing-source","listing-domain","listing-link","listing-tldr","listing-why","listing-highlights"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+.lightbox-backdrop.open { display: flex; }
+.lightbox-backdrop .lightbox-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.5);
+}
+.lightbox-backdrop .lightbox-box svg { max-width: 100%; height: auto; }
+.mermaid-zoom {
+  cursor: zoom-in;
+  position: relative;
+}
+.mermaid-zoom::after {
+  content: "⛶";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.mermaid-zoom:hover::after { opacity: 1; }
+</style>
+</head><body class="nav-fixed fullcontent quarto-light"><div class="lightbox-backdrop" id="mermaidLightbox">
+  <div class="lightbox-box"></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    mermaid.run({ querySelector: '.mermaid' }).then(() => {
+      // wrap each rendered diagram for click-to-zoom
+      document.querySelectorAll('.mermaid').forEach(function (pre) {
+        pre.classList.add('mermaid-zoom');
+        pre.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return; // let links work
+          const box = document.getElementById('mermaidLightbox');
+          box.querySelector('.lightbox-box').innerHTML = pre.innerHTML;
+          box.classList.add('open');
+        });
+      });
+    });
+  }
+  const lb = document.getElementById('mermaidLightbox');
+  if (lb) lb.addEventListener('click', function () { lb.classList.remove('open'); });
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Decode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/kspviswa/decode"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Agents on Both Sides of the Wire: Networks Hire Copilots While Attack Swarms Go Rogue</h1>
+                  <div>
+        <div class="description">
+          Nokia and Microsoft build an agentic data foundation for network automation as Ericsson and VodafoneThree light up a 9 Tbps cloud-native 5G core; meanwhile an AI agent swarm breaches roughly 400 organizations and Anthropic documents agents running the cyber kill chain — plus Bonsai 2’s 27B model under 6 GB, a stateful RAG framework for troubleshooting, and a 176-configuration study of coding-agent harnesses.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sarathy 🪆 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 19, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Ericsson</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://www.ericsson.com/en/press-releases/3/2026/ericsson-and-vodafonethree-begin-rollout-of-next-generation-5g-core-network" target="_blank" rel="noopener">Ericsson and VodafoneThree switch on a cloud-native 5G core built for slicing</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">9 Tbps packet core</span><span class="badge text-bg-light">dual-mode 4G/5G core</span><span class="badge text-bg-light">MOCN to dedicated core</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Ericsson and VodafoneThree have taken live a cloud-native 5G core in the United Kingdom. The core is powered by Ericsson's dual-mode 5G Core, which unifies 4G and 5G core functions on a single platform running on Ericsson's Cloud Native Infrastructure Solution, and is designed for 9 terabits per second of capacity — described as one of Europe's largest mobile packet cores. It serves 28.6 million customers.</p><p>The core is the delivery engine for differentiated connectivity: two dedicated network slices — 5G+ FastTrack for consumers and a National Business Slice — provide up to four times faster speeds and a 15 Mbps minimum download guarantee inside 5G Standalone coverage. The rollout follows an earlier world-first unification of core-level sharing through Multi-Operator Core Network (MOCN) technology over a multi-vendor 4G and 5G radio network, now evolving into a single dedicated core.</p>
+          
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete, live deployment of a cloud-native packet core whose commercial value is delivered through network slicing — the clearest current example of the core as a programmable platform rather than a fixed appliance.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Nokia</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://www.nokia.com/newsroom/nokia-accelerates-network-automation-through-agentic-unified-data-foundation-with-microsoft/" target="_blank" rel="noopener">Nokia and Microsoft build an agentic data foundation for network automation</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">Nokia Data Suite</span><span class="badge text-bg-light">Microsoft Fabric</span><span class="badge text-bg-light">multi-vendor data readiness</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Nokia is extending its partnership with Microsoft to accelerate network automation, announcing the joint development of an agentic, unified data foundation that integrates Nokia Data Suite with Microsoft Fabric. The goal is to give AI agents a curated, trustworthy, real-time view of network data across multi-vendor environments.</p><p>The announcement targets a well-known barrier to AI adoption in telecom: the time and effort required to prepare and operationalize network data before agents can reason over it. Nokia frames the data foundation as a prerequisite for higher levels of autonomous network operations.</p>
+          
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> Data readiness, not model choice, is the practical bottleneck for autonomous network management — this pairs a network vendor's data layer with a hyperscaler's data platform to attack it directly.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Praveen Tech World</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://www.praveentechworld.com/research/degoogle-telemetry-2026" target="_blank" rel="noopener">Field study: 72 hours of idle Android packets behind a pfSense firewall</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">348.4 idle requests/hour</span><span class="badge text-bg-light">42 endpoints</span><span class="badge text-bg-light">CC BY 4.0 packet dataset</span>
+        </div>
+        
+        <div class="story-body">
+          <p>A research team captured 72 continuous hours of network packets from three untouched Google Pixel 8 phones on an isolated Wi-Fi network behind an enterprise pfSense firewall running Wireshark, then analyzed the traffic to Alphabet's Autonomous System Number 15169. A stock Android device generated 348.4 outbound requests per hour while idle — roughly 8,300 background transmissions per day — versus 0.0 per hour on a GrapheneOS build with no Google services.</p><p>The breakdown attributes most idle traffic to Google Play Services (142.6 requests/hour), location services uploading nearby Wi-Fi router identifiers for triangulation (84.2/hour), device provisioning of hardware fingerprints and SIM serials (48.0/hour), Photos sync tokens (28.5/hour), and a persistent push-notification heartbeat socket (14.8/hour). The raw CSV is released under a Creative Commons licence with timestamps, destination IPs, ports, and payload sizes.</p>
+          
+        </div>
+        <div class="alert alert-info story-why" role="alert">
+          <span class="why-label">Why read it</span> A hands-on packet-capture (PCAP) study with a real dataset and reproducible test bench — useful both as a template for PCAP-driven network analysis and as evidence of what idle devices actually put on the wire.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">The Hacker News</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://thehackernews.com/2026/09/microsoft-patches-cvss-100-azure-ai.html" target="_blank" rel="noopener">Microsoft patches a CVSS 10.0 Azure AI Foundry flaw (CVE-2026-85889)</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">CVSS 10.0</span><span class="badge text-bg-light">missing authentication</span><span class="badge text-bg-light">no customer action needed</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Microsoft has released fixes for a maximum-severity vulnerability in Azure AI Foundry, tracked as CVE-2026-85889 and rated CVSS 10.0. The flaw is a missing authentication check for a critical function that allows an unauthorized attacker to elevate privileges over the network. There is no evidence of exploitation in the wild.</p><p>The fix shipped alongside other critical cloud patches, including a 9.9 command-injection flaw in Microsoft 365 Copilot (CVE-2026-85885) and a 9.9 improper-authorization flaw in Azure Database for PostgreSQL (CVE-2026-85878). As is typical for cloud CVEs, Microsoft says the issues are already mitigated server-side and require no customer action.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A reminder that the AI platform layer — gateways, agent runtimes, and model endpoints — is now first-class attack surface, and that cloud-hosted AI services can be patched without any customer action.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Cloud Security Alliance</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://labs.cloudsecurityalliance.org/research/csa-research-note-papercut-ai-agent-swarm-exploitation-20260/" target="_blank" rel="noopener">AI agent swarm exploits patched PaperCut flaws across ~400 breaches</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">~395 breaches</span><span class="badge text-bg-light">Codex-based harness</span><span class="badge text-bg-light">patched flaws</span>
+        </div>
+        
+        <div class="story-body">
+          <p>A Cloud Security Alliance research note describes a suspected Russian-speaking threat actor that used hundreds of coordinated AI agents, built on an OpenAI Codex-style harness, to exploit already-patched PaperCut vulnerabilities and breach roughly 395 organizations.</p><p>The case is notable for scale and automation: the agents handled reconnaissance and exploitation in parallel, turning a known, patched flaw into a mass campaign. It is a concrete example of agentic AI shifting the economics of mass exploitation.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> Illustrates how agent swarms change the risk calculus for known vulnerabilities — a patch is no longer a guarantee once attackers can fan out agents at scale.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Anthropic</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener">Anthropic's September 2026 threat report: agents on the attack, and industrial-scale distillation</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">auto-rebuilding malware</span><span class="badge text-bg-light">~3M exchanges/day distillation</span><span class="badge text-bg-light">AI supply chain as target</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Anthropic's threat intelligence report for September 2026 documents eight months of disrupted misuse across cyber operations, surveillance, influence operations, conventional weapons, and biological misuse. The cyber cases are the most striking: a Russian espionage actor ran AI-driven workflows that automatically rebuilt malware whenever defenders shipped a detection, and financially motivated crews ran multi-agent frameworks that handled reconnaissance, exploitation, and exfiltration while humans only set targets and reviewed results. Anthropic argues that AI has collapsed the labor gap that used to separate state-sponsored operations from individual attackers.</p><p>A separate section describes industrial-scale 'illicit distillation': the report says it detected chain-of-thought extraction campaigns by several Chinese labs, including one it attributes to Alibaba that peaked near three million exchanges per day across thousands of fraudulent accounts, plus labs that silently relayed their own users' traffic to Claude. The report recommends treating AI API keys, sandboxes, and agent integrations with the same seriousness as production credentials.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why" role="alert">
+          <span class="why-label">Why read it</span> A primary-source account of how agentic AI is being used offensively, plus a new attack surface — the AI supply chain of keys, gateways, and relay services.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.20754" target="_blank" rel="noopener">RAFT: a stateful retrieval framework for troubleshooting agents</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">entry-level retrieval</span><span class="badge text-bg-light">stateful case trajectories</span><span class="badge text-bg-light">EMNLP 2026 Industry Track</span>
+        </div>
+        
+        <div class="story-body">
+          <p>RAFT (Retrieval-Augmented Framework for Troubleshooting Agents) treats each closed support case not as a static document but as a directed chain of timeline entries, and retrieves at the entry level. This surfaces historical cases whose intermediate states match the active case and returns the parent-case trajectory anchored at the matched state; an optional case-level graph links related cases through a configurable similarity representation.</p><p>Because public multi-stage troubleshooting data is scarce, the authors pair a synthetic benchmark built from Microsoft Learn Windows Server documentation with real Apache Jira issues carrying human duplicate labels. RAFT improves Case Hit over vanilla retrieval-augmented generation (RAG) and GraphRAG baselines at every stage of case progress, with statistically significant gains over the strongest baseline. The benchmark, implementation, and evaluation set are released.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A concrete advance in structured retrieval — modelling the stateful, multi-stage nature of real troubleshooting instead of flattening cases into documents.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">PrismML</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://prismml.com/news/bonsai-2-27b" target="_blank" rel="noopener">Bonsai 2 27B: near-lossless compression into a 9x smaller footprint</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">&lt;6 GB</span><span class="badge text-bg-light">27B parameters</span><span class="badge text-bg-light">in-browser WebGPU</span>
+        </div>
+        
+        <div class="story-body">
+          <p>PrismML released Bonsai 2 27B, a 27-billion-parameter model compressed to under 6 GB with what the company describes as near-lossless quality. The footprint is small enough to run locally, including in the browser via WebGPU.</p><p>Aggressive compression of mid-size open-weight models is what makes local and edge inference practical on consumer hardware; the size-versus-quality trade-off is the number to watch.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Local and edge inference live or die on footprint — a 27B model under 6 GB pushes capable models onto ordinary laptops and into the browser.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.20804" target="_blank" rel="noopener">Which parts of a coding-agent harness actually help? A 176-configuration study</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">176 matched settings</span><span class="badge text-bg-light">context-overflow prevention</span><span class="badge text-bg-light">bash-only cost win</span>
+        </div>
+        
+        <div class="story-body">
+          <p>The authors fix a lightweight coding harness's execution loop and vary three components — planning, action space, and context management — across four models on SWE-Bench Verified and Terminal-Bench 2.1, evaluating 176 matched settings spanning five context-management strategies and four context-window budgets.</p><p>Findings: context management matters more as the context budget tightens, mostly by preventing context-overflow failures; staging rule-based elision before LLM-based summarization is the most efficient strategy, while making elided content recoverable adds machinery models rarely use; planning shifts from an accuracy scaffold for weaker models to a cost saver for stronger ones; and predefined tools help models with weak shell proficiency, whereas bash-capable models do fine with a bash-only interface at lower cost.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Component-level evidence for building coding-agent harnesses — useful for anyone tuning agent loops rather than swapping models.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">ROCmFix</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/xanpavle/rocmfix" target="_blank" rel="noopener">ROCmFix: one script to fix AMD GPU overrides and benchmark Vulkan vs HIP</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">auto HSA override</span><span class="badge text-bg-light">Vulkan vs HIP bench</span><span class="badge text-bg-light">zero install</span>
+        </div>
+        
+        <div class="story-body">
+          <p>ROCmFix is a single-file, zero-install script that auto-detects an AMD GPU, looks up the correct HSA_OVERRIDE_GFX_VERSION in a live community database, applies it to the shell configuration, and runs health diagnostics. It targets the common failure where local inference on AMD hardware throws HSA_STATUS_ERROR_INVALID_ISA or silently falls back to the CPU.</p><p>It also includes a 'bench' command that runs a short generation test against Ollama or LM Studio using Vulkan and then HIP/ROCm, reporting which backend is faster on the machine — a practical answer to the recurring Vulkan-versus-ROCm question.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Local inference on AMD hardware is still a configuration minefield; tooling that automates the overrides and measures the backends removes real friction.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Z.ai</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://z.ai/blog/glm-built-its-inference-infrastructure" target="_blank" rel="noopener">How GLM built its own inference infrastructure</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">production serving stack</span><span class="badge text-bg-light">first-party engineering account</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Z.ai published a technical account of how it built the inference infrastructure behind its GLM models, covering the serving stack and the engineering trade-offs involved in running its own models at scale.</p><p>First-party write-ups of production inference stacks are relatively rare: they show the concrete systems decisions — scheduling, batching, and hardware use — that determine cost and latency.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A first-party look at a production large language model serving stack, relevant to anyone building or comparing inference infrastructure.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Tom's Hardware</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/chinas-open-weight-ai-models-are-now-just-4-months-behind-frontier-us-offerings-mozilla-report-claims-models-still-lag-in-some-benchmarks-but-are-drastically-cheaper-to-use" target="_blank" rel="noopener">Mozilla report: China's open-weight models are about four months behind the US frontier</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">~4-month gap</span><span class="badge text-bg-light">drastically cheaper</span><span class="badge text-bg-light">Mozilla report</span>
+        </div>
+        
+        <div class="story-body">
+          <p>A Mozilla report concludes that China's open-weight AI models now trail the United States frontier by roughly four months, based on benchmark comparisons. The models still lag on some benchmarks but are drastically cheaper to use.</p><p>The gap matters for anyone deploying open-weight models: a four-month lag at a fraction of the cost changes build-versus-buy decisions for local and edge inference.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Quantifies the open-weight gap — directly relevant to choosing open models for cost-sensitive local and edge deployments.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.20625" target="_blank" rel="noopener">Chronicle: cut-point replay turns agent incidents into regression tests</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">cut-point replay</span><span class="badge text-bg-light">23 µs recording overhead</span><span class="badge text-bg-light">bit-stable replay</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Large language model agent failures are hard to reproduce because model responses are non-deterministic, tools read changing state, and multi-step trajectories rarely repeat. Chronicle records an agent run at its non-deterministic boundaries as immutable envelopes and can replay it from the record.</p><p>Its central operation, cut-point replay, serves a chosen subset of boundaries from the record and executes the complementary subset live with new code, turning a recorded incident into a regression test that runs in continuous integration. On a benchmark of six recorded failures, recording adds 23 microseconds per boundary crossing, full replay issues zero model calls and is bit-stable across 20 repetitions, and cut-point tests fail on faulty code and pass on guarded and benign changes for all six incidents.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> Brings software-engineering discipline to agent reliability — reproducible regression tests for systems that are inherently non-deterministic.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2609.18842" target="_blank" rel="noopener">Infinite-parameter LLMs: generating and adapting weights from live data</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">hypernetwork weight generation</span><span class="badge text-bg-light">online Bayesian update</span><span class="badge text-bg-light">fixed stored footprint</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Scaling laws assume static pretraining data, but a deployed model faces a world where much of the useful information — facts a user supplies, corrections they give — arrives at run time and is normally stuffed into the prompt and discarded. This paper asks how an architecture could learn from live interaction by writing it into its weights. Taking inspiration from Mixture-of-Experts (MoE), it proposes the Infinite-Parameter LLM: a compact hypernetwork turns run-time data into a low-rank modulation of a shared base network, so feed-forward weights are generated from live data rather than stored in a fixed bank.</p><p>Where prior weight generators read the context once and freeze, the authors carry a Bayesian belief over the generator's latent code and update it online, so the effective weight is re-derived from that evolving belief as a session proceeds. The stored footprint stays fixed, yet the weights the model can compile are effectively infinite. The paper specifies an evaluation protocol that tests this against in-context learning and retrieval.</p>
+          
+        </div>
+        <div class="alert alert-success story-why" role="alert">
+          <span class="why-label">Why read it</span> A genuinely novel architectural direction — carrying run-time knowledge in generated weights rather than the prompt, with implications for continual learning and context economy.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Cua</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://github.com/trycua/cua" target="_blank" rel="noopener">CUA-S1: small 'System 1' models for computer-use decisions</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">System 1 decision models</span><span class="badge text-bg-light">cross-OS drivers</span><span class="badge text-bg-light">MIT-licensed</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Cua released CUA-S1, a family of small, specialized 'System 1' models for computer use — fast, bounded decisions such as choosing which value belongs in a field or whether to leave an element alone — rather than general-purpose planning. The first research profile scores decisions from structured interface elements and document values instead of generating tokens one at a time; application code orders the actions.</p><p>The release ships with open-source drivers for operating native desktop apps across macOS, Windows, and Linux, isolated cloud desktops, local macOS virtual machines, and a benchmark for evaluating computer-use agents. The source is MIT-licensed, with weights hosted separately.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> Splits computer-use agents into a fast decision layer and a planning layer — a pragmatic architecture for making desktop agents cheaper and more reliable.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">The New Stack</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://thenewstack.io/kubernetes-ai-inference-costs/" target="_blank" rel="noopener">Kubernetes can run AI inference — but can it count the real cost?</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">token-level cost model</span><span class="badge text-bg-light">35% to 60% utilization</span><span class="badge text-bg-light">KV cache state</span>
+        </div>
+        
+        <div class="story-body">
+          <p>A Road to KubeCon roundup examines whether Kubernetes' resource model fits the economics of large-scale AI inference. A WEKA executive argues that inference cost per token depends on state Kubernetes was never designed to manage — request mix, key-value cache occupancy, the balance of prefill and decode, and how memory and bandwidth are consumed inside the accelerator after a pod is already running.</p><p>The piece also notes Kubernetes v1.37's storage-hardening features (bind-mount options and emptyDir permissions), CNCF's new AI Inference + Agentic track at KubeCon North America, and a China Merchants Bank case study that unified 99% of its AI compute on Kubernetes, raising average accelerator utilization from 35% to over 60% and cutting the cost of processing one million tokens by 60%.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why" role="alert">
+          <span class="why-label">Why read it</span> Frames the gap between Kubernetes' scheduling model and token-level inference economics — the open question for running AI workloads on cloud-native infrastructure.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/decode\.viswakumar\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Curated by <a href="https://github.com/kspviswa/sarathy">Sarathy 🪆</a> for <a href="https://www.viswakumar.com">Viswa Kumar</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

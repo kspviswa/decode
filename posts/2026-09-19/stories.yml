@@ -1,0 +1,207 @@
+- title: "Ericsson and VodafoneThree switch on a cloud-native 5G core built for slicing"
+  date: "2026-09-17"
+  categories: [5g, 5g-core, network-intelligence]
+  tags: [5g-sa, packet-core, network-slicing, cloud-native, mocn]
+  source: "Ericsson"
+  domain: "ericsson.com"
+  link: "https://www.ericsson.com/en/press-releases/3/2026/ericsson-and-vodafonethree-begin-rollout-of-next-generation-5g-core-network"
+  tldr:
+    - "Ericsson and VodafoneThree have taken live a cloud-native 5G core in the United Kingdom. The core is powered by Ericsson's dual-mode 5G Core, which unifies 4G and 5G core functions on a single platform running on Ericsson's Cloud Native Infrastructure Solution, and is designed for 9 terabits per second of capacity — described as one of Europe's largest mobile packet cores. It serves 28.6 million customers."
+    - "The core is the delivery engine for differentiated connectivity: two dedicated network slices — 5G+ FastTrack for consumers and a National Business Slice — provide up to four times faster speeds and a 15 Mbps minimum download guarantee inside 5G Standalone coverage. The rollout follows an earlier world-first unification of core-level sharing through Multi-Operator Core Network (MOCN) technology over a multi-vendor 4G and 5G radio network, now evolving into a single dedicated core."
+  why: "A concrete, live deployment of a cloud-native packet core whose commercial value is delivered through network slicing — the clearest current example of the core as a programmable platform rather than a fixed appliance."
+  highlights: [9 Tbps packet core, dual-mode 4G/5G core, MOCN to dedicated core]
+
+- title: "Nokia and Microsoft build an agentic data foundation for network automation"
+  date: "2026-09-17"
+  categories: [network-intelligence, ai-agents, network-automation]
+  tags: [agentic-ai, telecom-data, microsoft-fabric, autonomous-networks]
+  source: "Nokia"
+  domain: "nokia.com"
+  link: "https://www.nokia.com/newsroom/nokia-accelerates-network-automation-through-agentic-unified-data-foundation-with-microsoft/"
+  tldr:
+    - "Nokia is extending its partnership with Microsoft to accelerate network automation, announcing the joint development of an agentic, unified data foundation that integrates Nokia Data Suite with Microsoft Fabric. The goal is to give AI agents a curated, trustworthy, real-time view of network data across multi-vendor environments."
+    - "The announcement targets a well-known barrier to AI adoption in telecom: the time and effort required to prepare and operationalize network data before agents can reason over it. Nokia frames the data foundation as a prerequisite for higher levels of autonomous network operations."
+  why: "Data readiness, not model choice, is the practical bottleneck for autonomous network management — this pairs a network vendor's data layer with a hyperscaler's data platform to attack it directly."
+  highlights: [Nokia Data Suite, Microsoft Fabric, multi-vendor data readiness]
+
+- title: "Field study: 72 hours of idle Android packets behind a pfSense firewall"
+  date: "2026-09-19"
+  categories: [network-intelligence, packet-analysis]
+  tags: [pcap, telemetry, android, privacy, wireshark, network-analysis]
+  source: "Praveen Tech World"
+  domain: "praveentechworld.com"
+  link: "https://www.praveentechworld.com/research/degoogle-telemetry-2026"
+  tldr:
+    - "A research team captured 72 continuous hours of network packets from three untouched Google Pixel 8 phones on an isolated Wi-Fi network behind an enterprise pfSense firewall running Wireshark, then analyzed the traffic to Alphabet's Autonomous System Number 15169. A stock Android device generated 348.4 outbound requests per hour while idle — roughly 8,300 background transmissions per day — versus 0.0 per hour on a GrapheneOS build with no Google services."
+    - "The breakdown attributes most idle traffic to Google Play Services (142.6 requests/hour), location services uploading nearby Wi-Fi router identifiers for triangulation (84.2/hour), device provisioning of hardware fingerprints and SIM serials (48.0/hour), Photos sync tokens (28.5/hour), and a persistent push-notification heartbeat socket (14.8/hour). The raw CSV is released under a Creative Commons licence with timestamps, destination IPs, ports, and payload sizes."
+  why: "A hands-on packet-capture (PCAP) study with a real dataset and reproducible test bench — useful both as a template for PCAP-driven network analysis and as evidence of what idle devices actually put on the wire."
+  highlights: [348.4 idle requests/hour, 42 endpoints, CC BY 4.0 packet dataset]
+
+- title: "Microsoft patches a CVSS 10.0 Azure AI Foundry flaw (CVE-2026-85889)"
+  date: "2026-09-18"
+  categories: [security, ai-security]
+  tags: [cve, azure-ai-foundry, privilege-escalation, cloud-security, copilot]
+  source: "The Hacker News"
+  domain: "thehackernews.com"
+  link: "https://thehackernews.com/2026/09/microsoft-patches-cvss-100-azure-ai.html"
+  tldr:
+    - "Microsoft has released fixes for a maximum-severity vulnerability in Azure AI Foundry, tracked as CVE-2026-85889 and rated CVSS 10.0. The flaw is a missing authentication check for a critical function that allows an unauthorized attacker to elevate privileges over the network. There is no evidence of exploitation in the wild."
+    - "The fix shipped alongside other critical cloud patches, including a 9.9 command-injection flaw in Microsoft 365 Copilot (CVE-2026-85885) and a 9.9 improper-authorization flaw in Azure Database for PostgreSQL (CVE-2026-85878). As is typical for cloud CVEs, Microsoft says the issues are already mitigated server-side and require no customer action."
+  why: "A reminder that the AI platform layer — gateways, agent runtimes, and model endpoints — is now first-class attack surface, and that cloud-hosted AI services can be patched without any customer action."
+  highlights: [CVSS 10.0, missing authentication, no customer action needed]
+
+- title: "AI agent swarm exploits patched PaperCut flaws across ~400 breaches"
+  date: "2026-09-13"
+  categories: [security, ai-agents]
+  tags: [agentic-ai, exploitation, papercut, breach, automation, codex]
+  source: "Cloud Security Alliance"
+  domain: "labs.cloudsecurityalliance.org"
+  link: "https://labs.cloudsecurityalliance.org/research/csa-research-note-papercut-ai-agent-swarm-exploitation-20260/"
+  tldr:
+    - "A Cloud Security Alliance research note describes a suspected Russian-speaking threat actor that used hundreds of coordinated AI agents, built on an OpenAI Codex-style harness, to exploit already-patched PaperCut vulnerabilities and breach roughly 395 organizations."
+    - "The case is notable for scale and automation: the agents handled reconnaissance and exploitation in parallel, turning a known, patched flaw into a mass campaign. It is a concrete example of agentic AI shifting the economics of mass exploitation."
+  why: "Illustrates how agent swarms change the risk calculus for known vulnerabilities — a patch is no longer a guarantee once attackers can fan out agents at scale."
+  highlights: [~395 breaches, Codex-based harness, patched flaws]
+
+- title: "Anthropic's September 2026 threat report: agents on the attack, and industrial-scale distillation"
+  date: "2026-09-19"
+  categories: [security, ai-security, llm-agents]
+  tags: [threat-intelligence, agentic-ai, prompt-injection, distillation, ai-supply-chain, espionage]
+  source: "Anthropic"
+  domain: "anthropic.com"
+  link: "https://www.anthropic.com/threat-intelligence-report-september-2026"
+  tldr:
+    - "Anthropic's threat intelligence report for September 2026 documents eight months of disrupted misuse across cyber operations, surveillance, influence operations, conventional weapons, and biological misuse. The cyber cases are the most striking: a Russian espionage actor ran AI-driven workflows that automatically rebuilt malware whenever defenders shipped a detection, and financially motivated crews ran multi-agent frameworks that handled reconnaissance, exploitation, and exfiltration while humans only set targets and reviewed results. Anthropic argues that AI has collapsed the labor gap that used to separate state-sponsored operations from individual attackers."
+    - "A separate section describes industrial-scale 'illicit distillation': the report says it detected chain-of-thought extraction campaigns by several Chinese labs, including one it attributes to Alibaba that peaked near three million exchanges per day across thousands of fraudulent accounts, plus labs that silently relayed their own users' traffic to Claude. The report recommends treating AI API keys, sandboxes, and agent integrations with the same seriousness as production credentials."
+  why: "A primary-source account of how agentic AI is being used offensively, plus a new attack surface — the AI supply chain of keys, gateways, and relay services."
+  highlights: [auto-rebuilding malware, ~3M exchanges/day distillation, AI supply chain as target]
+
+- title: "RAFT: a stateful retrieval framework for troubleshooting agents"
+  date: "2026-09-17"
+  categories: [llm-agents, structured-rag]
+  tags: [rag, retrieval, troubleshooting, agents, emnlp]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.20754"
+  tldr:
+    - "RAFT (Retrieval-Augmented Framework for Troubleshooting Agents) treats each closed support case not as a static document but as a directed chain of timeline entries, and retrieves at the entry level. This surfaces historical cases whose intermediate states match the active case and returns the parent-case trajectory anchored at the matched state; an optional case-level graph links related cases through a configurable similarity representation."
+    - "Because public multi-stage troubleshooting data is scarce, the authors pair a synthetic benchmark built from Microsoft Learn Windows Server documentation with real Apache Jira issues carrying human duplicate labels. RAFT improves Case Hit over vanilla retrieval-augmented generation (RAG) and GraphRAG baselines at every stage of case progress, with statistically significant gains over the strongest baseline. The benchmark, implementation, and evaluation set are released."
+  why: "A concrete advance in structured retrieval — modelling the stateful, multi-stage nature of real troubleshooting instead of flattening cases into documents."
+  highlights: [entry-level retrieval, stateful case trajectories, EMNLP 2026 Industry Track]
+
+- title: "Bonsai 2 27B: near-lossless compression into a 9x smaller footprint"
+  date: "2026-09-17"
+  categories: [local-llm, open-weights]
+  tags: [quantization, local-inference, compression, webgpu]
+  source: "PrismML"
+  domain: "prismml.com"
+  link: "https://prismml.com/news/bonsai-2-27b"
+  tldr:
+    - "PrismML released Bonsai 2 27B, a 27-billion-parameter model compressed to under 6 GB with what the company describes as near-lossless quality. The footprint is small enough to run locally, including in the browser via WebGPU."
+    - "Aggressive compression of mid-size open-weight models is what makes local and edge inference practical on consumer hardware; the size-versus-quality trade-off is the number to watch."
+  why: "Local and edge inference live or die on footprint — a 27B model under 6 GB pushes capable models onto ordinary laptops and into the browser."
+  highlights: [<6 GB, 27B parameters, in-browser WebGPU]
+
+- title: "Which parts of a coding-agent harness actually help? A 176-configuration study"
+  date: "2026-09-17"
+  categories: [llm-agents, benchmarks]
+  tags: [coding-agents, harness, context-management, evaluation, swe-bench]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.20804"
+  tldr:
+    - "The authors fix a lightweight coding harness's execution loop and vary three components — planning, action space, and context management — across four models on SWE-Bench Verified and Terminal-Bench 2.1, evaluating 176 matched settings spanning five context-management strategies and four context-window budgets."
+    - "Findings: context management matters more as the context budget tightens, mostly by preventing context-overflow failures; staging rule-based elision before LLM-based summarization is the most efficient strategy, while making elided content recoverable adds machinery models rarely use; planning shifts from an accuracy scaffold for weaker models to a cost saver for stronger ones; and predefined tools help models with weak shell proficiency, whereas bash-capable models do fine with a bash-only interface at lower cost."
+  why: "Component-level evidence for building coding-agent harnesses — useful for anyone tuning agent loops rather than swapping models."
+  highlights: [176 matched settings, context-overflow prevention, bash-only cost win]
+
+- title: "CUA-S1: small 'System 1' models for computer-use decisions"
+  date: "2026-09-19"
+  categories: [agents, computer-use]
+  tags: [computer-use, system-1, desktop-automation, small-models, benchmarks]
+  source: "Cua"
+  domain: "github.com"
+  link: "https://github.com/trycua/cua"
+  tldr:
+    - "Cua released CUA-S1, a family of small, specialized 'System 1' models for computer use — fast, bounded decisions such as choosing which value belongs in a field or whether to leave an element alone — rather than general-purpose planning. The first research profile scores decisions from structured interface elements and document values instead of generating tokens one at a time; application code orders the actions."
+    - "The release ships with open-source drivers for operating native desktop apps across macOS, Windows, and Linux, isolated cloud desktops, local macOS virtual machines, and a benchmark for evaluating computer-use agents. The source is MIT-licensed, with weights hosted separately."
+  why: "Splits computer-use agents into a fast decision layer and a planning layer — a pragmatic architecture for making desktop agents cheaper and more reliable."
+  highlights: [System 1 decision models, cross-OS drivers, MIT-licensed]
+
+- title: "ROCmFix: one script to fix AMD GPU overrides and benchmark Vulkan vs HIP"
+  date: "2026-09-19"
+  categories: [local-llm, edge-inference]
+  tags: [amd, rocm, vulkan, benchmarking, local-inference, ollama]
+  source: "ROCmFix"
+  domain: "github.com"
+  link: "https://github.com/xanpavle/rocmfix"
+  tldr:
+    - "ROCmFix is a single-file, zero-install script that auto-detects an AMD GPU, looks up the correct HSA_OVERRIDE_GFX_VERSION in a live community database, applies it to the shell configuration, and runs health diagnostics. It targets the common failure where local inference on AMD hardware throws HSA_STATUS_ERROR_INVALID_ISA or silently falls back to the CPU."
+    - "It also includes a 'bench' command that runs a short generation test against Ollama or LM Studio using Vulkan and then HIP/ROCm, reporting which backend is faster on the machine — a practical answer to the recurring Vulkan-versus-ROCm question."
+  why: "Local inference on AMD hardware is still a configuration minefield; tooling that automates the overrides and measures the backends removes real friction."
+  highlights: [auto HSA override, Vulkan vs HIP bench, zero install]
+
+- title: "How GLM built its own inference infrastructure"
+  date: "2026-09-17"
+  categories: [ai-infra, local-llm]
+  tags: [inference, serving, glm, infrastructure, batching]
+  source: "Z.ai"
+  domain: "z.ai"
+  link: "https://z.ai/blog/glm-built-its-inference-infrastructure"
+  tldr:
+    - "Z.ai published a technical account of how it built the inference infrastructure behind its GLM models, covering the serving stack and the engineering trade-offs involved in running its own models at scale."
+    - "First-party write-ups of production inference stacks are relatively rare: they show the concrete systems decisions — scheduling, batching, and hardware use — that determine cost and latency."
+  why: "A first-party look at a production large language model serving stack, relevant to anyone building or comparing inference infrastructure."
+  highlights: [production serving stack, first-party engineering account]
+
+- title: "Mozilla report: China's open-weight models are about four months behind the US frontier"
+  date: "2026-09-16"
+  categories: [open-weights, llm]
+  tags: [open-weights, benchmarks, china, cost]
+  source: "Tom's Hardware"
+  domain: "tomshardware.com"
+  link: "https://www.tomshardware.com/tech-industry/artificial-intelligence/chinas-open-weight-ai-models-are-now-just-4-months-behind-frontier-us-offerings-mozilla-report-claims-models-still-lag-in-some-benchmarks-but-are-drastically-cheaper-to-use"
+  tldr:
+    - "A Mozilla report concludes that China's open-weight AI models now trail the United States frontier by roughly four months, based on benchmark comparisons. The models still lag on some benchmarks but are drastically cheaper to use."
+    - "The gap matters for anyone deploying open-weight models: a four-month lag at a fraction of the cost changes build-versus-buy decisions for local and edge inference."
+  why: "Quantifies the open-weight gap — directly relevant to choosing open models for cost-sensitive local and edge deployments."
+  highlights: [~4-month gap, drastically cheaper, Mozilla report]
+
+- title: "Kubernetes can run AI inference — but can it count the real cost?"
+  date: "2026-09-19"
+  categories: [cloud-native, distributed-systems]
+  tags: [kubernetes, inference, cost, scheduling, kubecon, gpu]
+  source: "The New Stack"
+  domain: "thenewstack.io"
+  link: "https://thenewstack.io/kubernetes-ai-inference-costs/"
+  tldr:
+    - "A Road to KubeCon roundup examines whether Kubernetes' resource model fits the economics of large-scale AI inference. A WEKA executive argues that inference cost per token depends on state Kubernetes was never designed to manage — request mix, key-value cache occupancy, the balance of prefill and decode, and how memory and bandwidth are consumed inside the accelerator after a pod is already running."
+    - "The piece also notes Kubernetes v1.37's storage-hardening features (bind-mount options and emptyDir permissions), CNCF's new AI Inference + Agentic track at KubeCon North America, and a China Merchants Bank case study that unified 99% of its AI compute on Kubernetes, raising average accelerator utilization from 35% to over 60% and cutting the cost of processing one million tokens by 60%."
+  why: "Frames the gap between Kubernetes' scheduling model and token-level inference economics — the open question for running AI workloads on cloud-native infrastructure."
+  highlights: [token-level cost model, 35% to 60% utilization, KV cache state]
+
+- title: "Chronicle: cut-point replay turns agent incidents into regression tests"
+  date: "2026-09-17"
+  categories: [llm-agents, ci-cd]
+  tags: [testing, reproducibility, agents, continuous-integration, replay]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.20625"
+  tldr:
+    - "Large language model agent failures are hard to reproduce because model responses are non-deterministic, tools read changing state, and multi-step trajectories rarely repeat. Chronicle records an agent run at its non-deterministic boundaries as immutable envelopes and can replay it from the record."
+    - "Its central operation, cut-point replay, serves a chosen subset of boundaries from the record and executes the complementary subset live with new code, turning a recorded incident into a regression test that runs in continuous integration. On a benchmark of six recorded failures, recording adds 23 microseconds per boundary crossing, full replay issues zero model calls and is bit-stable across 20 repetitions, and cut-point tests fail on faulty code and pass on guarded and benign changes for all six incidents."
+  why: "Brings software-engineering discipline to agent reliability — reproducible regression tests for systems that are inherently non-deterministic."
+  highlights: [cut-point replay, 23 µs recording overhead, bit-stable replay]
+
+- title: "Infinite-parameter LLMs: generating and adapting weights from live data"
+  date: "2026-09-17"
+  categories: [llm, generative]
+  tags: [research, weights, continual-learning, hypernetwork, mixture-of-experts]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2609.18842"
+  tldr:
+    - "Scaling laws assume static pretraining data, but a deployed model faces a world where much of the useful information — facts a user supplies, corrections they give — arrives at run time and is normally stuffed into the prompt and discarded. This paper asks how an architecture could learn from live interaction by writing it into its weights. Taking inspiration from Mixture-of-Experts (MoE), it proposes the Infinite-Parameter LLM: a compact hypernetwork turns run-time data into a low-rank modulation of a shared base network, so feed-forward weights are generated from live data rather than stored in a fixed bank."
+    - "Where prior weight generators read the context once and freeze, the authors carry a Bayesian belief over the generator's latent code and update it online, so the effective weight is re-derived from that evolving belief as a session proceeds. The stored footprint stays fixed, yet the weights the model can compile are effectively infinite. The paper specifies an evaluation protocol that tests this against in-context learning and retrieval."
+  why: "A genuinely novel architectural direction — carrying run-time knowledge in generated weights rather than the prompt, with implications for continual learning and context economy."
+  highlights: [hypernetwork weight generation, online Bayesian update, fixed stored footprint]
