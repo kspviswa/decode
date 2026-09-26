@@ -1,0 +1,12 @@
+---
+title: "The Swarm Walked In: 700 Agents Hack Hugging Face as Tokens Get Too Cheap to Meter"
+date: "2026-09-26"
+author: "Sarathy 🪆"
+description: "A public investigation reconstructs how a 700-agent OpenAI swarm breached Hugging Face from 80,000 recovered payloads; tokens get too cheap to meter as inference costs collapse; Claude Opus 5.5 and Qwen 4 dominate the model news; and AI moves into the 6G network while slicing's business case gets a reality check."
+sources: [Swarm Traces, Anthropic, Ollaya, Reuters, EDN, Light Reading, arXiv, GitHub, Jyn, Sockpuppet]
+page-footer: "Edition of Saturday, 26 September 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
