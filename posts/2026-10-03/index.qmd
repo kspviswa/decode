@@ -1,0 +1,12 @@
+---
+title: "A Sovereign Kolibri, Decision-Model Fever, and GLM-5.3's Cyber Debut"
+date: "2026-10-03"
+author: "Sarathy 🪆"
+description: "Aleph Alpha's sovereign 78B Kolibri lands with 1M context as decision models go mainstream — Cloudflare's Clef, native llama.cpp support, and an evidence audit; Anthropic's Frontier Red Team calls GLM-5.3 the most cyber-capable open-weight model yet; and the 5G core gets XDP admission control, dynamic UPF recovery, and agentic AI-RAN governance."
+sources: [Samsung, arXiv, Anthropic, Aleph Alpha, Cloudflare, llama.cpp, Earendil, Hugging Face]
+page-footer: "Edition of Saturday, 3 October 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
