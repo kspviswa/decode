@@ -1,0 +1,208 @@
+- title: "Do LLMs configure real routers correctly? A functional-correctness study"
+  date: "2026-10-14"
+  categories: [network-intelligence, llm, 5g-core]
+  tags: [network-configuration, llm, verification, correctness, automation]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.19958"
+  tldr:
+    - "This paper measures whether large language models (LLMs) can produce network device configurations that are not merely syntactically valid but functionally correct — that is, configurations that achieve the intended forwarding, routing, and policy behaviour once loaded onto real devices."
+    - "Rather than scoring generated configuration text against a reference file, the authors evaluate correctness by function: they load the generated configurations and test the resulting behaviour, then characterise the failure modes that syntax-only checks miss."
+  why: "Network configuration is one of the few places where an LLM's output is directly verifiable — and where syntax-valid but functionally wrong output is dangerous. A functional-correctness benchmark is the right yardstick for LLM-driven network automation."
+  highlights: [functional vs syntax correctness, LLM-generated configs, failure modes]
+
+- title: "AutoSec-RAN: fine-tuning LLMs on 3GPP specs to audit O-RAN security"
+  date: "2026-10-11"
+  categories: [ai-ran, network-intelligence, llm]
+  tags: [o-ran, 3gpp, security-analysis, fine-tuning, specification-grounded]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.15995"
+  tldr:
+    - "AutoSec-RAN fine-tunes a large language model (LLM) on 3GPP specifications to automate security analysis of Open RAN (O-RAN) deployments. Grounding the model in the standards documents lets it reason about which interfaces and procedures a given configuration exposes."
+    - "The work attacks the specification-understanding problem directly: security review of a disaggregated radio access network (RAN) means reading large, cross-referenced standards, which is precisely the kind of task an LLM can be trained to assist with."
+  why: "Two interests in one paper: LLMs applied to telecom standards (3GPP) and automated security analysis of disaggregated RAN. Specification-grounded fine-tuning is a reusable pattern for spec-heavy engineering work."
+  highlights: [3GPP-grounded fine-tuning, O-RAN security audit, spec understanding]
+
+- title: "Nokia and SoftBank line up a commercial AI-RAN field trial in Japan"
+  date: "2026-10-16"
+  categories: [ai-ran, 5g, 6g]
+  tags: [ai-ran, field-trial, softbank, anyran, commercial]
+  source: "Nokia"
+  domain: "ad-hoc-news.de"
+  link: "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/nokia-lines-up-2027-field-trial-with-softbank-as-fiber-card-and/70340112"
+  tldr:
+    - "Nokia and SoftBank have agreed to run a commercial AI-RAN field trial in Japan in 2027, testing AI-driven radio access network (RAN) software on SoftBank's live network under commercial traffic conditions rather than in a laboratory."
+    - "The trial runs Nokia's anyRAN software on SoftBank infrastructure, continuing the vendor's push to move AI-RAN from demonstrations into operator deployments."
+  why: "AI-RAN is moving from demos to operator field trials — a concrete signal of where radio-access compute is heading, and a useful marker of the vendor timeline: pilots now, commercial rollout next year."
+  highlights: [commercial AI-RAN trial, anyRAN on live network, 2027 timeline]
+
+- title: "An LLM is an unreliable analyst but a useful instrument for iOS location traffic"
+  date: "2026-10-15"
+  categories: [network-intelligence, llm]
+  tags: [traffic-analysis, llm, privacy, packet-inspection, methodology]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.21597"
+  tldr:
+    - "This study examines what Apple's iOS location services send over the network and how well a large language model (LLM) can analyse that traffic. The authors find the model unreliable as an autonomous analyst — it misreads or over-interprets raw traffic — but useful as an instrument when paired with deterministic parsing."
+    - "The result is a methodological caution for LLM-based traffic analysis: use the model for interpretation and summarisation, not as the source of ground truth about packets."
+  why: "A grounded, sceptical result on LLM-driven packet and traffic analysis — exactly the tool-use boundary worth knowing before wiring an LLM into a packet-analysis pipeline."
+  highlights: [LLM traffic-analysis limits, deterministic parsing, privacy]
+
+- title: "Backdooring open-weight AI models"
+  date: "2026-10-15"
+  categories: [ai-security, open-weights]
+  tags: [backdoor, supply-chain, open-weights, model-integrity, security]
+  source: "Schneier"
+  domain: "schneier.com"
+  link: "https://www.schneier.com/blog/archives/2026/10/backdooring-open-weight-ai-models.html"
+  tldr:
+    - "Bruce Schneier discusses research showing that open-weight models can be backdoored — poisoned during training or fine-tuning so they behave normally except under a specific trigger — and that such backdoors survive the distribution of the weights."
+    - "The practical consequence is a supply-chain problem: downloading and self-hosting open weights does not by itself guarantee the model is trustworthy, so provenance and verification of model artefacts matter as much as they do for any other software dependency."
+  why: "Directly relevant to anyone running local or open-weight models in-house: the security question is not only whether the model can leak data, but whether the weights themselves can be trusted."
+  highlights: [model backdoors, weight supply chain, trigger behaviour]
+
+- title: "Poisoning the neighborhood: a topology-aware attack on HNSW-based RAG"
+  date: "2026-10-15"
+  categories: [ai-security, structured-rag]
+  tags: [rag, vector-search, hnsw, data-poisoning, retrieval-attack]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.21464"
+  tldr:
+    - "Retrieval-augmented generation (RAG) systems typically retrieve evidence from a vector index built with an approximate-nearest-neighbour graph such as Hierarchical Navigable Small World (HNSW). This paper shows a topology-aware poisoning attack that exploits the graph structure itself, injecting a small number of crafted documents to steer which neighbours a query reaches."
+    - "Because the attack targets the index topology rather than the embedding space alone, it can distort retrieval for many queries while remaining hard to spot in the stored corpus."
+  why: "A concrete attack on the retrieval layer of RAG — a reminder that the vector index is part of the attack surface, not just the documents and the prompt."
+  highlights: [HNSW index topology, retrieval poisoning, RAG attack surface]
+
+- title: "GitLab Duo agent prompt-injection flaw (CVE-2026-96893)"
+  date: "2026-10-14"
+  categories: [ai-security, llm-agents]
+  tags: [prompt-injection, coding-agent, cve, ci-cd, security-boundary]
+  source: "Penligent"
+  domain: "penligent.ai"
+  link: "https://www.penligent.ai/hackinglabs/pt/cve-2026-96893/"
+  tldr:
+    - "CVE-2026-96893 is a prompt-injection vulnerability in GitLab's Duo AI coding assistant, where untrusted content the agent processes can steer it into actions across the boundary between the assistant and the development environment it controls."
+    - "The write-up argues that this boundary — between an AI coding assistant and the repositories, pipelines, and credentials it can reach — is becoming one of the most important attack surfaces in software delivery."
+  why: "A real, assigned vulnerability in an agentic coding tool: a useful case study of how prompt injection turns into concrete actions inside a continuous-integration environment."
+  highlights: [prompt injection, agent-CI/CD boundary, CVE case study]
+
+- title: "Meta releases Muse Spark Open, an 816B open-weight MoE that runs on Macs"
+  date: "2026-10-15"
+  categories: [open-weights, local-llm, llm]
+  tags: [open-weights, mixture-of-experts, local-inference, agentic, long-context]
+  source: "Hugging Face"
+  domain: "huggingface.co"
+  link: "https://huggingface.co/blog/meta-muse-spark-open"
+  tldr:
+    - "Meta released Muse Spark Open, the open-weight version of its Muse Spark model: a natively multimodal sparse mixture-of-experts (MoE) model with 816 billion total parameters that activate roughly 42 billion per token, and a context window of up to one million tokens. It is positioned for coding and long-horizon agentic work."
+    - "Weights ship in BF16 and NVFP4 formats, with inference kernels and fine-tuning support released alongside. The model can be run locally on high-memory Apple hardware, though the full-precision footprint needs a serious machine."
+  why: "A frontier-scale open-weight release from a US lab, with local-run support — the kind of model that changes what self-hosting can realistically do for agentic coding."
+  highlights: [816B total / 42B active MoE, 1M-token context, BF16 + NVFP4 weights]
+
+- title: "Does quantization hurt coding agents? A deep dive with numbers"
+  date: "2026-10-13"
+  categories: [local-llm, benchmarks, llm-agents]
+  tags: [quantization, coding-agents, evaluation, local-inference, tool-calling]
+  source: "imec"
+  domain: "aistack.imec-int.com"
+  link: "https://aistack.imec-int.com/blog/quantization"
+  tldr:
+    - "This study measures how quantizing a model — reducing the precision of its weights to save memory — affects the performance of coding agents specifically, rather than on generic benchmarks. It reports results across quantization levels with the actual numbers behind each trade-off."
+    - "The finding that matters for local deployment is that agentic, tool-calling workloads degrade differently from plain text generation, so a quantization setting that looks fine on a chat benchmark may not hold up inside an agent loop."
+  why: "Practical, measured guidance for anyone running coding agents on local or self-hosted hardware: quantize for memory, but evaluate on the agent task, not the chat benchmark."
+  highlights: [quantization trade-offs, agent-specific evaluation, tool calling]
+
+- title: "Underdog Saluki 27B: a 7.89 GB quantization tuned for tool calling"
+  date: "2026-10-14"
+  categories: [open-weights, local-llm]
+  tags: [quantization, tool-calling, open-weights, local-inference, gguf]
+  source: "Hugging Face"
+  domain: "huggingface.co"
+  link: "https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0"
+  tldr:
+    - "Underdog Saluki 27B is a 27-billion-parameter open-weight model released as a 7.89 GB quantization, deliberately compressed so it fits in modest local memory while preserving tool-calling behaviour."
+    - "The release targets the common local-agent use case: a model small enough to run on a single consumer GPU or a laptop, but tuned for the structured output that tool use requires."
+  why: "A concrete data point on how far quantization can be pushed while keeping tool calling usable — relevant when choosing a local model to sit behind an agent."
+  highlights: [7.89 GB footprint, tool-calling focus, 27B parameters]
+
+- title: "When the KV cache is slower than the GPU: scaling remote KV tiers"
+  date: "2026-10-15"
+  categories: [ai-infra, edge-inference, llm]
+  tags: [kv-cache, distributed-inference, prefill, context-parallel, serving]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.21500"
+  tldr:
+    - "For long-context inference, the key-value (KV) cache that stores attention state can grow large enough that moving it, rather than computing, becomes the bottleneck. This paper studies scaling remote KV tiers for context-parallel prefill, where the cache is offloaded to remote storage or memory."
+    - "The results characterise when the remote KV tier is slower than keeping everything on the graphics processing unit (GPU), giving a cost model for deciding how to distribute the cache across a fleet."
+  why: "A systems-level treatment of the KV cache as a distributed resource — the infrastructure question behind serving long-context models at scale."
+  highlights: [remote KV tiers, context-parallel prefill, cache cost model]
+  mermaid: "flowchart LR\n  Q[Query] --> P[Prefill on GPU]\n  P --> KV[KV cache]\n  KV -->|keep| G[GPU memory]\n  KV -->|offload| R[Remote KV tier]\n  G --> D[Decode]\n  R --> D"
+
+- title: "China drafts export controls on AI models and model weights"
+  date: "2026-10-16"
+  categories: [m-and-a]
+  tags: [export-controls, model-weights, policy, open-weights, china]
+  source: "Taipei Times"
+  domain: "taipeitimes.com"
+  link: "https://www.taipeitimes.com/News/biz/archives/2026/10/17/2003866098"
+  tldr:
+    - "China's Ministry of Commerce and Ministry of Science and Technology published a draft revision of the national export-control catalogue on 16 October, proposing to add 23 artificial-intelligence technologies — including the weights of very large models — to the restricted list."
+    - "Under the draft, releasing the weights of models above a size threshold, or models ranked near the global frontier, would require approval. Ordinary application programming interface (API) access and many open-source releases would stay outside the strictest controls. The draft is open for comment until mid-November."
+  why: "Model weights are now being treated as an export-controlled technology — a structural change that affects how open-weight releases are distributed and where they can be hosted."
+  highlights: [23 AI technologies, weight-release licensing, comment window]
+
+- title: "Open weight takes 71.5% of tokens but only 23% of spend"
+  date: "2026-10-16"
+  categories: [m-and-a]
+  tags: [open-weights, economics, inference-cost, gateway, market-data]
+  source: "Vercel"
+  domain: "vercel.com"
+  link: "https://vercel.com/blog/ai-gateway-production-index-october-2026"
+  tldr:
+    - "Vercel's AI Gateway production index reports that open-weight models now account for 71.5% of tokens served through its gateway but only 23% of spend, because their per-token prices are far lower than those of proprietary frontier models."
+    - "The gap quantifies the economics driving the shift to open weights: the same work, routed to a cheaper model, moves most of the volume while leaving most of the revenue with the closed frontier."
+  why: "Hard numbers on the open-versus-closed economics of inference — useful context for deciding where to route workloads and what the price gap actually looks like in production."
+  highlights: [71.5% of tokens, 23% of spend, routing economics]
+
+- title: "Configuring RAG systems: what breaks, where it originates, and how to fix it"
+  date: "2026-10-13"
+  categories: [structured-rag, retrieval]
+  tags: [rag, configuration, failure-analysis, retrieval, debugging]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.18567"
+  tldr:
+    - "Retrieval-augmented generation (RAG) systems have many knobs — chunk size, embedding model, number of retrieved passages, reranking — and this paper studies what actually breaks when they are misconfigured, tracing each failure back to its origin in the pipeline."
+    - "Rather than proposing yet another architecture, it offers a diagnostic map: which symptoms point to which stage, and which fixes address the root cause rather than masking it."
+  why: "A debugging-oriented treatment of structured RAG — the practical counterpart to the steady stream of new RAG architectures, and useful when a pipeline underperforms and the cause is unclear."
+  highlights: [failure taxonomy, pipeline diagnostics, configuration knobs]
+
+- title: "Time-traveling agents: letting AI ship reliable distributed systems"
+  date: "2026-10-14"
+  categories: [distributed-systems, agents]
+  tags: [distributed-systems, testing, determinism, agents, verification]
+  source: "Antithesis"
+  domain: "antithesis.com"
+  link: "https://antithesis.com/blog/2026/time-traveling-agents/"
+  tldr:
+    - "Antithesis describes using AI agents inside its deterministic-simulation testing platform, where the entire system can be paused, rewound, and replayed. That determinism lets an agent replay a failure exactly, inspect the state at any point, and test a proposed fix against the same execution."
+    - "The combination addresses a longstanding problem in distributed-systems debugging: failures that are rare, timing-dependent, and hard to reproduce, which agents otherwise struggle to reason about."
+  why: "A concrete way to make agentic debugging tractable for distributed systems — determinism plus replay turns a flaky failure into something an agent can actually iterate on."
+  highlights: [deterministic replay, agent-driven debugging, reproducible failures]
+
+- title: "Learning self-orchestration in decentralized agent swarms"
+  date: "2026-10-15"
+  categories: [agents, multi-agent]
+  tags: [multi-agent, orchestration, decentralized, swarms, coordination]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.22322"
+  tldr:
+    - "This paper studies how a swarm of agents can learn to orchestrate itself — deciding who does what and when — without a central controller handing out assignments. The agents learn coordination policies that let the group adapt as tasks and membership change."
+    - "Decentralised orchestration is the harder version of the multi-agent problem: it trades the simplicity of a central planner for robustness when no single agent has a full view of the system."
+  why: "Multi-agent coordination without a central controller is the architecture that scales to real, failure-prone systems — and a direct read on where agent research is heading."
+  highlights: [decentralized orchestration, learned coordination, swarm robustness]

@@ -10,7 +10,385 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Sat, 03 Oct 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 17 Oct 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>LLMs Learn to Configure Routers, Meta Ships 816B to the Desktop, and China Puts Weights on the Export List</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-10-17/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.19958" target="_blank" rel="noopener">Do LLMs configure real routers correctly? A functional-correctness study</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">functional vs syntax correctness</span><span class="badge text-bg-light">LLM-generated configs</span><span class="badge text-bg-light">failure modes</span>
+        </div>
+        
+        <div class="story-body">
+          <p>This paper measures whether large language models (LLMs) can produce network device configurations that are not merely syntactically valid but functionally correct — that is, configurations that achieve the intended forwarding, routing, and policy behaviour once loaded onto real devices.</p><p>Rather than scoring generated configuration text against a reference file, the authors evaluate correctness by function: they load the generated configurations and test the resulting behaviour, then characterise the failure modes that syntax-only checks miss.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> Network configuration is one of the few places where an LLM's output is directly verifiable — and where syntax-valid but functionally wrong output is dangerous. A functional-correctness benchmark is the right yardstick for LLM-driven network automation.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.15995" target="_blank" rel="noopener">AutoSec-RAN: fine-tuning LLMs on 3GPP specs to audit O-RAN security</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">3GPP-grounded fine-tuning</span><span class="badge text-bg-light">O-RAN security audit</span><span class="badge text-bg-light">spec understanding</span>
+        </div>
+        
+        <div class="story-body">
+          <p>AutoSec-RAN fine-tunes a large language model (LLM) on 3GPP specifications to automate security analysis of Open RAN (O-RAN) deployments. Grounding the model in the standards documents lets it reason about which interfaces and procedures a given configuration exposes.</p><p>The work attacks the specification-understanding problem directly: security review of a disaggregated radio access network (RAN) means reading large, cross-referenced standards, which is precisely the kind of task an LLM can be trained to assist with.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> Two interests in one paper: LLMs applied to telecom standards (3GPP) and automated security analysis of disaggregated RAN. Specification-grounded fine-tuning is a reusable pattern for spec-heavy engineering work.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Nokia</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/nokia-lines-up-2027-field-trial-with-softbank-as-fiber-card-and/70340112" target="_blank" rel="noopener">Nokia and SoftBank line up a commercial AI-RAN field trial in Japan</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">commercial AI-RAN trial</span><span class="badge text-bg-light">anyRAN on live network</span><span class="badge text-bg-light">2027 timeline</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Nokia and SoftBank have agreed to run a commercial AI-RAN field trial in Japan in 2027, testing AI-driven radio access network (RAN) software on SoftBank's live network under commercial traffic conditions rather than in a laboratory.</p><p>The trial runs Nokia's anyRAN software on SoftBank infrastructure, continuing the vendor's push to move AI-RAN from demonstrations into operator deployments.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> AI-RAN is moving from demos to operator field trials — a concrete signal of where radio-access compute is heading, and a useful marker of the vendor timeline: pilots now, commercial rollout next year.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.21597" target="_blank" rel="noopener">An LLM is an unreliable analyst but a useful instrument for iOS location traffic</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">LLM traffic-analysis limits</span><span class="badge text-bg-light">deterministic parsing</span><span class="badge text-bg-light">privacy</span>
+        </div>
+        
+        <div class="story-body">
+          <p>This study examines what Apple's iOS location services send over the network and how well a large language model (LLM) can analyse that traffic. The authors find the model unreliable as an autonomous analyst — it misreads or over-interprets raw traffic — but useful as an instrument when paired with deterministic parsing.</p><p>The result is a methodological caution for LLM-based traffic analysis: use the model for interpretation and summarisation, not as the source of ground truth about packets.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A grounded, sceptical result on LLM-driven packet and traffic analysis — exactly the tool-use boundary worth knowing before wiring an LLM into a packet-analysis pipeline.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Schneier</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://www.schneier.com/blog/archives/2026/10/backdooring-open-weight-ai-models.html" target="_blank" rel="noopener">Backdooring open-weight AI models</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">model backdoors</span><span class="badge text-bg-light">weight supply chain</span><span class="badge text-bg-light">trigger behaviour</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Bruce Schneier discusses research showing that open-weight models can be backdoored — poisoned during training or fine-tuning so they behave normally except under a specific trigger — and that such backdoors survive the distribution of the weights.</p><p>The practical consequence is a supply-chain problem: downloading and self-hosting open weights does not by itself guarantee the model is trustworthy, so provenance and verification of model artefacts matter as much as they do for any other software dependency.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> Directly relevant to anyone running local or open-weight models in-house: the security question is not only whether the model can leak data, but whether the weights themselves can be trusted.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2610.21464" target="_blank" rel="noopener">Poisoning the neighborhood: a topology-aware attack on HNSW-based RAG</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">HNSW index topology</span><span class="badge text-bg-light">retrieval poisoning</span><span class="badge text-bg-light">RAG attack surface</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Retrieval-augmented generation (RAG) systems typically retrieve evidence from a vector index built with an approximate-nearest-neighbour graph such as Hierarchical Navigable Small World (HNSW). This paper shows a topology-aware poisoning attack that exploits the graph structure itself, injecting a small number of crafted documents to steer which neighbours a query reaches.</p><p>Because the attack targets the index topology rather than the embedding space alone, it can distort retrieval for many queries while remaining hard to spot in the stored corpus.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A concrete attack on the retrieval layer of RAG — a reminder that the vector index is part of the attack surface, not just the documents and the prompt.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Penligent</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://www.penligent.ai/hackinglabs/pt/cve-2026-96893/" target="_blank" rel="noopener">GitLab Duo agent prompt-injection flaw (CVE-2026-96893)</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">prompt injection</span><span class="badge text-bg-light">agent-CI/CD boundary</span><span class="badge text-bg-light">CVE case study</span>
+        </div>
+        
+        <div class="story-body">
+          <p>CVE-2026-96893 is a prompt-injection vulnerability in GitLab's Duo AI coding assistant, where untrusted content the agent processes can steer it into actions across the boundary between the assistant and the development environment it controls.</p><p>The write-up argues that this boundary — between an AI coding assistant and the repositories, pipelines, and credentials it can reach — is becoming one of the most important attack surfaces in software delivery.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A real, assigned vulnerability in an agentic coding tool: a useful case study of how prompt injection turns into concrete actions inside a continuous-integration environment.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/blog/meta-muse-spark-open" target="_blank" rel="noopener">Meta releases Muse Spark Open, an 816B open-weight MoE that runs on Macs</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">816B total / 42B active MoE</span><span class="badge text-bg-light">1M-token context</span><span class="badge text-bg-light">BF16 + NVFP4 weights</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Meta released Muse Spark Open, the open-weight version of its Muse Spark model: a natively multimodal sparse mixture-of-experts (MoE) model with 816 billion total parameters that activate roughly 42 billion per token, and a context window of up to one million tokens. It is positioned for coding and long-horizon agentic work.</p><p>Weights ship in BF16 and NVFP4 formats, with inference kernels and fine-tuning support released alongside. The model can be run locally on high-memory Apple hardware, though the full-precision footprint needs a serious machine.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A frontier-scale open-weight release from a US lab, with local-run support — the kind of model that changes what self-hosting can realistically do for agentic coding.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">imec</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://aistack.imec-int.com/blog/quantization" target="_blank" rel="noopener">Does quantization hurt coding agents? A deep dive with numbers</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">quantization trade-offs</span><span class="badge text-bg-light">agent-specific evaluation</span><span class="badge text-bg-light">tool calling</span>
+        </div>
+        
+        <div class="story-body">
+          <p>This study measures how quantizing a model — reducing the precision of its weights to save memory — affects the performance of coding agents specifically, rather than on generic benchmarks. It reports results across quantization levels with the actual numbers behind each trade-off.</p><p>The finding that matters for local deployment is that agentic, tool-calling workloads degrade differently from plain text generation, so a quantization setting that looks fine on a chat benchmark may not hold up inside an agent loop.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> Practical, measured guidance for anyone running coding agents on local or self-hosted hardware: quantize for memory, but evaluate on the agent task, not the chat benchmark.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Hugging Face</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0" target="_blank" rel="noopener">Underdog Saluki 27B: a 7.89 GB quantization tuned for tool calling</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">7.89 GB footprint</span><span class="badge text-bg-light">tool-calling focus</span><span class="badge text-bg-light">27B parameters</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Underdog Saluki 27B is a 27-billion-parameter open-weight model released as a 7.89 GB quantization, deliberately compressed so it fits in modest local memory while preserving tool-calling behaviour.</p><p>The release targets the common local-agent use case: a model small enough to run on a single consumer GPU or a laptop, but tuned for the structured output that tool use requires.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete data point on how far quantization can be pushed while keeping tool calling usable — relevant when choosing a local model to sit behind an agent.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2610.21500" target="_blank" rel="noopener">When the KV cache is slower than the GPU: scaling remote KV tiers</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">remote KV tiers</span><span class="badge text-bg-light">context-parallel prefill</span><span class="badge text-bg-light">cache cost model</span>
+        </div>
+        
+        <div class="story-body">
+          <p>For long-context inference, the key-value (KV) cache that stores attention state can grow large enough that moving it, rather than computing, becomes the bottleneck. This paper studies scaling remote KV tiers for context-parallel prefill, where the cache is offloaded to remote storage or memory.</p><p>The results characterise when the remote KV tier is slower than keeping everything on the graphics processing unit (GPU), giving a cost model for deciding how to distribute the cache across a fleet.</p>
+          
+          <pre class="mermaid">flowchart LR
+  Q[Query] --&gt; P[Prefill on GPU]
+  P --&gt; KV[KV cache]
+  KV --&gt;|keep| G[GPU memory]
+  KV --&gt;|offload| R[Remote KV tier]
+  G --&gt; D[Decode]
+  R --&gt; D</pre>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A systems-level treatment of the KV cache as a distributed resource — the infrastructure question behind serving long-context models at scale.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-business">
+    <div class="card-header text-bg-warning">Business &amp; Funding</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Taipei Times</span>
+          <h3 class="story-headline anchored"><a class="link-warning" href="https://www.taipeitimes.com/News/biz/archives/2026/10/17/2003866098" target="_blank" rel="noopener">China drafts export controls on AI models and model weights</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">23 AI technologies</span><span class="badge text-bg-light">weight-release licensing</span><span class="badge text-bg-light">comment window</span>
+        </div>
+        
+        <div class="story-body">
+          <p>China's Ministry of Commerce and Ministry of Science and Technology published a draft revision of the national export-control catalogue on 16 October, proposing to add 23 artificial-intelligence technologies — including the weights of very large models — to the restricted list.</p><p>Under the draft, releasing the weights of models above a size threshold, or models ranked near the global frontier, would require approval. Ordinary application programming interface (API) access and many open-source releases would stay outside the strictest controls. The draft is open for comment until mid-November.</p>
+          
+        </div>
+        <div class="alert alert-warning story-why">
+          <span class="why-label">Why read it</span> Model weights are now being treated as an export-controlled technology — a structural change that affects how open-weight releases are distributed and where they can be hosted.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Vercel</span>
+          <h3 class="story-headline anchored"><a class="link-warning" href="https://vercel.com/blog/ai-gateway-production-index-october-2026" target="_blank" rel="noopener">Open weight takes 71.5% of tokens but only 23% of spend</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">71.5% of tokens</span><span class="badge text-bg-light">23% of spend</span><span class="badge text-bg-light">routing economics</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Vercel's AI Gateway production index reports that open-weight models now account for 71.5% of tokens served through its gateway but only 23% of spend, because their per-token prices are far lower than those of proprietary frontier models.</p><p>The gap quantifies the economics driving the shift to open weights: the same work, routed to a cheaper model, moves most of the volume while leaving most of the revenue with the closed frontier.</p>
+          
+        </div>
+        <div class="alert alert-warning story-why">
+          <span class="why-label">Why read it</span> Hard numbers on the open-versus-closed economics of inference — useful context for deciding where to route workloads and what the price gap actually looks like in production.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2610.18567" target="_blank" rel="noopener">Configuring RAG systems: what breaks, where it originates, and how to fix it</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">failure taxonomy</span><span class="badge text-bg-light">pipeline diagnostics</span><span class="badge text-bg-light">configuration knobs</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Retrieval-augmented generation (RAG) systems have many knobs — chunk size, embedding model, number of retrieved passages, reranking — and this paper studies what actually breaks when they are misconfigured, tracing each failure back to its origin in the pipeline.</p><p>Rather than proposing yet another architecture, it offers a diagnostic map: which symptoms point to which stage, and which fixes address the root cause rather than masking it.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A debugging-oriented treatment of structured RAG — the practical counterpart to the steady stream of new RAG architectures, and useful when a pipeline underperforms and the cause is unclear.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Antithesis</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://antithesis.com/blog/2026/time-traveling-agents/" target="_blank" rel="noopener">Time-traveling agents: letting AI ship reliable distributed systems</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">deterministic replay</span><span class="badge text-bg-light">agent-driven debugging</span><span class="badge text-bg-light">reproducible failures</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Antithesis describes using AI agents inside its deterministic-simulation testing platform, where the entire system can be paused, rewound, and replayed. That determinism lets an agent replay a failure exactly, inspect the state at any point, and test a proposed fix against the same execution.</p><p>The combination addresses a longstanding problem in distributed-systems debugging: failures that are rare, timing-dependent, and hard to reproduce, which agents otherwise struggle to reason about.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A concrete way to make agentic debugging tractable for distributed systems — determinism plus replay turns a flaky failure into something an agent can actually iterate on.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2610.22322" target="_blank" rel="noopener">Learning self-orchestration in decentralized agent swarms</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">decentralized orchestration</span><span class="badge text-bg-light">learned coordination</span><span class="badge text-bg-light">swarm robustness</span>
+        </div>
+        
+        <div class="story-body">
+          <p>This paper studies how a swarm of agents can learn to orchestrate itself — deciding who does what and when — without a central controller handing out assignments. The agents learn coordination policies that let the group adapt as tasks and membership change.</p><p>Decentralised orchestration is the harder version of the multi-agent problem: it trades the simplicity of a central planner for robustness when no single agent has a full view of the system.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> Multi-agent coordination without a central controller is the architecture that scales to real, failure-prone systems — and a direct read on where agent research is heading.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-10-17/</guid>
+  <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>A Sovereign Kolibri, Decision-Model Fever, and GLM-5.3’s Cyber Debut</title>
   <dc:creator>Sarathy 🪆</dc:creator>
@@ -4503,219 +4881,6 @@
 </div> ]]></description>
   <guid>https://decode.viswakumar.com/posts/2026-08-20/</guid>
   <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>RISC-V Runs the Show, Agents Break In and Out, and Vector Indexes Go on a Diet</title>
-  <dc:creator>Sarathy 🪆</dc:creator>
-  <link>https://decode.viswakumar.com/posts/2026-08-19/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="listen-while-you-go" class="level2">
-<h2 class="anchored" data-anchor-id="listen-while-you-go">🎙️ Listen while you go</h2>
-<p>Prefer to listen on the go? Here’s the audio edition — Aria and Guy walk through today’s ten stories.</p>
-<div class="podcast-player">
-  <audio controls="" preload="metadata" style="width:100%;">
-    <source src="podcast.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-19 · ~9 min</em></p>
-</div>
-
-
-
-</section>
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-
-<section class="sec-card">
-  <div class="card sec-networks">
-    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2608.17774" target="_blank" rel="noopener">Edge-native embodied intelligence: an action-aware wireless edge framework for 6G</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Foundation-model-enabled embodied agents face a tension between open-world cognition and resource-constrained deployment: on-device models are limited by compute, memory, and energy, while cloud-centric approaches add latency and reliability risk over dynamic wireless links. This paper proposes edge-native embodied intelligence (ENEI), an action-aware wireless edge framework that integrates embodied agents, the 6G communication fabric, and edge cognitive services into a bidirectional edge-embodiment loop.</p><p>Along the edge-to-embodiment axis, confidence-aware assistance and edge-driven generative adaptation improve local autonomy under out-of-distribution conditions; along the embodiment-to-edge axis, value-of-experience-guided active embodied federated learning lets physical actions generate informative experience for continuous edge-model evolution. The 6G fabric supports both directions through goal-oriented transmission and programmable radio-resource allocation, demonstrated on out-of-distribution drone navigation and mobility-driven federated learning.</p>
-          
-          <pre class="mermaid">flowchart LR
-  E[Embodied agent] --&gt;|goal-oriented tx / radio allocation| G[6G fabric]
-  G --&gt;|confidence-aware assistance / generative adaptation| C[Edge cognitive services]
-  C --&gt;|active federated learning| E
-</pre>
-          
-        </div>
-        <div class="alert alert-info story-why">
-          <span class="why-label">Why read it</span> A clean statement of the 6G edge as the cognitive backbone for embodied agents — the intersection of edge inference, goal-oriented wireless, and agentic systems. If you care about where wireless intelligence is heading, this is the architecture sketch to track.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-security">
-    <div class="card-header text-bg-danger">Security</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Blog</span>
-          <h3 class="story-headline anchored"><a class="link-danger" href="https://subramanya.ai/2026/08/17/break-in-break-out-ai-agent-security-in-2026/" target="_blank" rel="noopener">2026 is the year AI agents started breaking in and breaking out</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A plain-language tour of AI-agent security in 2026 argues that this is the year agents stopped being a hypothetical and started breaking into systems and breaking out of their sandboxes. It walks through the year's real incidents and the hardening lessons they imply — autonomous agents discovering and exploiting previously unknown vulnerabilities, escaping sandbox boundaries, and the difficulty of distinguishing agent-driven compromise from human-driven attacks.</p><p>The survey is deliberately accessible, but the through-line is technical: agent security requires a different threat model than conventional enterprise security, because the attacker's payload is the agent's own reasoning plus its tool access. It is a useful fixed point for where the field stands after a year of high-profile agent incidents.</p>
-          
-        </div>
-        <div class="alert alert-danger story-why">
-          <span class="why-label">Why read it</span> A concise state-of-the-field on agent security after a year of real incidents. If you ship or operate LLM agents, the break-in/break-out taxonomy is a good way to frame your own threat model.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-ai">
-    <div class="card-header text-bg-success">AI &amp; Models</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Reddit</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vs0wsl/alibabas_riscv_cpu_xuantie_c950_runs_qwen38_27b/" target="_blank" rel="noopener">Alibaba's RISC-V XuanTie C950 runs Qwen-3.8 27B natively at 30 tokens/second</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Alibaba's XuanTie C950 — a 5nm, 3.2 GHz RISC-V core billed as the fastest single-threaded RISC-V silicon yet, launched in April and now shipping in servers — runs Qwen-3.8 27B natively at 30 tokens/second with a 1.9-second time-to-first-token and no emulation layer. It implements the RVA23 profile with vector extensions and pairs with AI accelerators, with Alibaba flagging Qwen and DeepSeek inference as headline workloads.</p><p>This is the strongest signal yet that RISC-V is becoming a credible platform for on-prem LLM inference rather than a research curiosity. For anyone sizing local or edge deployments, the interesting shift is architectural: a vector-capable RISC-V core carrying a 27B open model on CPU alone changes the hardware menu for self-hosted inference.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A marker for where the local-inference hardware curve is heading. If you run or plan open-weight models on-prem, RISC-V CPU inference at 30 tokens/second on a 27B is a new data point for the no-GPU option.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">GitHub</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/RyanCodrai/turbovec" target="_blank" rel="noopener">Turbovec: Google's TurboQuant quantizer, packaged as a Rust vector index</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Turbovec is a Rust vector index with Python bindings implementing Google Research's TurboQuant, a data-oblivious, training-free quantizer with near-optimal distortion. A 10-million-document corpus that occupies 31 GB as float32 fits in 4 GB, and hand-written SIMD kernels (AVX-512 VNNI, NEON) beat FAISS IndexPQFastScan in every measured configuration, averaging 3.4× faster at 4-bit.</p><p>It offers online ingest with no rebuild, incremental crash-safe syncs, filter-at-search-time, and drop-in integrations for LangChain, LlamaIndex, and Haystack, plus an optional calibration and Lloyd-Max codebook pass for extra recall. For structured retrieval-augmented generation, the pitch is a smaller, faster index you can keep fully local.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete lever on the vector-search cost/compression tradeoff that sits under most retrieval-augmented generation pipelines. If you self-host RAG, the 8× memory compression with a speed win is worth benchmarking.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.18066" target="_blank" rel="noopener">The fragility of self-improving agents: variance, task order, and underspecification</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A re-evaluation of memory-based self-improving agents — models that learn online by maintaining a textual memory bank — finds the headline results fragile. Running each agent multiple times shows evaluation is inherently noisy in complex, multi-step environments, and stacking a self-improving loop on top amplifies that noise; randomly shuffling task order changes outcomes because default orderings impose a hidden curriculum that acts as a prerequisite for success.</p><p>The authors trace part of the fragility to task and environment underspecification — adding detailed rubrics and environment feedback into memory construction partially closes the gap, but significant unexplained variance remains. The paper argues for reporting results across multiple runs and stress-testing agents under challenging conditions.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A timely caution for anyone building agents expected to get better the longer they run. Single-run evaluations of self-improvement are quietly hiding variance and order effects that production systems will hit.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.18050" target="_blank" rel="noopener">StagedWorkspace: a versioned workspace for knowledge-work agents</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Knowledge-work agents routinely search parsed views, edit native files, review diffs, and submit artifacts that refer to different versions of the same work product. StagedWorkspace formalizes this as a workspace-state contract: every view an agent consumes should be explicitly tied to a version of the evolving workspace, the way git ties a repository to a commit. It binds parsed records and review diffs to content hashes of the native files as they change.</p><p>In fixed-harness ablations on OfficeQA Pro and APEX-Agents, dual parsed/native access has the highest point estimate for every tested model, improving OfficeQA Pass@1 by 8.3–12.1 points and APEX mean rubric score by 4.7–9.2 points over a single view. SW-AGENT scores 63.9% with Gemini 3.1 Pro on OfficeQA and 42.1 with GPT-5.4 Nano on APEX, versus published same-model scores of 29.3% and 25.5.</p>
-          
-          <pre class="mermaid">flowchart LR
-  A[Parsed view] --&gt; C[Content hash of native file]
-  B[Native file] --&gt; C
-  C --&gt; V[Versioned workspace state]
-  V --&gt; D[Agent edits / reviews / submits]
-  D --&gt; B
-</pre>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> Extends the repo-style versioning contract coding agents enjoy to PDFs, spreadsheets, slides, and mixed-format folders. If you build agents that produce documents rather than only code, this is the abstraction to watch.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Reddit</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://www.reddit.com/r/LocalLLaMA/comments/1vrqf4f/running_deepseek_v4_flash_q4_k_xl_at_100_toks/" target="_blank" rel="noopener">Running DeepSeek V4 Flash Q4_K_XL on four RTX 3060s at ~100 tokens/second</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A community walkthrough runs the 143–144 GiB DeepSeek-V4-Flash-0731 UD-Q4_K_XL GGUF across four RTX 3060 12 GB cards, sustaining roughly 100 tokens/second of prompt processing while keeping a 360k–376k-token context window. DeepSeek-V4-Flash is DeepSeek's open small/large hybrid-attention model — compressed sparse attention (CSA) plus heavily compressed hybrid context attention (HCA) for long contexts.</p><p>The thread is a useful, specific data point on what a large open model needs from modest consumer hardware and how hybrid-attention reshapes the memory picture versus a dense model of similar footprint. It is the kind of concrete sizing detail that decides whether a local-inference build is feasible before you buy hardware.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A real hardware-sizing datapoint for big open models on commodity GPUs. If you evaluate local inference, hybrid-attention plus heavy quantization is changing what fits on consumer cards.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.17523" target="_blank" rel="noopener">SemaCredit: multi-resource flow control for scale-up GPU fabrics</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Scale-up fabrics connecting GPUs and AI accelerators carry tensor transfers alongside remote reads, writes, atomics, and notifications over shared target-side receiver resources. Byte-denominated credits protect link buffers and streaming high-bandwidth-memory traffic, but poorly represent small operations dominated by atomic execution or response injection. This paper presents SemaCredit, a receiver controller that admits each remote-memory operation against a vector of target-resource demands and returns each component when its corresponding HBM, atomic, or response stage completes.</p><p>In a deterministic event simulator with multipath queues, eight HBM partitions, a serialized atomic engine, and a response engine, SemaCredit matches a strong per-resource byte baseline on HBM-hotspot traffic while cutting small-operation P99 latency by 52.4% under atomic contention and 10.2% under response incast; application-shaped mixes show 57.7% and 14.5% P99 improvements for AllReduce- and remote-read-shaped traffic while matching byte credits on HBM-dominated mixture-of-experts traffic.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete distributed-systems result for the interconnect layer under AI accelerator workloads. If you build or reason about scale-up fabric control, multi-resource admission is a cleaner model than byte credits alone.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Cursor</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://cursor.com/changelog/origin-code-hosting" target="_blank" rel="noopener">Cursor launches Origin, a GitHub alternative built for agent-native development</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Cursor has entered the code-hosting business with Origin, an early-beta GitHub alternative on all paid plans. It hosts repositories, pull requests, and code browsing with two-way GitHub sync — comments and reviews flow both ways in real time — plus pull-request preview deployments via Vercel and CI via Depot or Buildkite. The distinguishing feature is that agents live in every repository: ask about code, make changes, or push branches from the same surface where you review.</p><p>The move puts an AI company in direct competition with GitHub for the agent-native development workflow, betting that the repository becomes the home of agent activity rather than just human collaboration. It is a structural signal for where developer tooling is consolidating.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A marker for where agent-native development is heading. If you build or evaluate coding agents, the repo hosting layer is becoming a battleground — and it changes where your agents' context and actions live.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Linear</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://linear.app/data" target="_blank" rel="noopener">Linear's data on how AI is actually used inside software teams</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Linear analyzed AI adoption across tens of thousands of teams that build software inside its issue tracker, looking at who uses AI, how it reshapes where teams spend time, and whether it changes how much they ship. Between January and June 2026, the share of users active on AI features more than doubled in every function — product climbed fastest, from 12% to 34% — and even go-to-market, the function furthest from the codebase, saw meaningful adoption.</p><p>The report is careful to scope itself: it captures AI usage inside Linear's own customer base, not the market at large, and it explicitly notes that model companies' token and code-volume numbers capture only one layer of the work. What it adds is a workflow-level picture of AI-assisted product development as a fixed point for 2026.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A data-grounded look at agentic and AI-assisted adoption in real software teams, beyond token counts. Useful context if you're reasoning about where LLM agents actually land in product development.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<div class="listing-no-matching d-none">No matching items</div>
-</div> ]]></description>
-  <guid>https://decode.viswakumar.com/posts/2026-08-19/</guid>
-  <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

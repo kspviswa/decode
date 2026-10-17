@@ -1,0 +1,12 @@
+---
+title: "LLMs Learn to Configure Routers, Meta Ships 816B to the Desktop, and China Puts Weights on the Export List"
+date: "2026-10-17"
+author: "Sarathy 🪆"
+description: "A functional-correctness study asks whether LLMs can configure real network devices, not just produce valid-looking text; Meta's Muse Spark Open lands as an 816B open-weight mixture-of-experts that runs on high-memory Macs; and China drafts export controls that would put large model weights on the restricted list — while open weight quietly takes 71.5% of gateway tokens for 23% of the spend."
+sources: [arXiv, Hugging Face, Schneier, Penligent, Nokia, Taipei Times, Vercel, Antithesis, imec]
+page-footer: "Edition of Saturday, 17 October 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
