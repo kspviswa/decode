@@ -10,7 +10,374 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Sat, 17 Oct 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 24 Oct 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>An Alarm Storm With a Known Cause, a Phone Fuzzer With a CVE, and a Supply Chain That Let Itself In</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-10-24/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.30004" target="_blank" rel="noopener">Every alarm has a cause: an open generator of telecom alarm storms with exact root causes</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">alarm storm generator</span><span class="badge text-bg-light">NORIA-O / TMF642 bindings</span><span class="badge text-bg-light">LLM vs heuristic baselines</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Alarm root-cause analysis research is held back by data that operators cannot share: published work usually offers a causal graph between alarm types rather than per-incident ground truth. This paper releases a generator instead of a dataset, running on real backbone topologies from the Internet Topology Zoo and recording the exact root cause and propagation path of every alarm as a by-product of generation.</p><p>Every emitted field binds to a term in NORIA-O, RFC 8632, RFC 8345 or TM Forum TMF642, and an unknown term fails the run. The paper ships fixed configurations, splits, a scorer and nine baselines — and reports an uncomfortable result: a one-line rule that ranks the device raising the earliest critical alarm takes top-1 at 0.650, beating the authors' own temporal method (0.575). A large language model (LLM) given the same view reaches 0.600, and 0.625 when allowed to query the graph.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A rare thing in telecom AI: a reproducible benchmark with exact ground truth. The finding that a trivial heuristic beats both a learned method and an LLM is the useful part — and the power-loss case, where every method that ranks alarmed devices scores 0.000, shows why topology walking matters.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.29343" target="_blank" rel="noopener">MASAR: bridging STRIDE and MITRE FiGHT for telecom attack-surface analysis</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">STRIDE to FiGHT mapping</span><span class="badge text-bg-light">DAG attack paths</span><span class="badge text-bg-light">SIP and Diameter scenarios</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Architectural threat modelling frameworks such as STRIDE and operational knowledge bases such as MITRE's Five-G Hierarchy of Threats (FiGHT) do not connect: one describes design weaknesses, the other describes observed tactics. MASAR is a formal framework that bridges them in three layers — strategic threat mapping, logical attack-path decomposition using directed acyclic graphs (DAGs), and operational synthesis of tactics, techniques and procedures (TTPs).</p><p>The authors evaluate it on a 5G-ready IP Multimedia Subsystem (IMS) architecture with two signalling scenarios: early-media billing bypass through Session Initiation Protocol (SIP) signalling, and subscriber information disclosure plus topology discovery through the Diameter Cx interface. MiniZinc constraint models are used to test reachability of unsafe protocol states.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> Telecom signalling security analysed at the level of protocol state rather than a checklist — and a reusable structure for connecting architecture review to real attack sequences in a 5G core.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.29155" target="_blank" rel="noopener">5uGUE: an LLM agent fuzzes commercial 5G phones and finds 167 crashes</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">agentic hardware-in-the-loop fuzzing</span><span class="badge text-bg-light">12.8x crash discovery</span><span class="badge text-bg-light">CVE-2026-20525</span>
+        </div>
+        
+        <div class="story-body">
+          <p>5uGUE is a large language model (LLM) driven hardware-in-the-loop agent for wireless fuzzing of 5G devices. It combines multi-step reasoning with tool-assisted interaction — internet search, 5G protocol analysis, memory management and test-case execution — and iteratively generates test cases, runs them on targets, collects runtime feedback and adapts its strategy.</p><p>Evaluated on five commercial off-the-shelf (COTS) 5G devices across six LLMs, the best runs trigger 167 crashes (141 novel, 31 unique) within 60 interaction turns and 49 to 133 minutes. The state-of-the-art baseline, 5GHOUL, finds 13 crashes in 150 minutes — a 12.8x total and 5.2x unique improvement. MediaTek confirmed two new high-severity vulnerabilities, one with CVE-2026-20525 assigned; UNISOC confirmed seven crashes. The approach also transfers to Bluetooth Classic with minimal changes.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> The clearest demonstration yet that an agent loop beats hand-written fuzzing heuristics on protocol targets — with confirmed CVEs to back it, not just crash counts.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2610.28244" target="_blank" rel="noopener">Agentic communication networks: when agents become first-class network entities</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">agents as network entities</span><span class="badge text-bg-light">intent-based service expression</span><span class="badge text-bg-light">lifecycle and authority</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Autonomous agents are moving from application-layer components to active participants in the network: they generate traffic, perceive context, express intent, invoke services and coordinate with other agents under task, policy and resource constraints. This white paper argues that conventional endpoint- and traffic-centric abstractions no longer fit, and proposes Agentic Communication Networks (ACN) as a network-centric paradigm.</p><p>ACN rests on three shifts: agents become identifiable, governable network entities with explicit identity, authority and lifecycle; agentic services are expressed through intent, capability, context, policy and task state; and agentic execution across multiple agents, services and tools becomes an explicit network concern.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> The architectural framing for a question that will define the next few years of network design: what does a network owe an agent, and what must it be able to enforce about one? Useful as a vocabulary, even where the answers are still open.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">LiteLLM</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain" target="_blank" rel="noopener">The attack chain behind the compromised litellm 1.107.0 release</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">unrevoked master key</span><span class="badge text-bg-light">CI token exfiltration</span><span class="badge text-bg-light">release-gate weakening</span>
+        </div>
+        
+        <div class="story-body">
+          <p>On 21 October the LiteLLM release pipeline published a compromised litellm==1.107.0 to PyPI and its container registries. The root-cause analysis traces the chain back to May, when a configuration file containing the master key of an internal agent-platform deployment was committed to a public repository — and the key was flagged for revocation but never revoked.</p><p>On 10 October an attacker used that key against the agent platform's API and received, in a listing response, the GitHub command-line OAuth token of a GitHub organisation owner. From there they injected throwaway CI workflows to exfiltrate two more maintainer tokens, then repointed the release workflow at a lookalike fork, approved the production gate with a stolen token, deleted the run records, and force-pushed the history clean.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A precise, unflinching postmortem of an agent-platform compromise that became a software supply-chain compromise. The lesson is mechanical: an unrevoked key plus an over-scoped token plus a relaxed release gate is the whole attack.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2610.25937" target="_blank" rel="noopener">RAGLeak: supply-chain privacy backdoors in retrieval-augmented generation</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">obfuscate-then-recover backdoor</span><span class="badge text-bg-light">100% ASR</span><span class="badge text-bg-light">survives clean fine-tuning</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Existing data-extraction attacks on retrieval-augmented generation (RAG) either depend on prompt injection — and therefore on the generator's instruction-following — or use backdoors that struggle to balance extraction fidelity against stealth. RAGLeak is a supply-chain privacy backdoor that decouples leakage from direct textual exposure: when triggered, the generator reversibly obfuscates retrieved private documents so an auxiliary LLM can recover them faithfully.</p><p>Across three model families and three application domains it reaches up to 100% attack success rate with limited impact on benign utility, and loses at most 10 percentage points under representative detection-based defences. The backdoor survives clean fine-tuning and transfer across model scales and versions.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> A reminder that a RAG pipeline inherits the trust of its model supply chain. If you fine-tune or download a generator, a backdoor can turn your own retrieval index into an exfiltration channel without ever emitting the text.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2610.29178" target="_blank" rel="noopener">Correlated failures of AI approval monitors</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">fail-prone monitor sets</span><span class="badge text-bg-light">evidence-source diversity</span><span class="badge text-bg-light">0.9% vs 7.4% false blocks</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Before an AI agent takes a consequential action, several monitors check it, and their verdicts are aggregated by score or by counting approvals. Monitors that share a base model or a poisoned input can fail together. This paper borrows fail-prone systems from distributed computing — lists of monitor sets that may fail together — and defines a rule as safe if it executes no bad action and live if it blocks no good one.</p><p>Twelve small open-weight monitors were measured on payment approval under pre-registered protocols, plus three closed frontier models and DeepSeek-V3.2. Every reliable fooling of a monitor into approving fraud came through an evidence source and reached only that source's readers. Fooling a monitor into blocking a correct payment depended on injection resistance: small models and DeepSeek obeyed planted instructions, the three closed models ignored them in all but one case. A rule that counts independent sources instead of votes blocked 0.9% of correct payments against 7.4% for the best counting rule, at equal safety.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> Distributed-systems reasoning applied to agent safety, and it lands: diversity of evidence matters more than the number of monitors. Directly actionable if you are stacking guardrails in front of an agent that can move money or change code.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2610.30769" target="_blank" rel="noopener">LLM multi-agent systems are vulnerable to herding and runaway cascades</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">Music Lab replication</span><span class="badge text-bg-light">non-self-correcting cascades</span><span class="badge text-bg-light">evaluation contamination</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Following the design of the classic Music Lab experiment, the authors tested large populations of LLM agents recommending unfamiliar songs, with and without exposure to cumulative recommendation counts. Exposure produced runaway cascades: extreme, unpredictable collective recommendations that diverged increasingly from a song's intrinsic appeal.</p><p>Compared with human populations, LLM populations were far more susceptible to herding, and — unlike humans — their cascades were less able to self-correct. The authors flag consequences for recommender systems, automated evaluation, complex problem-solving, and unauthorised conspiracies among agents.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A sharp experimental result with a wide blast radius: any multi-agent setup where agents observe each other's outputs is a feedback loop, and these loops do not self-correct the way human crowds do.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">vLLM</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://vllm.ai/blog/2026-10-21-humming" target="_blank" rel="noopener">Humming: one kernel library for every quantization format</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">unified quantization representation</span><span class="badge text-bg-light">composable CUDA kernels</span><span class="badge text-bg-light">1.8 s JIT compile</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Ant Group and the vLLM community open-sourced Humming, a general-purpose kernel library for quantized inference. It separates the quantization description from the execution choice — a unified representation of weight format, scaling granularity, scale type, zero points and secondary scales — then compiles a kernel from shared CUDA components for the target device and workload.</p><p>It supports NVIDIA architectures from Turing onward plus CUDA-compatible devices such as T-Head's Zhenwu 810E, covering WNA16, W8A8, W4A8 and W4A4 across integer and floating-point formats. Reported results: roughly 3–4x over cuBLAS at small batch for dense W4A16, about 2x vLLM Marlin at large-batch H200, and end-to-end throughput gains of 14–43% on DeepSeek-V4.1-Flash on eight H20s. Kernel compile time drops from 23.35 s with CUTLASS to about 1.8 s.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> The combinatorial explosion of quantization formats was becoming a maintenance tax on every inference stack. Collapsing it into composable components with fast JIT is the right structural answer — and the Blackwell hidden-format discovery is a nice bonus.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2610.31479" target="_blank" rel="noopener">Which LLM inference optimizations actually work on Apple Silicon?</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">speculative decoding hurts on Apple</span><span class="badge text-bg-light">KV pruning 1.75x</span><span class="badge text-bg-light">Metal lacks async copy</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Nearly all LLM inference optimizations are designed and validated on server-class NVIDIA GPUs under batched serving. This paper evaluates four families — key-value (KV) cache pruning, speculative decoding, ported GPU kernels and post-training quantization — across four Apple machines under a single-request decode workload, with matched RTX 4090 comparisons where possible.</p><p>The results are a corrective: KV-cache pruning reaches up to 1.75x end-to-end throughput on Apple but can reduce throughput on desktop NVIDIA GPUs; every evaluated speculative decoding method reduces throughput on Apple despite reported 2–6x gains on server GPUs; CUDA kernel designs transfer only partially because public Metal lacks asynchronous copy and batch-one decode makes serving-oriented mechanisms inapplicable, though transferable components yield up to 1.20x. Quantization gains vary by machine.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A published speedup is not a portable property of an algorithm. If you run models locally on a Mac, this is the paper that tells you which of the standard tricks to skip.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Cloudflare</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://blog.cloudflare.com/obsessive-inference-optimization/" target="_blank" rel="noopener">Cutting an AI code reviewer's inference bill by 68%</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">prefix cache split</span><span class="badge text-bg-light">68% cost reduction</span><span class="badge text-bg-light">effort-level A/B testing</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Cloudflare's AI code reviewer went from $1.19 per review in April to about $2.46 by August without architectural change, because models got better and engineers started producing larger changes. An optimisation push brought the average to $0.77 — a 68% cut — and the median review from 4m 09s to 1m 32s.</p><p>The single biggest saving came from inspecting what actually reached the provider on each session's first request: the shared 11k–21k-token prefix was only a cache hit 14–26% of the time, because the system prompt builder placed the sole cache breakpoint after a repository-specific environment block. Splitting the block so the shared prefix got its own breakpoint fixed it. About 40% of savings came from code changes; the rest from model and effort-mix experiments.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> The best kind of engineering write-up: a diagnosis you can copy. Two checks it recommends for anyone running agents at volume — does each session's first request actually read from the cache, and does your reviewer still find real problems at the effort level you pay for.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">The Register</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://www.theregister.com/systems/2026/10/22/ibm-ceo-says-open-weight-models-are-now-irresistibly-good-and-cheap-on-prem/5304640" target="_blank" rel="noopener">IBM's CEO: open weights are 90% as good at 10% of the token cost</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">90% capability at 10-25% cost</span><span class="badge text-bg-light">on-prem in two or three racks</span><span class="badge text-bg-light">systems-talent gap</span>
+        </div>
+        
+        <div class="story-body">
+          <p>On IBM's third-quarter earnings call, chief executive Arvind Krishna traced the closing gap between closed and open models: in 2024 a broad benchmark might have scored the top closed model at 70 and an open model at 20 or 30; by late 2025 it was 70 to 50. Open-weight models now deliver, in his words, anywhere from 25% to 10% of the token cost of frontier models while being about 90% as effective.</p><p>He framed the enterprise decision plainly — pay ten times more for the last 10%, or not — and said most tasks (summarising an email, examining a contract, answering a customer call) do not need the premium. He also named the real obstacle to on-premise deployment: not hardware, but finding the kernel, networking and caching engineers to make a cluster perform.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A vendor chief executive putting numbers on the open-versus-closed trade-off in public, on an earnings call where the numbers carry legal weight. The closing observation — that the scarce resource is systems talent, not silicon — is the part worth remembering.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2610.28340" target="_blank" rel="noopener">DeclineCraft: iterative RAG makes models worse at saying 'I don't know'</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">correct abstention rate</span><span class="badge text-bg-light">iterative RAG hurts abstention</span><span class="badge text-bg-light">reranking cost</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Reliable retrieval-augmented generation (RAG) requires recognising when neither retrieved documents nor parametric knowledge supports an answer. DeclineCraft is a dynamic abstention benchmark whose unanswerable questions target Minecraft feature additions after a corpus cut-off, with audits of possible parametric exposure and later cut-offs for future models.</p><p>Across 27 LLMs, single-shot retrieval significantly raised the correct abstention rate in 38 of 40 configurations versus no retrieval. But iterative RAG — where the model self-assesses its context and can request up to two more retrieval rounds — significantly lowered it in 30 of 40 configurations (mean 46.4%), with little change in answer accuracy (68.5% to 69.3%). Adding query rewriting and reranking to hybrid retrieval lowered abstention for all 12 models tested.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A counterintuitive, well-measured result that cuts against the usual advice: more retrieval machinery can make a system more confidently wrong. Worth checking against your own pipeline before adding another retrieval round.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2610.29873" target="_blank" rel="noopener">HAWK: transferring the KV cache between GPUs and NPUs</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">GPU prefill / NPU decode</span><span class="badge text-bg-light">RDMA KV transfer</span><span class="badge text-bg-light">tensor layout translation</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Prefill is compute-intensive and decode is memory-bound, so accelerators are unevenly suited to the two phases: graphics processing units (GPUs) handle prefill well but sit underused during decode, while neural processing units (NPUs) use their compute more effectively for decode. HAWK explores a heterogeneous architecture that maps prefill to GPUs and decode to NPUs.</p><p>The obstacle is that phase disaggregation requires moving the key-value (KV) cache from prefill to decode across devices with different communication mechanisms and tensor layouts. HAWK establishes a remote direct memory access (RDMA) path for direct cross-device transfer and handles the layout discrepancies as part of the transfer.</p>
+          
+          <pre class="mermaid">flowchart LR
+  R[Request] --&gt; P[Prefill on GPU]
+  P --&gt; KV[KV cache]
+  KV --&gt;|RDMA + layout\nconversion| D[Decode on NPU]
+  D --&gt; O[Tokens]</pre>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete answer to a question that follows from earlier KV-cache work: once the cache is the thing you move, which hardware should each phase run on? Heterogeneous prefill/decode is a plausible shape for the next generation of serving clusters.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2610.31019" target="_blank" rel="noopener">Chunk recomputation under real document revisions: what re-embedding actually costs</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">re-embedding cost 38-68%</span><span class="badge text-bg-light">content-defined chunking</span><span class="badge text-bg-light">sub-2-point recall spread</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Chunking strategies for retrieval-augmented generation (RAG) are almost always evaluated on a static snapshot, yet the underlying documents keep changing. Because chunks are embedded independently, a boundary that shifts after an edit forces unchanged text to be re-embedded. This paper measures that update cost on 120 pairs of adjacent Chinese and English Wikipedia revisions for three stateless chunkers under a strict byte-identical reuse rule with a frozen dense encoder.</p><p>On the 116-article common-success pool, fixed-size chunking recomputes 57–68% of its full new-version embedding workload, recursive chunking 38–56%, and content-defined chunking 43–54% (it failed on 4 of 62 Chinese articles). At those parameters, mean evidence recall under a fixed 2048-token retrieval budget differs by less than two percentage points within either language.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> The maintenance cost of a RAG index is a design decision, not an afterthought. Content-defined chunking is the usual recommendation, and this paper shows the picture is more conditional than that — and that the recall difference may not justify the complexity.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Philip O'Toole</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://philipotoole.com/twelve-years-of-distributed-sqlite/" target="_blank" rel="noopener">Twelve years of distributed SQLite: a retrospective from the person who started it</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">Raft plus SQLite</span><span class="badge text-bg-light">CP by design</span><span class="badge text-bg-light">twelve years of maintenance</span>
+        </div>
+        
+        <div class="story-body">
+          <p>In September 2014 Philip O'Toole published rqlite: take SQLite, put a Raft log in front of it, and replicate every write across a cluster so losing a node does not mean losing the data. It appears to have been the first open-source system to combine Raft and SQLite; for several years nobody else tried. Today distributed SQLite is a category with a dozen projects, a few venture-funded and two acquired.</p><p>The retrospective covers the design decision that never changed — rqlite is a consistent-partition (CP) system, so writes must go through the leader, a majority must acknowledge, and a partitioned minority refuses writes — along with the engineering lessons of maintaining a consensus-backed database for over a decade.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> Worth reading as a systems-design document rather than a history: a simple, unglamorous constraint (small relational storage that survives node loss) produced an architecture that outlasted most of the hype around it.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-10-24/</guid>
+  <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>LLMs Learn to Configure Routers, Meta Ships 816B to the Desktop, and China Puts Weights on the Export List</title>
   <dc:creator>Sarathy 🪆</dc:creator>
@@ -4667,220 +5034,6 @@
 </div> ]]></description>
   <guid>https://decode.viswakumar.com/posts/2026-08-21/</guid>
   <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>A Gateway Finds a Home, and Open Models Learn to Improve Themselves</title>
-  <dc:creator>Sarathy 🪆</dc:creator>
-  <link>https://decode.viswakumar.com/posts/2026-08-20/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="listen-while-you-go" class="level2">
-<h2 class="anchored" data-anchor-id="listen-while-you-go">🎙️ Listen while you go</h2>
-<p>Prefer to listen on the go? Here’s the audio edition — Neerja and Prabhat walk through today’s eleven stories.</p>
-<div class="podcast-player">
-  <audio controls="" preload="metadata" style="width:100%;">
-    <source src="podcast.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-20 · ~5 min</em></p>
-</div>
-
-
-
-</section>
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-
-<section class="sec-card">
-  <div class="card sec-networks">
-    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">LinkedIn</span>
-          <h3 class="story-headline anchored"><a class="link-info" href="https://www.linkedin.com/posts/abhatnagar19_the-3gpp-6g-core-update-august-2026-activity-7494996676869373952-iaN_" target="_blank" rel="noopener">6G Core Architecture Takes Shape with 3GPP Release 21</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Aayush Bhatnagar, Senior VP at Jio, shares an update on how the 3GPP 6G core architecture is taking shape under Release 21 (published within the last few days). The post walks through how the 6G core diverges from 5GC, emphasizing the AI-native and service-based design, and notes that migration will require close coordination between Radio and Core.</p><p>It flags multi-RAT spectrum sharing and 5G–6G interworking as important parts of the transition — a practical operator view of what Release 21 actually changes in the core, rather than the usual vendor hype.</p>
-          
-        </div>
-        <div class="alert alert-info story-why">
-          <span class="why-label">Why read it</span> A fresh, operator-authored read on where the 6G core is heading under Release 21 — directly in your telecom lane and current.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">LinkedIn</span>
-          <h3 class="story-headline anchored"><a class="link-info" href="https://www.linkedin.com/posts/itnac_itnac2026-ieee-6g-activity-7495799349529047040-svHH" target="_blank" rel="noopener">IEEE ITNAC 2026: 6G, AI security, and network resilience — call for papers</a></h3>
-        </div>
-        <div class="story-body">
-          <p>The International Telecommunication Networks and Applications Conference (ITNAC) 2026 is open for submissions, with tracks spanning 6G and IMT-2030, AI security, network resilience, and sustainable 6G — co-sponsored by IEEE ComSoc and IEEE Computer Society, with support from Cisco, Engineers Australia, and RMIT Melbourne. The firm paper deadline is 22 August 2026.</p><p>For researchers in the 6G and AI-network lane, this is a near-term deadline with solid technical scope, and a useful calendar anchor for the conference season.</p>
-          
-        </div>
-        <div class="alert alert-info story-why">
-          <span class="why-label">Why read it</span> A current, concrete research call-to-action in your exact lane (6G, AI security, network resilience) with a deadline days away.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-security">
-    <div class="card-header text-bg-danger">Security</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">HN</span>
-          <h3 class="story-headline anchored"><a class="link-danger" href="https://safedep.io/arrayref-proc-macro1-rust-build-time-malware/" target="_blank" rel="noopener">Malicious Rust crate 'arrayref' runs a build-time payload</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A supply-chain investigation details how a Rust crate named 'arrayref' (a typosquat of the legitimate arrayref crate) ships a malicious procedural macro that executes a payload at build time — before the developer even runs the final binary. Because the code runs during compilation, it can persist across the toolchain and evade normal runtime scanning.</p><p>This is the current #1 story on the HN front page, and a sharp reminder of the build-time attack surface that typo-squatting exploits: a package that looks like a well-known dependency, but runs hostile code the moment it is compiled.</p>
-          
-        </div>
-        <div class="alert alert-danger story-why">
-          <span class="why-label">Why read it</span> A concrete, fresh supply-chain warning with a clear mechanism (build-time proc-macro execution) — relevant to anyone who pulls dependencies into builds, which is everyone.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">HN</span>
-          <h3 class="story-headline anchored"><a class="link-danger" href="https://blog.laserphile.com/2026/08/aliexpress-webpage-keeping-multipoint.html" target="_blank" rel="noopener">AliExpress runs silent WebAudio fingerprinting that breaks Bluetooth multipoint</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A detailed investigation finds that an AliExpress page runs silent WebAudio-based fingerprinting in the background — a technique that uses the browser's audio pipeline to derive a device signature. Beyond the privacy concern, the fingerprinting activity interferes with Bluetooth multipoint, breaking the audio-switching behavior on a user's device.</p><p>It is a striking combination of two harms: covert tracking via a side channel the user never sees, and a real functional regression (Bluetooth multipoint) caused by the very script doing the tracking. The write-up is a concrete case study in how fingerprinting scripts can have measurable, unexpected side effects.</p>
-          
-        </div>
-        <div class="alert alert-danger story-why">
-          <span class="why-label">Why read it</span> A fresh, concrete privacy/security story with an unusual observable side effect — worth reading for how WebAudio fingerprinting works and how it can break real device features.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-ai">
-    <div class="card-header text-bg-success">AI &amp; Models</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">HN</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/" target="_blank" rel="noopener">OpenRouter is joining Stripe</a></h3>
-        </div>
-        <div class="story-body">
-          <p>OpenRouter, the largest AI model marketplace and gateway, is joining forces with Stripe. It processes 10+ trillion tokens per day from 400+ AI models for a community of over 10 million developers and companies, with at least 10x inference growth every year. The announced plan is to keep operating exactly as before — same mission, name, product, and roadmap — so existing integrations do not change.</p><p>The pairing is framed around shared DNA: both abstract complex infrastructure into clean developer APIs. Stripe brings a large customer network, trust, fraud/abuse tooling, and global infrastructure experience, which OpenRouter argues will matter more as AI abuse grows. The deal is subject to customary closing conditions, expected to close in the coming weeks.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> The gateway you likely route models through is being acquired by the payments platform that set the developer-API standard. Nothing changes for builders today, but it signals where neutral multi-model routing is headed — and it is the dominant story across HN and X this morning.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">HN</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://stwipe.com/" target="_blank" rel="noopener">Stwipe Acquires OpenWouter</a></h3>
-        </div>
-        <div class="story-body">
-          <p>The HN front page greeted the Stripe–OpenRouter news with a joke: a parody domain 'Stwipe' announcing it 'acquires OpenWouter', lampooning the tendency of AI-era acquisitions to drift into absurd brand mashups. The post is a deadpan mirror of real acquisition announcements, right down to the formal tone.</p><p>While clearly satire, it captures a real sentiment circling today's news — that the model-marketplace consolidation wave is moving fast enough to feel parodic. It also doubles as a reminder to verify acquisition claims against primary sources given how quickly parody and real news blur.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A fun, sharable artifact of how HN processes big M&amp;A news — and a useful test case for source verification in an era of fast-moving AI deals.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">X</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://x.com/a16z/status/2090137309031379417" target="_blank" rel="noopener">Stripe signs agreement to acquire OpenRouter — on X</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Across X, the Stripe–OpenRouter deal is being discussed in real time: a16z (an early OpenRouter investor) notes that OpenRouter and Stripe together are positioned for the 'Cambrian explosion' of application companies as AI infrastructure scales, while OpenRouter's own account confirms the acquisition with its mission statement intact. Stripe's Will Gaybrick framed the line between 'intelligence and money' as the core of the deal.</p><p>For builders, the consistent message across the thread is that OpenRouter remains neutral and multi-model — a reassurance that the model marketplace the community depends on isn't about to be steered by a single lab.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> The X-side of the biggest AI-infrastructure story of the day, capturing the investor and operator reaction in real time.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">HN</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.00146" target="_blank" rel="noopener">DiffusionGemma Technical Report</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Google DeepMind's DiffusionGemma is an experimental open-weight model that converts the Gemma 4 architecture into a text-diffusion model: rather than decoding one token at a time, it iteratively refines blocks of 256 tokens in parallel, avoiding the sequential decoding bottleneck that limits autoregressive models. The 26B-A4B MoE variant is on Hugging Face.</p><p>The reasoning is that diffusion-style parallel denoising can be dramatically faster for text generation, and crucially the model is built by converting an existing Gemma checkpoint rather than training from scratch — lowering the cost of producing a diffusion LLM. The report shares the full process, positioning it as a reproducible starting point for the community.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A genuinely different angle on fast open-weight generation — parallel refinement instead of sequential tokens — and it directly fits your local-LLM and model-serving interests.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.19197" target="_blank" rel="noopener">SPADE: Self-Play in Adaptive Synthetic Executable Environments for open-ended self-improvement</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Continuous self-improvement needs an ever-expanding pool of self-generated, adaptive goals, but existing training pools keep the goal distribution fixed as the learner scales. SPADE is a self-play RL framework where a single LLM plays two roles: an Environment Designer that writes complete, long-horizon training environments as executable code with an OpenAI Gym-style reset()/step() interface, and a Reasoning Agent that learns to act in them.</p><p>The Reasoning Agent's regret — the gap between reward with and without privileged hints — drives the Environment Designer to target environments at the edge of the agent's capabilities while keeping them feasible. Scaling to 30B parameters, SPADE improves over the strongest fixed-environment baseline by +5.3 on average across eight held-out benchmarks, and lifts tool use by +13.9 on ACEBench-Agent.</p>
-          
-          <pre class="mermaid">flowchart LR
-  D[Environment Designer] --&gt;|writes executable envs| E[Executable env]
-  E --&gt; R[Reasoning Agent]
-  R --&gt;|rollouts + regret| D
-</pre>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> Makes environment design itself a learnable component, so the curriculum co-evolves with the agent — a strong, concrete datapoint for open-ended self-improvement.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-research">
-    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">HN</span>
-          <h3 class="story-headline anchored"><a class="link-secondary" href="https://www.benjoffe.com/fast-day-of-week" target="_blank" rel="noopener">A faster way to calculate the day of the week</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A practical guide to computing the day of the week for any date quickly and memorably — a compact mental-math or code method intended to be fast enough to use in real time. It walks through the algorithm step by step, trading raw elegance for speed and ease of recall.</p><p>The kind of small, well-explained technical post that HN rewards: a single, genuinely useful trick, clearly presented, with the derivation and edge cases worked out. It is a reminder that not every story needs to be a frontier-model release to be worth a read.</p>
-          
-        </div>
-        <div class="alert alert-secondary story-why">
-          <span class="why-label">Why read it</span> A clean algorithm explainer that fits the 'useful engineering' lane — quick to digest and immediately applicable.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<div class="listing-no-matching d-none">No matching items</div>
-</div> ]]></description>
-  <guid>https://decode.viswakumar.com/posts/2026-08-20/</guid>
-  <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

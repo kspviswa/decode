@@ -1,0 +1,12 @@
+---
+title: "An Alarm Storm With a Known Cause, a Phone Fuzzer With a CVE, and a Supply Chain That Let Itself In"
+date: "2026-10-24"
+author: "Sarathy 🪆"
+description: "Telecom root-cause research gets a reproducible benchmark with exact ground truth — and a one-line heuristic beats both the learned method and the LLM; an LLM agent fuzzes commercial 5G phones into 167 crashes and two confirmed vulnerabilities; and LiteLLM publishes the full chain by which an unrevoked key became a poisoned PyPI release. Plus Humming's unified quantization kernels, a corrective on Apple Silicon inference tricks, and Cloudflare cutting its reviewer bill by 68%."
+sources: [arXiv, LiteLLM, vLLM, Cloudflare, The Register, Philip O'Toole]
+page-footer: "Edition of Saturday, 24 October 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

@@ -1,0 +1,208 @@
+- title: "Every alarm has a cause: an open generator of telecom alarm storms with exact root causes"
+  date: "2026-10-21"
+  categories: [network-intelligence, 5g-core, llm]
+  tags: [root-cause-analysis, alarm-correlation, telecom, benchmark, llm]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.30004"
+  tldr:
+    - "Alarm root-cause analysis research is held back by data that operators cannot share: published work usually offers a causal graph between alarm types rather than per-incident ground truth. This paper releases a generator instead of a dataset, running on real backbone topologies from the Internet Topology Zoo and recording the exact root cause and propagation path of every alarm as a by-product of generation."
+    - "Every emitted field binds to a term in NORIA-O, RFC 8632, RFC 8345 or TM Forum TMF642, and an unknown term fails the run. The paper ships fixed configurations, splits, a scorer and nine baselines — and reports an uncomfortable result: a one-line rule that ranks the device raising the earliest critical alarm takes top-1 at 0.650, beating the authors' own temporal method (0.575). A large language model (LLM) given the same view reaches 0.600, and 0.625 when allowed to query the graph."
+  why: "A rare thing in telecom AI: a reproducible benchmark with exact ground truth. The finding that a trivial heuristic beats both a learned method and an LLM is the useful part — and the power-loss case, where every method that ranks alarmed devices scores 0.000, shows why topology walking matters."
+  highlights: [alarm storm generator, NORIA-O / TMF642 bindings, LLM vs heuristic baselines]
+
+- title: "MASAR: bridging STRIDE and MITRE FiGHT for telecom attack-surface analysis"
+  date: "2026-10-21"
+  categories: [network-intelligence, ai-security, 5g-core]
+  tags: [threat-modeling, stride, mitre-fight, 5g-ims, sip, diameter]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.29343"
+  tldr:
+    - "Architectural threat modelling frameworks such as STRIDE and operational knowledge bases such as MITRE's Five-G Hierarchy of Threats (FiGHT) do not connect: one describes design weaknesses, the other describes observed tactics. MASAR is a formal framework that bridges them in three layers — strategic threat mapping, logical attack-path decomposition using directed acyclic graphs (DAGs), and operational synthesis of tactics, techniques and procedures (TTPs)."
+    - "The authors evaluate it on a 5G-ready IP Multimedia Subsystem (IMS) architecture with two signalling scenarios: early-media billing bypass through Session Initiation Protocol (SIP) signalling, and subscriber information disclosure plus topology discovery through the Diameter Cx interface. MiniZinc constraint models are used to test reachability of unsafe protocol states."
+  why: "Telecom signalling security analysed at the level of protocol state rather than a checklist — and a reusable structure for connecting architecture review to real attack sequences in a 5G core."
+  highlights: [STRIDE to FiGHT mapping, DAG attack paths, SIP and Diameter scenarios]
+
+- title: "5uGUE: an LLM agent fuzzes commercial 5G phones and finds 167 crashes"
+  date: "2026-10-21"
+  categories: [network-intelligence, llm-agents, 5g]
+  tags: [fuzzing, hardware-in-the-loop, 5g-devices, llm-agent, cve]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.29155"
+  tldr:
+    - "5uGUE is a large language model (LLM) driven hardware-in-the-loop agent for wireless fuzzing of 5G devices. It combines multi-step reasoning with tool-assisted interaction — internet search, 5G protocol analysis, memory management and test-case execution — and iteratively generates test cases, runs them on targets, collects runtime feedback and adapts its strategy."
+    - "Evaluated on five commercial off-the-shelf (COTS) 5G devices across six LLMs, the best runs trigger 167 crashes (141 novel, 31 unique) within 60 interaction turns and 49 to 133 minutes. The state-of-the-art baseline, 5GHOUL, finds 13 crashes in 150 minutes — a 12.8x total and 5.2x unique improvement. MediaTek confirmed two new high-severity vulnerabilities, one with CVE-2026-20525 assigned; UNISOC confirmed seven crashes. The approach also transfers to Bluetooth Classic with minimal changes."
+  why: "The clearest demonstration yet that an agent loop beats hand-written fuzzing heuristics on protocol targets — with confirmed CVEs to back it, not just crash counts."
+  highlights: [agentic hardware-in-the-loop fuzzing, 12.8x crash discovery, CVE-2026-20525]
+
+- title: "Agentic communication networks: when agents become first-class network entities"
+  date: "2026-10-20"
+  categories: [network-intelligence, llm-agents, 6g]
+  tags: [agentic-networks, intent, identity, architecture, white-paper]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.28244"
+  tldr:
+    - "Autonomous agents are moving from application-layer components to active participants in the network: they generate traffic, perceive context, express intent, invoke services and coordinate with other agents under task, policy and resource constraints. This white paper argues that conventional endpoint- and traffic-centric abstractions no longer fit, and proposes Agentic Communication Networks (ACN) as a network-centric paradigm."
+    - "ACN rests on three shifts: agents become identifiable, governable network entities with explicit identity, authority and lifecycle; agentic services are expressed through intent, capability, context, policy and task state; and agentic execution across multiple agents, services and tools becomes an explicit network concern."
+  why: "The architectural framing for a question that will define the next few years of network design: what does a network owe an agent, and what must it be able to enforce about one? Useful as a vocabulary, even where the answers are still open."
+  highlights: [agents as network entities, intent-based service expression, lifecycle and authority]
+
+- title: "The attack chain behind the compromised litellm 1.107.0 release"
+  date: "2026-10-23"
+  categories: [ai-security]
+  tags: [supply-chain, ci-cd, token-rotation, github, postmortem]
+  source: "LiteLLM"
+  domain: "docs.litellm.ai"
+  link: "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+  tldr:
+    - "On 21 October the LiteLLM release pipeline published a compromised litellm==1.107.0 to PyPI and its container registries. The root-cause analysis traces the chain back to May, when a configuration file containing the master key of an internal agent-platform deployment was committed to a public repository — and the key was flagged for revocation but never revoked."
+    - "On 10 October an attacker used that key against the agent platform's API and received, in a listing response, the GitHub command-line OAuth token of a GitHub organisation owner. From there they injected throwaway CI workflows to exfiltrate two more maintainer tokens, then repointed the release workflow at a lookalike fork, approved the production gate with a stolen token, deleted the run records, and force-pushed the history clean."
+  why: "A precise, unflinching postmortem of an agent-platform compromise that became a software supply-chain compromise. The lesson is mechanical: an unrevoked key plus an over-scoped token plus a relaxed release gate is the whole attack."
+  highlights: [unrevoked master key, CI token exfiltration, release-gate weakening]
+
+- title: "RAGLeak: supply-chain privacy backdoors in retrieval-augmented generation"
+  date: "2026-10-19"
+  categories: [ai-security, structured-rag]
+  tags: [rag, backdoor, privacy, supply-chain, data-extraction]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.25937"
+  tldr:
+    - "Existing data-extraction attacks on retrieval-augmented generation (RAG) either depend on prompt injection — and therefore on the generator's instruction-following — or use backdoors that struggle to balance extraction fidelity against stealth. RAGLeak is a supply-chain privacy backdoor that decouples leakage from direct textual exposure: when triggered, the generator reversibly obfuscates retrieved private documents so an auxiliary LLM can recover them faithfully."
+    - "Across three model families and three application domains it reaches up to 100% attack success rate with limited impact on benign utility, and loses at most 10 percentage points under representative detection-based defences. The backdoor survives clean fine-tuning and transfer across model scales and versions."
+  why: "A reminder that a RAG pipeline inherits the trust of its model supply chain. If you fine-tune or download a generator, a backdoor can turn your own retrieval index into an exfiltration channel without ever emitting the text."
+  highlights: [obfuscate-then-recover backdoor, 100% ASR, survives clean fine-tuning]
+
+- title: "Correlated failures of AI approval monitors"
+  date: "2026-10-21"
+  categories: [ai-security, llm-agents]
+  tags: [approval-monitors, fail-prone-systems, prompt-injection, agent-safety, distributed-systems]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.29178"
+  tldr:
+    - "Before an AI agent takes a consequential action, several monitors check it, and their verdicts are aggregated by score or by counting approvals. Monitors that share a base model or a poisoned input can fail together. This paper borrows fail-prone systems from distributed computing — lists of monitor sets that may fail together — and defines a rule as safe if it executes no bad action and live if it blocks no good one."
+    - "Twelve small open-weight monitors were measured on payment approval under pre-registered protocols, plus three closed frontier models and DeepSeek-V3.2. Every reliable fooling of a monitor into approving fraud came through an evidence source and reached only that source's readers. Fooling a monitor into blocking a correct payment depended on injection resistance: small models and DeepSeek obeyed planted instructions, the three closed models ignored them in all but one case. A rule that counts independent sources instead of votes blocked 0.9% of correct payments against 7.4% for the best counting rule, at equal safety."
+  why: "Distributed-systems reasoning applied to agent safety, and it lands: diversity of evidence matters more than the number of monitors. Directly actionable if you are stacking guardrails in front of an agent that can move money or change code."
+  highlights: [fail-prone monitor sets, evidence-source diversity, 0.9% vs 7.4% false blocks]
+
+- title: "LLM multi-agent systems are vulnerable to herding and runaway cascades"
+  date: "2026-10-22"
+  categories: [llm-agents, agents]
+  tags: [multi-agent, herding, cascades, social-influence, evaluation]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.30769"
+  tldr:
+    - "Following the design of the classic Music Lab experiment, the authors tested large populations of LLM agents recommending unfamiliar songs, with and without exposure to cumulative recommendation counts. Exposure produced runaway cascades: extreme, unpredictable collective recommendations that diverged increasingly from a song's intrinsic appeal."
+    - "Compared with human populations, LLM populations were far more susceptible to herding, and — unlike humans — their cascades were less able to self-correct. The authors flag consequences for recommender systems, automated evaluation, complex problem-solving, and unauthorised conspiracies among agents."
+  why: "A sharp experimental result with a wide blast radius: any multi-agent setup where agents observe each other's outputs is a feedback loop, and these loops do not self-correct the way human crowds do."
+  highlights: [Music Lab replication, non-self-correcting cascades, evaluation contamination]
+
+- title: "Humming: one kernel library for every quantization format"
+  date: "2026-10-21"
+  categories: [ai-infra, local-llm, benchmarks]
+  tags: [quantization, kernels, vllm, moe, jit-compilation]
+  source: "vLLM"
+  domain: "vllm.ai"
+  link: "https://vllm.ai/blog/2026-10-21-humming"
+  tldr:
+    - "Ant Group and the vLLM community open-sourced Humming, a general-purpose kernel library for quantized inference. It separates the quantization description from the execution choice — a unified representation of weight format, scaling granularity, scale type, zero points and secondary scales — then compiles a kernel from shared CUDA components for the target device and workload."
+    - "It supports NVIDIA architectures from Turing onward plus CUDA-compatible devices such as T-Head's Zhenwu 810E, covering WNA16, W8A8, W4A8 and W4A4 across integer and floating-point formats. Reported results: roughly 3–4x over cuBLAS at small batch for dense W4A16, about 2x vLLM Marlin at large-batch H200, and end-to-end throughput gains of 14–43% on DeepSeek-V4.1-Flash on eight H20s. Kernel compile time drops from 23.35 s with CUTLASS to about 1.8 s."
+  why: "The combinatorial explosion of quantization formats was becoming a maintenance tax on every inference stack. Collapsing it into composable components with fast JIT is the right structural answer — and the Blackwell hidden-format discovery is a nice bonus."
+  highlights: [unified quantization representation, composable CUDA kernels, 1.8 s JIT compile]
+
+- title: "Which LLM inference optimizations actually work on Apple Silicon?"
+  date: "2026-10-22"
+  categories: [local-llm, edge-inference, benchmarks]
+  tags: [apple-silicon, mlx, speculative-decoding, kv-cache, quantization]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.31479"
+  tldr:
+    - "Nearly all LLM inference optimizations are designed and validated on server-class NVIDIA GPUs under batched serving. This paper evaluates four families — key-value (KV) cache pruning, speculative decoding, ported GPU kernels and post-training quantization — across four Apple machines under a single-request decode workload, with matched RTX 4090 comparisons where possible."
+    - "The results are a corrective: KV-cache pruning reaches up to 1.75x end-to-end throughput on Apple but can reduce throughput on desktop NVIDIA GPUs; every evaluated speculative decoding method reduces throughput on Apple despite reported 2–6x gains on server GPUs; CUDA kernel designs transfer only partially because public Metal lacks asynchronous copy and batch-one decode makes serving-oriented mechanisms inapplicable, though transferable components yield up to 1.20x. Quantization gains vary by machine."
+  why: "A published speedup is not a portable property of an algorithm. If you run models locally on a Mac, this is the paper that tells you which of the standard tricks to skip."
+  highlights: [speculative decoding hurts on Apple, KV pruning 1.75x, Metal lacks async copy]
+
+- title: "Cutting an AI code reviewer's inference bill by 68%"
+  date: "2026-10-22"
+  categories: [ai-infra, llm-agents, ci-cd]
+  tags: [prompt-caching, cost-optimization, agents, evaluation, code-review]
+  source: "Cloudflare"
+  domain: "blog.cloudflare.com"
+  link: "https://blog.cloudflare.com/obsessive-inference-optimization/"
+  tldr:
+    - "Cloudflare's AI code reviewer went from $1.19 per review in April to about $2.46 by August without architectural change, because models got better and engineers started producing larger changes. An optimisation push brought the average to $0.77 — a 68% cut — and the median review from 4m 09s to 1m 32s."
+    - "The single biggest saving came from inspecting what actually reached the provider on each session's first request: the shared 11k–21k-token prefix was only a cache hit 14–26% of the time, because the system prompt builder placed the sole cache breakpoint after a repository-specific environment block. Splitting the block so the shared prefix got its own breakpoint fixed it. About 40% of savings came from code changes; the rest from model and effort-mix experiments."
+  why: "The best kind of engineering write-up: a diagnosis you can copy. Two checks it recommends for anyone running agents at volume — does each session's first request actually read from the cache, and does your reviewer still find real problems at the effort level you pay for."
+  highlights: [prefix cache split, 68% cost reduction, effort-level A/B testing]
+
+- title: "IBM's CEO: open weights are 90% as good at 10% of the token cost"
+  date: "2026-10-22"
+  categories: [open-weights, ai-infra]
+  tags: [on-prem, economics, enterprise, open-weights, ibm]
+  source: "The Register"
+  domain: "theregister.com"
+  link: "https://www.theregister.com/systems/2026/10/22/ibm-ceo-says-open-weight-models-are-now-irresistibly-good-and-cheap-on-prem/5304640"
+  tldr:
+    - "On IBM's third-quarter earnings call, chief executive Arvind Krishna traced the closing gap between closed and open models: in 2024 a broad benchmark might have scored the top closed model at 70 and an open model at 20 or 30; by late 2025 it was 70 to 50. Open-weight models now deliver, in his words, anywhere from 25% to 10% of the token cost of frontier models while being about 90% as effective."
+    - "He framed the enterprise decision plainly — pay ten times more for the last 10%, or not — and said most tasks (summarising an email, examining a contract, answering a customer call) do not need the premium. He also named the real obstacle to on-premise deployment: not hardware, but finding the kernel, networking and caching engineers to make a cluster perform."
+  why: "A vendor chief executive putting numbers on the open-versus-closed trade-off in public, on an earnings call where the numbers carry legal weight. The closing observation — that the scarce resource is systems talent, not silicon — is the part worth remembering."
+  highlights: [90% capability at 10-25% cost, on-prem in two or three racks, systems-talent gap]
+
+- title: "Chunk recomputation under real document revisions: what re-embedding actually costs"
+  date: "2026-10-22"
+  categories: [structured-rag, retrieval]
+  tags: [chunking, embeddings, incremental-indexing, cost, wikipedia]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.31019"
+  tldr:
+    - "Chunking strategies for retrieval-augmented generation (RAG) are almost always evaluated on a static snapshot, yet the underlying documents keep changing. Because chunks are embedded independently, a boundary that shifts after an edit forces unchanged text to be re-embedded. This paper measures that update cost on 120 pairs of adjacent Chinese and English Wikipedia revisions for three stateless chunkers under a strict byte-identical reuse rule with a frozen dense encoder."
+    - "On the 116-article common-success pool, fixed-size chunking recomputes 57–68% of its full new-version embedding workload, recursive chunking 38–56%, and content-defined chunking 43–54% (it failed on 4 of 62 Chinese articles). At those parameters, mean evidence recall under a fixed 2048-token retrieval budget differs by less than two percentage points within either language."
+  why: "The maintenance cost of a RAG index is a design decision, not an afterthought. Content-defined chunking is the usual recommendation, and this paper shows the picture is more conditional than that — and that the recall difference may not justify the complexity."
+  highlights: [re-embedding cost 38-68%, content-defined chunking, sub-2-point recall spread]
+
+- title: "DeclineCraft: iterative RAG makes models worse at saying 'I don't know'"
+  date: "2026-10-20"
+  categories: [structured-rag, benchmarks]
+  tags: [abstention, rag, evaluation, hallucination, retrieval]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.28340"
+  tldr:
+    - "Reliable retrieval-augmented generation (RAG) requires recognising when neither retrieved documents nor parametric knowledge supports an answer. DeclineCraft is a dynamic abstention benchmark whose unanswerable questions target Minecraft feature additions after a corpus cut-off, with audits of possible parametric exposure and later cut-offs for future models."
+    - "Across 27 LLMs, single-shot retrieval significantly raised the correct abstention rate in 38 of 40 configurations versus no retrieval. But iterative RAG — where the model self-assesses its context and can request up to two more retrieval rounds — significantly lowered it in 30 of 40 configurations (mean 46.4%), with little change in answer accuracy (68.5% to 69.3%). Adding query rewriting and reranking to hybrid retrieval lowered abstention for all 12 models tested."
+  why: "A counterintuitive, well-measured result that cuts against the usual advice: more retrieval machinery can make a system more confidently wrong. Worth checking against your own pipeline before adding another retrieval round."
+  highlights: [correct abstention rate, iterative RAG hurts abstention, reranking cost]
+
+- title: "HAWK: transferring the KV cache between GPUs and NPUs"
+  date: "2026-10-21"
+  categories: [distributed-systems, ai-infra]
+  tags: [kv-cache, prefill-decode-disaggregation, rdma, npu, heterogeneous]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2610.29873"
+  tldr:
+    - "Prefill is compute-intensive and decode is memory-bound, so accelerators are unevenly suited to the two phases: graphics processing units (GPUs) handle prefill well but sit underused during decode, while neural processing units (NPUs) use their compute more effectively for decode. HAWK explores a heterogeneous architecture that maps prefill to GPUs and decode to NPUs."
+    - "The obstacle is that phase disaggregation requires moving the key-value (KV) cache from prefill to decode across devices with different communication mechanisms and tensor layouts. HAWK establishes a remote direct memory access (RDMA) path for direct cross-device transfer and handles the layout discrepancies as part of the transfer."
+  why: "A concrete answer to a question that follows from earlier KV-cache work: once the cache is the thing you move, which hardware should each phase run on? Heterogeneous prefill/decode is a plausible shape for the next generation of serving clusters."
+  highlights: [GPU prefill / NPU decode, RDMA KV transfer, tensor layout translation]
+  mermaid: "flowchart LR\n  R[Request] --> P[Prefill on GPU]\n  P --> KV[KV cache]\n  KV -->|RDMA + layout\\nconversion| D[Decode on NPU]\n  D --> O[Tokens]"
+
+- title: "Twelve years of distributed SQLite: a retrospective from the person who started it"
+  date: "2026-10-23"
+  categories: [distributed-systems]
+  tags: [sqlite, raft, consensus, replication, rqlite, history]
+  source: "Philip O'Toole"
+  domain: "philipotoole.com"
+  link: "https://philipotoole.com/twelve-years-of-distributed-sqlite/"
+  tldr:
+    - "In September 2014 Philip O'Toole published rqlite: take SQLite, put a Raft log in front of it, and replicate every write across a cluster so losing a node does not mean losing the data. It appears to have been the first open-source system to combine Raft and SQLite; for several years nobody else tried. Today distributed SQLite is a category with a dozen projects, a few venture-funded and two acquired."
+    - "The retrospective covers the design decision that never changed — rqlite is a consistent-partition (CP) system, so writes must go through the leader, a majority must acknowledge, and a partitioned minority refuses writes — along with the engineering lessons of maintaining a consensus-backed database for over a decade."
+  why: "Worth reading as a systems-design document rather than a history: a simple, unglamorous constraint (small relational storage that survives node loss) produced an architecture that outlasted most of the hype around it."
+  highlights: [Raft plus SQLite, CP by design, twelve years of maintenance]
