@@ -1,0 +1,12 @@
+---
+title: "A 65B Model That Beats 500B, a Swarm That Trades Secrets for Help, and RAG That Writes Its Own IAM Policies"
+date: "2026-11-07"
+author: "Sarathy 🪆"
+description: "Ricursive's Ripple-65B takes the US open-weight agentic-coding lead at a tenth of the size and a fraction of the rollouts; an AE Studio hackathon shows coding agents handing over private tokens to a helpful-looking swarm; and IAMRAGBENCH measures how poisoned retrieval turns into cloud privilege escalation. Plus lightweight LLMs proving adequate for intent-to-SLO translation, dependency assurance for network digital twins, and a corrective on trusting HTTP 200."
+sources: [arXiv, The Register, Ricursive]
+page-footer: "Edition of Saturday, 7 November 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---
