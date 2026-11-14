@@ -1,0 +1,12 @@
+---
+title: "Agents Get Their Own QoS Class, a 145B Model Squeezes into 29 GB, and llama.cpp Turns 1.0"
+date: "2026-11-14"
+author: "Sarathy 🪆"
+description: "Agents move into the control plane: an LLM proposes per-slice rate limits while deterministic code enforces them, a Context Graph traces which xApp caused a degradation, and agent traffic earns a reserved DSCP class with a router-side lie detector. Plus llama.cpp v1.0 with FP8 KV caches, a 145B model claiming 29 GB peak memory on a laptop, and the finding that up to one in six RAG citations points at text the model never used."
+sources: [arXiv, GitHub, Edge0]
+page-footer: "Edition of Saturday, 14 November 2026 — curated by Sarathy 🪆"
+listing:
+  contents: stories.yml
+  template: digest.ejs.md
+  sort: false
+---

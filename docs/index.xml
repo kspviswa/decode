@@ -10,7 +10,368 @@
 <atom:link href="https://decode.viswakumar.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Decoding signal from noise. A personalized daily digest of telecom, AI, and systems research.</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Sat, 07 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Agents Get Their Own QoS Class, a 145B Model Squeezes into 29 GB, and llama.cpp Turns 1.0</title>
+  <dc:creator>Sarathy 🪆</dc:creator>
+  <link>https://decode.viswakumar.com/posts/2026-11-14/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+
+<section class="sec-card">
+  <div class="card sec-networks">
+    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2611.16801" target="_blank" rel="noopener">An LLM picks the per-slice rate limits, deterministic code does the enforcing</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">finite candidate set</span><span class="badge text-bg-light">deterministic PFCP validation</span><span class="badge text-bg-light">no oscillation</span><span class="badge text-bg-light">per-class QoS unmeasured</span>
+        </div>
+        
+        <div class="story-body">
+          <p>The 3rd Generation Partnership Project (3GPP) Technical Specification 23.501 requires the User Plane Function (UPF) to enforce maximum bit rate (MBR) limits per slice, and overload handling means changing those limits without erasing the differentiation between slices or making the rates oscillate. This paper builds an agentic control loop on top of programmable enforcement: UPF telemetry feeds a locally hosted large language model (LLM), which selects one rate candidate from a finite set of admissible values.</p><p>Deterministic logic validates every selection and derives Packet Forwarding Control Protocol (PFCP) updates, so the model never writes configuration directly. In the evaluated runs the loop produced no oscillations and no fallbacks, and the highest-priority slice's rate limits stayed unchanged throughout. The authors are explicit about the limit of the evidence: the runs establish configuration preservation, not measured per-class quality-of-service protection under overload.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A template for putting a model inside a control loop without handing it the pen: enumerate the action space, let the model only choose, and let closed-form code validate and apply. Copy the shape, not just the result.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2611.16879" target="_blank" rel="noopener">Context Graph: tracing which agent caused an AI-RAN decision, and what triggered it</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">Decision-Event causal junction</span><span class="badge text-bg-light">counterfactual edge upgrade</span><span class="badge text-bg-light">E2/A1/O1 instantiation</span>
+        </div>
+        
+        <div class="story-body">
+          <p>AI-RAN distributes radio control across many autonomous xApps and rApps sharing the same radio resources, so when an alert or degradation appears there is no structured way to say which decision caused it, what context triggered that decision, and how the other agents reacted. Single-model feature attribution and linear event logging both fail at that, because the unit of explanation is a chain of decisions across agents rather than a feature of one model.</p><p>The Context Graph is a heterogeneous directed graph that puts policies, measurements, decisions and alerts into one queryable explanation layer. Its primitive is a Decision-Event node acting as a causal junction: incoming edges hold the triggering context, outgoing edges hold downstream consequences, and those edges are progressively upgraded through counterfactual verification. Instantiated over existing E2, A1 and O1 data flows, the proof of concept answers compliance and diagnosis queries at sub-millisecond latency over graphs of tens of thousands of nodes and separates true causal impact from spurious correlation.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> Explainability for a multi-agent control plane has to be a data structure, not a prompt. The Decision-Event node is the reusable idea for any system where several agents write to shared state.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2611.14211" target="_blank" rel="noopener">Agent traffic gets its own DSCP class, and routers demote the flows that lie</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">reserved DSCP</span><span class="badge text-bg-light">demotion below best-effort</span><span class="badge text-bg-light">98% burst delay cut</span><span class="badge text-bg-light">6 of 26 spoofers missed</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Software agents built on large language models (LLMs) generate traffic unlike human web traffic, yet routers have no class for it and cannot verify a sender's claim to be an agent. The Verifiable Agentic Traffic Class (VATC) combines three mechanisms: a reserved Differentiated Services Code Point (DSCP) value that declares agent traffic, a router-side classifier that demotes flows contradicting the declaration below best-effort, and a rate-limited priority queue.</p><p>Against static Differentiated Services (DiffServ), a constructed burst cut mean agent queuing delay by 98% in simulation at a 12% increase in human delay, with most of the gain coming from the separate class rather than from verification; under a spoofed flood on a real Linux kernel the rate limit held human latency 11 times below DiffServ's. The caveats are the honest part: without verification, DiffServ and a tightly configured fq_codel both give legitimate agents lower latency than VATC; a live four-feature classifier demoted all 20 bulk-shaped spoofers but missed six that copied the agent pattern; and an emulated network delay broke the timing feature that separated agent from human flows.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> Agent traffic is becoming a first-class workload in the packet core, and this is a measurement of what giving it a class actually buys, including the conditions where the classifier stops working.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-info" href="https://arxiv.org/abs/2611.13516" target="_blank" rel="noopener">When two Open RAN apps fight over transmit power, the right answer is sometimes to wait</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">tolerate / defer / mitigate</span><span class="badge text-bg-light">30% fewer interventions</span><span class="badge text-bg-light">RSRP safety guarantee</span>
+        </div>
+        
+        <div class="story-body">
+          <p>In Open Radio Access Network (Open RAN), independent radio control applications (xApps) request changes to the same radio parameter, and current conflict management resolves the clash as soon as key performance indicators (KPIs) degrade, without asking how long the degradation lasts or whether the network would recover on its own. The paper adds a confidence-aware triage layer that calibrates prediction intervals from past errors and then tolerates, defers or mitigates each conflict based on predicted KPI confidence and the persistence of the conflict.</p><p>It is evaluated on the common clash between coverage and capacity optimisation (CCO) and energy saving (ES) xApps, which issue opposing transmit-power requests that affect reference signal received power (RSRP). In a closed-loop ns3-oran simulation with 5G-LENA, the layer reduces unnecessary interventions by 30%, improves radio unit energy efficiency by 2.6% over the no-mitigation baseline while holding it against fixed priority, and maintains a statistical safety guarantee on RSRP.</p>
+          
+        </div>
+        <div class="alert alert-info story-why">
+          <span class="why-label">Why read it</span> A useful counterweight to the reflex that every detected conflict needs an action. Calibrated confidence plus persistence is a cheap, general filter for automation that intervenes too eagerly.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-security">
+    <div class="card-header text-bg-danger">Security</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2611.17115" target="_blank" rel="noopener">Small models cannot write their own prompt-injection defences, so stop asking them</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">15 models tested</span><span class="badge text-bg-light">13 under 12B</span><span class="badge text-bg-light">13</span><span class="badge text-bg-light">935 attacked episodes</span><span class="badge text-bg-light">18% of CaMeL's tokens</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Enforcement defences against prompt injection — CaMeL, Progent, IPIGuard and DRIFT — ask the agent's own model to write a security artifact (a program, a privilege policy, a dependency graph or a constraint list) that ordinary code then enforces. This paper asks whether small language model (SLM) agents can be trusted to write those artifacts. Across 15 open-weight models, 13 of them between 1.7 and 12 billion parameters, they cannot: the self-written policies, graphs and constraints admit attacks on 14 (Progent), 13 (IPIGuard) and 11 (DRIFT) of the models, and CaMeL's programs fail to run in up to 68% of episodes.</p><p>CapLite instead derives its policy from the tool schemas the developer already wrote, commits write calls before any tool result is read, and admits a write only if every argument that decides whom or what it affects is stated in the user's request. That yields write integrity: injected text cannot add a write, and no write reaches a recipient, amount, object or destination the user did not state. No attack succeeded across 13,935 attacked AgentDojo episodes, with utility under attack comparable to CaMeL (29.0% against 27.2%) at 17.1k tokens per episode, 18% of CaMeL's.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> The cleanest available argument that agent security must not be delegated to the agent's own reasoning, plus a defence that costs fewer tokens than running the agent undefended.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-danger" href="https://arxiv.org/abs/2611.17280" target="_blank" rel="noopener">Your assistant can hide what it inferred about you inside the text it writes for you</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">invisible characters</span><span class="badge text-bg-light">word-choice encoding</span><span class="badge text-bg-light">no direct adversary channel needed</span>
+        </div>
+        
+        <div class="story-body">
+          <p>A model serving a user sees enough conversational cues to infer sensitive attributes about that user. Synthesis Smuggling is a threat model in which an adversarial model encodes those inferences steganographically into innocuous-looking content it generates — an email, a social-media post, a message — which the user then shares through ordinary channels, where an adversary monitoring those channels can recover the payload.</p><p>The authors demonstrate the threat by training two open-weight models to infer gender and age-group labels from conversational cues and to encode the predictions using invisible characters or word choices. The operationally important point is that the covert channel exists even when the model has no direct means of contacting the adversary, so output filtering that only inspects content semantics will not detect it.</p>
+          
+        </div>
+        <div class="alert alert-danger story-why">
+          <span class="why-label">Why read it</span> Widens the threat model for any workflow where model output leaves the boundary as a document. Invisible-character and word-choice channels are cheap to detect at egress, and this paper is the argument for doing it.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-ai">
+    <div class="card-header text-bg-success">AI &amp; Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">GitHub</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0" target="_blank" rel="noopener">llama.cpp reaches 1.0, with FP8 KV caches and a host-memory expert cache</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">v1.0.0</span><span class="badge text-bg-light">FP8 KV cache</span><span class="badge text-bg-light">host-memory MoE cache</span><span class="badge text-bg-light">NextN API in llama.h</span>
+        </div>
+        
+        <div class="story-body">
+          <p>After years of build-number tags, llama.cpp shipped v1.0.0 on 13 November 2026, and the release notes read as consolidation rather than celebration: the deprecated public API is gone (35 functions plus the warmup and defrag-threshold knobs), the NextN speculative-decoding API is promoted from llama-ext.h into llama.h, and ggml is bumped to 1.0.0.</p><p>The substantive additions are on the inference side. Key-value (KV) caches can now be stored as OCP FP8 (f8_e4m3) with optional static per-tensor scales; mixture-of-experts (MoE) models get a host-memory expert cache with a configurable CPU share, exposed as moe_cache_size and moe_cache_cpu_share; and external PLE shards load directly. Three text architectures land (Kimi-K3.1-Pro, Ripple-65B-Preview and xing4_0), plus drama-3 text-to-speech and two vision models, while llama-server gains SSRF, CORS and DNS-rebinding hardening, MCP tool cancellation, and an OpenAI-compatible /v1/audio/speech endpoint.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> The reference implementation for local inference is now versioned as stable, which changes what it is safe to build on. FP8 KV caches and a first-class expert offload path are the two features worth measuring on your own hardware.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">Edge0</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer" target="_blank" rel="noopener">A 145B open model claims to run on a laptop at 29 GB peak memory</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">145B parameters</span><span class="badge text-bg-light">29 GB peak memory</span><span class="badge text-bg-light">above 80 tok/s decode</span><span class="badge text-bg-light">vendor benchmarks</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Edge0 released Edge0-145B and Edge0-120B as open-weight on-device models, with the inference framework and deployment tooling alongside them. The claim is a 145-billion-parameter model running on a compatible laptop at a reported 29 GB peak memory and above 80 tokens per second of decoding, with coding, reasoning and instruction-following results the authors position against specific frontier cloud models.</p><p>The intended use is agentic: the model plans, writes and runs code, debugs errors and checks results visually for projects such as 3D scenes, games, hardware programs and printed-circuit-board designs. The company's own framing is explicit that hardware and electricity still cost money, so the saving is in recurring token fees, data handling and connectivity rather than in capital cost. The benchmark comparisons are vendor claims until reproduced; the memory figure is the one to verify first, because it decides whether the model fits at all.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> If the memory number holds, the boundary between 'local model for light tasks' and 'local model for real work' moves again. Worth an afternoon on your own hardware before believing the comparison charts.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2611.17294" target="_blank" rel="noopener">Metal Sandbox: scheduling GPU work for coding agents across a rack of Mac minis</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">four Mac mini M4 nodes</span><span class="badge text-bg-light">1.68-2.05x throughput</span><span class="badge text-bg-light">22.3% less batch time</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Training and evaluating models that generate Apple Metal kernels needs native macOS tooling and many concurrent agent sessions, and those sessions alternate between model requests, development commands and graphics processing unit (GPU) execution, leaving the GPU idle for most of a rollout. Metal Sandbox combines restricted per-instance file access, native command execution and command-level scheduling across interconnected Macs, with each agent keeping its own workspace and private development environment.</p><p>Parallel commands run concurrently, serial commands share one execution slot per node, and eligible waiting commands can migrate to an available Mac and return results to the original agent. On four Mac mini M4 nodes, command throughput improved 1.68x to 2.05x under concentrated demand; replaying sixteen static agent traces under dynamic scheduling cut mean tool waiting by 18.8% and batch elapsed time by 22.3%, assuming unchanged phase durations. The infrastructure and its integration with the Harbor task runner are open source.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A concrete answer to a problem that appears as soon as agents drive hardware: the scheduler, not the model, becomes the bottleneck. The design generalises to any pool of accelerators shared by interactive agents.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2611.17097" target="_blank" rel="noopener">Broadcast the weights instead of replicating them: optical memory for datacenter inference</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">80</span><span class="badge text-bg-light">000 accelerators</span><span class="badge text-bg-light">petabytes of HBM removed</span><span class="badge text-bg-light">tap-and-amplify optics</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Model weights are read-only and identical across every serving replica, yet conventional datacenter inference replicates them into the local DRAM of tens of thousands of accelerators, paying for capacity, static power and redundant memory-fetch energy. An earlier proposal used optical fibre loops as delay-line memory, but the loop must hold the whole model, its slack is fixed when the ring is built, and the layouts that serve modern mixture-of-experts (MoE) models efficiently do not fit.</p><p>Optical Broadcast Memory (OBM) replaces the ring with an open-ended hierarchical tap-and-amplify fibre architecture: a central memory server continuously broadcasts weights, and inference nodes passively tap the stream through receive-only co-packaged optics, delivering parameters to compute units with no intermediate buffering. Dynamically sized slack accommodates long and variable context lengths, and dropping the ring's restrictions makes MoE serving tractable. Evaluated at a scale of 80,000 accelerators, OBM removes petabytes of high-bandwidth memory (HBM) while matching or beating an HBM-based system on throughput and energy per token.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A reminder that the memory wall is an architecture choice rather than a law. Even if optical broadcast stays speculative, the per-accelerator accounting of what replication costs is worth keeping.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2611.16180" target="_blank" rel="noopener">Only 5-11% of a serverless LLM cold start is loading weights</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">5-11% is weight loading</span><span class="badge text-bg-light">4.1-5.2x faster cold start</span><span class="badge text-bg-light">64% lower median TTFT</span>
+        </div>
+        
+        <div class="story-body">
+          <p>When a serverless large language model (LLM) platform launches a model worker on demand, the cold start lasts roughly a minute, but only 5 to 11% of that is weight loading. The remainder is compilation, memory profiling and runtime setup, repeated by every server even though the outcome is identical across servers or independent of the model.</p><p>Cairn has the first server to start a model publish the weights and engine artifacts into a Compute Express Link (CXL) memory pool shared across the cluster, which the other servers read in place; model-independent setup completes ahead of time inside warm containers, and a template process replaces each container as soon as it is used. With ServerlessLLM on vLLM v0.20, six models from 1 to 14 billion parameters, and two servers sharing an emulated CXL pool, cold starts improved 4.1x to 5.2x on servers without a checkpoint of their own, and median time to first token on a request stream fell 64%.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> A clean decomposition of a cost that is usually quoted as a single number. If you run models serverlessly, the 89-95% that is not weight loading is the part to attack.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2611.17161" target="_blank" rel="noopener">Cited but unused: RAG answers from memory, then cite a passage that happens to agree</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">1.2-15.7% from parametric memory</span><span class="badge text-bg-light">NLI at chance</span><span class="badge text-bg-light">counterfactual substitution</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Retrieval-augmented generation (RAG) attaches citations so that claims can be traced to sources, and those citations frequently misstate provenance in a way standard verification cannot detect. The authors measure provenance by counterfactual value substitution: replace a fact in the retrieved passages with a false variant and re-query the model.</p><p>Across five sizes of one model family plus a second family, 1.2% to 15.7% of citable claims derived from parametric memory rather than the retrieved context, and the rate rises with model size within a family. Natural language inference (NLI) verification, the standard check, gave results indistinguishable from chance even when restricted to the cited passage, because the cause is structural: a model answering from memory selects a citation that agrees with its output. Comparing ten attribution methods, the contrast between the model's output distribution with and without context separated provenance best, but acting on that signal did not improve provenance honesty at these base rates.</p>
+          
+        </div>
+        <div class="alert alert-success story-why">
+          <span class="why-label">Why read it</span> If your pipeline audits RAG answers by checking that the cited passage supports the claim, this says that check is close to useless. The counterfactual substitution test is the measurement to adopt.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-card">
+  <div class="card sec-research">
+    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
+    <div class="card-body">
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2611.14920" target="_blank" rel="noopener">Janus: one agent builds the digital twin and then runs the network on it</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">one agent two roles</span><span class="badge text-bg-light">200-node networks</span><span class="badge text-bg-light">above 90% twin accuracy</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Digital twins for wireless networks are usually static models built separately from the orchestration logic that consumes them, so the twin drifts from the network it describes. Large language models (LLMs) bring reasoning but handle graph-structured data poorly and are sensitive to prompt design, which makes their inference unreliable for control.</p><p>Janus unifies twin construction and orchestration in one closed loop around a NetTwin agent with one agent and two roles: it constructs the twin from partial observations while making task-driven decisions. Three functional roles — planner, modeler and coder — plus a unified prompt module carry the graph reasoning. On wireless networks of up to 200 nodes, for user association and space-air-ground integrated network (SAGIN) routing, it reaches over 90% twin accuracy with gaps within 10.53% of optimal at moderate computational overhead.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> The interesting claim is not the accuracy but the coupling: when the same agent builds the twin it acts on, the feedback loop has a single failure domain. Read it against work that deliberately separates the two.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2611.14961" target="_blank" rel="noopener">CommJEPA: predictive world models, argued from the wireless side</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">latent-space prediction</span><span class="badge text-bg-light">partial observability</span><span class="badge text-bg-light">action-dependent dynamics</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Most wireless artificial intelligence (AI) is task-specific and reactive: models map current observations to predefined outputs, or reconstruct what was observed. Joint-Embedding Predictive Architecture (JEPA) instead learns predictive representations in latent space, which is closer to what a network needs — structure that is predictable, reusable and transferable across changing conditions.</p><p>CommJEPA argues the relationship runs both ways. JEPA gives wireless systems latent representations of channel and environmental dynamics, a way to integrate heterogeneous observations, and a basis for decisions under change; wireless systems in turn impose physical structure, partial observability, multiple time scales, action-dependent evolution and tight resource limits, which should reshape JEPA designs. The paper organises that design space and surveys representative instantiations for prediction and control.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A rare attempt to specify what a world model has to be in order to be useful for a network, instead of importing a result from robotics. Read it as a design checklist rather than as results.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2611.17167" target="_blank" rel="noopener">A model that acts badly can still teach well</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">actor vs judge vs teacher</span><span class="badge text-bg-light">JEV teacher</span><span class="badge text-bg-light">+10.1 and +14.6 points</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Decision models answer a question with a typed output — a choice among options with a probability for each — so a single model can select an agent's actions, evaluate actions already taken, or score every action in order to teach a policy by reinforcement learning. Prior work studies them mainly as actors, judging them by how well they act.</p><p>Comparing three decision models and three general large language models (LLMs) as actors and judges on ALFWorld, all six are pulled away from a prerequisite subgoal by an easier one. The same models, judging complete trajectories, credit the steps towards that subgoal, and asking whether each action helped — rather than whether the task will succeed — separates useful from useless actions. As a teacher, JEV raised a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> A practical lesson for anyone building agent harnesses: judge after the episode, and ask about the step rather than the outcome. The judging and teaching roles are cheaper than acting and tolerate weaker models.
+        </div>
+      </article>
+      
+      <article class="story">
+        <div class="story-head">
+          <span class="badge text-bg-primary">arXiv</span>
+          <h3 class="story-headline anchored"><a class="link-secondary" href="https://arxiv.org/abs/2611.17068" target="_blank" rel="noopener">Evolving agent memory programs instead of hand-designing them</a></h3>
+        </div>
+        
+        <div class="story-highlights">
+          <span class="badge text-bg-light">up to 12% absolute gain</span><span class="badge text-bg-light">35% of serving cost</span><span class="badge text-bg-light">composition module transfers 5/5</span>
+        </div>
+        
+        <div class="story-body">
+          <p>Agent memory systems are usually assembled by hand from a menu of choices — what to store, what to extract, what to retrieve, how to compose it — with little evidence for which choices matter. MAPE evolves whole memory programs from minimal seeds through a standardised lifecycle interface and an iterative diagnosis-proposal loop.</p><p>On LoCoMo and LongMemEval it gains up to 12% absolute accuracy over manually designed baselines at 35% of the serving cost, and transfers across serving backbones and benchmarks. Two recurring patterns emerged and were validated: keep raw conversations as retrievable evidence, because extracted memories drop details; and compose retrieved evidence according to query intent so the answering model can use it. Transplanting the composition module into five existing memory systems improved accuracy in all five. The search objective also relocates computation: optimising cost alongside accuracy shifts work from language-model-based memory construction to selective processing at query time.</p>
+          
+        </div>
+        <div class="alert alert-secondary story-why">
+          <span class="why-label">Why read it</span> Two transferable design rules with ablations behind them, plus a method for finding more. The raw-conversation result argues specifically against aggressive extraction.
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <guid>https://decode.viswakumar.com/posts/2026-11-14/</guid>
+  <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>A 65B Model That Beats 500B, a Swarm That Trades Secrets for Help, and RAG That Writes Its Own IAM Policies</title>
   <dc:creator>Sarathy 🪆</dc:creator>
@@ -4986,214 +5347,6 @@
 </div> ]]></description>
   <guid>https://decode.viswakumar.com/posts/2026-08-23/</guid>
   <pubDate>Sun, 23 Aug 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Self-Improvement Gets a Measured Null, and Network Agents Get a Benchmark</title>
-  <dc:creator>Sarathy 🪆</dc:creator>
-  <link>https://decode.viswakumar.com/posts/2026-08-22/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="listen-while-you-go" class="level2">
-<h2 class="anchored" data-anchor-id="listen-while-you-go">🎙️ Listen while you go</h2>
-<p>Prefer to listen on the go? Here’s the audio edition — Neerja and Prabhat walk through today’s ten stories.</p>
-<div class="podcast-player">
-  <audio controls="" preload="metadata" style="width:100%;">
-    <source src="podcast.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <p class="text-muted small mt-1"><em>Decode Daily audio edition · 2026-08-22 · ~8.6 min</em></p>
-</div>
-
-
-
-</section>
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-
-<section class="sec-card">
-  <div class="card sec-networks">
-    <div class="card-header text-bg-info">Networks · 5G &amp; 6G</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">IETF</span>
-          <h3 class="story-headline anchored"><a class="link-info" href="https://datatracker.ietf.org/doc/draft-cui-nmrg-llm-benchmark/" target="_blank" rel="noopener">NetConfBench: an IETF framework to evaluate LLM agents for network configuration</a></h3>
-        </div>
-        <div class="story-body">
-          <p>An Internet-Draft from the IETF Network Management Research Group specifies NetConfBench, a framework for evaluating intent-driven network configuration by LLM-based agents. It combines an emulator-based interactive environment, a suite of representative tasks, and two-layer metrics: outcome metrics that verify functional correctness in a method-agnostic way, plus agentic process metrics assessing reasoning quality and command generation, with optional efficiency metrics for time and token cost.</p><p>Because ground-truth configurations may admit more than one validated solution, functional test cases are the primary metric, with command and reasoning scores as diagnostic estimates. The goal is reproducible, fair comparison across both agentic and non-agentic approaches while highlighting what is specific to autonomous agents — a useful step toward benchmarking LLM agents doing real network configuration work.</p>
-          
-        </div>
-        <div class="alert alert-info story-why">
-          <span class="why-label">Why read it</span> Directly on the LLM-for-network-management intersection: a standards-body attempt to benchmark agents that configure networks. If you build or evaluate agents that touch network devices or intent-driven config, this is the evaluation harness to watch and extend.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-security">
-    <div class="card-header text-bg-danger">Security</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">VMware</span>
-          <h3 class="story-headline anchored"><a class="link-danger" href="https://blogs.vmware.com/telco/5g-attack-surface-in-ai-world/" target="_blank" rel="noopener">The 5G attack surface: why VMware Telco Cloud Platform 9 should be on your upgrade list</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Software-defined 4G/5G architectures have shifted the telecom defensive bottleneck from vulnerability discovery to remediation: modern 5G networks rely on huge open-source codebases and legacy protocols, and 3GPP TS 33.501 defines five security domains with GTP-U on N3 (port 2152) as a prime attack vector. Frontier AI has collapsed the discovery-to-weaponization window from months to hours, and the same scaffolding that finds a flaw in a User Plane Function can write the exploit for it.</p><p>Recent campaigns — the Salt Typhoon congressional investigation and a Poland attack pivoting through a private cellular network — show state-backed and criminal actors exploiting converged architectures, misconfigurations, and trusted interconnections. The post argues this is why VMware Telco Cloud Platform 9 should be on upgrade plans.</p>
-          
-        </div>
-        <div class="alert alert-danger story-why">
-          <span class="why-label">Why read it</span> A concrete read on how frontier agents change the 5G packet-core threat model: the bottleneck is now remediation speed, not discovery. If you work on network core security, this reframes where to invest.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-ai">
-    <div class="card-header text-bg-success">AI &amp; Models</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20290" target="_blank" rel="noopener">Phantom Gains: auditing self-improvement against a measured null</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Whether a model has improved itself is increasingly judged by which individual problems it gains and loses — but differencing two noisy estimates makes those transitions vulnerable to measurement artifacts. Auditing three rounds of rank-32 LoRA self-training on Qwen3-8B against a frozen control pushed through the identical pipeline, this paper identifies seven measurement failures, each of which inverts a reported finding when its control is absent. Several are standard practice.</p><p>A single greedy decode manufactures apparent capability changes on an untrained model, the popular acquisition-versus-sharpening expansion statistic assigns that same model a rate of 0.280, and the natural threshold repair does not survive replication. Replaced with a per-problem exact test under false-discovery-rate control, the audit finds external distillation reliably improves problems the base model rarely reaches while three forms of self-training do not — and self-training corrupts problems solved at baseline well above the measured floor. Every number is recomputed from released per-problem records.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A rigorous, reproducible methodology for the hardest question in agentic training: did the model actually improve, or did the measurement pretend it did? If you build or evaluate self-improving agents, the null-controlled transition audit is the reporting standard to adopt.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">arXiv</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://arxiv.org/abs/2608.20314" target="_blank" rel="noopener">MidTool: mid-training data synthesis for agentic tool use</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Tool use is usually left to post-training, but this paper argues general tool use deserves its own mid-training stage. MidTool is an open corpus-construction pipeline that combines web, PDF, and code data with synthesized supervision drawn from real tool APIs, MCP (Model Context Protocol) skills, and document-grounded workflows — teaching models to recognize tool affordances, ground arguments from context, compose call workflows, and recover from incomplete information.</p><p>Mid-training Qwen3-4B-Base and Qwen3-8B-Base on MidTool-Mix, then applying both supervised fine-tuning and reinforcement learning, consistently improves downstream results on BFCL, tau2-Bench, and MCP Universe versus skipping the stage. The takeaway is that agentic capability, like math and science, benefits from targeted mid-training rather than being left entirely to post-training.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete recipe for the capability most agent stacks depend on: reliable tool use. If you train or fine-tune models that call MCP servers or APIs, MidTool-Mix is a directly reusable corpus and the results justify a dedicated mid-training stage.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Nari Labs</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://nari-labs.com/blog/qwen3-tts-speed-cost-frontier/" target="_blank" rel="noopener">Pushing the speed-cost frontier for Qwen3-TTS: sub-50 ms time-to-first-audio</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Nari Labs open-sources a serving implementation for Qwen3-TTS 1.7B CustomVoice that holds sub-50 ms p95 time-to-first-audio at 10 requests per second on a single H100, staying under 100 ms even at 20 RPS while maintaining real-time playback. The keys are scheduling all three modules — Talker, Code Predictor, Codec — on one shared surface, capturing the Code Predictor's fixed 15-step loop as CUDA graphs, and state-caching the codec so it never replays prior frames.</p><p>At full utilization that is roughly $2 per million characters versus $49–100 for commercial APIs. Compared against five implementations under Poisson open-loop traffic, it is the only one to reach sub-50 ms p95 TTFA — a concrete case study in latency-bound edge serving.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete, reproducible win in low-latency audio serving: scheduling and state-caching rather than bigger hardware. If you build real-time TTS or any latency-sensitive edge pipeline, this is a sharp reference.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Doubleword</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://blog.doubleword.ai/" target="_blank" rel="noopener">What happens when a GPU reads memory</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Fergus Finn of Doubleword (formerly TitanML) reverse-engineers the full hardware path of a single LDG.E global load on an RTX 4090 — from the warp scheduler through the operand collector, coalescer, virtually-tagged 4-way L1, physically-tagged L2, per-SM TLB, slice hash, and memory controller down to a DRAM row activation, recovering undocumented details purely from timing experiments.</p><p>The measured payoff: an in-row read costs about 3.4 ns while opening a fresh row costs roughly 15x that. For anyone trying to reason about why LLM inference and GPU kernels behave the way they do, this is a rare, reproducible account of the memory hierarchy.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A concrete, measurement-driven account of GPU memory behavior that defies intuition. If you optimize LLM inference or GPU kernels, understanding the DRAM row activation cost is directly relevant.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">EurekAlert</span>
-          <h3 class="story-headline anchored"><a class="link-success" href="https://www.eurekalert.org/news-releases/1141085" target="_blank" rel="noopener">Every LLM agent framework minimizes manual intervention: LLM-IDA for industrial design automation</a></h3>
-        </div>
-        <div class="story-body">
-          <p>LLM-IDA is a tiered multi-agent framework for industrial design automation, splitting the pipeline into three vertical layers: bottom L0 multimodal black-box models that interpret natural-language requirements and draft conceptual designs; middle L1 grey-box layer embedding CAE knowledge graphs and optimization to translate concepts into constraint-compliant schematics; and top L2 white-box layer connecting directly to CAD/CAE APIs to build parametric prototypes and run finite-element evaluation with automated feedback.</p><p>The specification module formalizes unstructured requests into optimization problem tuples, and a code-generation module runs quantification, surrogate, and prototyping sub-units. It is a structured counter to the reliability gaps of black-box LLMs in iterative engineering design.</p>
-          
-        </div>
-        <div class="alert alert-success story-why">
-          <span class="why-label">Why read it</span> A clean, tiered multi-agent design for a domain where LLM reliability matters: engineering design automation. If you build multi-agent systems for structured technical work, the black-box/grey-box/white-box layering is a useful pattern.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<section class="sec-card">
-  <div class="card sec-research">
-    <div class="card-header text-bg-secondary">Research &amp; World Models</div>
-    <div class="card-body">
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">DuckDB</span>
-          <h3 class="story-headline anchored"><a class="link-secondary" href="https://duckdb.org/2026/08/20/duckdb-20-peg-parser.html" target="_blank" rel="noopener">DuckDB v2.0 replaces its SQL parser with a PEG grammar</a></h3>
-        </div>
-        <div class="story-body">
-          <p>DuckDB v2.0 quietly swaps the PostgreSQL-derived Bison grammar it has carried since its first 2018 commit for a PEG-based parser and rewritten grammar producing the same DuckSQL dialect. The motivation is extensibility: LALR(1) shift/reduce conflicts made every dialect addition harder, while PEG rules expose named extension points where extensions can register new syntax and reuse DuckDB's existing transformer functions instead of re-implementing SQL.</p><p>A Pipe SQL extension demonstrates adding clauses without touching the rest of the language. The move is a pragmatic systems decision — replace a mature parser not for correctness but for the ability to keep evolving the dialect without friction.</p>
-          
-        </div>
-        <div class="alert alert-secondary story-why">
-          <span class="why-label">Why read it</span> A clean, first-principles take on when to rewrite a parser: not because the old one was wrong, but because LALR(1) conflict resolution caps extensibility. If you build or extend query engines, this is a useful lens on grammar design.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">The Consensus</span>
-          <h3 class="story-headline anchored"><a class="link-secondary" href="https://theconsensus.dev/p/2026/08/16/transactions-in-cassandra.html" target="_blank" rel="noopener">The road to ACID transactions in Cassandra 6</a></h3>
-        </div>
-        <div class="story-body">
-          <p>A hands-on tour of a three-node Cassandra 6 pre-release cluster through four transactional regimes: plain writes, atomic batches, Paxos-backed lightweight transactions, and the new Accord-based strictly serializable cross-partition transactions, driven by a concurrent accounting workload. Accord finally gives the eventually-consistent database real ACID semantics.</p><p>But concurrent readers intermittently observed balances that did not sum even though final results stayed correct — a genuine isolation bug in unreleased Cassandra, confirmed by Apple's C. Scott Andreas. It is a useful field report for anyone evaluating Cassandra 6.0 before adopting it.</p>
-          
-        </div>
-        <div class="alert alert-secondary story-why">
-          <span class="why-label">Why read it</span> Early field evidence on whether Cassandra 6's new transaction layer is ready. If you run eventually-consistent distributed databases and care about strict serializability, this documents a real isolation gap to test before upgrading.
-        </div>
-      </article>
-      
-      <article class="story">
-        <div class="story-head">
-          <span class="badge text-bg-primary">Hacker News</span>
-          <h3 class="story-headline anchored"><a class="link-secondary" href="https://danluu.com/perf-opt/" target="_blank" rel="noopener">There's no reason for software to be slow anymore</a></h3>
-        </div>
-        <div class="story-body">
-          <p>Dan Luu argues that the cost of formerly specialized performance work has dropped by orders of magnitude: work that used to require a rare-skilled person or team can now be done by anyone who can type a few sentences. Dynamic custom software fitted to a particular workload rather than a class of workloads becomes a plausible outcome, echoing FFTW and demoscene techniques.</p><p>The piece is a running conversation with Marc Brooker and Michael Malis about how LLMs lower the barrier to writing JIT compilers and other historically hard components, making performance engineering a much wider discipline.</p>
-          
-        </div>
-        <div class="alert alert-secondary story-why">
-          <span class="why-label">Why read it</span> A strong, evidence-led argument that LLMs are collapsing the cost of performance engineering. If you build or evaluate AI-assisted systems, this reframes what is worth optimizing now.
-        </div>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<div class="listing-no-matching d-none">No matching items</div>
-</div> ]]></description>
-  <guid>https://decode.viswakumar.com/posts/2026-08-22/</guid>
-  <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

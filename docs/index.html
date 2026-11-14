@@ -86,7 +86,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-title','listing-date','listing-author','listing-description','listing-sources','listing-page-footer','listing-listing','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-author","listing-description","listing-sources","listing-page-footer","listing-listing","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
@@ -275,6 +276,21 @@ window.Quarto = {
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 
 <div class="home-list">
+  
+  <article class="card day-card">
+    <div class="card-body">
+      <div class="day-meta">
+        <span class="badge text-bg-light">Saturday, November 14, 2026</span>
+        
+          <span class="badge text-bg-secondary">arXiv</span><span class="badge text-bg-secondary">GitHub</span><span class="badge text-bg-secondary">Edge0</span>
+          
+        
+      </div>
+      <h3 class="day-title anchored"><a class="link-primary" href="posts/2026-11-14/index.html">Agents Get Their Own QoS Class, a 145B Model Squeezes into 29 GB, and llama.cpp Turns 1.0</a></h3>
+      <p class="day-desc">Agents move into the control plane: an LLM proposes per-slice rate limits while deterministic code enforces them, a Context Graph traces which xApp caused a degradation, and agent traffic earns a reserved DSCP class with a router-side lie detector. Plus llama.cpp v1.0 with FP8 KV caches, a 145B model claiming 29 GB peak memory on a laptop, and the finding that up to one in six RAG citations points at text the model never used.</p>
+      <a class="day-read" href="posts/2026-11-14/index.html">Read the edition →</a>
+    </div>
+  </article>
   
   <article class="card day-card">
     <div class="card-body">
@@ -653,6 +669,9 @@ window.Quarto = {
   
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

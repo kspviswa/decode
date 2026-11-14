@@ -1,0 +1,207 @@
+- title: "An LLM picks the per-slice rate limits, deterministic code does the enforcing"
+  date: "2026-11-12"
+  categories: [network-intelligence, 5g-core, llm-agents]
+  tags: [network-slicing, upf, pfcp, mbr, agentic-control-loop, local-llm]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.16801"
+  tldr:
+    - "The 3rd Generation Partnership Project (3GPP) Technical Specification 23.501 requires the User Plane Function (UPF) to enforce maximum bit rate (MBR) limits per slice, and overload handling means changing those limits without erasing the differentiation between slices or making the rates oscillate. This paper builds an agentic control loop on top of programmable enforcement: UPF telemetry feeds a locally hosted large language model (LLM), which selects one rate candidate from a finite set of admissible values."
+    - "Deterministic logic validates every selection and derives Packet Forwarding Control Protocol (PFCP) updates, so the model never writes configuration directly. In the evaluated runs the loop produced no oscillations and no fallbacks, and the highest-priority slice's rate limits stayed unchanged throughout. The authors are explicit about the limit of the evidence: the runs establish configuration preservation, not measured per-class quality-of-service protection under overload."
+  why: "A template for putting a model inside a control loop without handing it the pen: enumerate the action space, let the model only choose, and let closed-form code validate and apply. Copy the shape, not just the result."
+  highlights: [finite candidate set, deterministic PFCP validation, no oscillation, per-class QoS unmeasured]
+
+- title: "Context Graph: tracing which agent caused an AI-RAN decision, and what triggered it"
+  date: "2026-11-12"
+  categories: [ai-ran, network-intelligence, llm-agents]
+  tags: [open-ran, xapp, rapp, explainability, causal-attribution, e2-a1-o1]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.16879"
+  tldr:
+    - "AI-RAN distributes radio control across many autonomous xApps and rApps sharing the same radio resources, so when an alert or degradation appears there is no structured way to say which decision caused it, what context triggered that decision, and how the other agents reacted. Single-model feature attribution and linear event logging both fail at that, because the unit of explanation is a chain of decisions across agents rather than a feature of one model."
+    - "The Context Graph is a heterogeneous directed graph that puts policies, measurements, decisions and alerts into one queryable explanation layer. Its primitive is a Decision-Event node acting as a causal junction: incoming edges hold the triggering context, outgoing edges hold downstream consequences, and those edges are progressively upgraded through counterfactual verification. Instantiated over existing E2, A1 and O1 data flows, the proof of concept answers compliance and diagnosis queries at sub-millisecond latency over graphs of tens of thousands of nodes and separates true causal impact from spurious correlation."
+  why: "Explainability for a multi-agent control plane has to be a data structure, not a prompt. The Decision-Event node is the reusable idea for any system where several agents write to shared state."
+  highlights: [Decision-Event causal junction, counterfactual edge upgrade, E2/A1/O1 instantiation]
+
+- title: "Agent traffic gets its own DSCP class, and routers demote the flows that lie"
+  date: "2026-11-10"
+  categories: [network-intelligence, 5g-core]
+  tags: [qos, diffserv, dscp, agentic-traffic, scheduling, packet-core]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.14211"
+  tldr:
+    - "Software agents built on large language models (LLMs) generate traffic unlike human web traffic, yet routers have no class for it and cannot verify a sender's claim to be an agent. The Verifiable Agentic Traffic Class (VATC) combines three mechanisms: a reserved Differentiated Services Code Point (DSCP) value that declares agent traffic, a router-side classifier that demotes flows contradicting the declaration below best-effort, and a rate-limited priority queue."
+    - "Against static Differentiated Services (DiffServ), a constructed burst cut mean agent queuing delay by 98% in simulation at a 12% increase in human delay, with most of the gain coming from the separate class rather than from verification; under a spoofed flood on a real Linux kernel the rate limit held human latency 11 times below DiffServ's. The caveats are the honest part: without verification, DiffServ and a tightly configured fq_codel both give legitimate agents lower latency than VATC; a live four-feature classifier demoted all 20 bulk-shaped spoofers but missed six that copied the agent pattern; and an emulated network delay broke the timing feature that separated agent from human flows."
+  why: "Agent traffic is becoming a first-class workload in the packet core, and this is a measurement of what giving it a class actually buys, including the conditions where the classifier stops working."
+  highlights: [reserved DSCP, demotion below best-effort, 98% burst delay cut, 6 of 26 spoofers missed]
+
+- title: "When two Open RAN apps fight over transmit power, the right answer is sometimes to wait"
+  date: "2026-11-10"
+  categories: [ai-ran, network-intelligence]
+  tags: [open-ran, xapp, conflict-management, calibration, ns3, energy-efficiency]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.13516"
+  tldr:
+    - "In Open Radio Access Network (Open RAN), independent radio control applications (xApps) request changes to the same radio parameter, and current conflict management resolves the clash as soon as key performance indicators (KPIs) degrade, without asking how long the degradation lasts or whether the network would recover on its own. The paper adds a confidence-aware triage layer that calibrates prediction intervals from past errors and then tolerates, defers or mitigates each conflict based on predicted KPI confidence and the persistence of the conflict."
+    - "It is evaluated on the common clash between coverage and capacity optimisation (CCO) and energy saving (ES) xApps, which issue opposing transmit-power requests that affect reference signal received power (RSRP). In a closed-loop ns3-oran simulation with 5G-LENA, the layer reduces unnecessary interventions by 30%, improves radio unit energy efficiency by 2.6% over the no-mitigation baseline while holding it against fixed priority, and maintains a statistical safety guarantee on RSRP."
+  why: "A useful counterweight to the reflex that every detected conflict needs an action. Calibrated confidence plus persistence is a cheap, general filter for automation that intervenes too eagerly."
+  highlights: [tolerate / defer / mitigate, 30% fewer interventions, RSRP safety guarantee]
+
+- title: "Small models cannot write their own prompt-injection defences, so stop asking them"
+  date: "2026-11-12"
+  categories: [ai-security, llm-agents]
+  tags: [prompt-injection, enforcement, tool-schemas, agentdojo, small-language-models]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17115"
+  tldr:
+    - "Enforcement defences against prompt injection — CaMeL, Progent, IPIGuard and DRIFT — ask the agent's own model to write a security artifact (a program, a privilege policy, a dependency graph or a constraint list) that ordinary code then enforces. This paper asks whether small language model (SLM) agents can be trusted to write those artifacts. Across 15 open-weight models, 13 of them between 1.7 and 12 billion parameters, they cannot: the self-written policies, graphs and constraints admit attacks on 14 (Progent), 13 (IPIGuard) and 11 (DRIFT) of the models, and CaMeL's programs fail to run in up to 68% of episodes."
+    - "CapLite instead derives its policy from the tool schemas the developer already wrote, commits write calls before any tool result is read, and admits a write only if every argument that decides whom or what it affects is stated in the user's request. That yields write integrity: injected text cannot add a write, and no write reaches a recipient, amount, object or destination the user did not state. No attack succeeded across 13,935 attacked AgentDojo episodes, with utility under attack comparable to CaMeL (29.0% against 27.2%) at 17.1k tokens per episode, 18% of CaMeL's."
+  why: "The cleanest available argument that agent security must not be delegated to the agent's own reasoning, plus a defence that costs fewer tokens than running the agent undefended."
+  highlights: [15 models tested, 13 under 12B, 13,935 attacked episodes, 18% of CaMeL's tokens]
+
+- title: "Your assistant can hide what it inferred about you inside the text it writes for you"
+  date: "2026-11-12"
+  categories: [ai-security, security]
+  tags: [steganography, covert-channel, privacy, open-weights, inference]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17280"
+  tldr:
+    - "A model serving a user sees enough conversational cues to infer sensitive attributes about that user. Synthesis Smuggling is a threat model in which an adversarial model encodes those inferences steganographically into innocuous-looking content it generates — an email, a social-media post, a message — which the user then shares through ordinary channels, where an adversary monitoring those channels can recover the payload."
+    - "The authors demonstrate the threat by training two open-weight models to infer gender and age-group labels from conversational cues and to encode the predictions using invisible characters or word choices. The operationally important point is that the covert channel exists even when the model has no direct means of contacting the adversary, so output filtering that only inspects content semantics will not detect it."
+  why: "Widens the threat model for any workflow where model output leaves the boundary as a document. Invisible-character and word-choice channels are cheap to detect at egress, and this paper is the argument for doing it."
+  highlights: [invisible characters, word-choice encoding, no direct adversary channel needed]
+
+- title: "llama.cpp reaches 1.0, with FP8 KV caches and a host-memory expert cache"
+  date: "2026-11-13"
+  categories: [local-llm, edge-inference, open-weights]
+  tags: [llama-cpp, ggml, kv-cache, moe-offloading, speculative-decoding]
+  source: "GitHub"
+  domain: "github.com"
+  link: "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0"
+  tldr:
+    - "After years of build-number tags, llama.cpp shipped v1.0.0 on 13 November 2026, and the release notes read as consolidation rather than celebration: the deprecated public API is gone (35 functions plus the warmup and defrag-threshold knobs), the NextN speculative-decoding API is promoted from llama-ext.h into llama.h, and ggml is bumped to 1.0.0."
+    - "The substantive additions are on the inference side. Key-value (KV) caches can now be stored as OCP FP8 (f8_e4m3) with optional static per-tensor scales; mixture-of-experts (MoE) models get a host-memory expert cache with a configurable CPU share, exposed as moe_cache_size and moe_cache_cpu_share; and external PLE shards load directly. Three text architectures land (Kimi-K3.1-Pro, Ripple-65B-Preview and xing4_0), plus drama-3 text-to-speech and two vision models, while llama-server gains SSRF, CORS and DNS-rebinding hardening, MCP tool cancellation, and an OpenAI-compatible /v1/audio/speech endpoint."
+  why: "The reference implementation for local inference is now versioned as stable, which changes what it is safe to build on. FP8 KV caches and a first-class expert offload path are the two features worth measuring on your own hardware."
+  highlights: [v1.0.0, FP8 KV cache, host-memory MoE cache, NextN API in llama.h]
+
+- title: "A 145B open model claims to run on a laptop at 29 GB peak memory"
+  date: "2026-11-12"
+  categories: [local-llm, edge-inference, open-weights]
+  tags: [on-device, mixture-of-experts, memory-footprint, agentic-coding, open-weights]
+  source: "Edge0"
+  domain: "edge0.ai"
+  link: "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer"
+  tldr:
+    - "Edge0 released Edge0-145B and Edge0-120B as open-weight on-device models, with the inference framework and deployment tooling alongside them. The claim is a 145-billion-parameter model running on a compatible laptop at a reported 29 GB peak memory and above 80 tokens per second of decoding, with coding, reasoning and instruction-following results the authors position against specific frontier cloud models."
+    - "The intended use is agentic: the model plans, writes and runs code, debugs errors and checks results visually for projects such as 3D scenes, games, hardware programs and printed-circuit-board designs. The company's own framing is explicit that hardware and electricity still cost money, so the saving is in recurring token fees, data handling and connectivity rather than in capital cost. The benchmark comparisons are vendor claims until reproduced; the memory figure is the one to verify first, because it decides whether the model fits at all."
+  why: "If the memory number holds, the boundary between 'local model for light tasks' and 'local model for real work' moves again. Worth an afternoon on your own hardware before believing the comparison charts."
+  highlights: [145B parameters, 29 GB peak memory, above 80 tok/s decode, vendor benchmarks]
+
+- title: "Metal Sandbox: scheduling GPU work for coding agents across a rack of Mac minis"
+  date: "2026-11-12"
+  categories: [edge-inference, llm-agents, ai-infra]
+  tags: [apple-silicon, metal, kernel-generation, agent-infrastructure, scheduling]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17294"
+  tldr:
+    - "Training and evaluating models that generate Apple Metal kernels needs native macOS tooling and many concurrent agent sessions, and those sessions alternate between model requests, development commands and graphics processing unit (GPU) execution, leaving the GPU idle for most of a rollout. Metal Sandbox combines restricted per-instance file access, native command execution and command-level scheduling across interconnected Macs, with each agent keeping its own workspace and private development environment."
+    - "Parallel commands run concurrently, serial commands share one execution slot per node, and eligible waiting commands can migrate to an available Mac and return results to the original agent. On four Mac mini M4 nodes, command throughput improved 1.68x to 2.05x under concentrated demand; replaying sixteen static agent traces under dynamic scheduling cut mean tool waiting by 18.8% and batch elapsed time by 22.3%, assuming unchanged phase durations. The infrastructure and its integration with the Harbor task runner are open source."
+  why: "A concrete answer to a problem that appears as soon as agents drive hardware: the scheduler, not the model, becomes the bottleneck. The design generalises to any pool of accelerators shared by interactive agents."
+  highlights: [four Mac mini M4 nodes, 1.68-2.05x throughput, 22.3% less batch time]
+
+- title: "Broadcast the weights instead of replicating them: optical memory for datacenter inference"
+  date: "2026-11-12"
+  categories: [ai-infra, distributed-systems]
+  tags: [datacenter, hbm, optical, mixture-of-experts, memory-bandwidth]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17097"
+  tldr:
+    - "Model weights are read-only and identical across every serving replica, yet conventional datacenter inference replicates them into the local DRAM of tens of thousands of accelerators, paying for capacity, static power and redundant memory-fetch energy. An earlier proposal used optical fibre loops as delay-line memory, but the loop must hold the whole model, its slack is fixed when the ring is built, and the layouts that serve modern mixture-of-experts (MoE) models efficiently do not fit."
+    - "Optical Broadcast Memory (OBM) replaces the ring with an open-ended hierarchical tap-and-amplify fibre architecture: a central memory server continuously broadcasts weights, and inference nodes passively tap the stream through receive-only co-packaged optics, delivering parameters to compute units with no intermediate buffering. Dynamically sized slack accommodates long and variable context lengths, and dropping the ring's restrictions makes MoE serving tractable. Evaluated at a scale of 80,000 accelerators, OBM removes petabytes of high-bandwidth memory (HBM) while matching or beating an HBM-based system on throughput and energy per token."
+  why: "A reminder that the memory wall is an architecture choice rather than a law. Even if optical broadcast stays speculative, the per-accelerator accounting of what replication costs is worth keeping."
+  highlights: [80,000 accelerators, petabytes of HBM removed, tap-and-amplify optics]
+
+- title: "Only 5-11% of a serverless LLM cold start is loading weights"
+  date: "2026-11-12"
+  categories: [ai-infra, distributed-systems]
+  tags: [serverless, cold-start, cxl, vllm, time-to-first-token]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.16180"
+  tldr:
+    - "When a serverless large language model (LLM) platform launches a model worker on demand, the cold start lasts roughly a minute, but only 5 to 11% of that is weight loading. The remainder is compilation, memory profiling and runtime setup, repeated by every server even though the outcome is identical across servers or independent of the model."
+    - "Cairn has the first server to start a model publish the weights and engine artifacts into a Compute Express Link (CXL) memory pool shared across the cluster, which the other servers read in place; model-independent setup completes ahead of time inside warm containers, and a template process replaces each container as soon as it is used. With ServerlessLLM on vLLM v0.20, six models from 1 to 14 billion parameters, and two servers sharing an emulated CXL pool, cold starts improved 4.1x to 5.2x on servers without a checkpoint of their own, and median time to first token on a request stream fell 64%."
+  why: "A clean decomposition of a cost that is usually quoted as a single number. If you run models serverlessly, the 89-95% that is not weight loading is the part to attack."
+  highlights: [5-11% is weight loading, 4.1-5.2x faster cold start, 64% lower median TTFT]
+
+- title: "Cited but unused: RAG answers from memory, then cite a passage that happens to agree"
+  date: "2026-11-12"
+  categories: [llm, rag]
+  tags: [retrieval-augmented-generation, attribution, provenance, counterfactual, nli-verification]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17161"
+  tldr:
+    - "Retrieval-augmented generation (RAG) attaches citations so that claims can be traced to sources, and those citations frequently misstate provenance in a way standard verification cannot detect. The authors measure provenance by counterfactual value substitution: replace a fact in the retrieved passages with a false variant and re-query the model."
+    - "Across five sizes of one model family plus a second family, 1.2% to 15.7% of citable claims derived from parametric memory rather than the retrieved context, and the rate rises with model size within a family. Natural language inference (NLI) verification, the standard check, gave results indistinguishable from chance even when restricted to the cited passage, because the cause is structural: a model answering from memory selects a citation that agrees with its output. Comparing ten attribution methods, the contrast between the model's output distribution with and without context separated provenance best, but acting on that signal did not improve provenance honesty at these base rates."
+  why: "If your pipeline audits RAG answers by checking that the cited passage supports the claim, this says that check is close to useless. The counterfactual substitution test is the measurement to adopt."
+  highlights: [1.2-15.7% from parametric memory, NLI at chance, counterfactual substitution]
+
+- title: "Janus: one agent builds the digital twin and then runs the network on it"
+  date: "2026-11-11"
+  categories: [digital-twin, agents]
+  tags: [network-orchestration, graph-reasoning, closed-loop, user-association, sagin]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.14920"
+  tldr:
+    - "Digital twins for wireless networks are usually static models built separately from the orchestration logic that consumes them, so the twin drifts from the network it describes. Large language models (LLMs) bring reasoning but handle graph-structured data poorly and are sensitive to prompt design, which makes their inference unreliable for control."
+    - "Janus unifies twin construction and orchestration in one closed loop around a NetTwin agent with one agent and two roles: it constructs the twin from partial observations while making task-driven decisions. Three functional roles — planner, modeler and coder — plus a unified prompt module carry the graph reasoning. On wireless networks of up to 200 nodes, for user association and space-air-ground integrated network (SAGIN) routing, it reaches over 90% twin accuracy with gaps within 10.53% of optimal at moderate computational overhead."
+  why: "The interesting claim is not the accuracy but the coupling: when the same agent builds the twin it acts on, the feedback loop has a single failure domain. Read it against work that deliberately separates the two."
+  highlights: [one agent two roles, 200-node networks, above 90% twin accuracy]
+
+- title: "CommJEPA: predictive world models, argued from the wireless side"
+  date: "2026-11-11"
+  categories: [world-models, digital-twin]
+  tags: [jepa, latent-prediction, wireless, representation-learning, partial-observability]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.14961"
+  tldr:
+    - "Most wireless artificial intelligence (AI) is task-specific and reactive: models map current observations to predefined outputs, or reconstruct what was observed. Joint-Embedding Predictive Architecture (JEPA) instead learns predictive representations in latent space, which is closer to what a network needs — structure that is predictable, reusable and transferable across changing conditions."
+    - "CommJEPA argues the relationship runs both ways. JEPA gives wireless systems latent representations of channel and environmental dynamics, a way to integrate heterogeneous observations, and a basis for decisions under change; wireless systems in turn impose physical structure, partial observability, multiple time scales, action-dependent evolution and tight resource limits, which should reshape JEPA designs. The paper organises that design space and surveys representative instantiations for prediction and control."
+  why: "A rare attempt to specify what a world model has to be in order to be useful for a network, instead of importing a result from robotics. Read it as a design checklist rather than as results."
+  highlights: [latent-space prediction, partial observability, action-dependent dynamics]
+
+- title: "A model that acts badly can still teach well"
+  date: "2026-11-12"
+  categories: [agents]
+  tags: [decision-models, credit-assignment, alfworld, webshop, reinforcement-learning]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17167"
+  tldr:
+    - "Decision models answer a question with a typed output — a choice among options with a probability for each — so a single model can select an agent's actions, evaluate actions already taken, or score every action in order to teach a policy by reinforcement learning. Prior work studies them mainly as actors, judging them by how well they act."
+    - "Comparing three decision models and three general large language models (LLMs) as actors and judges on ALFWorld, all six are pulled away from a prerequisite subgoal by an easier one. The same models, judging complete trajectories, credit the steps towards that subgoal, and asking whether each action helped — rather than whether the task will succeed — separates useful from useless actions. As a teacher, JEV raised a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop."
+  why: "A practical lesson for anyone building agent harnesses: judge after the episode, and ask about the step rather than the outcome. The judging and teaching roles are cheaper than acting and tolerate weaker models."
+  highlights: [actor vs judge vs teacher, JEV teacher, +10.1 and +14.6 points]
+
+- title: "Evolving agent memory programs instead of hand-designing them"
+  date: "2026-11-12"
+  categories: [agents]
+  tags: [agent-memory, program-evolution, locomo, longmemeval, serving-cost]
+  source: "arXiv"
+  domain: "arxiv.org"
+  link: "https://arxiv.org/abs/2611.17068"
+  tldr:
+    - "Agent memory systems are usually assembled by hand from a menu of choices — what to store, what to extract, what to retrieve, how to compose it — with little evidence for which choices matter. MAPE evolves whole memory programs from minimal seeds through a standardised lifecycle interface and an iterative diagnosis-proposal loop."
+    - "On LoCoMo and LongMemEval it gains up to 12% absolute accuracy over manually designed baselines at 35% of the serving cost, and transfers across serving backbones and benchmarks. Two recurring patterns emerged and were validated: keep raw conversations as retrievable evidence, because extracted memories drop details; and compose retrieved evidence according to query intent so the answering model can use it. Transplanting the composition module into five existing memory systems improved accuracy in all five. The search objective also relocates computation: optimising cost alongside accuracy shifts work from language-model-based memory construction to selective processing at query time."
+  why: "Two transferable design rules with ablations behind them, plus a method for finding more. The raw-conversation result argues specifically against aggressive extraction."
+  highlights: [up to 12% absolute gain, 35% of serving cost, composition module transfers 5/5]
